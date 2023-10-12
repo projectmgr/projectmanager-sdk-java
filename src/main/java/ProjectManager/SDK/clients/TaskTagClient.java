@@ -20,7 +20,6 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.ChangeSetStatusDto;
 
 import ProjectManager.SDK.models.NameDto;
@@ -53,10 +52,10 @@ public class TaskTagClient
      */
     public @NotNull AstroResult<ChangeSetStatusDto> replaceTaskTags(@NotNull String taskId, @NotNull NameDto[] body)
     {
-        RestRequest<AstroResult<ChangeSetStatusDto>> r = new RestRequest<AstroResult<ChangeSetStatusDto>>(this.client, "POST", "/api/data/tasks/{taskId}/tags");
+        RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "POST", "/api/data/tasks/{taskId}/tags");
         r.AddPath("{taskId}", taskId.toString());
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -70,10 +69,10 @@ public class TaskTagClient
      */
     public @NotNull AstroResult<ChangeSetStatusDto> addTaskTagtoTask(@NotNull String taskId, @NotNull NameDto[] body)
     {
-        RestRequest<AstroResult<ChangeSetStatusDto>> r = new RestRequest<AstroResult<ChangeSetStatusDto>>(this.client, "PUT", "/api/data/tasks/{taskId}/tags");
+        RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "PUT", "/api/data/tasks/{taskId}/tags");
         r.AddPath("{taskId}", taskId.toString());
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -87,9 +86,9 @@ public class TaskTagClient
      */
     public @NotNull AstroResult<ChangeSetStatusDto> removeTaskTagfromTask(@NotNull String taskId, @NotNull NameDto[] body)
     {
-        RestRequest<AstroResult<ChangeSetStatusDto>> r = new RestRequest<AstroResult<ChangeSetStatusDto>>(this.client, "DELETE", "/api/data/tasks/{taskId}/tags");
+        RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "DELETE", "/api/data/tasks/{taskId}/tags");
         r.AddPath("{taskId}", taskId.toString());
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
+        return r.Call();
     }
 }

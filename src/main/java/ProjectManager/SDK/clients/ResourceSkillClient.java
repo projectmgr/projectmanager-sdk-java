@@ -20,9 +20,7 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.ResourceSkillDto;
-import ProjectManager.SDK.models.integer;
 
 import ProjectManager.SDK.models.CreateResourceSkillDto;
 import ProjectManager.SDK.models.UpdateResourceSkillDto;
@@ -57,16 +55,16 @@ public class ResourceSkillClient
      * @param $expand Include related data in the response
      * @return A {@link ProjectManager.SDK.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ResourceSkillDto[]> retrieveResourceSkills(@Nullable Integer $top, @Nullable Integer $skip, @Nullable String $filter, @Nullable String $select, @Nullable String $orderby, @Nullable String $expand)
+    public @NotNull AstroResult<ResourceSkillDto[]> retrieveResourceSkills(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
-        RestRequest<AstroResult<ResourceSkillDto[]>> r = new RestRequest<AstroResult<ResourceSkillDto[]>>(this.client, "GET", "/api/data/resources/skills");
-        r.AddQuery("$top", $top.toString());
-        r.AddQuery("$skip", $skip.toString());
-        r.AddQuery("$filter", $filter.toString());
-        r.AddQuery("$select", $select.toString());
-        r.AddQuery("$orderby", $orderby.toString());
-        r.AddQuery("$expand", $expand.toString());
-        return r.Call(new TypeToken<AstroResult<ResourceSkillDto[]>>() {}.getType());
+        RestRequest<ResourceSkillDto[]> r = new RestRequest<ResourceSkillDto[]>(this.client, "GET", "/api/data/resources/skills");
+        r.AddQuery("$top", top.toString());
+        r.AddQuery("$skip", skip.toString());
+        r.AddQuery("$filter", filter.toString());
+        r.AddQuery("$select", select.toString());
+        r.AddQuery("$orderby", orderby.toString());
+        r.AddQuery("$expand", expand.toString());
+        return r.Call();
     }
 
     /**
@@ -77,9 +75,9 @@ public class ResourceSkillClient
      */
     public @NotNull AstroResult<ResourceSkillDto> createResourceSkill(@NotNull CreateResourceSkillDto body)
     {
-        RestRequest<AstroResult<ResourceSkillDto>> r = new RestRequest<AstroResult<ResourceSkillDto>>(this.client, "POST", "/api/data/resources/skills");
+        RestRequest<ResourceSkillDto> r = new RestRequest<ResourceSkillDto>(this.client, "POST", "/api/data/resources/skills");
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<ResourceSkillDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -91,10 +89,10 @@ public class ResourceSkillClient
      */
     public @NotNull AstroResult<ResourceSkillDto> updateResourceSkill(@NotNull String skillId, @NotNull UpdateResourceSkillDto body)
     {
-        RestRequest<AstroResult<ResourceSkillDto>> r = new RestRequest<AstroResult<ResourceSkillDto>>(this.client, "PUT", "/api/data/resources/skills/{skillId}");
+        RestRequest<ResourceSkillDto> r = new RestRequest<ResourceSkillDto>(this.client, "PUT", "/api/data/resources/skills/{skillId}");
         r.AddPath("{skillId}", skillId.toString());
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<ResourceSkillDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -105,8 +103,8 @@ public class ResourceSkillClient
      */
     public @NotNull AstroResult<Object> deleteResourceSkill(@NotNull String resourceSkillId)
     {
-        RestRequest<AstroResult<Object>> r = new RestRequest<AstroResult<Object>>(this.client, "DELETE", "/api/data/resources/skills/{resourceSkillId}");
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/resources/skills/{resourceSkillId}");
         r.AddPath("{resourceSkillId}", resourceSkillId.toString());
-        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+        return r.Call();
     }
 }

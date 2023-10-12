@@ -20,7 +20,6 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.IntegrationCategoryDto;
 
 /**
@@ -49,7 +48,7 @@ public class IntegrationCategoryClient
      */
     public @NotNull AstroResult<IntegrationCategoryDto[]> retrieveProviderCategories()
     {
-        RestRequest<AstroResult<IntegrationCategoryDto[]>> r = new RestRequest<AstroResult<IntegrationCategoryDto[]>>(this.client, "GET", "/api/data/integrations/categories");
-        return r.Call(new TypeToken<AstroResult<IntegrationCategoryDto[]>>() {}.getType());
+        RestRequest<IntegrationCategoryDto[]> r = new RestRequest<IntegrationCategoryDto[]>(this.client, "GET", "/api/data/integrations/categories");
+        return r.Call();
     }
 }

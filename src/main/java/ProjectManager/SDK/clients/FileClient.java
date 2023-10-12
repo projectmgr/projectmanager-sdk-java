@@ -20,7 +20,6 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 
 import ProjectManager.SDK.models.UpdateRequestDto;
 
@@ -54,10 +53,10 @@ public class FileClient
      */
     public @NotNull AstroResult<Object> downloadFile(@NotNull String documentId, @Nullable String type)
     {
-        RestRequest<AstroResult<Object>> r = new RestRequest<AstroResult<Object>>(this.client, "GET", "/api/data/files/{documentId}/download");
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "GET", "/api/data/files/{documentId}/download");
         r.AddPath("{documentId}", documentId.toString());
         r.AddQuery("type", type.toString());
-        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -73,9 +72,9 @@ public class FileClient
      */
     public @NotNull AstroResult<Object> updateFile(@NotNull String fileId, @NotNull UpdateRequestDto body)
     {
-        RestRequest<AstroResult<Object>> r = new RestRequest<AstroResult<Object>>(this.client, "PUT", "/api/data/files/{fileId}");
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "PUT", "/api/data/files/{fileId}");
         r.AddPath("{fileId}", fileId.toString());
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+        return r.Call();
     }
 }

@@ -20,7 +20,6 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.ChangesetGetResponseDto;
 
 
@@ -53,9 +52,9 @@ public class ChangesetClient
      */
     public @NotNull AstroResult<ChangesetGetResponseDto> retrieveChangeset(@NotNull String changeSetId)
     {
-        RestRequest<AstroResult<ChangesetGetResponseDto>> r = new RestRequest<AstroResult<ChangesetGetResponseDto>>(this.client, "GET", "/api/data/changesets/{changeSetId}");
+        RestRequest<ChangesetGetResponseDto> r = new RestRequest<ChangesetGetResponseDto>(this.client, "GET", "/api/data/changesets/{changeSetId}");
         r.AddPath("{changeSetId}", changeSetId.toString());
-        return r.Call(new TypeToken<AstroResult<ChangesetGetResponseDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -72,8 +71,8 @@ public class ChangesetClient
      */
     public @NotNull AstroResult<ChangesetGetResponseDto> retrieveCompletedChangeset(@NotNull String changeSetId)
     {
-        RestRequest<AstroResult<ChangesetGetResponseDto>> r = new RestRequest<AstroResult<ChangesetGetResponseDto>>(this.client, "GET", "/api/data/changesets/{changeSetId}/poll");
+        RestRequest<ChangesetGetResponseDto> r = new RestRequest<ChangesetGetResponseDto>(this.client, "GET", "/api/data/changesets/{changeSetId}/poll");
         r.AddPath("{changeSetId}", changeSetId.toString());
-        return r.Call(new TypeToken<AstroResult<ChangesetGetResponseDto>>() {}.getType());
+        return r.Call();
     }
 }

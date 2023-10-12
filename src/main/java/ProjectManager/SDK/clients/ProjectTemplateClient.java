@@ -20,7 +20,6 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.ProjectTemplateDto;
 import ProjectManager.SDK.models.ProjectTemplateCategoryDto;
 
@@ -50,8 +49,8 @@ public class ProjectTemplateClient
      */
     public @NotNull AstroResult<ProjectTemplateDto[]> retrieveProjectTemplates()
     {
-        RestRequest<AstroResult<ProjectTemplateDto[]>> r = new RestRequest<AstroResult<ProjectTemplateDto[]>>(this.client, "GET", "/api/data/projects/templates");
-        return r.Call(new TypeToken<AstroResult<ProjectTemplateDto[]>>() {}.getType());
+        RestRequest<ProjectTemplateDto[]> r = new RestRequest<ProjectTemplateDto[]>(this.client, "GET", "/api/data/projects/templates");
+        return r.Call();
     }
 
     /**
@@ -63,7 +62,7 @@ public class ProjectTemplateClient
      */
     public @NotNull AstroResult<ProjectTemplateCategoryDto[]> retrieveTemplateCategories()
     {
-        RestRequest<AstroResult<ProjectTemplateCategoryDto[]>> r = new RestRequest<AstroResult<ProjectTemplateCategoryDto[]>>(this.client, "GET", "/api/data/projects/templates/categories");
-        return r.Call(new TypeToken<AstroResult<ProjectTemplateCategoryDto[]>>() {}.getType());
+        RestRequest<ProjectTemplateCategoryDto[]> r = new RestRequest<ProjectTemplateCategoryDto[]>(this.client, "GET", "/api/data/projects/templates/categories");
+        return r.Call();
     }
 }

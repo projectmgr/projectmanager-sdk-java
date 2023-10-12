@@ -20,9 +20,7 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.ProjectDto;
-import ProjectManager.SDK.models.integer;
 
 import ProjectManager.SDK.models.ProjectCreateDto;
 import ProjectManager.SDK.models.ProjectUpdateDto;
@@ -57,16 +55,16 @@ public class ProjectClient
      * @param $expand Include related data in the response
      * @return A {@link ProjectManager.SDK.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectDto[]> queryProjects(@Nullable Integer $top, @Nullable Integer $skip, @Nullable String $filter, @Nullable String $select, @Nullable String $orderby, @Nullable String $expand)
+    public @NotNull AstroResult<ProjectDto[]> queryProjects(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
-        RestRequest<AstroResult<ProjectDto[]>> r = new RestRequest<AstroResult<ProjectDto[]>>(this.client, "GET", "/api/data/projects");
-        r.AddQuery("$top", $top.toString());
-        r.AddQuery("$skip", $skip.toString());
-        r.AddQuery("$filter", $filter.toString());
-        r.AddQuery("$select", $select.toString());
-        r.AddQuery("$orderby", $orderby.toString());
-        r.AddQuery("$expand", $expand.toString());
-        return r.Call(new TypeToken<AstroResult<ProjectDto[]>>() {}.getType());
+        RestRequest<ProjectDto[]> r = new RestRequest<ProjectDto[]>(this.client, "GET", "/api/data/projects");
+        r.AddQuery("$top", top.toString());
+        r.AddQuery("$skip", skip.toString());
+        r.AddQuery("$filter", filter.toString());
+        r.AddQuery("$select", select.toString());
+        r.AddQuery("$orderby", orderby.toString());
+        r.AddQuery("$expand", expand.toString());
+        return r.Call();
     }
 
     /**
@@ -79,9 +77,9 @@ public class ProjectClient
      */
     public @NotNull AstroResult<ProjectDto> createProject(@NotNull ProjectCreateDto body)
     {
-        RestRequest<AstroResult<ProjectDto>> r = new RestRequest<AstroResult<ProjectDto>>(this.client, "POST", "/api/data/projects");
+        RestRequest<ProjectDto> r = new RestRequest<ProjectDto>(this.client, "POST", "/api/data/projects");
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<ProjectDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -94,9 +92,9 @@ public class ProjectClient
      */
     public @NotNull AstroResult<ProjectDto> retrieveProject(@NotNull String projectId)
     {
-        RestRequest<AstroResult<ProjectDto>> r = new RestRequest<AstroResult<ProjectDto>>(this.client, "GET", "/api/data/projects/{projectId}");
+        RestRequest<ProjectDto> r = new RestRequest<ProjectDto>(this.client, "GET", "/api/data/projects/{projectId}");
         r.AddPath("{projectId}", projectId.toString());
-        return r.Call(new TypeToken<AstroResult<ProjectDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -112,9 +110,9 @@ public class ProjectClient
      */
     public @NotNull AstroResult<Object> updateProject(@NotNull String projectId, @NotNull ProjectUpdateDto body)
     {
-        RestRequest<AstroResult<Object>> r = new RestRequest<AstroResult<Object>>(this.client, "PUT", "/api/data/projects/{projectId}");
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "PUT", "/api/data/projects/{projectId}");
         r.AddPath("{projectId}", projectId.toString());
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+        return r.Call();
     }
 }

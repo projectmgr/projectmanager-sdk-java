@@ -20,7 +20,6 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.DashboardSettingDto;
 import ProjectManager.SDK.models.DashboardSettingCreateDto;
 
@@ -49,9 +48,9 @@ public class DashboardClient
      */
     public @NotNull AstroResult<DashboardSettingDto> retrieveDashboardUserSettings(@NotNull String type)
     {
-        RestRequest<AstroResult<DashboardSettingDto>> r = new RestRequest<AstroResult<DashboardSettingDto>>(this.client, "GET", "/api/data/dashboards/settings/{type}");
+        RestRequest<DashboardSettingDto> r = new RestRequest<DashboardSettingDto>(this.client, "GET", "/api/data/dashboards/settings/{type}");
         r.AddPath("{type}", type.toString());
-        return r.Call(new TypeToken<AstroResult<DashboardSettingDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -62,8 +61,8 @@ public class DashboardClient
      */
     public @NotNull AstroResult<DashboardSettingDto> createorUpdateUserDashboardSettings(@NotNull DashboardSettingCreateDto body)
     {
-        RestRequest<AstroResult<DashboardSettingDto>> r = new RestRequest<AstroResult<DashboardSettingDto>>(this.client, "POST", "/api/data/dashboards/settings");
+        RestRequest<DashboardSettingDto> r = new RestRequest<DashboardSettingDto>(this.client, "POST", "/api/data/dashboards/settings");
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<DashboardSettingDto>>() {}.getType());
+        return r.Call();
     }
 }

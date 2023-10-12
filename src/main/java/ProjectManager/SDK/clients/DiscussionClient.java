@@ -20,7 +20,6 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.DiscussionDto;
 
 import ProjectManager.SDK.models.DiscussionCreateResponseDto;
@@ -51,9 +50,9 @@ public class DiscussionClient
      */
     public @NotNull AstroResult<DiscussionDto[]> retrieveTaskComments(@NotNull String taskId)
     {
-        RestRequest<AstroResult<DiscussionDto[]>> r = new RestRequest<AstroResult<DiscussionDto[]>>(this.client, "GET", "/api/data/tasks/{taskId}/discussions");
+        RestRequest<DiscussionDto[]> r = new RestRequest<DiscussionDto[]>(this.client, "GET", "/api/data/tasks/{taskId}/discussions");
         r.AddPath("{taskId}", taskId.toString());
-        return r.Call(new TypeToken<AstroResult<DiscussionDto[]>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -67,9 +66,9 @@ public class DiscussionClient
      */
     public @NotNull AstroResult<DiscussionCreateResponseDto> createTaskComments(@NotNull String taskId, @NotNull DiscussionCreateDto body)
     {
-        RestRequest<AstroResult<DiscussionCreateResponseDto>> r = new RestRequest<AstroResult<DiscussionCreateResponseDto>>(this.client, "POST", "/api/data/tasks/{taskId}/discussions");
+        RestRequest<DiscussionCreateResponseDto> r = new RestRequest<DiscussionCreateResponseDto>(this.client, "POST", "/api/data/tasks/{taskId}/discussions");
         r.AddPath("{taskId}", taskId.toString());
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<DiscussionCreateResponseDto>>() {}.getType());
+        return r.Call();
     }
 }

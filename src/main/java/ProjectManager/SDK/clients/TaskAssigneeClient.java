@@ -20,7 +20,6 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.ChangeSetStatusDto;
 
 import ProjectManager.SDK.models.AssigneeUpsertDto;
@@ -54,10 +53,10 @@ public class TaskAssigneeClient
      */
     public @NotNull AstroResult<ChangeSetStatusDto> replaceTaskAssignees(@NotNull String taskId, @NotNull AssigneeUpsertDto[] body)
     {
-        RestRequest<AstroResult<ChangeSetStatusDto>> r = new RestRequest<AstroResult<ChangeSetStatusDto>>(this.client, "POST", "/api/data/tasks/{taskId}/assignees");
+        RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "POST", "/api/data/tasks/{taskId}/assignees");
         r.AddPath("{taskId}", taskId.toString());
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -71,10 +70,10 @@ public class TaskAssigneeClient
      */
     public @NotNull AstroResult<ChangeSetStatusDto> createOrUpdateTaskAssignee(@NotNull String taskId, @NotNull AssigneeUpsertDto[] body)
     {
-        RestRequest<AstroResult<ChangeSetStatusDto>> r = new RestRequest<AstroResult<ChangeSetStatusDto>>(this.client, "PUT", "/api/data/tasks/{taskId}/assignees");
+        RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "PUT", "/api/data/tasks/{taskId}/assignees");
         r.AddPath("{taskId}", taskId.toString());
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -88,9 +87,9 @@ public class TaskAssigneeClient
      */
     public @NotNull AstroResult<ChangeSetStatusDto> deleteTaskAssignees(@NotNull String taskId, @NotNull IdDto[] body)
     {
-        RestRequest<AstroResult<ChangeSetStatusDto>> r = new RestRequest<AstroResult<ChangeSetStatusDto>>(this.client, "DELETE", "/api/data/tasks/{taskId}/assignees");
+        RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "DELETE", "/api/data/tasks/{taskId}/assignees");
         r.AddPath("{taskId}", taskId.toString());
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
+        return r.Call();
     }
 }

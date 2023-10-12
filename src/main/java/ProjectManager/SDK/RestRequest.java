@@ -146,7 +146,7 @@ public class RestRequest<@NotNull T> {
             }
 
             request.addHeader("SdkName", "Java");
-            request.addHeader("SdkVersion", "96.0.2107.0");
+            request.addHeader("SdkVersion", "96.0.2109.0");
 
             String applicationName = this.client.getAppName();
 
@@ -166,21 +166,20 @@ public class RestRequest<@NotNull T> {
             }
 
             // If we have a request body
-            Gson gson = new Gson();
             if (body != null) {
+                Gson gson = new Gson();
                 StringEntity stringEntity = new StringEntity(gson.toJson(body));
                 request.setEntity(stringEntity);
             }
+            
             // Execute and parse results
             final CloseableHttpResponse response = httpclient.execute(request);
 
             // Did we succeed?
             long serverDuration = 0;
-
             if (response.getHeader("ServerDuration") != null) {
                 serverDuration = Long.parseLong(response.getHeader("ServerDuration").getValue());
             }
-
             String content = EntityUtils.toString(response.getEntity());
             long roundTripTime = Duration.between(start, Instant.now()).toMillis();
             result.Parse(content, response.getCode(), serverDuration, roundTripTime);

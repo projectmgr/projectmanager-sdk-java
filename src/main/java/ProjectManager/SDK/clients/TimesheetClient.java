@@ -20,11 +20,9 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.TimesheetResponseDto;
 import ProjectManager.SDK.models.TimesheetCreateRequestDto;
 import ProjectManager.SDK.models.TimesheetDto;
-import ProjectManager.SDK.models.integer;
 
 import ProjectManager.SDK.models.TimesheetUpdateRequestDto;
 import ProjectManager.SDK.models.TimesheetAdminTypeDto;
@@ -54,9 +52,9 @@ public class TimesheetClient
      */
     public @NotNull AstroResult<TimesheetResponseDto> createtimeentry(@NotNull TimesheetCreateRequestDto body)
     {
-        RestRequest<AstroResult<TimesheetResponseDto>> r = new RestRequest<AstroResult<TimesheetResponseDto>>(this.client, "POST", "/api/data/timesheets");
+        RestRequest<TimesheetResponseDto> r = new RestRequest<TimesheetResponseDto>(this.client, "POST", "/api/data/timesheets");
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<TimesheetResponseDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -72,16 +70,16 @@ public class TimesheetClient
      * @param $expand Include related data in the response
      * @return A {@link ProjectManager.SDK.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TimesheetDto[]> queryTimeSheets(@Nullable Integer $top, @Nullable Integer $skip, @Nullable String $filter, @Nullable String $select, @Nullable String $orderby, @Nullable String $expand)
+    public @NotNull AstroResult<TimesheetDto[]> queryTimeSheets(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
-        RestRequest<AstroResult<TimesheetDto[]>> r = new RestRequest<AstroResult<TimesheetDto[]>>(this.client, "GET", "/api/data/timesheets");
-        r.AddQuery("$top", $top.toString());
-        r.AddQuery("$skip", $skip.toString());
-        r.AddQuery("$filter", $filter.toString());
-        r.AddQuery("$select", $select.toString());
-        r.AddQuery("$orderby", $orderby.toString());
-        r.AddQuery("$expand", $expand.toString());
-        return r.Call(new TypeToken<AstroResult<TimesheetDto[]>>() {}.getType());
+        RestRequest<TimesheetDto[]> r = new RestRequest<TimesheetDto[]>(this.client, "GET", "/api/data/timesheets");
+        r.AddQuery("$top", top.toString());
+        r.AddQuery("$skip", skip.toString());
+        r.AddQuery("$filter", filter.toString());
+        r.AddQuery("$select", select.toString());
+        r.AddQuery("$orderby", orderby.toString());
+        r.AddQuery("$expand", expand.toString());
+        return r.Call();
     }
 
     /**
@@ -92,9 +90,9 @@ public class TimesheetClient
      */
     public @NotNull AstroResult<Object> deletetimeentry(@NotNull String timesheetId)
     {
-        RestRequest<AstroResult<Object>> r = new RestRequest<AstroResult<Object>>(this.client, "DELETE", "/api/data/timesheets/{timesheetId}");
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/timesheets/{timesheetId}");
         r.AddPath("{timesheetId}", timesheetId.toString());
-        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -106,10 +104,10 @@ public class TimesheetClient
      */
     public @NotNull AstroResult<TimesheetResponseDto> updatetimeentry(@NotNull String timesheetId, @NotNull TimesheetUpdateRequestDto body)
     {
-        RestRequest<AstroResult<TimesheetResponseDto>> r = new RestRequest<AstroResult<TimesheetResponseDto>>(this.client, "PUT", "/api/data/timesheets/{timesheetId}");
+        RestRequest<TimesheetResponseDto> r = new RestRequest<TimesheetResponseDto>(this.client, "PUT", "/api/data/timesheets/{timesheetId}");
         r.AddPath("{timesheetId}", timesheetId.toString());
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<TimesheetResponseDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -119,7 +117,7 @@ public class TimesheetClient
      */
     public @NotNull AstroResult<TimesheetAdminTypeDto[]> returnsactiveadmintasksthatareusedtoreporttime()
     {
-        RestRequest<AstroResult<TimesheetAdminTypeDto[]>> r = new RestRequest<AstroResult<TimesheetAdminTypeDto[]>>(this.client, "GET", "/api/data/timesheets/admin-tasks");
-        return r.Call(new TypeToken<AstroResult<TimesheetAdminTypeDto[]>>() {}.getType());
+        RestRequest<TimesheetAdminTypeDto[]> r = new RestRequest<TimesheetAdminTypeDto[]>(this.client, "GET", "/api/data/timesheets/admin-tasks");
+        return r.Call();
     }
 }

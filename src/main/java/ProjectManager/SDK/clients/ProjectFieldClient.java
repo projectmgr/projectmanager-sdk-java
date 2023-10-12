@@ -20,7 +20,6 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.GetProjectFieldsResponseDto;
 import ProjectManager.SDK.models.CreateProjectFieldResponseDto;
 import ProjectManager.SDK.models.CreateProjectFieldDto;
@@ -54,8 +53,8 @@ public class ProjectFieldClient
      */
     public @NotNull AstroResult<GetProjectFieldsResponseDto[]> retrieveProjectFields()
     {
-        RestRequest<AstroResult<GetProjectFieldsResponseDto[]>> r = new RestRequest<AstroResult<GetProjectFieldsResponseDto[]>>(this.client, "GET", "/api/data/projects/fields");
-        return r.Call(new TypeToken<AstroResult<GetProjectFieldsResponseDto[]>>() {}.getType());
+        RestRequest<GetProjectFieldsResponseDto[]> r = new RestRequest<GetProjectFieldsResponseDto[]>(this.client, "GET", "/api/data/projects/fields");
+        return r.Call();
     }
 
     /**
@@ -68,9 +67,9 @@ public class ProjectFieldClient
      */
     public @NotNull AstroResult<CreateProjectFieldResponseDto> createProjectField(@NotNull CreateProjectFieldDto body)
     {
-        RestRequest<AstroResult<CreateProjectFieldResponseDto>> r = new RestRequest<AstroResult<CreateProjectFieldResponseDto>>(this.client, "POST", "/api/data/projects/fields");
+        RestRequest<CreateProjectFieldResponseDto> r = new RestRequest<CreateProjectFieldResponseDto>(this.client, "POST", "/api/data/projects/fields");
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<CreateProjectFieldResponseDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -83,9 +82,9 @@ public class ProjectFieldClient
      */
     public @NotNull AstroResult<Object> deleteProjectField(@NotNull DeleteProjectFieldDto body)
     {
-        RestRequest<AstroResult<Object>> r = new RestRequest<AstroResult<Object>>(this.client, "DELETE", "/api/data/projects/fields");
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/fields");
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -100,10 +99,10 @@ public class ProjectFieldClient
      */
     public @NotNull AstroResult<Object> updateProjectField(@NotNull String projectId, @NotNull String fieldId, @NotNull UpdateProjectFieldValueDto body)
     {
-        RestRequest<AstroResult<Object>> r = new RestRequest<AstroResult<Object>>(this.client, "PUT", "/api/data/projects/{projectId}/fields/{fieldId}");
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "PUT", "/api/data/projects/{projectId}/fields/{fieldId}");
         r.AddPath("{projectId}", projectId.toString());
         r.AddPath("{fieldId}", fieldId.toString());
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+        return r.Call();
     }
 }

@@ -20,7 +20,6 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.UserRoleDto;
 
 /**
@@ -49,7 +48,7 @@ public class UserRoleClient
      */
     public @NotNull AstroResult<UserRoleDto[]> retrieveUserRoles()
     {
-        RestRequest<AstroResult<UserRoleDto[]>> r = new RestRequest<AstroResult<UserRoleDto[]>>(this.client, "GET", "/api/data/users/roles");
-        return r.Call(new TypeToken<AstroResult<UserRoleDto[]>>() {}.getType());
+        RestRequest<UserRoleDto[]> r = new RestRequest<UserRoleDto[]>(this.client, "GET", "/api/data/users/roles");
+        return r.Call();
     }
 }

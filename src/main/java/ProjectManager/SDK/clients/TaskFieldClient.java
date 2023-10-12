@@ -20,7 +20,6 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.GetTaskFieldsResponseDto;
 
 import ProjectManager.SDK.models.ChangeSetStatusDto;
@@ -55,9 +54,9 @@ public class TaskFieldClient
      */
     public @NotNull AstroResult<GetTaskFieldsResponseDto[]> retrieveTaskFields(@NotNull String projectId)
     {
-        RestRequest<AstroResult<GetTaskFieldsResponseDto[]>> r = new RestRequest<AstroResult<GetTaskFieldsResponseDto[]>>(this.client, "GET", "/api/data/projects/{projectId}/tasks/fields");
+        RestRequest<GetTaskFieldsResponseDto[]> r = new RestRequest<GetTaskFieldsResponseDto[]>(this.client, "GET", "/api/data/projects/{projectId}/tasks/fields");
         r.AddPath("{projectId}", projectId.toString());
-        return r.Call(new TypeToken<AstroResult<GetTaskFieldsResponseDto[]>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -71,10 +70,10 @@ public class TaskFieldClient
      */
     public @NotNull AstroResult<ChangeSetStatusDto> createTaskField(@NotNull String projectId, @NotNull CreateTaskFieldRequestDto body)
     {
-        RestRequest<AstroResult<ChangeSetStatusDto>> r = new RestRequest<AstroResult<ChangeSetStatusDto>>(this.client, "POST", "/api/data/projects/{projectId}/tasks/fields");
+        RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "POST", "/api/data/projects/{projectId}/tasks/fields");
         r.AddPath("{projectId}", projectId.toString());
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -88,10 +87,10 @@ public class TaskFieldClient
      */
     public @NotNull AstroResult<Object> deleteTaskField(@NotNull String projectId, @NotNull String fieldId)
     {
-        RestRequest<AstroResult<Object>> r = new RestRequest<AstroResult<Object>>(this.client, "DELETE", "/api/data/projects/{projectId}/tasks/fields/{fieldId}");
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/{projectId}/tasks/fields/{fieldId}");
         r.AddPath("{projectId}", projectId.toString());
         r.AddPath("{fieldId}", fieldId.toString());
-        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -105,10 +104,10 @@ public class TaskFieldClient
      */
     public @NotNull AstroResult<TaskFieldsValueResponseDto> retrieveTaskFieldValue(@NotNull String taskId, @NotNull String fieldId)
     {
-        RestRequest<AstroResult<TaskFieldsValueResponseDto>> r = new RestRequest<AstroResult<TaskFieldsValueResponseDto>>(this.client, "GET", "/api/data/tasks/{taskId}/fields/{fieldId}");
+        RestRequest<TaskFieldsValueResponseDto> r = new RestRequest<TaskFieldsValueResponseDto>(this.client, "GET", "/api/data/tasks/{taskId}/fields/{fieldId}");
         r.AddPath("{taskId}", taskId.toString());
         r.AddPath("{fieldId}", fieldId.toString());
-        return r.Call(new TypeToken<AstroResult<TaskFieldsValueResponseDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -123,11 +122,11 @@ public class TaskFieldClient
      */
     public @NotNull AstroResult<ChangeSetStatusDto> updateTaskFieldValue(@NotNull String taskId, @NotNull String fieldId, @NotNull UpdateTaskFieldValueDto body)
     {
-        RestRequest<AstroResult<ChangeSetStatusDto>> r = new RestRequest<AstroResult<ChangeSetStatusDto>>(this.client, "PUT", "/api/data/tasks/{taskId}/fields/{fieldId}");
+        RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "PUT", "/api/data/tasks/{taskId}/fields/{fieldId}");
         r.AddPath("{taskId}", taskId.toString());
         r.AddPath("{fieldId}", fieldId.toString());
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -140,8 +139,8 @@ public class TaskFieldClient
      */
     public @NotNull AstroResult<TaskFieldsValueResponseDto[]> retrieveAllTaskFieldValues(@NotNull String taskId)
     {
-        RestRequest<AstroResult<TaskFieldsValueResponseDto[]>> r = new RestRequest<AstroResult<TaskFieldsValueResponseDto[]>>(this.client, "GET", "/api/data/tasks/{taskId}/fields");
+        RestRequest<TaskFieldsValueResponseDto[]> r = new RestRequest<TaskFieldsValueResponseDto[]>(this.client, "GET", "/api/data/tasks/{taskId}/fields");
         r.AddPath("{taskId}", taskId.toString());
-        return r.Call(new TypeToken<AstroResult<TaskFieldsValueResponseDto[]>>() {}.getType());
+        return r.Call();
     }
 }

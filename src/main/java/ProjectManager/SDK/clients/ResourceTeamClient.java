@@ -20,9 +20,7 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.ResourceTeamDto;
-import ProjectManager.SDK.models.integer;
 
 import ProjectManager.SDK.models.CreateResourceTeamDto;
 import ProjectManager.SDK.models.UpdateResourceTeamDto;
@@ -57,16 +55,16 @@ public class ResourceTeamClient
      * @param $expand Include related data in the response
      * @return A {@link ProjectManager.SDK.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ResourceTeamDto[]> retrieveResourceTeams(@Nullable Integer $top, @Nullable Integer $skip, @Nullable String $filter, @Nullable String $select, @Nullable String $orderby, @Nullable String $expand)
+    public @NotNull AstroResult<ResourceTeamDto[]> retrieveResourceTeams(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
-        RestRequest<AstroResult<ResourceTeamDto[]>> r = new RestRequest<AstroResult<ResourceTeamDto[]>>(this.client, "GET", "/api/data/resources/teams");
-        r.AddQuery("$top", $top.toString());
-        r.AddQuery("$skip", $skip.toString());
-        r.AddQuery("$filter", $filter.toString());
-        r.AddQuery("$select", $select.toString());
-        r.AddQuery("$orderby", $orderby.toString());
-        r.AddQuery("$expand", $expand.toString());
-        return r.Call(new TypeToken<AstroResult<ResourceTeamDto[]>>() {}.getType());
+        RestRequest<ResourceTeamDto[]> r = new RestRequest<ResourceTeamDto[]>(this.client, "GET", "/api/data/resources/teams");
+        r.AddQuery("$top", top.toString());
+        r.AddQuery("$skip", skip.toString());
+        r.AddQuery("$filter", filter.toString());
+        r.AddQuery("$select", select.toString());
+        r.AddQuery("$orderby", orderby.toString());
+        r.AddQuery("$expand", expand.toString());
+        return r.Call();
     }
 
     /**
@@ -77,9 +75,9 @@ public class ResourceTeamClient
      */
     public @NotNull AstroResult<ResourceTeamDto> createResourceTeam(@NotNull CreateResourceTeamDto body)
     {
-        RestRequest<AstroResult<ResourceTeamDto>> r = new RestRequest<AstroResult<ResourceTeamDto>>(this.client, "POST", "/api/data/resources/teams");
+        RestRequest<ResourceTeamDto> r = new RestRequest<ResourceTeamDto>(this.client, "POST", "/api/data/resources/teams");
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<ResourceTeamDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -90,9 +88,9 @@ public class ResourceTeamClient
      */
     public @NotNull AstroResult<Object> deleteResourceTeam(@NotNull String resourceTeamId)
     {
-        RestRequest<AstroResult<Object>> r = new RestRequest<AstroResult<Object>>(this.client, "DELETE", "/api/data/resources/teams/{resourceTeamId}");
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/resources/teams/{resourceTeamId}");
         r.AddPath("{resourceTeamId}", resourceTeamId.toString());
-        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -104,9 +102,9 @@ public class ResourceTeamClient
      */
     public @NotNull AstroResult<ResourceTeamDto> updateResourceTeam(@NotNull String teamresourceId, @NotNull UpdateResourceTeamDto body)
     {
-        RestRequest<AstroResult<ResourceTeamDto>> r = new RestRequest<AstroResult<ResourceTeamDto>>(this.client, "PUT", "/api/data/resources/teams/{teamresourceId}");
+        RestRequest<ResourceTeamDto> r = new RestRequest<ResourceTeamDto>(this.client, "PUT", "/api/data/resources/teams/{teamresourceId}");
         r.AddPath("{teamresourceId}", teamresourceId.toString());
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<ResourceTeamDto>>() {}.getType());
+        return r.Call();
     }
 }

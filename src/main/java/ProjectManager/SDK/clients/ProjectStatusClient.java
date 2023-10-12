@@ -20,7 +20,6 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.ProjectStatusDto;
 
 /**
@@ -49,7 +48,7 @@ public class ProjectStatusClient
      */
     public @NotNull AstroResult<ProjectStatusDto[]> retrieveProjectStatuses()
     {
-        RestRequest<AstroResult<ProjectStatusDto[]>> r = new RestRequest<AstroResult<ProjectStatusDto[]>>(this.client, "GET", "/api/data/projects/statuses");
-        return r.Call(new TypeToken<AstroResult<ProjectStatusDto[]>>() {}.getType());
+        RestRequest<ProjectStatusDto[]> r = new RestRequest<ProjectStatusDto[]>(this.client, "GET", "/api/data/projects/statuses");
+        return r.Call();
     }
 }

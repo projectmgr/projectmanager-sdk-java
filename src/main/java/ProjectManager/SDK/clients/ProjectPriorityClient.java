@@ -20,7 +20,6 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.ProjectPriorityDto;
 
 /**
@@ -51,7 +50,7 @@ public class ProjectPriorityClient
      */
     public @NotNull AstroResult<ProjectPriorityDto[]> retrieveProjectPriorities()
     {
-        RestRequest<AstroResult<ProjectPriorityDto[]>> r = new RestRequest<AstroResult<ProjectPriorityDto[]>>(this.client, "GET", "/api/data/projects/priorities");
-        return r.Call(new TypeToken<AstroResult<ProjectPriorityDto[]>>() {}.getType());
+        RestRequest<ProjectPriorityDto[]> r = new RestRequest<ProjectPriorityDto[]>(this.client, "GET", "/api/data/projects/priorities");
+        return r.Call();
     }
 }

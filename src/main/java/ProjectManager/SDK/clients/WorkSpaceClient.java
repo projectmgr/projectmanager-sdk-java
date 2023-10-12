@@ -20,7 +20,6 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.WorkSpaceDto;
 
 import ProjectManager.SDK.models.WorkSpaceJoinDto;
@@ -51,8 +50,8 @@ public class WorkSpaceClient
      */
     public @NotNull AstroResult<WorkSpaceDto[]> retrieveWorkspaces()
     {
-        RestRequest<AstroResult<WorkSpaceDto[]>> r = new RestRequest<AstroResult<WorkSpaceDto[]>>(this.client, "GET", "/api/data/workspaces");
-        return r.Call(new TypeToken<AstroResult<WorkSpaceDto[]>>() {}.getType());
+        RestRequest<WorkSpaceDto[]> r = new RestRequest<WorkSpaceDto[]>(this.client, "GET", "/api/data/workspaces");
+        return r.Call();
     }
 
     /**
@@ -68,9 +67,9 @@ public class WorkSpaceClient
      */
     public @NotNull AstroResult<Object> invitetoWorkspace(@NotNull String organizationId, @NotNull WorkSpaceJoinDto body)
     {
-        RestRequest<AstroResult<Object>> r = new RestRequest<AstroResult<Object>>(this.client, "POST", "/api/data/workspaces/{organizationId}/join");
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "POST", "/api/data/workspaces/{organizationId}/join");
         r.AddPath("{organizationId}", organizationId.toString());
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+        return r.Call();
     }
 }

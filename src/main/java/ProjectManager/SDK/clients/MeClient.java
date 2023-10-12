@@ -20,7 +20,6 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.WorkSpaceUserInfoDto;
 
 /**
@@ -49,7 +48,7 @@ public class MeClient
      */
     public @NotNull AstroResult<WorkSpaceUserInfoDto> retrieveMe()
     {
-        RestRequest<AstroResult<WorkSpaceUserInfoDto>> r = new RestRequest<AstroResult<WorkSpaceUserInfoDto>>(this.client, "GET", "/api/data/me");
-        return r.Call(new TypeToken<AstroResult<WorkSpaceUserInfoDto>>() {}.getType());
+        RestRequest<WorkSpaceUserInfoDto> r = new RestRequest<WorkSpaceUserInfoDto>(this.client, "GET", "/api/data/me");
+        return r.Call();
     }
 }

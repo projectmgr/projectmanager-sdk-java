@@ -20,10 +20,8 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.ResourceDto;
 import ProjectManager.SDK.models.ResourceCreateDto;
-import ProjectManager.SDK.models.integer;
 
 import ProjectManager.SDK.models.ResourceUpdateDto;
 
@@ -54,9 +52,9 @@ public class ResourceClient
      */
     public @NotNull AstroResult<ResourceDto> createResource(@NotNull ResourceCreateDto body)
     {
-        RestRequest<AstroResult<ResourceDto>> r = new RestRequest<AstroResult<ResourceDto>>(this.client, "POST", "/api/data/resources");
+        RestRequest<ResourceDto> r = new RestRequest<ResourceDto>(this.client, "POST", "/api/data/resources");
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<ResourceDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -72,16 +70,16 @@ public class ResourceClient
      * @param $expand Include related data in the response
      * @return A {@link ProjectManager.SDK.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ResourceDto[]> queryResources(@Nullable Integer $top, @Nullable Integer $skip, @Nullable String $filter, @Nullable String $select, @Nullable String $orderby, @Nullable String $expand)
+    public @NotNull AstroResult<ResourceDto[]> queryResources(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
-        RestRequest<AstroResult<ResourceDto[]>> r = new RestRequest<AstroResult<ResourceDto[]>>(this.client, "GET", "/api/data/resources");
-        r.AddQuery("$top", $top.toString());
-        r.AddQuery("$skip", $skip.toString());
-        r.AddQuery("$filter", $filter.toString());
-        r.AddQuery("$select", $select.toString());
-        r.AddQuery("$orderby", $orderby.toString());
-        r.AddQuery("$expand", $expand.toString());
-        return r.Call(new TypeToken<AstroResult<ResourceDto[]>>() {}.getType());
+        RestRequest<ResourceDto[]> r = new RestRequest<ResourceDto[]>(this.client, "GET", "/api/data/resources");
+        r.AddQuery("$top", top.toString());
+        r.AddQuery("$skip", skip.toString());
+        r.AddQuery("$filter", filter.toString());
+        r.AddQuery("$select", select.toString());
+        r.AddQuery("$orderby", orderby.toString());
+        r.AddQuery("$expand", expand.toString());
+        return r.Call();
     }
 
     /**
@@ -95,10 +93,10 @@ public class ResourceClient
      */
     public @NotNull AstroResult<ResourceDto> updateResource(@NotNull String resourceId, @NotNull ResourceUpdateDto body)
     {
-        RestRequest<AstroResult<ResourceDto>> r = new RestRequest<AstroResult<ResourceDto>>(this.client, "PUT", "/api/data/resources/{resourceId}");
+        RestRequest<ResourceDto> r = new RestRequest<ResourceDto>(this.client, "PUT", "/api/data/resources/{resourceId}");
         r.AddPath("{resourceId}", resourceId.toString());
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<ResourceDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -111,8 +109,8 @@ public class ResourceClient
      */
     public @NotNull AstroResult<ResourceDto> retrieveResource(@NotNull String resourceId)
     {
-        RestRequest<AstroResult<ResourceDto>> r = new RestRequest<AstroResult<ResourceDto>>(this.client, "GET", "/api/data/resources/{resourceId}");
+        RestRequest<ResourceDto> r = new RestRequest<ResourceDto>(this.client, "GET", "/api/data/resources/{resourceId}");
         r.AddPath("{resourceId}", resourceId.toString());
-        return r.Call(new TypeToken<AstroResult<ResourceDto>>() {}.getType());
+        return r.Call();
     }
 }

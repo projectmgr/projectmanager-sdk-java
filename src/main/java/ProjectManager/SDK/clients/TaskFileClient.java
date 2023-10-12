@@ -20,10 +20,8 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.FileDto;
 
-import ProjectManager.SDK.BlobRequest;
 
 /**
  * Contains all methods related to TaskFile
@@ -55,8 +53,8 @@ public class TaskFileClient
      */
     public @NotNull AstroResult<FileDto> uploadTaskFile(@NotNull String taskId, @NotNull byte[] filename)
     {
-        RestRequest<AstroResult<FileDto>> r = new RestRequest<AstroResult<FileDto>>(this.client, "POST", "/api/data/tasks/{taskId}/files");
+        RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/tasks/{taskId}/files");
         r.AddPath("{taskId}", taskId.toString());
-        return r.Call(new TypeToken<AstroResult<FileDto>>() {}.getType());
+        return r.Call();
     }
 }

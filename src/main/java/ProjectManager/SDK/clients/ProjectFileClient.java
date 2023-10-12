@@ -20,10 +20,8 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.FileDto;
 
-import ProjectManager.SDK.BlobRequest;
 
 /**
  * Contains all methods related to ProjectFile
@@ -55,9 +53,9 @@ public class ProjectFileClient
      */
     public @NotNull AstroResult<FileDto> uploadProjectFile(@NotNull String projectId, @NotNull byte[] filename)
     {
-        RestRequest<AstroResult<FileDto>> r = new RestRequest<AstroResult<FileDto>>(this.client, "POST", "/api/data/projects/{projectId}/files");
+        RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/projects/{projectId}/files");
         r.AddPath("{projectId}", projectId.toString());
-        return r.Call(new TypeToken<AstroResult<FileDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -74,9 +72,9 @@ public class ProjectFileClient
      */
     public @NotNull AstroResult<FileDto> uploadProjectFileToFolder(@NotNull String projectId, @NotNull String folderId, @NotNull byte[] filename)
     {
-        RestRequest<AstroResult<FileDto>> r = new RestRequest<AstroResult<FileDto>>(this.client, "POST", "/api/data/projects/{projectId}/folders/{folderId}/files");
+        RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/projects/{projectId}/folders/{folderId}/files");
         r.AddPath("{projectId}", projectId.toString());
         r.AddPath("{folderId}", folderId.toString());
-        return r.Call(new TypeToken<AstroResult<FileDto>>() {}.getType());
+        return r.Call();
     }
 }

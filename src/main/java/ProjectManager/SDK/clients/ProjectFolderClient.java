@@ -20,7 +20,6 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.ProjectFolderDto;
 
 /**
@@ -49,7 +48,7 @@ public class ProjectFolderClient
      */
     public @NotNull AstroResult<ProjectFolderDto[]> retrieveProjectFolders()
     {
-        RestRequest<AstroResult<ProjectFolderDto[]>> r = new RestRequest<AstroResult<ProjectFolderDto[]>>(this.client, "GET", "/api/data/project-folders");
-        return r.Call(new TypeToken<AstroResult<ProjectFolderDto[]>>() {}.getType());
+        RestRequest<ProjectFolderDto[]> r = new RestRequest<ProjectFolderDto[]>(this.client, "GET", "/api/data/project-folders");
+        return r.Call();
     }
 }

@@ -29,7 +29,7 @@ public class ReactGridLayoutItemDto
     private @NotNull Integer y;
     private @Nullable String i;
     private @NotNull Boolean moved;
-    private @NotNull Boolean static;
+    private @NotNull Boolean _static;
 
     /**
      * Width
@@ -108,11 +108,11 @@ public class ReactGridLayoutItemDto
      *
      * @return The field static
      */
-    public @NotNull Boolean getStatic() { return this.static; }
+    public @NotNull Boolean getStatic() { return this._static; }
     /**
      * If true, equal to `isDraggable: false, isResizable: false`
      *
      * @param value The new value for static
      */
-    public void setStatic(@NotNull Boolean value) { this.static = value; }
+    public void setStatic(@NotNull Boolean value) { this._static = value; }
 };

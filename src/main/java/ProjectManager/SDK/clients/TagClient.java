@@ -20,9 +20,7 @@ import ProjectManager.SDK.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ProjectManager.SDK.AstroResult;
-import com.google.gson.reflect.TypeToken;
 import ProjectManager.SDK.models.TagDto;
-import ProjectManager.SDK.models.integer;
 
 import ProjectManager.SDK.models.TagCreateDto;
 import ProjectManager.SDK.models.TagUpdateDto;
@@ -57,16 +55,16 @@ public class TagClient
      * @param $expand Include related data in the response
      * @return A {@link ProjectManager.SDK.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TagDto[]> queryTags(@Nullable Integer $top, @Nullable Integer $skip, @Nullable String $filter, @Nullable String $select, @Nullable String $orderby, @Nullable String $expand)
+    public @NotNull AstroResult<TagDto[]> queryTags(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
-        RestRequest<AstroResult<TagDto[]>> r = new RestRequest<AstroResult<TagDto[]>>(this.client, "GET", "/api/data/tags");
-        r.AddQuery("$top", $top.toString());
-        r.AddQuery("$skip", $skip.toString());
-        r.AddQuery("$filter", $filter.toString());
-        r.AddQuery("$select", $select.toString());
-        r.AddQuery("$orderby", $orderby.toString());
-        r.AddQuery("$expand", $expand.toString());
-        return r.Call(new TypeToken<AstroResult<TagDto[]>>() {}.getType());
+        RestRequest<TagDto[]> r = new RestRequest<TagDto[]>(this.client, "GET", "/api/data/tags");
+        r.AddQuery("$top", top.toString());
+        r.AddQuery("$skip", skip.toString());
+        r.AddQuery("$filter", filter.toString());
+        r.AddQuery("$select", select.toString());
+        r.AddQuery("$orderby", orderby.toString());
+        r.AddQuery("$expand", expand.toString());
+        return r.Call();
     }
 
     /**
@@ -79,9 +77,9 @@ public class TagClient
      */
     public @NotNull AstroResult<TagDto> createTag(@NotNull TagCreateDto body)
     {
-        RestRequest<AstroResult<TagDto>> r = new RestRequest<AstroResult<TagDto>>(this.client, "POST", "/api/data/tags");
+        RestRequest<TagDto> r = new RestRequest<TagDto>(this.client, "POST", "/api/data/tags");
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<TagDto>>() {}.getType());
+        return r.Call();
     }
 
     /**
@@ -95,9 +93,9 @@ public class TagClient
      */
     public @NotNull AstroResult<TagDto> updateTag(@NotNull String tagId, @NotNull TagUpdateDto body)
     {
-        RestRequest<AstroResult<TagDto>> r = new RestRequest<AstroResult<TagDto>>(this.client, "PUT", "/api/data/tags/{tagId}");
+        RestRequest<TagDto> r = new RestRequest<TagDto>(this.client, "PUT", "/api/data/tags/{tagId}");
         r.AddPath("{tagId}", tagId.toString());
         r.AddBody(body);
-        return r.Call(new TypeToken<AstroResult<TagDto>>() {}.getType());
+        return r.Call();
     }
 }
