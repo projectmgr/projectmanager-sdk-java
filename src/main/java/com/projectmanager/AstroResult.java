@@ -98,13 +98,13 @@ public class AstroResult<T>
     /**
      * Parse response from the server
      */
-    public void Parse(String content, int code, long serverDuration, long roundTripTime)
+    public void Parse(TypeToken<AstroResult<T>> token, String content, int code, long serverDuration, long roundTripTime)
     {
         this.statusCode = code;
         Gson gson = new Gson();
         if (code >= 200 && code < 300) {
             this.success = true;
-            this.data = gson.fromJson(content, new TypeToken<T>() {}.getType());
+            this.data = gson.fromJson(content, token.getType());
         } else if (code == -1) {
             // special case for exceptions
             this.success = false;
