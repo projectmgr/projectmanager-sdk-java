@@ -13,7 +13,7 @@
  */
 
 
-package ProjectManager.SDK;
+package com.projectmanager;
 
 import org.jetbrains.annotations.Nullable;
 
