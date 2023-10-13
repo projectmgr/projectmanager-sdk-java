@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.ResourceTeamDto;
 
@@ -64,7 +65,7 @@ public class ResourceTeamClient
         r.AddQuery("$select", select.toString());
         r.AddQuery("$orderby", orderby.toString());
         r.AddQuery("$expand", expand.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ResourceTeamDto[]>>() {}.getType());
     }
 
     /**
@@ -77,7 +78,7 @@ public class ResourceTeamClient
     {
         RestRequest<ResourceTeamDto> r = new RestRequest<ResourceTeamDto>(this.client, "POST", "/api/data/resources/teams");
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ResourceTeamDto>>() {}.getType());
     }
 
     /**
@@ -90,7 +91,7 @@ public class ResourceTeamClient
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/resources/teams/{resourceTeamId}");
         r.AddPath("{resourceTeamId}", resourceTeamId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 
     /**
@@ -105,6 +106,6 @@ public class ResourceTeamClient
         RestRequest<ResourceTeamDto> r = new RestRequest<ResourceTeamDto>(this.client, "PUT", "/api/data/resources/teams/{teamresourceId}");
         r.AddPath("{teamresourceId}", teamresourceId.toString());
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ResourceTeamDto>>() {}.getType());
     }
 }

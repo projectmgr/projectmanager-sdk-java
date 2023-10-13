@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.ApiKeyDto;
 import com.projectmanager.models.ApiKeyCreateDto;
@@ -55,7 +56,7 @@ public class ApiKeyClient
     {
         RestRequest<ApiKeyDto> r = new RestRequest<ApiKeyDto>(this.client, "POST", "/api/data/api-keys");
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ApiKeyDto>>() {}.getType());
     }
 
     /**
@@ -70,7 +71,7 @@ public class ApiKeyClient
     public @NotNull AstroResult<ApiKeyDto[]> listApiKeys()
     {
         RestRequest<ApiKeyDto[]> r = new RestRequest<ApiKeyDto[]>(this.client, "GET", "/api/data/api-keys");
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ApiKeyDto[]>>() {}.getType());
     }
 
     /**
@@ -85,7 +86,7 @@ public class ApiKeyClient
     public @NotNull AstroResult<Object> revokeAllApiKeys()
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/api-keys/revoke-all");
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 
     /**
@@ -102,6 +103,6 @@ public class ApiKeyClient
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/api-keys/{id}/revoke");
         r.AddPath("{id}", id.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

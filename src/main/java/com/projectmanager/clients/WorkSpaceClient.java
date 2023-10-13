@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.WorkSpaceDto;
 
@@ -51,7 +52,7 @@ public class WorkSpaceClient
     public @NotNull AstroResult<WorkSpaceDto[]> retrieveWorkspaces()
     {
         RestRequest<WorkSpaceDto[]> r = new RestRequest<WorkSpaceDto[]>(this.client, "GET", "/api/data/workspaces");
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<WorkSpaceDto[]>>() {}.getType());
     }
 
     /**
@@ -70,6 +71,6 @@ public class WorkSpaceClient
         RestRequest<Object> r = new RestRequest<Object>(this.client, "POST", "/api/data/workspaces/{organizationId}/join");
         r.AddPath("{organizationId}", organizationId.toString());
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

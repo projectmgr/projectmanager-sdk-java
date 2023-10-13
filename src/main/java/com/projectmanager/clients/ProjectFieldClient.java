@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.GetProjectFieldsResponseDto;
 import com.projectmanager.models.CreateProjectFieldResponseDto;
@@ -54,7 +55,7 @@ public class ProjectFieldClient
     public @NotNull AstroResult<GetProjectFieldsResponseDto[]> retrieveProjectFields()
     {
         RestRequest<GetProjectFieldsResponseDto[]> r = new RestRequest<GetProjectFieldsResponseDto[]>(this.client, "GET", "/api/data/projects/fields");
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<GetProjectFieldsResponseDto[]>>() {}.getType());
     }
 
     /**
@@ -69,7 +70,7 @@ public class ProjectFieldClient
     {
         RestRequest<CreateProjectFieldResponseDto> r = new RestRequest<CreateProjectFieldResponseDto>(this.client, "POST", "/api/data/projects/fields");
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<CreateProjectFieldResponseDto>>() {}.getType());
     }
 
     /**
@@ -84,7 +85,7 @@ public class ProjectFieldClient
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/fields");
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 
     /**
@@ -103,6 +104,6 @@ public class ProjectFieldClient
         r.AddPath("{projectId}", projectId.toString());
         r.AddPath("{fieldId}", fieldId.toString());
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

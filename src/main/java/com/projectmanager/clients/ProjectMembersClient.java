@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.ProjectMemberDto;
 
@@ -49,7 +50,7 @@ public class ProjectMembersClient
     public @NotNull AstroResult<ProjectMemberDto[]> retrieveNewProjectMembers()
     {
         RestRequest<ProjectMemberDto[]> r = new RestRequest<ProjectMemberDto[]>(this.client, "GET", "/api/data/projects/members");
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ProjectMemberDto[]>>() {}.getType());
     }
 
     /**
@@ -64,7 +65,7 @@ public class ProjectMembersClient
         RestRequest<ProjectMemberDto[]> r = new RestRequest<ProjectMemberDto[]>(this.client, "GET", "/api/data/projects/{projectId}/members");
         r.AddPath("{projectId}", projectId.toString());
         r.AddQuery("includeAllUsers", includeAllUsers.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ProjectMemberDto[]>>() {}.getType());
     }
 
     /**
@@ -79,7 +80,7 @@ public class ProjectMembersClient
         RestRequest<ProjectMemberDto> r = new RestRequest<ProjectMemberDto>(this.client, "GET", "/api/data/projects/{projectId}/members/{userId}");
         r.AddPath("{projectId}", projectId.toString());
         r.AddPath("{userId}", userId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ProjectMemberDto>>() {}.getType());
     }
 
     /**
@@ -96,7 +97,7 @@ public class ProjectMembersClient
         r.AddPath("{projectId}", projectId.toString());
         r.AddPath("{userId}", userId.toString());
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ProjectMemberDto>>() {}.getType());
     }
 
     /**
@@ -113,7 +114,7 @@ public class ProjectMembersClient
         r.AddPath("{projectId}", projectId.toString());
         r.AddPath("{userId}", userId.toString());
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ProjectMemberDto>>() {}.getType());
     }
 
     /**
@@ -128,6 +129,6 @@ public class ProjectMembersClient
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/{projectId}/members/{userId}");
         r.AddPath("{projectId}", projectId.toString());
         r.AddPath("{userId}", userId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

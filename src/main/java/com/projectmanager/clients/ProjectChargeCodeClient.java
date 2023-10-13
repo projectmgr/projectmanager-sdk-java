@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.ProjectChargeCodeDto;
 
@@ -49,6 +50,6 @@ public class ProjectChargeCodeClient
     public @NotNull AstroResult<ProjectChargeCodeDto[]> retrieveChargeCodes()
     {
         RestRequest<ProjectChargeCodeDto[]> r = new RestRequest<ProjectChargeCodeDto[]>(this.client, "GET", "/api/data/projects/chargecodes");
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ProjectChargeCodeDto[]>>() {}.getType());
     }
 }

@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.TagDto;
 
@@ -64,7 +65,7 @@ public class TagClient
         r.AddQuery("$select", select.toString());
         r.AddQuery("$orderby", orderby.toString());
         r.AddQuery("$expand", expand.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<TagDto[]>>() {}.getType());
     }
 
     /**
@@ -79,7 +80,7 @@ public class TagClient
     {
         RestRequest<TagDto> r = new RestRequest<TagDto>(this.client, "POST", "/api/data/tags");
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<TagDto>>() {}.getType());
     }
 
     /**
@@ -96,6 +97,6 @@ public class TagClient
         RestRequest<TagDto> r = new RestRequest<TagDto>(this.client, "PUT", "/api/data/tags/{tagId}");
         r.AddPath("{tagId}", tagId.toString());
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<TagDto>>() {}.getType());
     }
 }

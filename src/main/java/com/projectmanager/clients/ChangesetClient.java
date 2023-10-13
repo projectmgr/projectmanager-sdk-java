@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.ChangesetGetResponseDto;
 
@@ -54,7 +55,7 @@ public class ChangesetClient
     {
         RestRequest<ChangesetGetResponseDto> r = new RestRequest<ChangesetGetResponseDto>(this.client, "GET", "/api/data/changesets/{changeSetId}");
         r.AddPath("{changeSetId}", changeSetId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ChangesetGetResponseDto>>() {}.getType());
     }
 
     /**
@@ -73,6 +74,6 @@ public class ChangesetClient
     {
         RestRequest<ChangesetGetResponseDto> r = new RestRequest<ChangesetGetResponseDto>(this.client, "GET", "/api/data/changesets/{changeSetId}/poll");
         r.AddPath("{changeSetId}", changeSetId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ChangesetGetResponseDto>>() {}.getType());
     }
 }

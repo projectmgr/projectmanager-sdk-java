@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.DiscussionDto;
 
@@ -52,7 +53,7 @@ public class DiscussionClient
     {
         RestRequest<DiscussionDto[]> r = new RestRequest<DiscussionDto[]>(this.client, "GET", "/api/data/tasks/{taskId}/discussions");
         r.AddPath("{taskId}", taskId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<DiscussionDto[]>>() {}.getType());
     }
 
     /**
@@ -69,6 +70,6 @@ public class DiscussionClient
         RestRequest<DiscussionCreateResponseDto> r = new RestRequest<DiscussionCreateResponseDto>(this.client, "POST", "/api/data/tasks/{taskId}/discussions");
         r.AddPath("{taskId}", taskId.toString());
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<DiscussionCreateResponseDto>>() {}.getType());
     }
 }

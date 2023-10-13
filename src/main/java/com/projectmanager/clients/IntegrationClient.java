@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.IntegrationDto;
 
@@ -54,7 +55,7 @@ public class IntegrationClient
     {
         RestRequest<IntegrationDto> r = new RestRequest<IntegrationDto>(this.client, "GET", "/api/data/integrations/{integrationId}");
         r.AddPath("{integrationId}", integrationId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<IntegrationDto>>() {}.getType());
     }
 
     /**
@@ -69,7 +70,7 @@ public class IntegrationClient
     {
         RestRequest<IntegrationDto> r = new RestRequest<IntegrationDto>(this.client, "POST", "/api/data/integrations/{integrationId}");
         r.AddPath("{integrationId}", integrationId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<IntegrationDto>>() {}.getType());
     }
 
     /**
@@ -84,7 +85,7 @@ public class IntegrationClient
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/integrations/{integrationId}");
         r.AddPath("{integrationId}", integrationId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 
     /**
@@ -97,7 +98,7 @@ public class IntegrationClient
     public @NotNull AstroResult<IntegrationDto[]> retrieveAllIntegrations()
     {
         RestRequest<IntegrationDto[]> r = new RestRequest<IntegrationDto[]>(this.client, "GET", "/api/data/integrations");
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<IntegrationDto[]>>() {}.getType());
     }
 
     /**
@@ -114,7 +115,7 @@ public class IntegrationClient
         RestRequest<NewIntegrationInstanceDto> r = new RestRequest<NewIntegrationInstanceDto>(this.client, "POST", "/api/data/integrations/{integrationId}/instance");
         r.AddPath("{integrationId}", integrationId.toString());
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<NewIntegrationInstanceDto>>() {}.getType());
     }
 
     /**
@@ -129,6 +130,6 @@ public class IntegrationClient
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/integrations/instances/{integrationInstanceId}");
         r.AddPath("{integrationInstanceId}", integrationInstanceId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

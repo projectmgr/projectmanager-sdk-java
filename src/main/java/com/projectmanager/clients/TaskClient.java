@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.TaskDto;
 
@@ -67,7 +68,7 @@ public class TaskClient
         r.AddQuery("$select", select.toString());
         r.AddQuery("$orderby", orderby.toString());
         r.AddQuery("$expand", expand.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<TaskDto[]>>() {}.getType());
     }
 
     /**
@@ -82,7 +83,7 @@ public class TaskClient
     {
         RestRequest<TaskDetailsDto> r = new RestRequest<TaskDetailsDto>(this.client, "GET", "/api/data/tasks/{taskId}");
         r.AddPath("{taskId}", taskId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<TaskDetailsDto>>() {}.getType());
     }
 
     /**
@@ -103,7 +104,7 @@ public class TaskClient
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "PUT", "/api/data/tasks/{taskId}");
         r.AddPath("{taskId}", taskId.toString());
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
     }
 
     /**
@@ -120,7 +121,7 @@ public class TaskClient
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "DELETE", "/api/data/tasks/{taskId}");
         r.AddPath("{taskId}", taskId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
     }
 
     /**
@@ -137,7 +138,7 @@ public class TaskClient
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "POST", "/api/data/projects/{projectId}/tasks");
         r.AddPath("{projectId}", projectId.toString());
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
     }
 
     /**
@@ -152,7 +153,7 @@ public class TaskClient
     public @NotNull AstroResult<TaskPriorityDto[]> retrieveTaskPriorities()
     {
         RestRequest<TaskPriorityDto[]> r = new RestRequest<TaskPriorityDto[]>(this.client, "GET", "/api/data/tasks/priorities");
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<TaskPriorityDto[]>>() {}.getType());
     }
 
     /**
@@ -169,6 +170,6 @@ public class TaskClient
         RestRequest<ChangeSetStatusDto[]> r = new RestRequest<ChangeSetStatusDto[]>(this.client, "POST", "/api/data/projects/{projectId}/tasks/bulk");
         r.AddPath("{projectId}", projectId.toString());
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto[]>>() {}.getType());
     }
 }

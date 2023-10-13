@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.ResourceDto;
 import com.projectmanager.models.ResourceCreateDto;
@@ -54,7 +55,7 @@ public class ResourceClient
     {
         RestRequest<ResourceDto> r = new RestRequest<ResourceDto>(this.client, "POST", "/api/data/resources");
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ResourceDto>>() {}.getType());
     }
 
     /**
@@ -79,7 +80,7 @@ public class ResourceClient
         r.AddQuery("$select", select.toString());
         r.AddQuery("$orderby", orderby.toString());
         r.AddQuery("$expand", expand.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ResourceDto[]>>() {}.getType());
     }
 
     /**
@@ -96,7 +97,7 @@ public class ResourceClient
         RestRequest<ResourceDto> r = new RestRequest<ResourceDto>(this.client, "PUT", "/api/data/resources/{resourceId}");
         r.AddPath("{resourceId}", resourceId.toString());
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ResourceDto>>() {}.getType());
     }
 
     /**
@@ -111,6 +112,6 @@ public class ResourceClient
     {
         RestRequest<ResourceDto> r = new RestRequest<ResourceDto>(this.client, "GET", "/api/data/resources/{resourceId}");
         r.AddPath("{resourceId}", resourceId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ResourceDto>>() {}.getType());
     }
 }

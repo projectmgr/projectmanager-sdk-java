@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.ProjectDto;
 
@@ -64,7 +65,7 @@ public class ProjectClient
         r.AddQuery("$select", select.toString());
         r.AddQuery("$orderby", orderby.toString());
         r.AddQuery("$expand", expand.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ProjectDto[]>>() {}.getType());
     }
 
     /**
@@ -79,7 +80,7 @@ public class ProjectClient
     {
         RestRequest<ProjectDto> r = new RestRequest<ProjectDto>(this.client, "POST", "/api/data/projects");
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ProjectDto>>() {}.getType());
     }
 
     /**
@@ -94,7 +95,7 @@ public class ProjectClient
     {
         RestRequest<ProjectDto> r = new RestRequest<ProjectDto>(this.client, "GET", "/api/data/projects/{projectId}");
         r.AddPath("{projectId}", projectId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ProjectDto>>() {}.getType());
     }
 
     /**
@@ -113,6 +114,6 @@ public class ProjectClient
         RestRequest<Object> r = new RestRequest<Object>(this.client, "PUT", "/api/data/projects/{projectId}");
         r.AddPath("{projectId}", projectId.toString());
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

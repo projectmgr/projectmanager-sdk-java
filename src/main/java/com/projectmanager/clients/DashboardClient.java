@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.DashboardSettingDto;
 import com.projectmanager.models.DashboardSettingCreateDto;
@@ -50,7 +51,7 @@ public class DashboardClient
     {
         RestRequest<DashboardSettingDto> r = new RestRequest<DashboardSettingDto>(this.client, "GET", "/api/data/dashboards/settings/{type}");
         r.AddPath("{type}", type.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<DashboardSettingDto>>() {}.getType());
     }
 
     /**
@@ -63,6 +64,6 @@ public class DashboardClient
     {
         RestRequest<DashboardSettingDto> r = new RestRequest<DashboardSettingDto>(this.client, "POST", "/api/data/dashboards/settings");
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<DashboardSettingDto>>() {}.getType());
     }
 }

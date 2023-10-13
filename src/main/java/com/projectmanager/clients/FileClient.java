@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 
 import com.projectmanager.models.UpdateRequestDto;
@@ -56,7 +57,7 @@ public class FileClient
         RestRequest<Object> r = new RestRequest<Object>(this.client, "GET", "/api/data/files/{documentId}/download");
         r.AddPath("{documentId}", documentId.toString());
         r.AddQuery("type", type.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 
     /**
@@ -75,6 +76,6 @@ public class FileClient
         RestRequest<Object> r = new RestRequest<Object>(this.client, "PUT", "/api/data/files/{fileId}");
         r.AddPath("{fileId}", fileId.toString());
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

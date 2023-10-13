@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.ResourceSkillDto;
 
@@ -64,7 +65,7 @@ public class ResourceSkillClient
         r.AddQuery("$select", select.toString());
         r.AddQuery("$orderby", orderby.toString());
         r.AddQuery("$expand", expand.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ResourceSkillDto[]>>() {}.getType());
     }
 
     /**
@@ -77,7 +78,7 @@ public class ResourceSkillClient
     {
         RestRequest<ResourceSkillDto> r = new RestRequest<ResourceSkillDto>(this.client, "POST", "/api/data/resources/skills");
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ResourceSkillDto>>() {}.getType());
     }
 
     /**
@@ -92,7 +93,7 @@ public class ResourceSkillClient
         RestRequest<ResourceSkillDto> r = new RestRequest<ResourceSkillDto>(this.client, "PUT", "/api/data/resources/skills/{skillId}");
         r.AddPath("{skillId}", skillId.toString());
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<ResourceSkillDto>>() {}.getType());
     }
 
     /**
@@ -105,6 +106,6 @@ public class ResourceSkillClient
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/resources/skills/{resourceSkillId}");
         r.AddPath("{resourceSkillId}", resourceSkillId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

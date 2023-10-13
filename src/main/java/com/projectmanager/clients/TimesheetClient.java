@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.TimesheetResponseDto;
 import com.projectmanager.models.TimesheetCreateRequestDto;
@@ -54,7 +55,7 @@ public class TimesheetClient
     {
         RestRequest<TimesheetResponseDto> r = new RestRequest<TimesheetResponseDto>(this.client, "POST", "/api/data/timesheets");
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<TimesheetResponseDto>>() {}.getType());
     }
 
     /**
@@ -79,7 +80,7 @@ public class TimesheetClient
         r.AddQuery("$select", select.toString());
         r.AddQuery("$orderby", orderby.toString());
         r.AddQuery("$expand", expand.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<TimesheetDto[]>>() {}.getType());
     }
 
     /**
@@ -92,7 +93,7 @@ public class TimesheetClient
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/timesheets/{timesheetId}");
         r.AddPath("{timesheetId}", timesheetId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 
     /**
@@ -107,7 +108,7 @@ public class TimesheetClient
         RestRequest<TimesheetResponseDto> r = new RestRequest<TimesheetResponseDto>(this.client, "PUT", "/api/data/timesheets/{timesheetId}");
         r.AddPath("{timesheetId}", timesheetId.toString());
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<TimesheetResponseDto>>() {}.getType());
     }
 
     /**
@@ -118,6 +119,6 @@ public class TimesheetClient
     public @NotNull AstroResult<TimesheetAdminTypeDto[]> returnsactiveadmintasksthatareusedtoreporttime()
     {
         RestRequest<TimesheetAdminTypeDto[]> r = new RestRequest<TimesheetAdminTypeDto[]>(this.client, "GET", "/api/data/timesheets/admin-tasks");
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<TimesheetAdminTypeDto[]>>() {}.getType());
     }
 }

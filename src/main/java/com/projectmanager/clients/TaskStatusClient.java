@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.TaskStatusDto;
 
@@ -54,7 +55,7 @@ public class TaskStatusClient
     {
         RestRequest<TaskStatusDto[]> r = new RestRequest<TaskStatusDto[]>(this.client, "GET", "/api/data/projects/{projectId}/tasks/statuses");
         r.AddPath("{projectId}", projectId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<TaskStatusDto[]>>() {}.getType());
     }
 
     /**
@@ -71,7 +72,7 @@ public class TaskStatusClient
         RestRequest<TaskStatusDto> r = new RestRequest<TaskStatusDto>(this.client, "POST", "/api/data/projects/{projectId}/tasks/statuses");
         r.AddPath("{projectId}", projectId.toString());
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<TaskStatusDto>>() {}.getType());
     }
 
     /**
@@ -88,7 +89,7 @@ public class TaskStatusClient
         RestRequest<TaskStatusDto> r = new RestRequest<TaskStatusDto>(this.client, "PUT", "/api/data/projects/{projectId}/tasks/statuses");
         r.AddPath("{projectId}", projectId.toString());
         r.AddBody(body);
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<TaskStatusDto>>() {}.getType());
     }
 
     /**
@@ -105,6 +106,6 @@ public class TaskStatusClient
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/{projectId}/tasks/statuses/{taskStatusId}");
         r.AddPath("{projectId}", projectId.toString());
         r.AddPath("{taskStatusId}", taskStatusId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.LicenseDto;
 
@@ -50,7 +51,7 @@ public class LicenseClient
     public @NotNull AstroResult<LicenseDto[]> retrieveLicenses()
     {
         RestRequest<LicenseDto[]> r = new RestRequest<LicenseDto[]>(this.client, "GET", "/api/data/license");
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<LicenseDto[]>>() {}.getType());
     }
 
     /**
@@ -65,6 +66,6 @@ public class LicenseClient
     {
         RestRequest<LicenseDto[]> r = new RestRequest<LicenseDto[]>(this.client, "POST", "/api/data/license/{bundleSku}/try");
         r.AddPath("{bundleSku}", bundleSku.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<LicenseDto[]>>() {}.getType());
     }
 }

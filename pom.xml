@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.projectmanager</groupId>
-    <artifactId>SDK</artifactId>
-    <version>96.0.2115.0</version>
+    <artifactId>projectmanagersdk</artifactId>
+    <version>96.0.2118.0</version>
 
-    <name>com.projectmanager</name>
+    <name>ProjectManagerSDK</name>
     <description>Software development kit for the ProjectManager.com API. for Java</description>
     <url></url>
 

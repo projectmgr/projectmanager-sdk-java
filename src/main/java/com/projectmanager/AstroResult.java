@@ -15,6 +15,8 @@
 
 package com.projectmanager;
 
+import java.lang.reflect.Type;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -98,13 +100,13 @@ public class AstroResult<T>
     /**
      * Parse response from the server
      */
-    public void Parse(TypeToken<AstroResult<T>> token, String content, int code, long serverDuration, long roundTripTime)
+    public void Parse(Type classReference, String content, int code, long serverDuration, long roundTripTime)
     {
         this.statusCode = code;
         Gson gson = new Gson();
         if (code >= 200 && code < 300) {
             this.success = true;
-            this.data = gson.fromJson(content, token.getType());
+            this.data = gson.fromJson(content, classReference);
         } else if (code == -1) {
             // special case for exceptions
             this.success = false;

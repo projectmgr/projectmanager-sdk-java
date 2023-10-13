@@ -19,6 +19,7 @@ import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.FileDto;
 
@@ -55,7 +56,7 @@ public class ProjectFileClient
     {
         RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/projects/{projectId}/files");
         r.AddPath("{projectId}", projectId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<FileDto>>() {}.getType());
     }
 
     /**
@@ -75,6 +76,6 @@ public class ProjectFileClient
         RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/projects/{projectId}/folders/{folderId}/files");
         r.AddPath("{projectId}", projectId.toString());
         r.AddPath("{folderId}", folderId.toString());
-        return r.Call();
+        return r.Call(new TypeToken<AstroResult<FileDto>>() {}.getType());
     }
 }
