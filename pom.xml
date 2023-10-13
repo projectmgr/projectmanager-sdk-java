@@ -4,11 +4,11 @@
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ProjectManager.SDK</groupId>
-    <artifactId>projectmanager.sdk</artifactId>
-    <version>96.0.2110</version>
+    <groupId>com.projectmanager</groupId>
+    <artifactId>SDK</artifactId>
+    <version>96.0.2115.0</version>
 
-    <name>ProjectManager.SDK</name>
+    <name>com.projectmanager</name>
     <description>Software development kit for the ProjectManager.com API. for Java</description>
     <url></url>
 
@@ -27,9 +27,9 @@
 
     <developers>
         <developer>
-            <id>ProjectManager.SDK</id>
+            <id>com.projectmanager</id>
             <name>ProjectManager.com</name>
-            <email></email>
+            <email>support@projectmanager.com</email>
         </developer>
     </developers>
 
@@ -95,9 +95,6 @@
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
                             </execution>
                         </executions>
                     </plugin>
@@ -139,9 +136,6 @@
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
                             </execution>
                         </executions>
                     </plugin>
@@ -152,9 +146,6 @@
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
                             </execution>
                         </executions>
                     </plugin>
