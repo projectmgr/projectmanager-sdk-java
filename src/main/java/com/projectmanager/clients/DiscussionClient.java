@@ -52,7 +52,7 @@ public class DiscussionClient
     public @NotNull AstroResult<DiscussionDto[]> retrieveTaskComments(@NotNull String taskId)
     {
         RestRequest<DiscussionDto[]> r = new RestRequest<DiscussionDto[]>(this.client, "GET", "/api/data/tasks/{taskId}/discussions");
-        r.AddPath("{taskId}", taskId.toString());
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
         return r.Call(new TypeToken<AstroResult<DiscussionDto[]>>() {}.getType());
     }
 
@@ -68,8 +68,8 @@ public class DiscussionClient
     public @NotNull AstroResult<DiscussionCreateResponseDto> createTaskComments(@NotNull String taskId, @NotNull DiscussionCreateDto body)
     {
         RestRequest<DiscussionCreateResponseDto> r = new RestRequest<DiscussionCreateResponseDto>(this.client, "POST", "/api/data/tasks/{taskId}/discussions");
-        r.AddPath("{taskId}", taskId.toString());
-        r.AddBody(body);
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<DiscussionCreateResponseDto>>() {}.getType());
     }
 }

@@ -55,7 +55,7 @@ public class ApiKeyClient
     public @NotNull AstroResult<ApiKeyDto> createApiKey(@NotNull ApiKeyCreateDto body)
     {
         RestRequest<ApiKeyDto> r = new RestRequest<ApiKeyDto>(this.client, "POST", "/api/data/api-keys");
-        r.AddBody(body);
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ApiKeyDto>>() {}.getType());
     }
 
@@ -102,7 +102,7 @@ public class ApiKeyClient
     public @NotNull AstroResult<Object> revokeAPIKey(@NotNull String id)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/api-keys/{id}/revoke");
-        r.AddPath("{id}", id.toString());
+        r.AddPath("{id}", id == null ? "" : id.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

@@ -54,8 +54,8 @@ public class TaskTagClient
     public @NotNull AstroResult<ChangeSetStatusDto> replaceTaskTags(@NotNull String taskId, @NotNull NameDto[] body)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "POST", "/api/data/tasks/{taskId}/tags");
-        r.AddPath("{taskId}", taskId.toString());
-        r.AddBody(body);
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
     }
 
@@ -71,8 +71,8 @@ public class TaskTagClient
     public @NotNull AstroResult<ChangeSetStatusDto> addTaskTagtoTask(@NotNull String taskId, @NotNull NameDto[] body)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "PUT", "/api/data/tasks/{taskId}/tags");
-        r.AddPath("{taskId}", taskId.toString());
-        r.AddBody(body);
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
     }
 
@@ -88,8 +88,8 @@ public class TaskTagClient
     public @NotNull AstroResult<ChangeSetStatusDto> removeTaskTagfromTask(@NotNull String taskId, @NotNull NameDto[] body)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "DELETE", "/api/data/tasks/{taskId}/tags");
-        r.AddPath("{taskId}", taskId.toString());
-        r.AddBody(body);
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
     }
 }

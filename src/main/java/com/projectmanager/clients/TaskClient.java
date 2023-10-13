@@ -62,12 +62,12 @@ public class TaskClient
     public @NotNull AstroResult<TaskDto[]> queryTasks(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
         RestRequest<TaskDto[]> r = new RestRequest<TaskDto[]>(this.client, "GET", "/api/data/tasks");
-        r.AddQuery("$top", top.toString());
-        r.AddQuery("$skip", skip.toString());
-        r.AddQuery("$filter", filter.toString());
-        r.AddQuery("$select", select.toString());
-        r.AddQuery("$orderby", orderby.toString());
-        r.AddQuery("$expand", expand.toString());
+        if (top != null) { r.AddQuery("$top", top.toString()); }
+        if (skip != null) { r.AddQuery("$skip", skip.toString()); }
+        if (filter != null) { r.AddQuery("$filter", filter.toString()); }
+        if (select != null) { r.AddQuery("$select", select.toString()); }
+        if (orderby != null) { r.AddQuery("$orderby", orderby.toString()); }
+        if (expand != null) { r.AddQuery("$expand", expand.toString()); }
         return r.Call(new TypeToken<AstroResult<TaskDto[]>>() {}.getType());
     }
 
@@ -82,7 +82,7 @@ public class TaskClient
     public @NotNull AstroResult<TaskDetailsDto> retrieveTask(@NotNull String taskId)
     {
         RestRequest<TaskDetailsDto> r = new RestRequest<TaskDetailsDto>(this.client, "GET", "/api/data/tasks/{taskId}");
-        r.AddPath("{taskId}", taskId.toString());
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
         return r.Call(new TypeToken<AstroResult<TaskDetailsDto>>() {}.getType());
     }
 
@@ -102,8 +102,8 @@ public class TaskClient
     public @NotNull AstroResult<ChangeSetStatusDto> updateTask(@NotNull String taskId, @NotNull TaskUpdateDto body)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "PUT", "/api/data/tasks/{taskId}");
-        r.AddPath("{taskId}", taskId.toString());
-        r.AddBody(body);
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
     }
 
@@ -120,7 +120,7 @@ public class TaskClient
     public @NotNull AstroResult<ChangeSetStatusDto> deleteTask(@NotNull String taskId)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "DELETE", "/api/data/tasks/{taskId}");
-        r.AddPath("{taskId}", taskId.toString());
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
         return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
     }
 
@@ -136,8 +136,8 @@ public class TaskClient
     public @NotNull AstroResult<ChangeSetStatusDto> createTask(@NotNull String projectId, @NotNull TaskCreateDto body)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "POST", "/api/data/projects/{projectId}/tasks");
-        r.AddPath("{projectId}", projectId.toString());
-        r.AddBody(body);
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
     }
 
@@ -168,8 +168,8 @@ public class TaskClient
     public @NotNull AstroResult<ChangeSetStatusDto[]> createManyTasks(@NotNull String projectId, @NotNull TaskCreateDto[] body)
     {
         RestRequest<ChangeSetStatusDto[]> r = new RestRequest<ChangeSetStatusDto[]>(this.client, "POST", "/api/data/projects/{projectId}/tasks/bulk");
-        r.AddPath("{projectId}", projectId.toString());
-        r.AddBody(body);
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto[]>>() {}.getType());
     }
 }

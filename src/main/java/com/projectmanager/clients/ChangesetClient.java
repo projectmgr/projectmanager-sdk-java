@@ -54,7 +54,7 @@ public class ChangesetClient
     public @NotNull AstroResult<ChangesetGetResponseDto> retrieveChangeset(@NotNull String changeSetId)
     {
         RestRequest<ChangesetGetResponseDto> r = new RestRequest<ChangesetGetResponseDto>(this.client, "GET", "/api/data/changesets/{changeSetId}");
-        r.AddPath("{changeSetId}", changeSetId.toString());
+        r.AddPath("{changeSetId}", changeSetId == null ? "" : changeSetId.toString());
         return r.Call(new TypeToken<AstroResult<ChangesetGetResponseDto>>() {}.getType());
     }
 
@@ -73,7 +73,7 @@ public class ChangesetClient
     public @NotNull AstroResult<ChangesetGetResponseDto> retrieveCompletedChangeset(@NotNull String changeSetId)
     {
         RestRequest<ChangesetGetResponseDto> r = new RestRequest<ChangesetGetResponseDto>(this.client, "GET", "/api/data/changesets/{changeSetId}/poll");
-        r.AddPath("{changeSetId}", changeSetId.toString());
+        r.AddPath("{changeSetId}", changeSetId == null ? "" : changeSetId.toString());
         return r.Call(new TypeToken<AstroResult<ChangesetGetResponseDto>>() {}.getType());
     }
 }

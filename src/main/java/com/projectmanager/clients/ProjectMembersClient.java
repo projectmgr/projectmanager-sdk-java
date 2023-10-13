@@ -63,8 +63,8 @@ public class ProjectMembersClient
     public @NotNull AstroResult<ProjectMemberDto[]> retrieveProjectMembers(@NotNull String projectId, @Nullable Boolean includeAllUsers)
     {
         RestRequest<ProjectMemberDto[]> r = new RestRequest<ProjectMemberDto[]>(this.client, "GET", "/api/data/projects/{projectId}/members");
-        r.AddPath("{projectId}", projectId.toString());
-        r.AddQuery("includeAllUsers", includeAllUsers.toString());
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        if (includeAllUsers != null) { r.AddQuery("includeAllUsers", includeAllUsers.toString()); }
         return r.Call(new TypeToken<AstroResult<ProjectMemberDto[]>>() {}.getType());
     }
 
@@ -78,8 +78,8 @@ public class ProjectMembersClient
     public @NotNull AstroResult<ProjectMemberDto> retrieveUserProjectMemberShip(@NotNull String projectId, @NotNull String userId)
     {
         RestRequest<ProjectMemberDto> r = new RestRequest<ProjectMemberDto>(this.client, "GET", "/api/data/projects/{projectId}/members/{userId}");
-        r.AddPath("{projectId}", projectId.toString());
-        r.AddPath("{userId}", userId.toString());
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        r.AddPath("{userId}", userId == null ? "" : userId.toString());
         return r.Call(new TypeToken<AstroResult<ProjectMemberDto>>() {}.getType());
     }
 
@@ -94,9 +94,9 @@ public class ProjectMembersClient
     public @NotNull AstroResult<ProjectMemberDto> createUserProjectMembership(@NotNull String projectId, @NotNull String userId, @NotNull ProjectMemberRoleDto body)
     {
         RestRequest<ProjectMemberDto> r = new RestRequest<ProjectMemberDto>(this.client, "POST", "/api/data/projects/{projectId}/members/{userId}");
-        r.AddPath("{projectId}", projectId.toString());
-        r.AddPath("{userId}", userId.toString());
-        r.AddBody(body);
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        r.AddPath("{userId}", userId == null ? "" : userId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ProjectMemberDto>>() {}.getType());
     }
 
@@ -111,9 +111,9 @@ public class ProjectMembersClient
     public @NotNull AstroResult<ProjectMemberDto> updateUserProjectMembership(@NotNull String projectId, @NotNull String userId, @NotNull ProjectMemberRoleDto body)
     {
         RestRequest<ProjectMemberDto> r = new RestRequest<ProjectMemberDto>(this.client, "PUT", "/api/data/projects/{projectId}/members/{userId}");
-        r.AddPath("{projectId}", projectId.toString());
-        r.AddPath("{userId}", userId.toString());
-        r.AddBody(body);
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        r.AddPath("{userId}", userId == null ? "" : userId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ProjectMemberDto>>() {}.getType());
     }
 
@@ -127,8 +127,8 @@ public class ProjectMembersClient
     public @NotNull AstroResult<Object> removeUserProjectMembership(@NotNull String projectId, @NotNull String userId)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/{projectId}/members/{userId}");
-        r.AddPath("{projectId}", projectId.toString());
-        r.AddPath("{userId}", userId.toString());
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        r.AddPath("{userId}", userId == null ? "" : userId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

@@ -54,7 +54,7 @@ public class TaskStatusClient
     public @NotNull AstroResult<TaskStatusDto[]> retrieveTaskStatuses(@NotNull String projectId)
     {
         RestRequest<TaskStatusDto[]> r = new RestRequest<TaskStatusDto[]>(this.client, "GET", "/api/data/projects/{projectId}/tasks/statuses");
-        r.AddPath("{projectId}", projectId.toString());
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
         return r.Call(new TypeToken<AstroResult<TaskStatusDto[]>>() {}.getType());
     }
 
@@ -70,8 +70,8 @@ public class TaskStatusClient
     public @NotNull AstroResult<TaskStatusDto> createTaskStatus(@NotNull String projectId, @NotNull TaskStatusCreateDto body)
     {
         RestRequest<TaskStatusDto> r = new RestRequest<TaskStatusDto>(this.client, "POST", "/api/data/projects/{projectId}/tasks/statuses");
-        r.AddPath("{projectId}", projectId.toString());
-        r.AddBody(body);
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<TaskStatusDto>>() {}.getType());
     }
 
@@ -87,8 +87,8 @@ public class TaskStatusClient
     public @NotNull AstroResult<TaskStatusDto> updateTaskStatus(@NotNull String projectId, @NotNull TaskStatusUpdateDto body)
     {
         RestRequest<TaskStatusDto> r = new RestRequest<TaskStatusDto>(this.client, "PUT", "/api/data/projects/{projectId}/tasks/statuses");
-        r.AddPath("{projectId}", projectId.toString());
-        r.AddBody(body);
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<TaskStatusDto>>() {}.getType());
     }
 
@@ -104,8 +104,8 @@ public class TaskStatusClient
     public @NotNull AstroResult<Object> deleteTaskStatus(@NotNull String projectId, @NotNull String taskStatusId)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/{projectId}/tasks/statuses/{taskStatusId}");
-        r.AddPath("{projectId}", projectId.toString());
-        r.AddPath("{taskStatusId}", taskStatusId.toString());
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        r.AddPath("{taskStatusId}", taskStatusId == null ? "" : taskStatusId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

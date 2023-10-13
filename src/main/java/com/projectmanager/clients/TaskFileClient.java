@@ -55,7 +55,7 @@ public class TaskFileClient
     public @NotNull AstroResult<FileDto> uploadTaskFile(@NotNull String taskId, @NotNull byte[] filename)
     {
         RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/tasks/{taskId}/files");
-        r.AddPath("{taskId}", taskId.toString());
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
         return r.Call(new TypeToken<AstroResult<FileDto>>() {}.getType());
     }
 }

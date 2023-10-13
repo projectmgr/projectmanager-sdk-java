@@ -59,12 +59,12 @@ public class TagClient
     public @NotNull AstroResult<TagDto[]> queryTags(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
         RestRequest<TagDto[]> r = new RestRequest<TagDto[]>(this.client, "GET", "/api/data/tags");
-        r.AddQuery("$top", top.toString());
-        r.AddQuery("$skip", skip.toString());
-        r.AddQuery("$filter", filter.toString());
-        r.AddQuery("$select", select.toString());
-        r.AddQuery("$orderby", orderby.toString());
-        r.AddQuery("$expand", expand.toString());
+        if (top != null) { r.AddQuery("$top", top.toString()); }
+        if (skip != null) { r.AddQuery("$skip", skip.toString()); }
+        if (filter != null) { r.AddQuery("$filter", filter.toString()); }
+        if (select != null) { r.AddQuery("$select", select.toString()); }
+        if (orderby != null) { r.AddQuery("$orderby", orderby.toString()); }
+        if (expand != null) { r.AddQuery("$expand", expand.toString()); }
         return r.Call(new TypeToken<AstroResult<TagDto[]>>() {}.getType());
     }
 
@@ -79,7 +79,7 @@ public class TagClient
     public @NotNull AstroResult<TagDto> createTag(@NotNull TagCreateDto body)
     {
         RestRequest<TagDto> r = new RestRequest<TagDto>(this.client, "POST", "/api/data/tags");
-        r.AddBody(body);
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<TagDto>>() {}.getType());
     }
 
@@ -95,8 +95,8 @@ public class TagClient
     public @NotNull AstroResult<TagDto> updateTag(@NotNull String tagId, @NotNull TagUpdateDto body)
     {
         RestRequest<TagDto> r = new RestRequest<TagDto>(this.client, "PUT", "/api/data/tags/{tagId}");
-        r.AddPath("{tagId}", tagId.toString());
-        r.AddBody(body);
+        r.AddPath("{tagId}", tagId == null ? "" : tagId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<TagDto>>() {}.getType());
     }
 }

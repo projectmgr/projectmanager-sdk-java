@@ -50,7 +50,7 @@ public class DashboardClient
     public @NotNull AstroResult<DashboardSettingDto> retrieveDashboardUserSettings(@NotNull String type)
     {
         RestRequest<DashboardSettingDto> r = new RestRequest<DashboardSettingDto>(this.client, "GET", "/api/data/dashboards/settings/{type}");
-        r.AddPath("{type}", type.toString());
+        r.AddPath("{type}", type == null ? "" : type.toString());
         return r.Call(new TypeToken<AstroResult<DashboardSettingDto>>() {}.getType());
     }
 
@@ -63,7 +63,7 @@ public class DashboardClient
     public @NotNull AstroResult<DashboardSettingDto> createorUpdateUserDashboardSettings(@NotNull DashboardSettingCreateDto body)
     {
         RestRequest<DashboardSettingDto> r = new RestRequest<DashboardSettingDto>(this.client, "POST", "/api/data/dashboards/settings");
-        r.AddBody(body);
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<DashboardSettingDto>>() {}.getType());
     }
 }

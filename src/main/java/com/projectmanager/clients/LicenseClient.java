@@ -65,7 +65,7 @@ public class LicenseClient
     public @NotNull AstroResult<LicenseDto[]> addLicense(@NotNull String bundleSku)
     {
         RestRequest<LicenseDto[]> r = new RestRequest<LicenseDto[]>(this.client, "POST", "/api/data/license/{bundleSku}/try");
-        r.AddPath("{bundleSku}", bundleSku.toString());
+        r.AddPath("{bundleSku}", bundleSku == null ? "" : bundleSku.toString());
         return r.Call(new TypeToken<AstroResult<LicenseDto[]>>() {}.getType());
     }
 }

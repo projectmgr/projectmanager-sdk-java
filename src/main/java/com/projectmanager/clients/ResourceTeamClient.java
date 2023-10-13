@@ -59,12 +59,12 @@ public class ResourceTeamClient
     public @NotNull AstroResult<ResourceTeamDto[]> retrieveResourceTeams(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
         RestRequest<ResourceTeamDto[]> r = new RestRequest<ResourceTeamDto[]>(this.client, "GET", "/api/data/resources/teams");
-        r.AddQuery("$top", top.toString());
-        r.AddQuery("$skip", skip.toString());
-        r.AddQuery("$filter", filter.toString());
-        r.AddQuery("$select", select.toString());
-        r.AddQuery("$orderby", orderby.toString());
-        r.AddQuery("$expand", expand.toString());
+        if (top != null) { r.AddQuery("$top", top.toString()); }
+        if (skip != null) { r.AddQuery("$skip", skip.toString()); }
+        if (filter != null) { r.AddQuery("$filter", filter.toString()); }
+        if (select != null) { r.AddQuery("$select", select.toString()); }
+        if (orderby != null) { r.AddQuery("$orderby", orderby.toString()); }
+        if (expand != null) { r.AddQuery("$expand", expand.toString()); }
         return r.Call(new TypeToken<AstroResult<ResourceTeamDto[]>>() {}.getType());
     }
 
@@ -77,7 +77,7 @@ public class ResourceTeamClient
     public @NotNull AstroResult<ResourceTeamDto> createResourceTeam(@NotNull CreateResourceTeamDto body)
     {
         RestRequest<ResourceTeamDto> r = new RestRequest<ResourceTeamDto>(this.client, "POST", "/api/data/resources/teams");
-        r.AddBody(body);
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ResourceTeamDto>>() {}.getType());
     }
 
@@ -90,7 +90,7 @@ public class ResourceTeamClient
     public @NotNull AstroResult<Object> deleteResourceTeam(@NotNull String resourceTeamId)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/resources/teams/{resourceTeamId}");
-        r.AddPath("{resourceTeamId}", resourceTeamId.toString());
+        r.AddPath("{resourceTeamId}", resourceTeamId == null ? "" : resourceTeamId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 
@@ -104,8 +104,8 @@ public class ResourceTeamClient
     public @NotNull AstroResult<ResourceTeamDto> updateResourceTeam(@NotNull String teamresourceId, @NotNull UpdateResourceTeamDto body)
     {
         RestRequest<ResourceTeamDto> r = new RestRequest<ResourceTeamDto>(this.client, "PUT", "/api/data/resources/teams/{teamresourceId}");
-        r.AddPath("{teamresourceId}", teamresourceId.toString());
-        r.AddBody(body);
+        r.AddPath("{teamresourceId}", teamresourceId == null ? "" : teamresourceId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ResourceTeamDto>>() {}.getType());
     }
 }

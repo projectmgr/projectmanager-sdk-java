@@ -55,8 +55,8 @@ public class FileClient
     public @NotNull AstroResult<Object> downloadFile(@NotNull String documentId, @Nullable String type)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "GET", "/api/data/files/{documentId}/download");
-        r.AddPath("{documentId}", documentId.toString());
-        r.AddQuery("type", type.toString());
+        r.AddPath("{documentId}", documentId == null ? "" : documentId.toString());
+        if (type != null) { r.AddQuery("type", type.toString()); }
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 
@@ -74,8 +74,8 @@ public class FileClient
     public @NotNull AstroResult<Object> updateFile(@NotNull String fileId, @NotNull UpdateRequestDto body)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "PUT", "/api/data/files/{fileId}");
-        r.AddPath("{fileId}", fileId.toString());
-        r.AddBody(body);
+        r.AddPath("{fileId}", fileId == null ? "" : fileId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

@@ -59,12 +59,12 @@ public class ProjectClient
     public @NotNull AstroResult<ProjectDto[]> queryProjects(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
         RestRequest<ProjectDto[]> r = new RestRequest<ProjectDto[]>(this.client, "GET", "/api/data/projects");
-        r.AddQuery("$top", top.toString());
-        r.AddQuery("$skip", skip.toString());
-        r.AddQuery("$filter", filter.toString());
-        r.AddQuery("$select", select.toString());
-        r.AddQuery("$orderby", orderby.toString());
-        r.AddQuery("$expand", expand.toString());
+        if (top != null) { r.AddQuery("$top", top.toString()); }
+        if (skip != null) { r.AddQuery("$skip", skip.toString()); }
+        if (filter != null) { r.AddQuery("$filter", filter.toString()); }
+        if (select != null) { r.AddQuery("$select", select.toString()); }
+        if (orderby != null) { r.AddQuery("$orderby", orderby.toString()); }
+        if (expand != null) { r.AddQuery("$expand", expand.toString()); }
         return r.Call(new TypeToken<AstroResult<ProjectDto[]>>() {}.getType());
     }
 
@@ -79,7 +79,7 @@ public class ProjectClient
     public @NotNull AstroResult<ProjectDto> createProject(@NotNull ProjectCreateDto body)
     {
         RestRequest<ProjectDto> r = new RestRequest<ProjectDto>(this.client, "POST", "/api/data/projects");
-        r.AddBody(body);
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ProjectDto>>() {}.getType());
     }
 
@@ -94,7 +94,7 @@ public class ProjectClient
     public @NotNull AstroResult<ProjectDto> retrieveProject(@NotNull String projectId)
     {
         RestRequest<ProjectDto> r = new RestRequest<ProjectDto>(this.client, "GET", "/api/data/projects/{projectId}");
-        r.AddPath("{projectId}", projectId.toString());
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
         return r.Call(new TypeToken<AstroResult<ProjectDto>>() {}.getType());
     }
 
@@ -112,8 +112,8 @@ public class ProjectClient
     public @NotNull AstroResult<Object> updateProject(@NotNull String projectId, @NotNull ProjectUpdateDto body)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "PUT", "/api/data/projects/{projectId}");
-        r.AddPath("{projectId}", projectId.toString());
-        r.AddBody(body);
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

@@ -69,7 +69,7 @@ public class ProjectFieldClient
     public @NotNull AstroResult<CreateProjectFieldResponseDto> createProjectField(@NotNull CreateProjectFieldDto body)
     {
         RestRequest<CreateProjectFieldResponseDto> r = new RestRequest<CreateProjectFieldResponseDto>(this.client, "POST", "/api/data/projects/fields");
-        r.AddBody(body);
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<CreateProjectFieldResponseDto>>() {}.getType());
     }
 
@@ -84,7 +84,7 @@ public class ProjectFieldClient
     public @NotNull AstroResult<Object> deleteProjectField(@NotNull DeleteProjectFieldDto body)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/fields");
-        r.AddBody(body);
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 
@@ -101,9 +101,9 @@ public class ProjectFieldClient
     public @NotNull AstroResult<Object> updateProjectField(@NotNull String projectId, @NotNull String fieldId, @NotNull UpdateProjectFieldValueDto body)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "PUT", "/api/data/projects/{projectId}/fields/{fieldId}");
-        r.AddPath("{projectId}", projectId.toString());
-        r.AddPath("{fieldId}", fieldId.toString());
-        r.AddBody(body);
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        r.AddPath("{fieldId}", fieldId == null ? "" : fieldId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

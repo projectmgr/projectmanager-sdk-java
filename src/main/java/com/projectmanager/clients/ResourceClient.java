@@ -54,7 +54,7 @@ public class ResourceClient
     public @NotNull AstroResult<ResourceDto> createResource(@NotNull ResourceCreateDto body)
     {
         RestRequest<ResourceDto> r = new RestRequest<ResourceDto>(this.client, "POST", "/api/data/resources");
-        r.AddBody(body);
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ResourceDto>>() {}.getType());
     }
 
@@ -74,12 +74,12 @@ public class ResourceClient
     public @NotNull AstroResult<ResourceDto[]> queryResources(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
         RestRequest<ResourceDto[]> r = new RestRequest<ResourceDto[]>(this.client, "GET", "/api/data/resources");
-        r.AddQuery("$top", top.toString());
-        r.AddQuery("$skip", skip.toString());
-        r.AddQuery("$filter", filter.toString());
-        r.AddQuery("$select", select.toString());
-        r.AddQuery("$orderby", orderby.toString());
-        r.AddQuery("$expand", expand.toString());
+        if (top != null) { r.AddQuery("$top", top.toString()); }
+        if (skip != null) { r.AddQuery("$skip", skip.toString()); }
+        if (filter != null) { r.AddQuery("$filter", filter.toString()); }
+        if (select != null) { r.AddQuery("$select", select.toString()); }
+        if (orderby != null) { r.AddQuery("$orderby", orderby.toString()); }
+        if (expand != null) { r.AddQuery("$expand", expand.toString()); }
         return r.Call(new TypeToken<AstroResult<ResourceDto[]>>() {}.getType());
     }
 
@@ -95,8 +95,8 @@ public class ResourceClient
     public @NotNull AstroResult<ResourceDto> updateResource(@NotNull String resourceId, @NotNull ResourceUpdateDto body)
     {
         RestRequest<ResourceDto> r = new RestRequest<ResourceDto>(this.client, "PUT", "/api/data/resources/{resourceId}");
-        r.AddPath("{resourceId}", resourceId.toString());
-        r.AddBody(body);
+        r.AddPath("{resourceId}", resourceId == null ? "" : resourceId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ResourceDto>>() {}.getType());
     }
 
@@ -111,7 +111,7 @@ public class ResourceClient
     public @NotNull AstroResult<ResourceDto> retrieveResource(@NotNull String resourceId)
     {
         RestRequest<ResourceDto> r = new RestRequest<ResourceDto>(this.client, "GET", "/api/data/resources/{resourceId}");
-        r.AddPath("{resourceId}", resourceId.toString());
+        r.AddPath("{resourceId}", resourceId == null ? "" : resourceId.toString());
         return r.Call(new TypeToken<AstroResult<ResourceDto>>() {}.getType());
     }
 }

@@ -55,7 +55,7 @@ public class ProjectFileClient
     public @NotNull AstroResult<FileDto> uploadProjectFile(@NotNull String projectId, @NotNull byte[] filename)
     {
         RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/projects/{projectId}/files");
-        r.AddPath("{projectId}", projectId.toString());
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
         return r.Call(new TypeToken<AstroResult<FileDto>>() {}.getType());
     }
 
@@ -74,8 +74,8 @@ public class ProjectFileClient
     public @NotNull AstroResult<FileDto> uploadProjectFileToFolder(@NotNull String projectId, @NotNull String folderId, @NotNull byte[] filename)
     {
         RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/projects/{projectId}/folders/{folderId}/files");
-        r.AddPath("{projectId}", projectId.toString());
-        r.AddPath("{folderId}", folderId.toString());
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        r.AddPath("{folderId}", folderId == null ? "" : folderId.toString());
         return r.Call(new TypeToken<AstroResult<FileDto>>() {}.getType());
     }
 }

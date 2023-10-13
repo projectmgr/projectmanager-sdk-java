@@ -54,7 +54,7 @@ public class TimesheetClient
     public @NotNull AstroResult<TimesheetResponseDto> createtimeentry(@NotNull TimesheetCreateRequestDto body)
     {
         RestRequest<TimesheetResponseDto> r = new RestRequest<TimesheetResponseDto>(this.client, "POST", "/api/data/timesheets");
-        r.AddBody(body);
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<TimesheetResponseDto>>() {}.getType());
     }
 
@@ -74,12 +74,12 @@ public class TimesheetClient
     public @NotNull AstroResult<TimesheetDto[]> queryTimeSheets(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
         RestRequest<TimesheetDto[]> r = new RestRequest<TimesheetDto[]>(this.client, "GET", "/api/data/timesheets");
-        r.AddQuery("$top", top.toString());
-        r.AddQuery("$skip", skip.toString());
-        r.AddQuery("$filter", filter.toString());
-        r.AddQuery("$select", select.toString());
-        r.AddQuery("$orderby", orderby.toString());
-        r.AddQuery("$expand", expand.toString());
+        if (top != null) { r.AddQuery("$top", top.toString()); }
+        if (skip != null) { r.AddQuery("$skip", skip.toString()); }
+        if (filter != null) { r.AddQuery("$filter", filter.toString()); }
+        if (select != null) { r.AddQuery("$select", select.toString()); }
+        if (orderby != null) { r.AddQuery("$orderby", orderby.toString()); }
+        if (expand != null) { r.AddQuery("$expand", expand.toString()); }
         return r.Call(new TypeToken<AstroResult<TimesheetDto[]>>() {}.getType());
     }
 
@@ -92,7 +92,7 @@ public class TimesheetClient
     public @NotNull AstroResult<Object> deletetimeentry(@NotNull String timesheetId)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/timesheets/{timesheetId}");
-        r.AddPath("{timesheetId}", timesheetId.toString());
+        r.AddPath("{timesheetId}", timesheetId == null ? "" : timesheetId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 
@@ -106,8 +106,8 @@ public class TimesheetClient
     public @NotNull AstroResult<TimesheetResponseDto> updatetimeentry(@NotNull String timesheetId, @NotNull TimesheetUpdateRequestDto body)
     {
         RestRequest<TimesheetResponseDto> r = new RestRequest<TimesheetResponseDto>(this.client, "PUT", "/api/data/timesheets/{timesheetId}");
-        r.AddPath("{timesheetId}", timesheetId.toString());
-        r.AddBody(body);
+        r.AddPath("{timesheetId}", timesheetId == null ? "" : timesheetId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<TimesheetResponseDto>>() {}.getType());
     }
 

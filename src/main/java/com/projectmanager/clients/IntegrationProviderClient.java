@@ -67,7 +67,7 @@ public class IntegrationProviderClient
     public @NotNull AstroResult<DirectLinkDto> activateIntegrationProvider(@NotNull String providerId)
     {
         RestRequest<DirectLinkDto> r = new RestRequest<DirectLinkDto>(this.client, "POST", "/api/data/integrations/providers/{providerId}");
-        r.AddPath("{providerId}", providerId.toString());
+        r.AddPath("{providerId}", providerId == null ? "" : providerId.toString());
         return r.Call(new TypeToken<AstroResult<DirectLinkDto>>() {}.getType());
     }
 
@@ -81,8 +81,8 @@ public class IntegrationProviderClient
     public @NotNull AstroResult<Object> updateIntegrationProvider(@NotNull String providerId, @NotNull AuthenticationStatusDto body)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "PUT", "/api/data/integrations/providers/{providerId}");
-        r.AddPath("{providerId}", providerId.toString());
-        r.AddBody(body);
+        r.AddPath("{providerId}", providerId == null ? "" : providerId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 
@@ -95,7 +95,7 @@ public class IntegrationProviderClient
     public @NotNull AstroResult<Object> deactivateIntegrationProvider(@NotNull String providerId)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/integrations/providers/{providerId}");
-        r.AddPath("{providerId}", providerId.toString());
+        r.AddPath("{providerId}", providerId == null ? "" : providerId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 
@@ -110,7 +110,7 @@ public class IntegrationProviderClient
     public @NotNull AstroResult<DirectLinkDto> createUserIntegrationProviderConnection(@NotNull String providerId)
     {
         RestRequest<DirectLinkDto> r = new RestRequest<DirectLinkDto>(this.client, "POST", "/api/data/integrations/providers/{providerId}/user-connection");
-        r.AddPath("{providerId}", providerId.toString());
+        r.AddPath("{providerId}", providerId == null ? "" : providerId.toString());
         return r.Call(new TypeToken<AstroResult<DirectLinkDto>>() {}.getType());
     }
 
@@ -124,8 +124,8 @@ public class IntegrationProviderClient
     public @NotNull AstroResult<Object> updateUserIntegrationProviderConnection(@NotNull String providerId, @NotNull AuthenticationStatusDto body)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "PUT", "/api/data/integrations/providers/{providerId}/user-connection");
-        r.AddPath("{providerId}", providerId.toString());
-        r.AddBody(body);
+        r.AddPath("{providerId}", providerId == null ? "" : providerId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

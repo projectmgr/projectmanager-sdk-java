@@ -71,7 +71,7 @@ public class HomeFileClient
     public @NotNull AstroResult<FileDto> uploadHomeFileToFolder(@NotNull String folderId, @NotNull byte[] filename)
     {
         RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/home/folders/{folderId}/files");
-        r.AddPath("{folderId}", folderId.toString());
+        r.AddPath("{folderId}", folderId == null ? "" : folderId.toString());
         return r.Call(new TypeToken<AstroResult<FileDto>>() {}.getType());
     }
 }

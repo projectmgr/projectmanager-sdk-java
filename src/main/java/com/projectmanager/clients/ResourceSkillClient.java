@@ -59,12 +59,12 @@ public class ResourceSkillClient
     public @NotNull AstroResult<ResourceSkillDto[]> retrieveResourceSkills(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
         RestRequest<ResourceSkillDto[]> r = new RestRequest<ResourceSkillDto[]>(this.client, "GET", "/api/data/resources/skills");
-        r.AddQuery("$top", top.toString());
-        r.AddQuery("$skip", skip.toString());
-        r.AddQuery("$filter", filter.toString());
-        r.AddQuery("$select", select.toString());
-        r.AddQuery("$orderby", orderby.toString());
-        r.AddQuery("$expand", expand.toString());
+        if (top != null) { r.AddQuery("$top", top.toString()); }
+        if (skip != null) { r.AddQuery("$skip", skip.toString()); }
+        if (filter != null) { r.AddQuery("$filter", filter.toString()); }
+        if (select != null) { r.AddQuery("$select", select.toString()); }
+        if (orderby != null) { r.AddQuery("$orderby", orderby.toString()); }
+        if (expand != null) { r.AddQuery("$expand", expand.toString()); }
         return r.Call(new TypeToken<AstroResult<ResourceSkillDto[]>>() {}.getType());
     }
 
@@ -77,7 +77,7 @@ public class ResourceSkillClient
     public @NotNull AstroResult<ResourceSkillDto> createResourceSkill(@NotNull CreateResourceSkillDto body)
     {
         RestRequest<ResourceSkillDto> r = new RestRequest<ResourceSkillDto>(this.client, "POST", "/api/data/resources/skills");
-        r.AddBody(body);
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ResourceSkillDto>>() {}.getType());
     }
 
@@ -91,8 +91,8 @@ public class ResourceSkillClient
     public @NotNull AstroResult<ResourceSkillDto> updateResourceSkill(@NotNull String skillId, @NotNull UpdateResourceSkillDto body)
     {
         RestRequest<ResourceSkillDto> r = new RestRequest<ResourceSkillDto>(this.client, "PUT", "/api/data/resources/skills/{skillId}");
-        r.AddPath("{skillId}", skillId.toString());
-        r.AddBody(body);
+        r.AddPath("{skillId}", skillId == null ? "" : skillId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ResourceSkillDto>>() {}.getType());
     }
 
@@ -105,7 +105,7 @@ public class ResourceSkillClient
     public @NotNull AstroResult<Object> deleteResourceSkill(@NotNull String resourceSkillId)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/resources/skills/{resourceSkillId}");
-        r.AddPath("{resourceSkillId}", resourceSkillId.toString());
+        r.AddPath("{resourceSkillId}", resourceSkillId == null ? "" : resourceSkillId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

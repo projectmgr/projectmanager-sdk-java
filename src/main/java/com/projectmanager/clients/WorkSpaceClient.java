@@ -69,8 +69,8 @@ public class WorkSpaceClient
     public @NotNull AstroResult<Object> invitetoWorkspace(@NotNull String organizationId, @NotNull WorkSpaceJoinDto body)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "POST", "/api/data/workspaces/{organizationId}/join");
-        r.AddPath("{organizationId}", organizationId.toString());
-        r.AddBody(body);
+        r.AddPath("{organizationId}", organizationId == null ? "" : organizationId.toString());
+        if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }
