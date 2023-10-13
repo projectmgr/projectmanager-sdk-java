@@ -33,7 +33,7 @@ public class AstroResult<T>
     private @Nullable AstroError error;
     private @NotNull Boolean success;
     private @NotNull Boolean hasError;
-    private @NotNull int statusCode;
+    private @NotNull String statusCode;
     private @Nullable T data;
 
     /**
@@ -77,13 +77,13 @@ public class AstroResult<T>
      *
      * @return The field statusCode
      */
-    public @NotNull int getStatusCode() { return this.statusCode; }
+    public @NotNull String getStatusCode() { return this.statusCode; }
     /**
      * The HTTP code of the response.
      *
      * @param value The new value for statusCode
      */
-    public void setStatusCode(@NotNull int value) { this.statusCode = value; }
+    public void setStatusCode(@NotNull String value) { this.statusCode = value; }
     /**
      * If the API call succeeded, this value contains the response from the server.
      *
@@ -102,11 +102,11 @@ public class AstroResult<T>
      */
     public void Parse(Type classReference, String content, int code, long serverDuration, long roundTripTime)
     {
-        this.statusCode = code;
+        this.statusCode = Integer.toString(code);
         Gson gson = new Gson();
         if (code >= 200 && code < 300) {
             this.success = true;
-            this.data = gson.fromJson(content, classReference);
+            this.data = ((AstroResult<T>)gson.fromJson(content, classReference)).getData();
         } else if (code == -1) {
             // special case for exceptions
             this.success = false;
@@ -115,7 +115,7 @@ public class AstroResult<T>
             this.error.setMessage(content);
         } else {
             this.success = false;
-            this.error = gson.fromJson(content, new TypeToken<AstroError>() {}.getType());
+            this.error = ((AstroResult<T>)gson.fromJson(content, new TypeToken<AstroError>() {}.getType())).getError();
         }
     }
 };
