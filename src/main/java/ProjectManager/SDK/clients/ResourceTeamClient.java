@@ -47,12 +47,12 @@ public class ResourceTeamClient
      *
      * A ResourceTeam is a grouping of Resources that allows you to keep track of assignments in a manner consistent with your business needs.  You can assign Resources to be members of zero, one, or many ResourceTeams.
      *
-     * @param $top The number of records to return
-     * @param $skip Skips the given number of records and then returns $top records
-     * @param $filter Filter the expression according to oData queries
-     * @param $select Specify which properties should be returned
-     * @param $orderby Order collection by this field.
-     * @param $expand Include related data in the response
+     * @param top The number of records to return
+     * @param skip Skips the given number of records and then returns $top records
+     * @param filter Filter the expression according to oData queries
+     * @param select Specify which properties should be returned
+     * @param orderby Order collection by this field.
+     * @param expand Include related data in the response
      * @return A {@link ProjectManager.SDK.AstroResult} containing the results
      */
     public @NotNull AstroResult<ResourceTeamDto[]> retrieveResourceTeams(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)

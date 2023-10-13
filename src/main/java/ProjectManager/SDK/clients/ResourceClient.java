@@ -62,12 +62,12 @@ public class ResourceClient
      *
      * A Resource represents a person, material, or tool that is used within your Projects. When you attach a Resources to more than one Task, the software will schedule the usage of your Resource so that it is not allocated to more than one Task at the same time. The users in your Workspace are also considered Resources.  To invite a new User to your Workspace, create a new Resource for that user.
      *
-     * @param $top The number of records to return
-     * @param $skip Skips the given number of records and then returns $top records
-     * @param $filter Filter the expression according to oData queries
-     * @param $select Specify which properties should be returned
-     * @param $orderby Order collection by this field.
-     * @param $expand Include related data in the response
+     * @param top The number of records to return
+     * @param skip Skips the given number of records and then returns $top records
+     * @param filter Filter the expression according to oData queries
+     * @param select Specify which properties should be returned
+     * @param orderby Order collection by this field.
+     * @param expand Include related data in the response
      * @return A {@link ProjectManager.SDK.AstroResult} containing the results
      */
     public @NotNull AstroResult<ResourceDto[]> queryResources(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)

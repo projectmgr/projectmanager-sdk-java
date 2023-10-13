@@ -47,12 +47,12 @@ public class ProjectClient
      *
      * A Project is a collection of Tasks that contributes towards a goal.  Within a Project, Tasks represent individual items of work that team members must complete.  The sum total of Tasks within a Project represents the work to be completed for that Project.
      *
-     * @param $top The number of records to return
-     * @param $skip Skips the given number of records and then returns $top records
-     * @param $filter Filter the expression according to oData queries
-     * @param $select Specify which properties should be returned
-     * @param $orderby Order collection by this field.
-     * @param $expand Include related data in the response
+     * @param top The number of records to return
+     * @param skip Skips the given number of records and then returns $top records
+     * @param filter Filter the expression according to oData queries
+     * @param select Specify which properties should be returned
+     * @param orderby Order collection by this field.
+     * @param expand Include related data in the response
      * @return A {@link ProjectManager.SDK.AstroResult} containing the results
      */
     public @NotNull AstroResult<ProjectDto[]> queryProjects(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)

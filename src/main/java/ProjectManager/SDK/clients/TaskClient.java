@@ -50,12 +50,12 @@ public class TaskClient
      *
      * A Task is an individual element of work that must be performed to complete a Project.  A Task can have one or more Resources assigned to it.  Tasks can be linked to other Tasks to indicate whether they have a dependency or a connection.
      *
-     * @param $top The number of records to return
-     * @param $skip Skips the given number of records and then returns $top records
-     * @param $filter Filter the expression according to oData queries
-     * @param $select Specify which properties should be returned
-     * @param $orderby Order collection by this field.
-     * @param $expand Include related data in the response
+     * @param top The number of records to return
+     * @param skip Skips the given number of records and then returns $top records
+     * @param filter Filter the expression according to oData queries
+     * @param select Specify which properties should be returned
+     * @param orderby Order collection by this field.
+     * @param expand Include related data in the response
      * @return A {@link ProjectManager.SDK.AstroResult} containing the results
      */
     public @NotNull AstroResult<TaskDto[]> queryTasks(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
