@@ -35,7 +35,7 @@ public class TaskDetailsDto
     private @Nullable String description;
     private @Nullable TaskStatusDto status;
     private @NotNull Integer priorityId;
-    private @NotNull String plannedStartDate;
+    private @Nullable String plannedStartDate;
     private @Nullable String plannedFinishDate;
     private @Nullable String actualStartDate;
     private @Nullable String actualFinishDate;
@@ -174,13 +174,13 @@ public class TaskDetailsDto
      *
      * @return The field plannedStartDate
      */
-    public @NotNull String getPlannedStartDate() { return this.plannedStartDate; }
+    public @Nullable String getPlannedStartDate() { return this.plannedStartDate; }
     /**
      * The date when work on this Task is planned to begin.
      *
      * @param value The new value for plannedStartDate
      */
-    public void setPlannedStartDate(@NotNull String value) { this.plannedStartDate = value; }
+    public void setPlannedStartDate(@Nullable String value) { this.plannedStartDate = value; }
     /**
      * The date when work on this Task is expected to complete.
      *

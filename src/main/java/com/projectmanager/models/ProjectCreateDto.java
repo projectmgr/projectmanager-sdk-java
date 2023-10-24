@@ -22,6 +22,9 @@ import org.jetbrains.annotations.Nullable;
  * A Project is a collection of Tasks that contributes towards a goal.  Within a Project, Tasks
  * represent individual items of work that team members must complete.  The sum total of Tasks
  * within a Project represents the work to be completed for that Project.
+ *
+ * Fields that cannot be selected during a CreateProject API call are not visible on this
+ * data model.
  */
 public class ProjectCreateDto
 {
@@ -225,23 +228,27 @@ public class ProjectCreateDto
      */
     public void setTemplate(@NotNull Boolean value) { this.template = value; }
     /**
-     * The Template that this project should be created from.
+     * When creating a Project, you can optionally specify a Template to use to construct
+     * the Project using a collection of pre-designed Tasks.
      *
-     * Specifying a TemplateId will copy default settings for Tasks.
+     * Specifying a value in the TemplateId field will copy default settings for Tasks from
+     * your template Project into the newly created Project.
      *
-     * NOTE: This does not support custom templates - TemplateId has to be a reference
-     * to a static non-Custom template.
+     * This field does not support custom templates.  You must choose from a list of
+     * ProjectManager-supplied templates.
      *
      * @return The field templateId
      */
     public @Nullable String getTemplateId() { return this.templateId; }
     /**
-     * The Template that this project should be created from.
+     * When creating a Project, you can optionally specify a Template to use to construct
+     * the Project using a collection of pre-designed Tasks.
      *
-     * Specifying a TemplateId will copy default settings for Tasks.
+     * Specifying a value in the TemplateId field will copy default settings for Tasks from
+     * your template Project into the newly created Project.
      *
-     * NOTE: This does not support custom templates - TemplateId has to be a reference
-     * to a static non-Custom template.
+     * This field does not support custom templates.  You must choose from a list of
+     * ProjectManager-supplied templates.
      *
      * @param value The new value for templateId
      */

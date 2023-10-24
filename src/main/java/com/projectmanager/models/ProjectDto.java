@@ -35,6 +35,10 @@ public class ProjectDto
     private @Nullable String startDate;
     private @Nullable String endDate;
     private @Nullable String targetDate;
+    private @Nullable String plannedStartDate;
+    private @Nullable String plannedFinishDate;
+    private @Nullable String actualStartDate;
+    private @Nullable String actualFinishDate;
     private @Nullable ProjectPriorityDto priority;
     private @Nullable ProjectChargeCodeDto chargeCode;
     private @Nullable ProjectManagerDto manager;
@@ -49,13 +53,15 @@ public class ProjectDto
     private @Nullable ProjectMemberDto[] members;
 
     /**
-     * The unique identifier of the Project.
+     * The unique identifier of the Project.  This value is set by the system and cannot
+     * be set with a CreateProject or changed with an UpdateProject call.
      *
      * @return The field id
      */
     public @NotNull String getId() { return this.id; }
     /**
-     * The unique identifier of the Project.
+     * The unique identifier of the Project.  This value is set by the system and cannot
+     * be set with a CreateProject or changed with an UpdateProject call.
      *
      * @param value The new value for id
      */
@@ -203,6 +209,66 @@ public class ProjectDto
      */
     public void setTargetDate(@Nullable String value) { this.targetDate = value; }
     /**
+     * The planned start date for this Project. This is calculated based
+     * off of the earliest task start date
+     *
+     * @return The field plannedStartDate
+     */
+    public @Nullable String getPlannedStartDate() { return this.plannedStartDate; }
+    /**
+     * The planned start date for this Project. This is calculated based
+     * off of the earliest task start date
+     *
+     * @param value The new value for plannedStartDate
+     */
+    public void setPlannedStartDate(@Nullable String value) { this.plannedStartDate = value; }
+    /**
+     * The planned start date for this Project. This is calculated based
+     * off of the latest task finish date
+     *
+     * @return The field plannedFinishDate
+     */
+    public @Nullable String getPlannedFinishDate() { return this.plannedFinishDate; }
+    /**
+     * The planned start date for this Project. This is calculated based
+     * off of the latest task finish date
+     *
+     * @param value The new value for plannedFinishDate
+     */
+    public void setPlannedFinishDate(@Nullable String value) { this.plannedFinishDate = value; }
+    /**
+     * The actual start date for this Project. This is calculated based
+     * on the earliest task actual start date, or null if no projects have
+     * been started
+     *
+     * @return The field actualStartDate
+     */
+    public @Nullable String getActualStartDate() { return this.actualStartDate; }
+    /**
+     * The actual start date for this Project. This is calculated based
+     * on the earliest task actual start date, or null if no projects have
+     * been started
+     *
+     * @param value The new value for actualStartDate
+     */
+    public void setActualStartDate(@Nullable String value) { this.actualStartDate = value; }
+    /**
+     * The actual finish date for this Project. This is calculated based
+     * on the latest task actual finish date, or null if no projects have
+     * been finished
+     *
+     * @return The field actualFinishDate
+     */
+    public @Nullable String getActualFinishDate() { return this.actualFinishDate; }
+    /**
+     * The actual finish date for this Project. This is calculated based
+     * on the latest task actual finish date, or null if no projects have
+     * been finished
+     *
+     * @param value The new value for actualFinishDate
+     */
+    public void setActualFinishDate(@Nullable String value) { this.actualFinishDate = value; }
+    /**
      * The ProjectPriority level of this Project, if defined.
      *
      * @return The field priority
@@ -299,11 +365,17 @@ public class ProjectDto
     /**
      * The timestamp in UTC when the Project was most recently modified.
      *
+     * This field is automatically determined by the system when this Project is modified
+     * and cannot be directly changed by the user.
+     *
      * @return The field modifyDate
      */
     public @NotNull String getModifyDate() { return this.modifyDate; }
     /**
      * The timestamp in UTC when the Project was most recently modified.
+     *
+     * This field is automatically determined by the system when this Project is modified
+     * and cannot be directly changed by the user.
      *
      * @param value The new value for modifyDate
      */
@@ -311,11 +383,17 @@ public class ProjectDto
     /**
      * The timestamp in UTC when the Project was created.
      *
+     * This field is automatically determined by the system when this Project is created
+     * and cannot be changed by the user.
+     *
      * @return The field createDate
      */
     public @NotNull String getCreateDate() { return this.createDate; }
     /**
      * The timestamp in UTC when the Project was created.
+     *
+     * This field is automatically determined by the system when this Project is created
+     * and cannot be changed by the user.
      *
      * @param value The new value for createDate
      */
