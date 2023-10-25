@@ -27,11 +27,14 @@ public class TaskDto
 {
     private @NotNull String id;
     private @Nullable TaskProjectDto project;
+    private @Nullable TaskTagDto[] tags;
     private @NotNull String projectId;
     private @Nullable TaskAssigneeDto[] assignees;
+    private @Nullable TaskTodoDto[] todos;
     private @Nullable String shortId;
     private @Nullable String name;
     private @Nullable String description;
+    private @Nullable TaskStatusDto status;
     private @NotNull String plannedStartDate;
     private @Nullable String plannedFinishDate;
     private @Nullable String actualStartDate;
@@ -45,6 +48,8 @@ public class TaskDto
     private @Nullable String color;
     private @Nullable Double actualCost;
     private @Nullable Double plannedCost;
+    private @Nullable Integer plannedDuration;
+    private @Nullable Integer plannedEffort;
 
     /**
      * The unique identifier of this Task.
@@ -71,6 +76,18 @@ public class TaskDto
      */
     public void setProject(@Nullable TaskProjectDto value) { this.project = value; }
     /**
+     * The TaskTags that apply to this Task.
+     *
+     * @return The field tags
+     */
+    public @Nullable TaskTagDto[] getTags() { return this.tags; }
+    /**
+     * The TaskTags that apply to this Task.
+     *
+     * @param value The new value for tags
+     */
+    public void setTags(@Nullable TaskTagDto[] value) { this.tags = value; }
+    /**
      * The unique identifier of the Project to which this Task belongs.
      *
      * @return The field projectId
@@ -94,6 +111,18 @@ public class TaskDto
      * @param value The new value for assignees
      */
     public void setAssignees(@Nullable TaskAssigneeDto[] value) { this.assignees = value; }
+    /**
+     * A list of TaskTodo items, which are sub-tasks within this Task.
+     *
+     * @return The field todos
+     */
+    public @Nullable TaskTodoDto[] getTodos() { return this.todos; }
+    /**
+     * A list of TaskTodo items, which are sub-tasks within this Task.
+     *
+     * @param value The new value for todos
+     */
+    public void setTodos(@Nullable TaskTodoDto[] value) { this.todos = value; }
     /**
      * A short ID that can be used to refer to this Task.  This short ID is
      * guaranteed to be unique within your Workspace.
@@ -132,6 +161,18 @@ public class TaskDto
      * @param value The new value for description
      */
     public void setDescription(@Nullable String value) { this.description = value; }
+    /**
+     * The TaskStatus assigned to this Task.
+     *
+     * @return The field status
+     */
+    public @Nullable TaskStatusDto getStatus() { return this.status; }
+    /**
+     * The TaskStatus assigned to this Task.
+     *
+     * @param value The new value for status
+     */
+    public void setStatus(@Nullable TaskStatusDto value) { this.status = value; }
     /**
      * The date when work on this Task is planned to begin.
      *
@@ -400,4 +441,28 @@ public class TaskDto
      * @param value The new value for plannedCost
      */
     public void setPlannedCost(@Nullable Double value) { this.plannedCost = value; }
+    /**
+     * The planned duration (in minutes) for this Task.
+     *
+     * @return The field plannedDuration
+     */
+    public @Nullable Integer getPlannedDuration() { return this.plannedDuration; }
+    /**
+     * The planned duration (in minutes) for this Task.
+     *
+     * @param value The new value for plannedDuration
+     */
+    public void setPlannedDuration(@Nullable Integer value) { this.plannedDuration = value; }
+    /**
+     * The planned effort (in minutes) for this Task.
+     *
+     * @return The field plannedEffort
+     */
+    public @Nullable Integer getPlannedEffort() { return this.plannedEffort; }
+    /**
+     * The planned effort (in minutes) for this Task.
+     *
+     * @param value The new value for plannedEffort
+     */
+    public void setPlannedEffort(@Nullable Integer value) { this.plannedEffort = value; }
 };

@@ -172,4 +172,47 @@ public class TaskClient
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto[]>>() {}.getType());
     }
+
+    /**
+     * Adds a task parent relationship
+     *
+     * @param taskId The task that will become the child
+     * @param parentTaskId The parent task
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ChangeSetStatusDto> addParentTask(@NotNull String taskId, @NotNull String parentTaskId)
+    {
+        RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "POST", "/api/data/tasks/{taskId}/parent/{parentTaskId}");
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
+        r.AddPath("{parentTaskId}", parentTaskId == null ? "" : parentTaskId.toString());
+        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
+    }
+
+    /**
+     * Updates a task parent relationship
+     *
+     * @param taskId The task that will become the child
+     * @param parentTaskId The parent task
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ChangeSetStatusDto> updateParentTask(@NotNull String taskId, @NotNull String parentTaskId)
+    {
+        RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "PUT", "/api/data/tasks/{taskId}/parent/{parentTaskId}");
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
+        r.AddPath("{parentTaskId}", parentTaskId == null ? "" : parentTaskId.toString());
+        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
+    }
+
+    /**
+     * Removes a task parent relationship completely
+     *
+     * @param taskId The child task
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ChangeSetStatusDto> removeParentTask(@NotNull String taskId)
+    {
+        RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "DELETE", "/api/data/tasks/{taskId}/parent");
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
+        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
+    }
 }
