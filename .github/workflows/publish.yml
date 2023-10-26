@@ -34,7 +34,7 @@ jobs:
 
     - name: Verify with Maven
       if: github.event_name == 'pull_request'
-      run: mvn -B -Prelease clean verify 
+      run: mvn -B clean verify 
 
     - name: Verify javadoc
       if: github.event_name == 'pull_request'
