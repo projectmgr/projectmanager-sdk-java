@@ -48,11 +48,10 @@ public class ResourceClient
      *
      * A Resource represents a person, material, or tool that is used within your Projects. When you attach a Resources to more than one Task, the software will schedule the usage of your Resource so that it is not allocated to more than one Task at the same time. The users in your Workspace are also considered Resources.  To invite a new User to your Workspace, create a new Resource for that user.
      *
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The details for the new Resource to create
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ResourceDto> createResource(@Nullable Object xintegrationname, @NotNull ResourceCreateDto body)
+    public @NotNull AstroResult<ResourceDto> createResource(@NotNull ResourceCreateDto body)
     {
         RestRequest<ResourceDto> r = new RestRequest<ResourceDto>(this.client, "POST", "/api/data/resources");
         if (body != null) { r.AddBody(body); }
@@ -64,7 +63,6 @@ public class ResourceClient
      *
      * A Resource represents a person, material, or tool that is used within your Projects. When you attach a Resources to more than one Task, the software will schedule the usage of your Resource so that it is not allocated to more than one Task at the same time. The users in your Workspace are also considered Resources.  To invite a new User to your Workspace, create a new Resource for that user.
      *
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param top The number of records to return
      * @param skip Skips the given number of records and then returns $top records
      * @param filter Filter the expression according to oData queries
@@ -73,7 +71,7 @@ public class ResourceClient
      * @param expand Include related data in the response
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ResourceDto[]> queryResources(@Nullable Object xintegrationname, @Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
+    public @NotNull AstroResult<ResourceDto[]> queryResources(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
         RestRequest<ResourceDto[]> r = new RestRequest<ResourceDto[]>(this.client, "GET", "/api/data/resources");
         if (top != null) { r.AddQuery("$top", top.toString()); }
@@ -91,11 +89,10 @@ public class ResourceClient
      * A Resource represents a person, material, or tool that is used within your Projects. When you attach a Resources to more than one Task, the software will schedule the usage of your Resource so that it is not allocated to more than one Task at the same time. The users in your Workspace are also considered Resources.  To invite a new User to your Workspace, create a new Resource for that user.
      *
      * @param resourceId The id of the resource
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The information to update the resource
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ResourceDto> updateResource(@NotNull String resourceId, @Nullable Object xintegrationname, @NotNull ResourceUpdateDto body)
+    public @NotNull AstroResult<ResourceDto> updateResource(@NotNull String resourceId, @NotNull ResourceUpdateDto body)
     {
         RestRequest<ResourceDto> r = new RestRequest<ResourceDto>(this.client, "PUT", "/api/data/resources/{resourceId}");
         r.AddPath("{resourceId}", resourceId == null ? "" : resourceId.toString());
@@ -109,10 +106,9 @@ public class ResourceClient
      * A Resource represents a person, material, or tool that is used within your Projects. When you attach a Resources to more than one Task, the software will schedule the usage of your Resource so that it is not allocated to more than one Task at the same time. The users in your Workspace are also considered Resources.  To invite a new User to your Workspace, create a new Resource for that user.
      *
      * @param resourceId The id of the Resource
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ResourceDto> retrieveResource(@NotNull String resourceId, @Nullable Object xintegrationname)
+    public @NotNull AstroResult<ResourceDto> retrieveResource(@NotNull String resourceId)
     {
         RestRequest<ResourceDto> r = new RestRequest<ResourceDto>(this.client, "GET", "/api/data/resources/{resourceId}");
         r.AddPath("{resourceId}", resourceId == null ? "" : resourceId.toString());

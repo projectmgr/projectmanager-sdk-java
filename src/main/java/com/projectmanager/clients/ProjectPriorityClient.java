@@ -47,10 +47,9 @@ public class ProjectPriorityClient
      *
      * Note that TaskPriority and ProjectPriority are different classes of priority levels.  Even if they may have similar names, they are different objects and must be tracked separately.
      *
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectPriorityDto[]> retrieveProjectPriorities(@Nullable Object xintegrationname)
+    public @NotNull AstroResult<ProjectPriorityDto[]> retrieveProjectPriorities()
     {
         RestRequest<ProjectPriorityDto[]> r = new RestRequest<ProjectPriorityDto[]>(this.client, "GET", "/api/data/projects/priorities");
         return r.Call(new TypeToken<AstroResult<ProjectPriorityDto[]>>() {}.getType());

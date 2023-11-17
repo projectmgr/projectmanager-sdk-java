@@ -45,10 +45,9 @@ public class ProjectFolderClient
      *
      * A ProjectFolder is a named storage location that can contain Projects.
      *
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectFolderDto[]> retrieveProjectFolders(@Nullable Object xintegrationname)
+    public @NotNull AstroResult<ProjectFolderDto[]> retrieveProjectFolders()
     {
         RestRequest<ProjectFolderDto[]> r = new RestRequest<ProjectFolderDto[]>(this.client, "GET", "/api/data/project-folders");
         return r.Call(new TypeToken<AstroResult<ProjectFolderDto[]>>() {}.getType());

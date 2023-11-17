@@ -49,11 +49,10 @@ public class TaskAssigneeClient
      * A TaskAssignee is an assignment of a Resource to a Task.  You can assign multiple Resources to a Task and designate what proportion of their time will be allocated to this Task.
      *
      * @param taskId The unique identifier of the Task whose TaskAssignees will be replaced
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The new list of TaskAssignees for this Task
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto> replaceTaskAssignees(@NotNull String taskId, @Nullable Object xintegrationname, @NotNull AssigneeUpsertDto[] body)
+    public @NotNull AstroResult<ChangeSetStatusDto> replaceTaskAssignees(@NotNull String taskId, @NotNull AssigneeUpsertDto[] body)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "POST", "/api/data/tasks/{taskId}/assignees");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
@@ -67,11 +66,10 @@ public class TaskAssigneeClient
      * A TaskAssignee is an assignment of a Resource to a Task.  You can assign multiple Resources to a Task and designate what proportion of their time will be allocated to this Task.
      *
      * @param taskId The unique identifier of the Task to add or update an assignment
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body List of Assignee data
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto> createOrUpdateTaskAssignee(@NotNull String taskId, @Nullable Object xintegrationname, @NotNull AssigneeUpsertDto[] body)
+    public @NotNull AstroResult<ChangeSetStatusDto> createOrUpdateTaskAssignee(@NotNull String taskId, @NotNull AssigneeUpsertDto[] body)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "PUT", "/api/data/tasks/{taskId}/assignees");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
@@ -85,11 +83,10 @@ public class TaskAssigneeClient
      * A TaskAssignee is an assignment of a Resource to a Task.  You can assign multiple Resources to a Task and designate what proportion of their time will be allocated to this Task.
      *
      * @param taskId The unique identifier of the Task whose TaskAssignee will be removed
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body List of TaskAssignee records to remove
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto> deleteTaskAssignees(@NotNull String taskId, @Nullable Object xintegrationname, @NotNull IdDto[] body)
+    public @NotNull AstroResult<ChangeSetStatusDto> deleteTaskAssignees(@NotNull String taskId, @NotNull IdDto[] body)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "DELETE", "/api/data/tasks/{taskId}/assignees");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());

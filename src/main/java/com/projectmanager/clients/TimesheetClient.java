@@ -48,11 +48,10 @@ public class TimesheetClient
     /**
      * Creates new time entry for given resource on given day.
      *
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body Payload
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TimesheetResponseDto> createtimeentry(@Nullable Object xintegrationname, @NotNull TimesheetCreateRequestDto body)
+    public @NotNull AstroResult<TimesheetResponseDto> createtimeentry(@NotNull TimesheetCreateRequestDto body)
     {
         RestRequest<TimesheetResponseDto> r = new RestRequest<TimesheetResponseDto>(this.client, "POST", "/api/data/timesheets");
         if (body != null) { r.AddBody(body); }
@@ -64,7 +63,6 @@ public class TimesheetClient
      *
      * Time Sheets is a list of times per task
      *
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param top The number of records to return
      * @param skip Skips the given number of records and then returns $top records
      * @param filter Filter the expression according to oData queries
@@ -73,7 +71,7 @@ public class TimesheetClient
      * @param expand Include related data in the response
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TimesheetDto[]> queryTimeSheets(@Nullable Object xintegrationname, @Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
+    public @NotNull AstroResult<TimesheetDto[]> queryTimeSheets(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
         RestRequest<TimesheetDto[]> r = new RestRequest<TimesheetDto[]>(this.client, "GET", "/api/data/timesheets");
         if (top != null) { r.AddQuery("$top", top.toString()); }
@@ -89,10 +87,9 @@ public class TimesheetClient
      * Delete time entry by id.
      *
      * @param timesheetId time entry id
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> deletetimeentry(@NotNull String timesheetId, @Nullable Object xintegrationname)
+    public @NotNull AstroResult<Object> deletetimeentry(@NotNull String timesheetId)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/timesheets/{timesheetId}");
         r.AddPath("{timesheetId}", timesheetId == null ? "" : timesheetId.toString());
@@ -103,11 +100,10 @@ public class TimesheetClient
      * Updates a time entry by its unique identifier.
      *
      * @param timesheetId time entry id
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body payload
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TimesheetResponseDto> updatetimeentry(@NotNull String timesheetId, @Nullable Object xintegrationname, @NotNull TimesheetUpdateRequestDto body)
+    public @NotNull AstroResult<TimesheetResponseDto> updatetimeentry(@NotNull String timesheetId, @NotNull TimesheetUpdateRequestDto body)
     {
         RestRequest<TimesheetResponseDto> r = new RestRequest<TimesheetResponseDto>(this.client, "PUT", "/api/data/timesheets/{timesheetId}");
         r.AddPath("{timesheetId}", timesheetId == null ? "" : timesheetId.toString());
@@ -118,10 +114,9 @@ public class TimesheetClient
     /**
      * Returns active admin tasks that are used to report time not related to work on projects. I.e. annual/sick leave etc
      *
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TimesheetAdminTypeDto[]> returnsactiveadmintasksthatareusedtoreporttime(@Nullable Object xintegrationname)
+    public @NotNull AstroResult<TimesheetAdminTypeDto[]> returnsactiveadmintasksthatareusedtoreporttime()
     {
         RestRequest<TimesheetAdminTypeDto[]> r = new RestRequest<TimesheetAdminTypeDto[]>(this.client, "GET", "/api/data/timesheets/admin-tasks");
         return r.Call(new TypeToken<AstroResult<TimesheetAdminTypeDto[]>>() {}.getType());

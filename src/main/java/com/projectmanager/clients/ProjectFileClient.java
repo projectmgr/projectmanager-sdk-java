@@ -49,11 +49,10 @@ public class ProjectFileClient
      * When you upload a File, please allow a few moments for the File to be processed and verified. ProjectManager may reject File uploads that contain problems such as malware. Once a File has completed the upload the process, you may retrieve it using the DownloadFile API.
      *
      * @param projectId The reference to the project
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param filename The full path of a file to upload to the API
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<FileDto> uploadProjectFile(@NotNull String projectId, @Nullable Object xintegrationname, @NotNull byte[] filename)
+    public @NotNull AstroResult<FileDto> uploadProjectFile(@NotNull String projectId, @NotNull byte[] filename)
     {
         RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/projects/{projectId}/files");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
@@ -71,11 +70,10 @@ public class ProjectFileClient
      *
      * @param projectId The reference to the project
      * @param folderId The reference to the sub folder to put the file into
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param filename The full path of a file to upload to the API
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<FileDto> uploadProjectFileToFolder(@NotNull String projectId, @NotNull String folderId, @Nullable Object xintegrationname, @NotNull byte[] filename)
+    public @NotNull AstroResult<FileDto> uploadProjectFileToFolder(@NotNull String projectId, @NotNull String folderId, @NotNull byte[] filename)
     {
         RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/projects/{projectId}/folders/{folderId}/files");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());

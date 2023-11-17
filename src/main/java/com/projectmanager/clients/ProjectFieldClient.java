@@ -51,10 +51,9 @@ public class ProjectFieldClient
      *
      * A ProjectField is a custom field defined within your Workspace.  You can define ProjectFields for any integration purpose that is important to your business.  Each ProjectField has a data type as well as options in how it is handled.  ProjectFields can be edited for each Project within your Workspace.
      *
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<GetProjectFieldsResponseDto[]> retrieveProjectFields(@Nullable Object xintegrationname)
+    public @NotNull AstroResult<GetProjectFieldsResponseDto[]> retrieveProjectFields()
     {
         RestRequest<GetProjectFieldsResponseDto[]> r = new RestRequest<GetProjectFieldsResponseDto[]>(this.client, "GET", "/api/data/projects/fields");
         return r.Call(new TypeToken<AstroResult<GetProjectFieldsResponseDto[]>>() {}.getType());
@@ -65,11 +64,10 @@ public class ProjectFieldClient
      *
      * A ProjectField is a custom field defined within your Workspace.  You can define ProjectFields for any integration purpose that is important to your business.  Each ProjectField has a data type as well as options in how it is handled.  ProjectFields can be edited for each Project within your Workspace.
      *
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body Information about the ProjectField to create
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<CreateProjectFieldResponseDto> createProjectField(@Nullable Object xintegrationname, @NotNull CreateProjectFieldDto body)
+    public @NotNull AstroResult<CreateProjectFieldResponseDto> createProjectField(@NotNull CreateProjectFieldDto body)
     {
         RestRequest<CreateProjectFieldResponseDto> r = new RestRequest<CreateProjectFieldResponseDto>(this.client, "POST", "/api/data/projects/fields");
         if (body != null) { r.AddBody(body); }
@@ -81,11 +79,10 @@ public class ProjectFieldClient
      *
      * A ProjectField is a custom field defined within your Workspace.  You can define ProjectFields for any integration purpose that is important to your business.  Each ProjectField has a data type as well as options in how it is handled.  ProjectFields can be edited for each Project within your Workspace.
      *
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The identity of the ProjectField to delete
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> deleteProjectField(@Nullable Object xintegrationname, @NotNull DeleteProjectFieldDto body)
+    public @NotNull AstroResult<Object> deleteProjectField(@NotNull DeleteProjectFieldDto body)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/fields");
         if (body != null) { r.AddBody(body); }
@@ -99,11 +96,10 @@ public class ProjectFieldClient
      *
      * @param projectId The unique identifier of the Project that contains this ProjectField
      * @param fieldId The unique identifier of this ProjectField
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The new information for this ProjectField
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> updateProjectField(@NotNull String projectId, @NotNull String fieldId, @Nullable Object xintegrationname, @NotNull UpdateProjectFieldValueDto body)
+    public @NotNull AstroResult<Object> updateProjectField(@NotNull String projectId, @NotNull String fieldId, @NotNull UpdateProjectFieldValueDto body)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "PUT", "/api/data/projects/{projectId}/fields/{fieldId}");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
@@ -117,10 +113,9 @@ public class ProjectFieldClient
      *
      * @param projectId The unique identifier of the Project of the value to retrieve
      * @param fieldId The unique identifier of the ProjectField of the value to retrieve
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectFieldsValueResponseDto> retrieveProjectFieldValue(@NotNull String projectId, @NotNull String fieldId, @Nullable Object xintegrationname)
+    public @NotNull AstroResult<ProjectFieldsValueResponseDto> retrieveProjectFieldValue(@NotNull String projectId, @NotNull String fieldId)
     {
         RestRequest<ProjectFieldsValueResponseDto> r = new RestRequest<ProjectFieldsValueResponseDto>(this.client, "GET", "/api/data/projects/{projectId}/fields/{fieldId}");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
@@ -132,10 +127,9 @@ public class ProjectFieldClient
      * Retrieves all ProjectField values for a particular Project.
      *
      * @param projectId The unique identifier of the Project for which we want ProjectField values
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectFieldsValueResponseDto[]> retrieveAllProjectFieldValues(@NotNull String projectId, @Nullable Object xintegrationname)
+    public @NotNull AstroResult<ProjectFieldsValueResponseDto[]> retrieveAllProjectFieldValues(@NotNull String projectId)
     {
         RestRequest<ProjectFieldsValueResponseDto[]> r = new RestRequest<ProjectFieldsValueResponseDto[]>(this.client, "GET", "/api/data/projects/{projectId}/fields");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());

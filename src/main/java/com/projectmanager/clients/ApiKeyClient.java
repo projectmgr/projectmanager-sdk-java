@@ -49,11 +49,10 @@ public class ApiKeyClient
      *
      * Some best practices for working with API keys: * An API key is valid for a two year period after it is created.  We encourage you to rotate your API keys regularly according to your company's security policies. * You should create separate API keys for each system that works with your API.  If that API key is exposed or if that program needs to be shut down, you can revoke that one key and reissue it. * An API key is tied to the workspace that created it. A single API key can only interact with one workspace.
      *
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body Options for the API key to create
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ApiKeyDto> createApiKey(@Nullable Object xintegrationname, @NotNull ApiKeyCreateDto body)
+    public @NotNull AstroResult<ApiKeyDto> createApiKey(@NotNull ApiKeyCreateDto body)
     {
         RestRequest<ApiKeyDto> r = new RestRequest<ApiKeyDto>(this.client, "POST", "/api/data/api-keys");
         if (body != null) { r.AddBody(body); }
@@ -67,10 +66,9 @@ public class ApiKeyClient
      *
      * Some best practices for working with API keys: * An API key is valid for a two year period after it is created.  We encourage you to rotate your API keys regularly according to your company's security policies. * You should create separate API keys for each system that works with your API.  If that API key is exposed or if that program needs to be shut down, you can revoke that one key and reissue it. * An API key is tied to the workspace that created it. A single API key can only interact with one workspace.
      *
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ApiKeyDto[]> listApiKeys(@Nullable Object xintegrationname)
+    public @NotNull AstroResult<ApiKeyDto[]> listApiKeys()
     {
         RestRequest<ApiKeyDto[]> r = new RestRequest<ApiKeyDto[]>(this.client, "GET", "/api/data/api-keys");
         return r.Call(new TypeToken<AstroResult<ApiKeyDto[]>>() {}.getType());
@@ -83,10 +81,9 @@ public class ApiKeyClient
      *
      * Some best practices for working with API keys: * An API key is valid for a two year period after it is created.  We encourage you to rotate your API keys regularly according to your company's security policies. * You should create separate API keys for each system that works with your API.  If that API key is exposed or if that program needs to be shut down, you can revoke that one key and reissue it. * An API key is tied to the workspace that created it. A single API key can only interact with one workspace.
      *
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> revokeAllApiKeys(@Nullable Object xintegrationname)
+    public @NotNull AstroResult<Object> revokeAllApiKeys()
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/api-keys/revoke-all");
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
@@ -100,10 +97,9 @@ public class ApiKeyClient
      * Some best practices for working with API keys: * An API key is valid for a two year period after it is created.  We encourage you to rotate your API keys regularly according to your company's security policies. * You should create separate API keys for each system that works with your API.  If that API key is exposed or if that program needs to be shut down, you can revoke that one key and reissue it. * An API key is tied to the workspace that created it. A single API key can only interact with one workspace.
      *
      * @param id The unique identifier of the API key to revoke
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> revokeAPIKey(@NotNull String id, @Nullable Object xintegrationname)
+    public @NotNull AstroResult<Object> revokeAPIKey(@NotNull String id)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/api-keys/{id}/revoke");
         r.AddPath("{id}", id == null ? "" : id.toString());

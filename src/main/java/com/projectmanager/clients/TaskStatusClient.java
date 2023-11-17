@@ -49,10 +49,9 @@ public class TaskStatusClient
      * A TaskStatus is a named status level used by your business to determine how to measure the progress of Tasks.  You can define your own named status levels that are appropriate for your business and determine which status levels are considered done.
      *
      * @param projectId The unique identifier of the Project to retrieve TaskStatuses
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TaskStatusDto[]> retrieveTaskStatuses(@NotNull String projectId, @Nullable Object xintegrationname)
+    public @NotNull AstroResult<TaskStatusDto[]> retrieveTaskStatuses(@NotNull String projectId)
     {
         RestRequest<TaskStatusDto[]> r = new RestRequest<TaskStatusDto[]>(this.client, "GET", "/api/data/projects/{projectId}/tasks/statuses");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
@@ -65,11 +64,10 @@ public class TaskStatusClient
      * A TaskStatus is a named status level used by your business to determine how to measure the progress of Tasks.  You can define your own named status levels that are appropriate for your business.
      *
      * @param projectId The unique identifier of the Project for the new TaskStatus
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body Information about the new TaskStatus level to create within this Project
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TaskStatusDto> createTaskStatus(@NotNull String projectId, @Nullable Object xintegrationname, @NotNull TaskStatusCreateDto body)
+    public @NotNull AstroResult<TaskStatusDto> createTaskStatus(@NotNull String projectId, @NotNull TaskStatusCreateDto body)
     {
         RestRequest<TaskStatusDto> r = new RestRequest<TaskStatusDto>(this.client, "POST", "/api/data/projects/{projectId}/tasks/statuses");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
@@ -83,11 +81,10 @@ public class TaskStatusClient
      * A TaskStatus is a named status level used by your business to determine how to measure the progress of Tasks.  You can define your own named status levels that are appropriate for your business.
      *
      * @param projectId The unique identifier of the Project for the new TaskStatus
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body Information about the existing TaskStatus level to update within this Project
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TaskStatusDto> updateTaskStatus(@NotNull String projectId, @Nullable Object xintegrationname, @NotNull TaskStatusUpdateDto body)
+    public @NotNull AstroResult<TaskStatusDto> updateTaskStatus(@NotNull String projectId, @NotNull TaskStatusUpdateDto body)
     {
         RestRequest<TaskStatusDto> r = new RestRequest<TaskStatusDto>(this.client, "PUT", "/api/data/projects/{projectId}/tasks/statuses");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
@@ -102,10 +99,9 @@ public class TaskStatusClient
      *
      * @param projectId The unique identifier of the Project for the TaskStatus level to delete
      * @param taskStatusId The Id of the TaskStatus level to be removed.
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> deleteTaskStatus(@NotNull String projectId, @NotNull String taskStatusId, @Nullable Object xintegrationname)
+    public @NotNull AstroResult<Object> deleteTaskStatus(@NotNull String projectId, @NotNull String taskStatusId)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/{projectId}/tasks/statuses/{taskStatusId}");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());

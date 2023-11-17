@@ -48,7 +48,6 @@ public class ResourceTeamClient
      *
      * A ResourceTeam is a grouping of Resources that allows you to keep track of assignments in a manner consistent with your business needs.  You can assign Resources to be members of zero, one, or many ResourceTeams.
      *
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param top The number of records to return
      * @param skip Skips the given number of records and then returns $top records
      * @param filter Filter the expression according to oData queries
@@ -57,7 +56,7 @@ public class ResourceTeamClient
      * @param expand Include related data in the response
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ResourceTeamDto[]> retrieveResourceTeams(@Nullable Object xintegrationname, @Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
+    public @NotNull AstroResult<ResourceTeamDto[]> retrieveResourceTeams(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
         RestRequest<ResourceTeamDto[]> r = new RestRequest<ResourceTeamDto[]>(this.client, "GET", "/api/data/resources/teams");
         if (top != null) { r.AddQuery("$top", top.toString()); }
@@ -72,11 +71,10 @@ public class ResourceTeamClient
     /**
      * Create a Resource Team.
      *
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The name of the team to create.
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ResourceTeamDto> createResourceTeam(@Nullable Object xintegrationname, @NotNull CreateResourceTeamDto body)
+    public @NotNull AstroResult<ResourceTeamDto> createResourceTeam(@NotNull CreateResourceTeamDto body)
     {
         RestRequest<ResourceTeamDto> r = new RestRequest<ResourceTeamDto>(this.client, "POST", "/api/data/resources/teams");
         if (body != null) { r.AddBody(body); }
@@ -87,10 +85,9 @@ public class ResourceTeamClient
      * The endpoint is used to delete a resource team. Users assigned to this team will no longer be assigned thereafter.
      *
      * @param resourceTeamId The Id of the team to be removed.
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> deleteResourceTeam(@NotNull String resourceTeamId, @Nullable Object xintegrationname)
+    public @NotNull AstroResult<Object> deleteResourceTeam(@NotNull String resourceTeamId)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/resources/teams/{resourceTeamId}");
         r.AddPath("{resourceTeamId}", resourceTeamId == null ? "" : resourceTeamId.toString());
@@ -101,11 +98,10 @@ public class ResourceTeamClient
      * Update a Resource Team.
      *
      * @param teamresourceId The id of the resource team
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The name of the team to Update.
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ResourceTeamDto> updateResourceTeam(@NotNull String teamresourceId, @Nullable Object xintegrationname, @NotNull UpdateResourceTeamDto body)
+    public @NotNull AstroResult<ResourceTeamDto> updateResourceTeam(@NotNull String teamresourceId, @NotNull UpdateResourceTeamDto body)
     {
         RestRequest<ResourceTeamDto> r = new RestRequest<ResourceTeamDto>(this.client, "PUT", "/api/data/resources/teams/{teamresourceId}");
         r.AddPath("{teamresourceId}", teamresourceId == null ? "" : teamresourceId.toString());

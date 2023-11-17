@@ -47,10 +47,9 @@ public class IntegrationClient
      * The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
      *
      * @param integrationId The unique identifier of this Integration
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<IntegrationDto> retrieveIntegration(@NotNull String integrationId, @Nullable Object xintegrationname)
+    public @NotNull AstroResult<IntegrationDto> retrieveIntegration(@NotNull String integrationId)
     {
         RestRequest<IntegrationDto> r = new RestRequest<IntegrationDto>(this.client, "GET", "/api/data/integrations/{integrationId}");
         r.AddPath("{integrationId}", integrationId == null ? "" : integrationId.toString());
@@ -63,10 +62,9 @@ public class IntegrationClient
      * The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
      *
      * @param integrationId The unique identifier of the Integration to enable
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<IntegrationDto> enableIntegration(@NotNull String integrationId, @Nullable Object xintegrationname)
+    public @NotNull AstroResult<IntegrationDto> enableIntegration(@NotNull String integrationId)
     {
         RestRequest<IntegrationDto> r = new RestRequest<IntegrationDto>(this.client, "POST", "/api/data/integrations/{integrationId}");
         r.AddPath("{integrationId}", integrationId == null ? "" : integrationId.toString());
@@ -79,10 +77,9 @@ public class IntegrationClient
      * The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
      *
      * @param integrationId The unique identifier of the Integration to disable
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> disableIntegration(@NotNull String integrationId, @Nullable Object xintegrationname)
+    public @NotNull AstroResult<Object> disableIntegration(@NotNull String integrationId)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/integrations/{integrationId}");
         r.AddPath("{integrationId}", integrationId == null ? "" : integrationId.toString());
@@ -94,10 +91,9 @@ public class IntegrationClient
      *
      * The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
      *
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<IntegrationDto[]> retrieveAllIntegrations(@Nullable Object xintegrationname)
+    public @NotNull AstroResult<IntegrationDto[]> retrieveAllIntegrations()
     {
         RestRequest<IntegrationDto[]> r = new RestRequest<IntegrationDto[]>(this.client, "GET", "/api/data/integrations");
         return r.Call(new TypeToken<AstroResult<IntegrationDto[]>>() {}.getType());

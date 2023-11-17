@@ -49,11 +49,10 @@ public class TaskFileClient
      * When you upload a File, please allow a few moments for the File to be processed and verified. ProjectManager may reject File uploads that contain problems such as malware. Once a File has completed the upload the process, you may retrieve it using the DownloadFile API.
      *
      * @param taskId The reference to the task
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param filename The full path of a file to upload to the API
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<FileDto> uploadTaskFile(@NotNull String taskId, @Nullable Object xintegrationname, @NotNull byte[] filename)
+    public @NotNull AstroResult<FileDto> uploadTaskFile(@NotNull String taskId, @NotNull byte[] filename)
     {
         RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/tasks/{taskId}/files");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());

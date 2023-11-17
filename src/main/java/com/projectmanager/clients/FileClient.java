@@ -50,10 +50,9 @@ public class FileClient
      *
      * @param documentId The unique identifier of the document to download
      * @param type If you specify a type of `html`, processes the file using text encoding, otherwise binary
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> downloadFile(@NotNull String documentId, @Nullable String type, @Nullable Object xintegrationname)
+    public @NotNull AstroResult<Object> downloadFile(@NotNull String documentId, @Nullable String type)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "GET", "/api/data/files/{documentId}/download");
         r.AddPath("{documentId}", documentId == null ? "" : documentId.toString());
@@ -69,11 +68,10 @@ public class FileClient
      * When you upload a File, please allow a few moments for the File to be processed and verified. ProjectManager may reject File uploads that contain problems such as malware. Once a File has completed the upload the process, you may retrieve it using the DownloadFile API.
      *
      * @param fileId The unique identifier of the File to update
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body Information to change about the File and its location
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> updateFile(@NotNull String fileId, @Nullable Object xintegrationname, @NotNull UpdateRequestDto body)
+    public @NotNull AstroResult<Object> updateFile(@NotNull String fileId, @NotNull UpdateRequestDto body)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "PUT", "/api/data/files/{fileId}");
         r.AddPath("{fileId}", fileId == null ? "" : fileId.toString());

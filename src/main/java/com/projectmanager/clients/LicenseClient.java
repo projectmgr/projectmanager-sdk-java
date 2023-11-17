@@ -46,10 +46,9 @@ public class LicenseClient
      *
      * Licenses contain information about your current subscription level and features that have been enabled on your Workspace.  To modify the License information, please log on to the ProjectManager.com application and use the Account | Editions screen to review or update your Licenses.
      *
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<LicenseDto[]> retrieveLicenses(@Nullable Object xintegrationname)
+    public @NotNull AstroResult<LicenseDto[]> retrieveLicenses()
     {
         RestRequest<LicenseDto[]> r = new RestRequest<LicenseDto[]>(this.client, "GET", "/api/data/license");
         return r.Call(new TypeToken<AstroResult<LicenseDto[]>>() {}.getType());
@@ -61,10 +60,9 @@ public class LicenseClient
      * Licenses contain information about your current subscription level and features that have been enabled on your Workspace.  To modify the License information, please log on to the ProjectManager.com application and use the Account | Editions screen to review or update your Licenses.
      *
      * @param bundleSku Information about the SKU you wish to add to your Workspace
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<LicenseDto[]> addLicense(@NotNull String bundleSku, @Nullable Object xintegrationname)
+    public @NotNull AstroResult<LicenseDto[]> addLicense(@NotNull String bundleSku)
     {
         RestRequest<LicenseDto[]> r = new RestRequest<LicenseDto[]>(this.client, "POST", "/api/data/license/{bundleSku}/try");
         r.AddPath("{bundleSku}", bundleSku == null ? "" : bundleSku.toString());

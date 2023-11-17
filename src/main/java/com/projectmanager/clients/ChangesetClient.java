@@ -49,10 +49,9 @@ public class ChangesetClient
      * When checking the status of a Changeset, you can call either RetrieveChangeset or RetrieveCompletedChangeset.  Using RetrieveChangeset will give you the immediate status of the Changeset.  Using RetrieveCompletedChangeset will delay the response until the Changeset has finished processing.
      *
      * @param changeSetId The unique ID number of the Changeset to retrieve
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangesetGetResponseDto> retrieveChangeset(@NotNull String changeSetId, @Nullable Object xintegrationname)
+    public @NotNull AstroResult<ChangesetGetResponseDto> retrieveChangeset(@NotNull String changeSetId)
     {
         RestRequest<ChangesetGetResponseDto> r = new RestRequest<ChangesetGetResponseDto>(this.client, "GET", "/api/data/changesets/{changeSetId}");
         r.AddPath("{changeSetId}", changeSetId == null ? "" : changeSetId.toString());
@@ -69,10 +68,9 @@ public class ChangesetClient
      * Although most Changesets complete instantly, some Changesets may need additional time to complete.  If the Changeset cannot be processed within a reasonable length of time, this API call may fail.  If this API fails, it will return a status error indicating the Changeset is still being processed.
      *
      * @param changeSetId The unique ID number of the Changeset to retrieve
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangesetGetResponseDto> retrieveCompletedChangeset(@NotNull String changeSetId, @Nullable Object xintegrationname)
+    public @NotNull AstroResult<ChangesetGetResponseDto> retrieveCompletedChangeset(@NotNull String changeSetId)
     {
         RestRequest<ChangesetGetResponseDto> r = new RestRequest<ChangesetGetResponseDto>(this.client, "GET", "/api/data/changesets/{changeSetId}/poll");
         r.AddPath("{changeSetId}", changeSetId == null ? "" : changeSetId.toString());

@@ -50,10 +50,9 @@ public class IntegrationProviderClient
      *
      * An IntegrationProvider is the name of an external application or service that can be connected to ProjectManager.com.  The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
      *
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<IntegrationProviderDto[]> listProviders(@Nullable Object xintegrationname)
+    public @NotNull AstroResult<IntegrationProviderDto[]> listProviders()
     {
         RestRequest<IntegrationProviderDto[]> r = new RestRequest<IntegrationProviderDto[]>(this.client, "GET", "/api/data/integrations/providers");
         return r.Call(new TypeToken<AstroResult<IntegrationProviderDto[]>>() {}.getType());
@@ -65,10 +64,9 @@ public class IntegrationProviderClient
      * An IntegrationProvider is the name of an external application or service that can be connected to ProjectManager.com.  The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
      *
      * @param providerId The unique identifier of the IntegrationProvider for which you are requesting authentication information
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ConnectionSchemaDto> activateIntegrationProvider(@NotNull String providerId, @Nullable Object xintegrationname)
+    public @NotNull AstroResult<ConnectionSchemaDto> activateIntegrationProvider(@NotNull String providerId)
     {
         RestRequest<ConnectionSchemaDto> r = new RestRequest<ConnectionSchemaDto>(this.client, "POST", "/api/data/integrations/providers/{providerId}");
         r.AddPath("{providerId}", providerId == null ? "" : providerId.toString());
@@ -79,11 +77,10 @@ public class IntegrationProviderClient
      * Allows you to update the auth status of the provider specific connection.
      *
      * @param providerId The identifier to the provider
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body Specify the auth status
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> updateIntegrationProvider(@NotNull String providerId, @Nullable Object xintegrationname, @NotNull AuthenticationDto body)
+    public @NotNull AstroResult<Object> updateIntegrationProvider(@NotNull String providerId, @NotNull AuthenticationDto body)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "PUT", "/api/data/integrations/providers/{providerId}");
         r.AddPath("{providerId}", providerId == null ? "" : providerId.toString());
@@ -95,10 +92,9 @@ public class IntegrationProviderClient
      * Allows you to deactivate an integration provider
      *
      * @param providerId The identifier to the provider
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> deactivateIntegrationProvider(@NotNull String providerId, @Nullable Object xintegrationname)
+    public @NotNull AstroResult<Object> deactivateIntegrationProvider(@NotNull String providerId)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/integrations/providers/{providerId}");
         r.AddPath("{providerId}", providerId == null ? "" : providerId.toString());
@@ -111,10 +107,9 @@ public class IntegrationProviderClient
      * This connection can be used for requests to Providers that require specific user data.
      *
      * @param providerId The unique identifier of the IntegrationProvider for which you are requesting authentication information
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<DirectLinkDto> createUserIntegrationProviderConnection(@NotNull String providerId, @Nullable Object xintegrationname)
+    public @NotNull AstroResult<DirectLinkDto> createUserIntegrationProviderConnection(@NotNull String providerId)
     {
         RestRequest<DirectLinkDto> r = new RestRequest<DirectLinkDto>(this.client, "POST", "/api/data/integrations/providers/{providerId}/user-connection");
         r.AddPath("{providerId}", providerId == null ? "" : providerId.toString());
@@ -125,11 +120,10 @@ public class IntegrationProviderClient
      * Allows you to update the auth status of the provider specific user connection.
      *
      * @param providerId The identifier to the provider
-     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body Specify the auth status
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> updateUserIntegrationProviderConnection(@NotNull String providerId, @Nullable Object xintegrationname, @NotNull AuthenticationStatusDto body)
+    public @NotNull AstroResult<Object> updateUserIntegrationProviderConnection(@NotNull String providerId, @NotNull AuthenticationStatusDto body)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "PUT", "/api/data/integrations/providers/{providerId}/user-connection");
         r.AddPath("{providerId}", providerId == null ? "" : providerId.toString());
