@@ -45,9 +45,10 @@ public class ProjectStatusClient
      *
      * A ProjectStatus is a named condition used by your business to categorize the completion level of Tasks and Projects within your Workspace.  You can name your ProjectStatus levels anything you like and you can reorganize the order of the ProjectPriority levels at any time.
      *
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectStatusDto[]> retrieveProjectStatuses()
+    public @NotNull AstroResult<ProjectStatusDto[]> retrieveProjectStatuses(@Nullable Object xintegrationname)
     {
         RestRequest<ProjectStatusDto[]> r = new RestRequest<ProjectStatusDto[]>(this.client, "GET", "/api/data/projects/statuses");
         return r.Call(new TypeToken<AstroResult<ProjectStatusDto[]>>() {}.getType());

@@ -28,6 +28,7 @@ public class CreateProjectFieldDto
 {
     private @NotNull String name;
     private @NotNull String type;
+    private @Nullable String shortId;
 
     /**
      * The name of this Field
@@ -77,4 +78,16 @@ public class CreateProjectFieldDto
      * @param value The new value for type
      */
     public void setType(@NotNull String value) { this.type = value; }
+    /**
+     * The short Id of this field - human readable identity
+     *
+     * @return The field shortId
+     */
+    public @Nullable String getShortId() { return this.shortId; }
+    /**
+     * The short Id of this field - human readable identity
+     *
+     * @param value The new value for shortId
+     */
+    public void setShortId(@Nullable String value) { this.shortId = value; }
 };

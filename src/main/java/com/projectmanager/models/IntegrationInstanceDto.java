@@ -26,10 +26,12 @@ public class IntegrationInstanceDto
 {
     private @NotNull String id;
     private @Nullable String integrationShortId;
-    private @Nullable Object config;
     private @NotNull String enabledBy;
     private @NotNull String createDate;
     private @NotNull String modifyDate;
+    private @NotNull String projectId;
+    private @Nullable String providerItemId;
+    private @Nullable String providerItemName;
 
     /**
      * The unique identifier of this IntegrationInstance
@@ -55,18 +57,6 @@ public class IntegrationInstanceDto
      * @param value The new value for integrationShortId
      */
     public void setIntegrationShortId(@Nullable String value) { this.integrationShortId = value; }
-    /**
-     * Metadata for this IntegrationInstance
-     *
-     * @return The field config
-     */
-    public @Nullable Object getConfig() { return this.config; }
-    /**
-     * Metadata for this IntegrationInstance
-     *
-     * @param value The new value for config
-     */
-    public void setConfig(@Nullable Object value) { this.config = value; }
     /**
      * The unique identifier of the user who enabled this IntegrationInstance
      *
@@ -103,4 +93,40 @@ public class IntegrationInstanceDto
      * @param value The new value for modifyDate
      */
     public void setModifyDate(@NotNull String value) { this.modifyDate = value; }
+    /**
+     * The id of the project manager project this instance is related to
+     *
+     * @return The field projectId
+     */
+    public @NotNull String getProjectId() { return this.projectId; }
+    /**
+     * The id of the project manager project this instance is related to
+     *
+     * @param value The new value for projectId
+     */
+    public void setProjectId(@NotNull String value) { this.projectId = value; }
+    /**
+     * The identifier in the integration provider, could be a reference to a file, task, project.
+     *
+     * @return The field providerItemId
+     */
+    public @Nullable String getProviderItemId() { return this.providerItemId; }
+    /**
+     * The identifier in the integration provider, could be a reference to a file, task, project.
+     *
+     * @param value The new value for providerItemId
+     */
+    public void setProviderItemId(@Nullable String value) { this.providerItemId = value; }
+    /**
+     * The name of the item in the integration provider.
+     *
+     * @return The field providerItemName
+     */
+    public @Nullable String getProviderItemName() { return this.providerItemName; }
+    /**
+     * The name of the item in the integration provider.
+     *
+     * @param value The new value for providerItemName
+     */
+    public void setProviderItemName(@Nullable String value) { this.providerItemName = value; }
 };

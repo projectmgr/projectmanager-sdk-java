@@ -47,9 +47,10 @@ public class WorkSpaceClient
      *
      * A single User may have access to multiple Workspaces, although they can only be logged on to one Workspace at a time.  This API lists all Workspaces to which the currently logged on user is entitled to access.  To determine which Workspace a user is currently logged on use the `/api/data/me` endpoint.
      *
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<WorkSpaceDto[]> retrieveWorkspaces()
+    public @NotNull AstroResult<WorkSpaceDto[]> retrieveWorkspaces(@Nullable Object xintegrationname)
     {
         RestRequest<WorkSpaceDto[]> r = new RestRequest<WorkSpaceDto[]>(this.client, "GET", "/api/data/workspaces");
         return r.Call(new TypeToken<AstroResult<WorkSpaceDto[]>>() {}.getType());
@@ -63,10 +64,11 @@ public class WorkSpaceClient
      * This API allows you to invite a specific  an invitation to join a specific Workspace.
      *
      * @param organizationId The unique identifier of the Organization that you are inviting a User to joi
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body Information about the user which will receive the invitation
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> invitetoWorkspace(@NotNull String organizationId, @NotNull WorkSpaceJoinDto body)
+    public @NotNull AstroResult<Object> invitetoWorkspace(@NotNull String organizationId, @Nullable Object xintegrationname, @NotNull WorkSpaceJoinDto body)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "POST", "/api/data/workspaces/{organizationId}/join");
         r.AddPath("{organizationId}", organizationId == null ? "" : organizationId.toString());

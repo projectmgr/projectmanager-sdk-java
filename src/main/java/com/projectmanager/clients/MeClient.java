@@ -45,9 +45,10 @@ public class MeClient
      *
      * This API call will always succeed with a 200 OK if called with valid authentication information. If the authentication information provided is not valid, calling this API will return a 401 Authentication Failed error message.  If successful, this API returns information about the user including its home URL, email address, user name, and workspace name.
      *
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<WorkSpaceUserInfoDto> retrieveMe()
+    public @NotNull AstroResult<WorkSpaceUserInfoDto> retrieveMe(@Nullable Object xintegrationname)
     {
         RestRequest<WorkSpaceUserInfoDto> r = new RestRequest<WorkSpaceUserInfoDto>(this.client, "GET", "/api/data/me");
         return r.Call(new TypeToken<AstroResult<WorkSpaceUserInfoDto>>() {}.getType());

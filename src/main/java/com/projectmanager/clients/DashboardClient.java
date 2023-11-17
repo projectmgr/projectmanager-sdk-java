@@ -45,9 +45,10 @@ public class DashboardClient
      * Returns user dashboard settings
      *
      * @param type The dashboard type that is not custom
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<DashboardSettingDto> retrieveDashboardUserSettings(@NotNull String type)
+    public @NotNull AstroResult<DashboardSettingDto> retrieveDashboardUserSettings(@NotNull String type, @Nullable Object xintegrationname)
     {
         RestRequest<DashboardSettingDto> r = new RestRequest<DashboardSettingDto>(this.client, "GET", "/api/data/dashboards/settings/{type}");
         r.AddPath("{type}", type == null ? "" : type.toString());
@@ -57,10 +58,11 @@ public class DashboardClient
     /**
      * Create or Update User Dashboard Settings
      *
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body User dashboard settings object
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<DashboardSettingDto> createorUpdateUserDashboardSettings(@NotNull DashboardSettingCreateDto body)
+    public @NotNull AstroResult<DashboardSettingDto> createorUpdateUserDashboardSettings(@Nullable Object xintegrationname, @NotNull DashboardSettingCreateDto body)
     {
         RestRequest<DashboardSettingDto> r = new RestRequest<DashboardSettingDto>(this.client, "POST", "/api/data/dashboards/settings");
         if (body != null) { r.AddBody(body); }

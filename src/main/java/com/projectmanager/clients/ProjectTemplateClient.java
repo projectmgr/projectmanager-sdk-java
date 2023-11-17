@@ -46,9 +46,10 @@ public class ProjectTemplateClient
      *
      * A ProjectTemplate is a definition of default project related data (eg. Tasks) that can be applied to a new project when it is created.  ProjectTemplates are categorized using the TemplateCategory system.
      *
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectTemplateDto[]> retrieveProjectTemplates()
+    public @NotNull AstroResult<ProjectTemplateDto[]> retrieveProjectTemplates(@Nullable Object xintegrationname)
     {
         RestRequest<ProjectTemplateDto[]> r = new RestRequest<ProjectTemplateDto[]>(this.client, "GET", "/api/data/projects/templates");
         return r.Call(new TypeToken<AstroResult<ProjectTemplateDto[]>>() {}.getType());
@@ -59,9 +60,10 @@ public class ProjectTemplateClient
      *
      * A ProjectTemplate is a definition of default project related data (eg. Tasks) that can be applied to a new project when it is created.  ProjectTemplates are categorized using the TemplateCategory system.
      *
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectTemplateCategoryDto[]> retrieveTemplateCategories()
+    public @NotNull AstroResult<ProjectTemplateCategoryDto[]> retrieveTemplateCategories(@Nullable Object xintegrationname)
     {
         RestRequest<ProjectTemplateCategoryDto[]> r = new RestRequest<ProjectTemplateCategoryDto[]>(this.client, "GET", "/api/data/projects/templates/categories");
         return r.Call(new TypeToken<AstroResult<ProjectTemplateCategoryDto[]>>() {}.getType());

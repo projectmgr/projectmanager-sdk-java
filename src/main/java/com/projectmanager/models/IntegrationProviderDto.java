@@ -34,6 +34,7 @@ public class IntegrationProviderDto
     private @NotNull Boolean activated;
     private @NotNull Boolean authenticated;
     private @Nullable IntegrationDto[] integrations;
+    private @Nullable IntegrationAuthSetupDto authSetup;
 
     /**
      * The unique identifier of this Provider.
@@ -155,4 +156,16 @@ public class IntegrationProviderDto
      * @param value The new value for integrations
      */
     public void setIntegrations(@Nullable IntegrationDto[] value) { this.integrations = value; }
+    /**
+     * The list of available AuthSetup for this Provider.
+     *
+     * @return The field authSetup
+     */
+    public @Nullable IntegrationAuthSetupDto getAuthSetup() { return this.authSetup; }
+    /**
+     * The list of available AuthSetup for this Provider.
+     *
+     * @param value The new value for authSetup
+     */
+    public void setAuthSetup(@Nullable IntegrationAuthSetupDto value) { this.authSetup = value; }
 };

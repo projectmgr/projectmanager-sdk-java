@@ -43,11 +43,12 @@ public class ProjectCustomerClient
     /**
      * Retrieves all ProjectCustomers defined within your Workspace.
      *
-     * A ProjectCustomer is a code used to identify costs within your Projects.  Each ProjectCustomer has a name and a unique identifier.  ChargeCodes are defined per Workspace and are shared among Projects.
+     * A ProjectCustomer is a code used to identify costs within your Projects.  Each ProjectCustomer has a name and a unique identifier.  ProjectCustomers are defined per Workspace and are shared among Projects.
      *
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectCustomerDto[]> retrieveProjectCustomers()
+    public @NotNull AstroResult<ProjectCustomerDto[]> retrieveProjectCustomers(@Nullable Object xintegrationname)
     {
         RestRequest<ProjectCustomerDto[]> r = new RestRequest<ProjectCustomerDto[]>(this.client, "GET", "/api/data/projects/customers");
         return r.Call(new TypeToken<AstroResult<ProjectCustomerDto[]>>() {}.getType());

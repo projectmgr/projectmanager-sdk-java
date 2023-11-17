@@ -45,9 +45,10 @@ public class ProjectMembersClient
     /**
      * Returns a list of membership options for new projects.
      *
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectMemberDto[]> retrieveNewProjectMembers()
+    public @NotNull AstroResult<ProjectMemberDto[]> retrieveNewProjectMembers(@Nullable Object xintegrationname)
     {
         RestRequest<ProjectMemberDto[]> r = new RestRequest<ProjectMemberDto[]>(this.client, "GET", "/api/data/projects/members");
         return r.Call(new TypeToken<AstroResult<ProjectMemberDto[]>>() {}.getType());
@@ -58,9 +59,10 @@ public class ProjectMembersClient
      *
      * @param projectId Reference to the project
      * @param includeAllUsers Set to true to include all users in the workspace
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectMemberDto[]> retrieveProjectMembers(@NotNull String projectId, @Nullable Boolean includeAllUsers)
+    public @NotNull AstroResult<ProjectMemberDto[]> retrieveProjectMembers(@NotNull String projectId, @Nullable Boolean includeAllUsers, @Nullable Object xintegrationname)
     {
         RestRequest<ProjectMemberDto[]> r = new RestRequest<ProjectMemberDto[]>(this.client, "GET", "/api/data/projects/{projectId}/members");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
@@ -73,9 +75,10 @@ public class ProjectMembersClient
      *
      * @param projectId Reference of Project
      * @param userId Reference of User
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectMemberDto> retrieveUserProjectMemberShip(@NotNull String projectId, @NotNull String userId)
+    public @NotNull AstroResult<ProjectMemberDto> retrieveUserProjectMemberShip(@NotNull String projectId, @NotNull String userId, @Nullable Object xintegrationname)
     {
         RestRequest<ProjectMemberDto> r = new RestRequest<ProjectMemberDto>(this.client, "GET", "/api/data/projects/{projectId}/members/{userId}");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
@@ -88,10 +91,11 @@ public class ProjectMembersClient
      *
      * @param projectId Reference to Project
      * @param userId Reference to User
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The permission to set
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectMemberDto> createUserProjectMembership(@NotNull String projectId, @NotNull String userId, @NotNull ProjectMemberRoleDto body)
+    public @NotNull AstroResult<ProjectMemberDto> createUserProjectMembership(@NotNull String projectId, @NotNull String userId, @Nullable Object xintegrationname, @NotNull ProjectMemberRoleDto body)
     {
         RestRequest<ProjectMemberDto> r = new RestRequest<ProjectMemberDto>(this.client, "POST", "/api/data/projects/{projectId}/members/{userId}");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
@@ -105,10 +109,11 @@ public class ProjectMembersClient
      *
      * @param projectId Reference to Project
      * @param userId Reference to User
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The permission to update
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectMemberDto> updateUserProjectMembership(@NotNull String projectId, @NotNull String userId, @NotNull ProjectMemberRoleDto body)
+    public @NotNull AstroResult<ProjectMemberDto> updateUserProjectMembership(@NotNull String projectId, @NotNull String userId, @Nullable Object xintegrationname, @NotNull ProjectMemberRoleDto body)
     {
         RestRequest<ProjectMemberDto> r = new RestRequest<ProjectMemberDto>(this.client, "PUT", "/api/data/projects/{projectId}/members/{userId}");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
@@ -122,9 +127,10 @@ public class ProjectMembersClient
      *
      * @param projectId Reference to Project
      * @param userId Reference to User
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> removeUserProjectMembership(@NotNull String projectId, @NotNull String userId)
+    public @NotNull AstroResult<Object> removeUserProjectMembership(@NotNull String projectId, @NotNull String userId, @Nullable Object xintegrationname)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/{projectId}/members/{userId}");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());

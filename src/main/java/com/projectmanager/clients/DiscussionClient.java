@@ -47,9 +47,10 @@ public class DiscussionClient
      * Retrieve all comments written about a task
      *
      * @param taskId The unique ID number of the task to retrieve comments
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<DiscussionDto[]> retrieveTaskComments(@NotNull String taskId)
+    public @NotNull AstroResult<DiscussionDto[]> retrieveTaskComments(@NotNull String taskId, @Nullable Object xintegrationname)
     {
         RestRequest<DiscussionDto[]> r = new RestRequest<DiscussionDto[]>(this.client, "GET", "/api/data/tasks/{taskId}/discussions");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
@@ -62,10 +63,11 @@ public class DiscussionClient
      * Tasks can have discussions attached to them.  These discussions can include text with simple formatting.  Discussion comments are formatted using [Markdown](https://www.markdownguide.org/) and users should be aware that HTML embedding is not permitted due to the risk of cross-site attacks and other embedding challenges.
      *
      * @param taskId The unique ID number of the task being commented upon
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The Markdown-formatted text of the comment
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<DiscussionCreateResponseDto> createTaskComments(@NotNull String taskId, @NotNull DiscussionCreateDto body)
+    public @NotNull AstroResult<DiscussionCreateResponseDto> createTaskComments(@NotNull String taskId, @Nullable Object xintegrationname, @NotNull DiscussionCreateDto body)
     {
         RestRequest<DiscussionCreateResponseDto> r = new RestRequest<DiscussionCreateResponseDto>(this.client, "POST", "/api/data/tasks/{taskId}/discussions");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());

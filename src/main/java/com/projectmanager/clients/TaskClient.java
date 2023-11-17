@@ -51,6 +51,7 @@ public class TaskClient
      *
      * A Task is an individual element of work that must be performed to complete a Project.  A Task can have one or more Resources assigned to it.  Tasks can be linked to other Tasks to indicate whether they have a dependency or a connection.
      *
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param top The number of records to return
      * @param skip Skips the given number of records and then returns $top records
      * @param filter Filter the expression according to oData queries
@@ -59,7 +60,7 @@ public class TaskClient
      * @param expand Include related data in the response
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TaskDto[]> queryTasks(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
+    public @NotNull AstroResult<TaskDto[]> queryTasks(@Nullable Object xintegrationname, @Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
         RestRequest<TaskDto[]> r = new RestRequest<TaskDto[]>(this.client, "GET", "/api/data/tasks");
         if (top != null) { r.AddQuery("$top", top.toString()); }
@@ -77,9 +78,10 @@ public class TaskClient
      * A Task is an individual element of work that must be performed to complete a Project.  A Task can have one or more Resources assigned to it.  Tasks can be linked to other Tasks to indicate whether they have a dependency or a connection.
      *
      * @param taskId The unique identifier or short ID of the Task to retrieve
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TaskDetailsDto> retrieveTask(@NotNull String taskId)
+    public @NotNull AstroResult<TaskDetailsDto> retrieveTask(@NotNull String taskId, @Nullable Object xintegrationname)
     {
         RestRequest<TaskDetailsDto> r = new RestRequest<TaskDetailsDto>(this.client, "GET", "/api/data/tasks/{taskId}");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
@@ -96,10 +98,11 @@ public class TaskClient
      * Known Issues:  This API returns an error if your Update call includes too many changes in a single API call.  Please restrict usage to one change per API request.  This API will be deprecated and replaced with an improved API call in a future release.
      *
      * @param taskId The unique identifier of the Task to update
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body All non-null fields in this object will replace existing data in the Task
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto> updateTask(@NotNull String taskId, @NotNull TaskUpdateDto body)
+    public @NotNull AstroResult<ChangeSetStatusDto> updateTask(@NotNull String taskId, @Nullable Object xintegrationname, @NotNull TaskUpdateDto body)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "PUT", "/api/data/tasks/{taskId}");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
@@ -115,9 +118,10 @@ public class TaskClient
      * Multiple users can be working on data at the same time.  When you call an API to update an object, this call is converted into a Changeset that is then applied sequentially.  You can use RetrieveChangeset to see the status of an individual Changeset.
      *
      * @param taskId Unique identifier of the Task to delete
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto> deleteTask(@NotNull String taskId)
+    public @NotNull AstroResult<ChangeSetStatusDto> deleteTask(@NotNull String taskId, @Nullable Object xintegrationname)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "DELETE", "/api/data/tasks/{taskId}");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
@@ -130,10 +134,11 @@ public class TaskClient
      * A Task is an individual element of work that must be performed to complete a Project.  A Task can have one or more Resources assigned to it.  Tasks can be linked to other Tasks to indicate whether they have a dependency or a connection.
      *
      * @param projectId The unique identifier of the Project that will contain this Task
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The new Task to create
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto> createTask(@NotNull String projectId, @NotNull TaskCreateDto body)
+    public @NotNull AstroResult<ChangeSetStatusDto> createTask(@NotNull String projectId, @Nullable Object xintegrationname, @NotNull TaskCreateDto body)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "POST", "/api/data/projects/{projectId}/tasks");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
@@ -148,9 +153,10 @@ public class TaskClient
      *
      * Note that TaskPriority and ProjectPriority are different classes of priority levels.  Even if they may have similar names, they are different objects and must be tracked separately.
      *
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TaskPriorityDto[]> retrieveTaskPriorities()
+    public @NotNull AstroResult<TaskPriorityDto[]> retrieveTaskPriorities(@Nullable Object xintegrationname)
     {
         RestRequest<TaskPriorityDto[]> r = new RestRequest<TaskPriorityDto[]>(this.client, "GET", "/api/data/tasks/priorities");
         return r.Call(new TypeToken<AstroResult<TaskPriorityDto[]>>() {}.getType());
@@ -162,10 +168,11 @@ public class TaskClient
      * A Task is an individual element of work that must be performed to complete a Project.  A Task can have one or more Resources assigned to it.  Tasks can be linked to other Tasks to indicate whether they have a dependency or a connection.
      *
      * @param projectId The unique identifier of the Project that will contain these Tasks
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The list of new Tasks to create
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto[]> createManyTasks(@NotNull String projectId, @NotNull TaskCreateDto[] body)
+    public @NotNull AstroResult<ChangeSetStatusDto[]> createManyTasks(@NotNull String projectId, @Nullable Object xintegrationname, @NotNull TaskCreateDto[] body)
     {
         RestRequest<ChangeSetStatusDto[]> r = new RestRequest<ChangeSetStatusDto[]>(this.client, "POST", "/api/data/projects/{projectId}/tasks/bulk");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
@@ -178,9 +185,10 @@ public class TaskClient
      *
      * @param taskId The task that will become the child
      * @param parentTaskId The parent task
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto> addParentTask(@NotNull String taskId, @NotNull String parentTaskId)
+    public @NotNull AstroResult<ChangeSetStatusDto> addParentTask(@NotNull String taskId, @NotNull String parentTaskId, @Nullable Object xintegrationname)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "POST", "/api/data/tasks/{taskId}/parent/{parentTaskId}");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
@@ -193,9 +201,10 @@ public class TaskClient
      *
      * @param taskId The task that will become the child
      * @param parentTaskId The parent task
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto> updateParentTask(@NotNull String taskId, @NotNull String parentTaskId)
+    public @NotNull AstroResult<ChangeSetStatusDto> updateParentTask(@NotNull String taskId, @NotNull String parentTaskId, @Nullable Object xintegrationname)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "PUT", "/api/data/tasks/{taskId}/parent/{parentTaskId}");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
@@ -207,9 +216,10 @@ public class TaskClient
      * Removes a task parent relationship completely
      *
      * @param taskId The child task
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto> removeParentTask(@NotNull String taskId)
+    public @NotNull AstroResult<ChangeSetStatusDto> removeParentTask(@NotNull String taskId, @Nullable Object xintegrationname)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "DELETE", "/api/data/tasks/{taskId}/parent");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());

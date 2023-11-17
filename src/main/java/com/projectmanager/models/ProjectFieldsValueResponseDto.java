@@ -19,31 +19,54 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * A TaskField is a custom field defined within your Workspace for a specific Project.  You can
- * define TaskFields for any integration purpose that is important to your business.  Each
- * TaskField has a data type as well as options in how it is handled.  TaskFields can be edited
- * for each Task inside this Project.
+ * A Project Field is a custom field defined within your Workspace for each Project. Each
+ * Project Field has a data type as well as options in how it is handled.
  */
-public class CreateTaskFieldRequestDto
+public class ProjectFieldsValueResponseDto
 {
+    private @NotNull String id;
+    private @Nullable String value;
     private @Nullable String name;
     private @Nullable String type;
-    private @Nullable String shortId;
 
     /**
-     * The name of the TaskField
+     * The unique identifier of this Project Field.
+     *
+     * @return The field id
+     */
+    public @NotNull String getId() { return this.id; }
+    /**
+     * The unique identifier of this Project Field.
+     *
+     * @param value The new value for id
+     */
+    public void setId(@NotNull String value) { this.id = value; }
+    /**
+     * The value currently set for this Project Field.
+     *
+     * @return The field value
+     */
+    public @Nullable String getValue() { return this.value; }
+    /**
+     * The value currently set for this Project Field.
+     *
+     * @param value The new value for value
+     */
+    public void setValue(@Nullable String value) { this.value = value; }
+    /**
+     * The name of this Project Field.
      *
      * @return The field name
      */
     public @Nullable String getName() { return this.name; }
     /**
-     * The name of the TaskField
+     * The name of this Project Field.
      *
      * @param value The new value for name
      */
     public void setName(@Nullable String value) { this.name = value; }
     /**
-     * The type of this TaskField.  Valid types are the following:
+     * The type of this Project Field.  Valid types are the following:
      * * Text
      * * Number
      * * Date
@@ -55,7 +78,7 @@ public class CreateTaskFieldRequestDto
      */
     public @Nullable String getType() { return this.type; }
     /**
-     * The type of this TaskField.  Valid types are the following:
+     * The type of this Project Field.  Valid types are the following:
      * * Text
      * * Number
      * * Date
@@ -66,16 +89,4 @@ public class CreateTaskFieldRequestDto
      * @param value The new value for type
      */
     public void setType(@Nullable String value) { this.type = value; }
-    /**
-     * The short Id of this field - human readable identity
-     *
-     * @return The field shortId
-     */
-    public @Nullable String getShortId() { return this.shortId; }
-    /**
-     * The short Id of this field - human readable identity
-     *
-     * @param value The new value for shortId
-     */
-    public void setShortId(@Nullable String value) { this.shortId = value; }
 };

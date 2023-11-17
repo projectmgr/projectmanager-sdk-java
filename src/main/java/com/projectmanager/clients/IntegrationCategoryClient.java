@@ -45,9 +45,10 @@ public class IntegrationCategoryClient
      *
      * An IntegrationProvider is the name of an external application or service that can be connected to ProjectManager.com.  The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
      *
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<IntegrationCategoryDto[]> retrieveProviderCategories()
+    public @NotNull AstroResult<IntegrationCategoryDto[]> retrieveProviderCategories(@Nullable Object xintegrationname)
     {
         RestRequest<IntegrationCategoryDto[]> r = new RestRequest<IntegrationCategoryDto[]>(this.client, "GET", "/api/data/integrations/categories");
         return r.Call(new TypeToken<AstroResult<IntegrationCategoryDto[]>>() {}.getType());

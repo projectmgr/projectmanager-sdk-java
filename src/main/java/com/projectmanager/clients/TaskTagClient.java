@@ -48,10 +48,11 @@ public class TaskTagClient
      * A TaskTag is a connection between a Task and a Tag.  Each Task can have zero, one or many TaskTags associated with it.  TaskTags can be assigned and removed from the Task to help you classify your Tasks and prioritize work.
      *
      * @param taskId The unique identifier of the Task for which we will replace TaskTags
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The replacement list of TaskTags for this Task
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto> replaceTaskTags(@NotNull String taskId, @NotNull NameDto[] body)
+    public @NotNull AstroResult<ChangeSetStatusDto> replaceTaskTags(@NotNull String taskId, @Nullable Object xintegrationname, @NotNull NameDto[] body)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "POST", "/api/data/tasks/{taskId}/tags");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
@@ -65,10 +66,11 @@ public class TaskTagClient
      * A TaskTag is a connection between a Task and a Tag.  Each Task can have zero, one or many TaskTags associated with it.  TaskTags can be assigned and removed from the Task to help you classify your Tasks and prioritize work.
      *
      * @param taskId The unique identifier of the Task for which we will add TaskTags
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The new TaskTags to add to this Task
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto> addTaskTagtoTask(@NotNull String taskId, @NotNull NameDto[] body)
+    public @NotNull AstroResult<ChangeSetStatusDto> addTaskTagtoTask(@NotNull String taskId, @Nullable Object xintegrationname, @NotNull NameDto[] body)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "PUT", "/api/data/tasks/{taskId}/tags");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
@@ -82,10 +84,11 @@ public class TaskTagClient
      * A TaskTag is a connection between a Task and a Tag.  Each Task can have zero, one or many TaskTags associated with it.  TaskTags can be assigned and removed from the Task to help you classify your Tasks and prioritize work.
      *
      * @param taskId The unique identifier of the Task for which we will remove existing TaskTags
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The TaskTags to remove from this Task
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto> removeTaskTagfromTask(@NotNull String taskId, @NotNull NameDto[] body)
+    public @NotNull AstroResult<ChangeSetStatusDto> removeTaskTagfromTask(@NotNull String taskId, @Nullable Object xintegrationname, @NotNull NameDto[] body)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "DELETE", "/api/data/tasks/{taskId}/tags");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());

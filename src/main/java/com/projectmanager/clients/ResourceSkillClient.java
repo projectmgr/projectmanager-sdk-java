@@ -48,6 +48,7 @@ public class ResourceSkillClient
      *
      * A ResourceSkill is a capability possessed by a Resource that can be used to distinguish different classes of Resources suitable for use by a Task.  You can specify that a Task requires a Resource with a particular set of ResourceSkills and then allocate Resources based on whether or not they have the suitable ResourceSkills.
      *
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param top The number of records to return
      * @param skip Skips the given number of records and then returns $top records
      * @param filter Filter the expression according to oData queries
@@ -56,7 +57,7 @@ public class ResourceSkillClient
      * @param expand Include related data in the response
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ResourceSkillDto[]> retrieveResourceSkills(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
+    public @NotNull AstroResult<ResourceSkillDto[]> retrieveResourceSkills(@Nullable Object xintegrationname, @Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
         RestRequest<ResourceSkillDto[]> r = new RestRequest<ResourceSkillDto[]>(this.client, "GET", "/api/data/resources/skills");
         if (top != null) { r.AddQuery("$top", top.toString()); }
@@ -71,10 +72,11 @@ public class ResourceSkillClient
     /**
      * Create a Resource Skill.
      *
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The name of the skill to create.
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ResourceSkillDto> createResourceSkill(@NotNull CreateResourceSkillDto body)
+    public @NotNull AstroResult<ResourceSkillDto> createResourceSkill(@Nullable Object xintegrationname, @NotNull CreateResourceSkillDto body)
     {
         RestRequest<ResourceSkillDto> r = new RestRequest<ResourceSkillDto>(this.client, "POST", "/api/data/resources/skills");
         if (body != null) { r.AddBody(body); }
@@ -85,10 +87,11 @@ public class ResourceSkillClient
      * Update a Resource Skill.
      *
      * @param skillId The id of the skill to update.
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The data of the skill to update.
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ResourceSkillDto> updateResourceSkill(@NotNull String skillId, @NotNull UpdateResourceSkillDto body)
+    public @NotNull AstroResult<ResourceSkillDto> updateResourceSkill(@NotNull String skillId, @Nullable Object xintegrationname, @NotNull UpdateResourceSkillDto body)
     {
         RestRequest<ResourceSkillDto> r = new RestRequest<ResourceSkillDto>(this.client, "PUT", "/api/data/resources/skills/{skillId}");
         r.AddPath("{skillId}", skillId == null ? "" : skillId.toString());
@@ -100,9 +103,10 @@ public class ResourceSkillClient
      * The endpoint is used to delete a resource skill. Users assigned to this skill will no longer be assigned thereafter.
      *
      * @param resourceSkillId The Id of the skill to be removed.
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> deleteResourceSkill(@NotNull String resourceSkillId)
+    public @NotNull AstroResult<Object> deleteResourceSkill(@NotNull String resourceSkillId, @Nullable Object xintegrationname)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/resources/skills/{resourceSkillId}");
         r.AddPath("{resourceSkillId}", resourceSkillId == null ? "" : resourceSkillId.toString());

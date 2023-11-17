@@ -51,6 +51,7 @@ public class ProjectDto
     private @NotNull Boolean isTemplate;
     private @NotNull Boolean favorite;
     private @Nullable ProjectMemberDto[] members;
+    private @Nullable Object fields;
 
     /**
      * The unique identifier of the Project.  This value is set by the system and cannot
@@ -209,61 +210,85 @@ public class ProjectDto
      */
     public void setTargetDate(@Nullable String value) { this.targetDate = value; }
     /**
-     * The planned start date for this Project. This is calculated based
-     * off of the earliest task start date
+     * A calculated field of the estimated date on which this Project is
+     * expected to start.
+     *
+     * This date is calculated based on the earliest estimated start date for
+     * a Task within this Project. This value is null if no Tasks have an
+     * estimated start date within this Project.
      *
      * @return The field plannedStartDate
      */
     public @Nullable String getPlannedStartDate() { return this.plannedStartDate; }
     /**
-     * The planned start date for this Project. This is calculated based
-     * off of the earliest task start date
+     * A calculated field of the estimated date on which this Project is
+     * expected to start.
+     *
+     * This date is calculated based on the earliest estimated start date for
+     * a Task within this Project. This value is null if no Tasks have an
+     * estimated start date within this Project.
      *
      * @param value The new value for plannedStartDate
      */
     public void setPlannedStartDate(@Nullable String value) { this.plannedStartDate = value; }
     /**
-     * The planned start date for this Project. This is calculated based
-     * off of the latest task finish date
+     * A calculated field of the estimated date on which this Project is
+     * expected to finish.
+     *
+     * This date is calculated based on the latest planned finish date for a
+     * Task within this Project. This value is null if no Tasks have an
+     * estimated finish date within this Project.
      *
      * @return The field plannedFinishDate
      */
     public @Nullable String getPlannedFinishDate() { return this.plannedFinishDate; }
     /**
-     * The planned start date for this Project. This is calculated based
-     * off of the latest task finish date
+     * A calculated field of the estimated date on which this Project is
+     * expected to finish.
+     *
+     * This date is calculated based on the latest planned finish date for a
+     * Task within this Project. This value is null if no Tasks have an
+     * estimated finish date within this Project.
      *
      * @param value The new value for plannedFinishDate
      */
     public void setPlannedFinishDate(@Nullable String value) { this.plannedFinishDate = value; }
     /**
-     * The actual start date for this Project. This is calculated based
-     * on the earliest task actual start date, or null if no projects have
-     * been started
+     * A calculated field of the actual date on which this Project started.
+     *
+     * This date is calculated based on the earliest actual start date for a
+     * Task within this Project. This value is null if no Tasks have an actual
+     * start date within this Project.
      *
      * @return The field actualStartDate
      */
     public @Nullable String getActualStartDate() { return this.actualStartDate; }
     /**
-     * The actual start date for this Project. This is calculated based
-     * on the earliest task actual start date, or null if no projects have
-     * been started
+     * A calculated field of the actual date on which this Project started.
+     *
+     * This date is calculated based on the earliest actual start date for a
+     * Task within this Project. This value is null if no Tasks have an actual
+     * start date within this Project.
      *
      * @param value The new value for actualStartDate
      */
     public void setActualStartDate(@Nullable String value) { this.actualStartDate = value; }
     /**
-     * The actual finish date for this Project. This is calculated based
-     * on the latest task actual finish date, or null if no projects have
-     * been finished
+     * A calculated field of the actual date on which this Project finished.
+     *
+     *  This date is calculated based on the latest actual finish date for a
+     *  Task within this Project. This value is null if no Tasks have an
+     *  actual finish date within this Project.
      *
      * @return The field actualFinishDate
      */
     public @Nullable String getActualFinishDate() { return this.actualFinishDate; }
     /**
-     * The actual finish date for this Project. This is calculated based
-     * on the latest task actual finish date, or null if no projects have
-     * been finished
+     * A calculated field of the actual date on which this Project finished.
+     *
+     *  This date is calculated based on the latest actual finish date for a
+     *  Task within this Project. This value is null if no Tasks have an
+     *  actual finish date within this Project.
      *
      * @param value The new value for actualFinishDate
      */
@@ -436,4 +461,16 @@ public class ProjectDto
      * @param value The new value for members
      */
     public void setMembers(@Nullable ProjectMemberDto[] value) { this.members = value; }
+    /**
+     * Project fields array with values
+     *
+     * @return The field fields
+     */
+    public @Nullable Object getFields() { return this.fields; }
+    /**
+     * Project fields array with values
+     *
+     * @param value The new value for fields
+     */
+    public void setFields(@Nullable Object value) { this.fields = value; }
 };

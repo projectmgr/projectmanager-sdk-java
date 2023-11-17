@@ -45,9 +45,10 @@ public class UserRoleClient
      *
      * A UserRole is a name for a privilege level granted to a specific User.  The 'Global Admin' UserRole is granted to the owner of the Workspace, and this UserRole cannot be changed. You can choose which UserRole applies to a User within your Workspace.
      *
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<UserRoleDto[]> retrieveUserRoles()
+    public @NotNull AstroResult<UserRoleDto[]> retrieveUserRoles(@Nullable Object xintegrationname)
     {
         RestRequest<UserRoleDto[]> r = new RestRequest<UserRoleDto[]>(this.client, "GET", "/api/data/users/roles");
         return r.Call(new TypeToken<AstroResult<UserRoleDto[]>>() {}.getType());

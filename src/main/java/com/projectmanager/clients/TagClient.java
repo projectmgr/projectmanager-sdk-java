@@ -48,6 +48,7 @@ public class TagClient
      *
      * A Tag is a named categorization you can use to distinguish objects from each other. Tags each have a unique identifier, a name, and a color.
      *
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param top The number of records to return
      * @param skip Skips the given number of records and then returns $top records
      * @param filter Filter the expression according to oData queries
@@ -56,7 +57,7 @@ public class TagClient
      * @param expand Include related data in the response
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TagDto[]> queryTags(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
+    public @NotNull AstroResult<TagDto[]> queryTags(@Nullable Object xintegrationname, @Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
     {
         RestRequest<TagDto[]> r = new RestRequest<TagDto[]>(this.client, "GET", "/api/data/tags");
         if (top != null) { r.AddQuery("$top", top.toString()); }
@@ -73,10 +74,11 @@ public class TagClient
      *
      * A Tag is a named categorization you can use to distinguish objects from each other. Tags each have a unique identifier, a name, and a color.
      *
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The information for the new Tag to create
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TagDto> createTag(@NotNull TagCreateDto body)
+    public @NotNull AstroResult<TagDto> createTag(@Nullable Object xintegrationname, @NotNull TagCreateDto body)
     {
         RestRequest<TagDto> r = new RestRequest<TagDto>(this.client, "POST", "/api/data/tags");
         if (body != null) { r.AddBody(body); }
@@ -84,15 +86,16 @@ public class TagClient
     }
 
     /**
-     * Updates a new Tag based on information you provide.
+     * Updates an existing Tag based on information you provide.
      *
      * A Tag is a named categorization you can use to distinguish objects from each other. Tags each have a unique identifier, a name, and a color.
      *
      * @param tagId The id of the tag
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The information to update the tag
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TagDto> updateTag(@NotNull String tagId, @NotNull TagUpdateDto body)
+    public @NotNull AstroResult<TagDto> updateTag(@NotNull String tagId, @Nullable Object xintegrationname, @NotNull TagUpdateDto body)
     {
         RestRequest<TagDto> r = new RestRequest<TagDto>(this.client, "PUT", "/api/data/tags/{tagId}");
         r.AddPath("{tagId}", tagId == null ? "" : tagId.toString());

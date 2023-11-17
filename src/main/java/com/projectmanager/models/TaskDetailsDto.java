@@ -46,6 +46,7 @@ public class TaskDetailsDto
     private @Nullable String wbs;
     private @Nullable Double actualCost;
     private @Nullable Double plannedCost;
+    private @Nullable Object fields;
 
     /**
      * The unique identifier of this Task.
@@ -333,4 +334,16 @@ public class TaskDetailsDto
      * @param value The new value for plannedCost
      */
     public void setPlannedCost(@Nullable Double value) { this.plannedCost = value; }
+    /**
+     * Task fields array with values
+     *
+     * @return The field fields
+     */
+    public @Nullable Object getFields() { return this.fields; }
+    /**
+     * Task fields array with values
+     *
+     * @param value The new value for fields
+     */
+    public void setFields(@Nullable Object value) { this.fields = value; }
 };

@@ -51,9 +51,10 @@ public class TaskFieldClient
      * A TaskField is a custom field defined within your Workspace for a specific Project.  You can define TaskFields for any integration purpose that is important to your business.  Each TaskField has a data type as well as options in how it is handled.  TaskFields can be edited for each Task inside this Project.
      *
      * @param projectId The unique identifier of the Project to retrieve TaskFields
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<GetTaskFieldsResponseDto[]> retrieveTaskFields(@NotNull String projectId)
+    public @NotNull AstroResult<GetTaskFieldsResponseDto[]> retrieveTaskFields(@NotNull String projectId, @Nullable Object xintegrationname)
     {
         RestRequest<GetTaskFieldsResponseDto[]> r = new RestRequest<GetTaskFieldsResponseDto[]>(this.client, "GET", "/api/data/projects/{projectId}/tasks/fields");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
@@ -66,10 +67,11 @@ public class TaskFieldClient
      * A TaskField is a custom field defined within your Workspace for a specific Project.  You can define TaskFields for any integration purpose that is important to your business.  Each TaskField has a data type as well as options in how it is handled.  TaskFields can be edited for each Task inside this Project.
      *
      * @param projectId The unique identifier of the Project within which to create this TaskField
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body Information about the TaskField to create
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto> createTaskField(@NotNull String projectId, @NotNull CreateTaskFieldRequestDto body)
+    public @NotNull AstroResult<ChangeSetStatusDto> createTaskField(@NotNull String projectId, @Nullable Object xintegrationname, @NotNull CreateTaskFieldRequestDto body)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "POST", "/api/data/projects/{projectId}/tasks/fields");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
@@ -84,9 +86,10 @@ public class TaskFieldClient
      *
      * @param projectId The unique identifier of the Project that contains this TaskField
      * @param fieldId The unique identifier of the TaskField to delete
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> deleteTaskField(@NotNull String projectId, @NotNull String fieldId)
+    public @NotNull AstroResult<Object> deleteTaskField(@NotNull String projectId, @NotNull String fieldId, @Nullable Object xintegrationname)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/{projectId}/tasks/fields/{fieldId}");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
@@ -101,9 +104,10 @@ public class TaskFieldClient
      *
      * @param taskId The unique identifier of the Task of the value to retrieve
      * @param fieldId The unique identifier of the TaskField of the value to retrieve
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TaskFieldsValueResponseDto> retrieveTaskFieldValue(@NotNull String taskId, @NotNull String fieldId)
+    public @NotNull AstroResult<TaskFieldsValueResponseDto> retrieveTaskFieldValue(@NotNull String taskId, @NotNull String fieldId, @Nullable Object xintegrationname)
     {
         RestRequest<TaskFieldsValueResponseDto> r = new RestRequest<TaskFieldsValueResponseDto>(this.client, "GET", "/api/data/tasks/{taskId}/fields/{fieldId}");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
@@ -118,10 +122,11 @@ public class TaskFieldClient
      *
      * @param taskId The unique identifier of the Task whose value you wish to update
      * @param fieldId The unique identifier of the TaskField whose value you wish to update
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @param body The new value for this TaskField for this Task
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto> updateTaskFieldValue(@NotNull String taskId, @NotNull String fieldId, @NotNull UpdateTaskFieldValueDto body)
+    public @NotNull AstroResult<ChangeSetStatusDto> updateTaskFieldValue(@NotNull String taskId, @NotNull String fieldId, @Nullable Object xintegrationname, @NotNull UpdateTaskFieldValueDto body)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "PUT", "/api/data/tasks/{taskId}/fields/{fieldId}");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
@@ -136,9 +141,10 @@ public class TaskFieldClient
      * A TaskField is a custom field defined within your Workspace for a specific Project.  You can define TaskFields for any integration purpose that is important to your business.  Each TaskField has a data type as well as options in how it is handled.  TaskFields can be edited for each Task inside this Project.
      *
      * @param taskId The unique identifier of the Task for which we want TaskField values
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TaskFieldsValueResponseDto[]> retrieveAllTaskFieldValues(@NotNull String taskId)
+    public @NotNull AstroResult<TaskFieldsValueResponseDto[]> retrieveAllTaskFieldValues(@NotNull String taskId, @Nullable Object xintegrationname)
     {
         RestRequest<TaskFieldsValueResponseDto[]> r = new RestRequest<TaskFieldsValueResponseDto[]>(this.client, "GET", "/api/data/tasks/{taskId}/fields");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());

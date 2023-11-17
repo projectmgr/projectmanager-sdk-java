@@ -41,13 +41,14 @@ public class ProjectChargeCodeClient
     }
 
     /**
-     * Retrieve all defined ChargeCodes that can be used when creating Tasks.
+     * Retrieve all defined ChargeCodes that can be used when creating Projects.
      *
      * A ChargeCode is a code used to identify costs within your Projects.  Each ChargeCode has a name and a unique identifier.  ChargeCodes are defined per Workspace and are shared among Projects.
      *
+     * @param xintegrationname The name of the calling system passed along as a header parameter
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectChargeCodeDto[]> retrieveChargeCodes()
+    public @NotNull AstroResult<ProjectChargeCodeDto[]> retrieveChargeCodes(@Nullable Object xintegrationname)
     {
         RestRequest<ProjectChargeCodeDto[]> r = new RestRequest<ProjectChargeCodeDto[]>(this.client, "GET", "/api/data/projects/chargecodes");
         return r.Call(new TypeToken<AstroResult<ProjectChargeCodeDto[]>>() {}.getType());
