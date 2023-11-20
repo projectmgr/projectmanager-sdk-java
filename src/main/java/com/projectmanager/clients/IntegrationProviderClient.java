@@ -22,8 +22,10 @@ import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.IntegrationProviderDto;
-import com.projectmanager.models.DirectLinkDto;
+import com.projectmanager.models.ConnectionSchemaDto;
 
+import com.projectmanager.models.AuthenticationDto;
+import com.projectmanager.models.DirectLinkDto;
 import com.projectmanager.models.AuthenticationStatusDto;
 
 /**
@@ -64,11 +66,11 @@ public class IntegrationProviderClient
      * @param providerId The unique identifier of the IntegrationProvider for which you are requesting authentication information
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<DirectLinkDto> activateIntegrationProvider(@NotNull String providerId)
+    public @NotNull AstroResult<ConnectionSchemaDto> activateIntegrationProvider(@NotNull String providerId)
     {
-        RestRequest<DirectLinkDto> r = new RestRequest<DirectLinkDto>(this.client, "POST", "/api/data/integrations/providers/{providerId}");
+        RestRequest<ConnectionSchemaDto> r = new RestRequest<ConnectionSchemaDto>(this.client, "POST", "/api/data/integrations/providers/{providerId}");
         r.AddPath("{providerId}", providerId == null ? "" : providerId.toString());
-        return r.Call(new TypeToken<AstroResult<DirectLinkDto>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<ConnectionSchemaDto>>() {}.getType());
     }
 
     /**
@@ -78,7 +80,7 @@ public class IntegrationProviderClient
      * @param body Specify the auth status
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> updateIntegrationProvider(@NotNull String providerId, @NotNull AuthenticationStatusDto body)
+    public @NotNull AstroResult<Object> updateIntegrationProvider(@NotNull String providerId, @NotNull AuthenticationDto body)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "PUT", "/api/data/integrations/providers/{providerId}");
         r.AddPath("{providerId}", providerId == null ? "" : providerId.toString());

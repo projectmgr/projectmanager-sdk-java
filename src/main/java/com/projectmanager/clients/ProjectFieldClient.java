@@ -27,6 +27,7 @@ import com.projectmanager.models.CreateProjectFieldDto;
 import com.projectmanager.models.DeleteProjectFieldDto;
 
 import com.projectmanager.models.UpdateProjectFieldValueDto;
+import com.projectmanager.models.ProjectFieldsValueResponseDto;
 
 /**
  * Contains all methods related to ProjectField
@@ -105,5 +106,33 @@ public class ProjectFieldClient
         r.AddPath("{fieldId}", fieldId == null ? "" : fieldId.toString());
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+    }
+
+    /**
+     * Retrieves the current ProjectField value for a particular Project and ProjectField.
+     *
+     * @param projectId The unique identifier of the Project of the value to retrieve
+     * @param fieldId The unique identifier of the ProjectField of the value to retrieve
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ProjectFieldsValueResponseDto> retrieveProjectFieldValue(@NotNull String projectId, @NotNull String fieldId)
+    {
+        RestRequest<ProjectFieldsValueResponseDto> r = new RestRequest<ProjectFieldsValueResponseDto>(this.client, "GET", "/api/data/projects/{projectId}/fields/{fieldId}");
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        r.AddPath("{fieldId}", fieldId == null ? "" : fieldId.toString());
+        return r.Call(new TypeToken<AstroResult<ProjectFieldsValueResponseDto>>() {}.getType());
+    }
+
+    /**
+     * Retrieves all ProjectField values for a particular Project.
+     *
+     * @param projectId The unique identifier of the Project for which we want ProjectField values
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ProjectFieldsValueResponseDto[]> retrieveAllProjectFieldValues(@NotNull String projectId)
+    {
+        RestRequest<ProjectFieldsValueResponseDto[]> r = new RestRequest<ProjectFieldsValueResponseDto[]>(this.client, "GET", "/api/data/projects/{projectId}/fields");
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        return r.Call(new TypeToken<AstroResult<ProjectFieldsValueResponseDto[]>>() {}.getType());
     }
 }

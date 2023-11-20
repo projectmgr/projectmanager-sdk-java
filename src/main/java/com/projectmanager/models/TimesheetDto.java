@@ -28,6 +28,7 @@ public class TimesheetDto
     private @Nullable String notes;
     private @NotNull Boolean approved;
     private @NotNull Double hours;
+    private @NotNull String modifiedDate;
     private @Nullable TimesheetTaskDto task;
     private @Nullable TimeSheetProjectDto project;
     private @Nullable TimesheetResourceDto resource;
@@ -93,25 +94,37 @@ public class TimesheetDto
      */
     public void setHours(@NotNull Double value) { this.hours = value; }
     /**
-     * associated tasks with time sheet
+     * Date and time (in UTC) that this timesheet entry was last modified.
+     *
+     * @return The field modifiedDate
+     */
+    public @NotNull String getModifiedDate() { return this.modifiedDate; }
+    /**
+     * Date and time (in UTC) that this timesheet entry was last modified.
+     *
+     * @param value The new value for modifiedDate
+     */
+    public void setModifiedDate(@NotNull String value) { this.modifiedDate = value; }
+    /**
+     * The task associated with this timesheet entry
      *
      * @return The field task
      */
     public @Nullable TimesheetTaskDto getTask() { return this.task; }
     /**
-     * associated tasks with time sheet
+     * The task associated with this timesheet entry
      *
      * @param value The new value for task
      */
     public void setTask(@Nullable TimesheetTaskDto value) { this.task = value; }
     /**
-     * associated projects with timesheet
+     * The project associated with this timesheet entry
      *
      * @return The field project
      */
     public @Nullable TimeSheetProjectDto getProject() { return this.project; }
     /**
-     * associated projects with timesheet
+     * The project associated with this timesheet entry
      *
      * @param value The new value for project
      */
