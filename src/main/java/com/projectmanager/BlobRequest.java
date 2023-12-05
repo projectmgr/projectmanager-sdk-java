@@ -13,6 +13,7 @@
 
 package com.projectmanager;
 
+import java.lang.reflect.Type;
 import java.io.ByteArrayOutputStream;
 import java.net.InetAddress;
 import java.net.URI;
