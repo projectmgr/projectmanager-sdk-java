@@ -118,4 +118,14 @@ public class AstroResult<T>
             this.error = ((AstroResult<T>)gson.fromJson(content, new TypeToken<AstroError>() {}.getType())).getError();
         }
     }
+
+    /**
+     * Parse response from the server - only works for success
+     */
+    public void ParseBlob(Type classReference, T blobContent, int code, long serverDuration, long roundTripTime)
+    {
+        this.statusCode = Integer.toString(code);
+        this.success = true;
+        this.data = blobContent;
+    }
 };
