@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2023 ProjectManager.com, Inc.
- * @version    99.0.2541
+ * @version    99.0.2548
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -47,6 +47,7 @@ import com.projectmanager.clients.TaskFieldClient;
 import com.projectmanager.clients.TaskFileClient;
 import com.projectmanager.clients.TaskStatusClient;
 import com.projectmanager.clients.TaskTagClient;
+import com.projectmanager.clients.TeamsClient;
 import com.projectmanager.clients.TimesheetClient;
 import com.projectmanager.clients.UserRoleClient;
 import com.projectmanager.clients.WorkSpaceClient;
@@ -93,6 +94,7 @@ public class ProjectManagerClient {
     private TaskFileClient taskFile;
     private TaskStatusClient taskStatus;
     private TaskTagClient taskTag;
+    private TeamsClient teams;
     private TimesheetClient timesheet;
     private UserRoleClient userRole;
     private WorkSpaceClient workSpace;
@@ -132,6 +134,7 @@ public class ProjectManagerClient {
         this.taskFile = new TaskFileClient(this);
         this.taskStatus = new TaskStatusClient(this);
         this.taskTag = new TaskTagClient(this);
+        this.teams = new TeamsClient(this);
         this.timesheet = new TimesheetClient(this);
         this.userRole = new UserRoleClient(this);
         this.workSpace = new WorkSpaceClient(this);
@@ -323,6 +326,12 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.TaskTagClient client} methods in the API.
      */
     public @NotNull TaskTagClient getTaskTagClient() { return this.taskTag; }
+    /**
+     * A collection of API methods relating to Teams
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.TeamsClient client} methods in the API.
+     */
+    public @NotNull TeamsClient getTeamsClient() { return this.teams; }
     /**
      * A collection of API methods relating to Timesheet
      *
