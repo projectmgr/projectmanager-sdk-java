@@ -39,6 +39,7 @@ public class GetProjectFieldsResponseDto
     private @Nullable String type;
     private @Nullable String entityType;
     private @Nullable String[] options;
+    private @Nullable String shortId;
 
     /**
      * The unique identifier of this Field
@@ -132,4 +133,16 @@ public class GetProjectFieldsResponseDto
      * @param value The new value for options
      */
     public void setOptions(@Nullable String[] value) { this.options = value; }
+    /**
+     * The short Id of this field - human readable identity
+     *
+     * @return The field shortId
+     */
+    public @Nullable String getShortId() { return this.shortId; }
+    /**
+     * The short Id of this field - human readable identity
+     *
+     * @param value The new value for shortId
+     */
+    public void setShortId(@Nullable String value) { this.shortId = value; }
 };

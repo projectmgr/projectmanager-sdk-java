@@ -34,6 +34,7 @@ public class IntegrationDto
     private @Nullable IntegrationInstanceDto[] instances;
     private @NotNull Boolean enabled;
     private @NotNull Boolean authenticated;
+    private @NotNull Boolean autoEnabled;
 
     /**
      * The unique identifier of this Integration
@@ -161,4 +162,16 @@ public class IntegrationDto
      * @param value The new value for authenticated
      */
     public void setAuthenticated(@NotNull Boolean value) { this.authenticated = value; }
+    /**
+     * True if the integration is auto-enabled
+     *
+     * @return The field autoEnabled
+     */
+    public @NotNull Boolean getAutoEnabled() { return this.autoEnabled; }
+    /**
+     * True if the integration is auto-enabled
+     *
+     * @param value The new value for autoEnabled
+     */
+    public void setAutoEnabled(@NotNull Boolean value) { this.autoEnabled = value; }
 };

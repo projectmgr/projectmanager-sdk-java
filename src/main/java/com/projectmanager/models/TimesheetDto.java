@@ -32,6 +32,7 @@ public class TimesheetDto
     private @Nullable TimesheetTaskDto task;
     private @Nullable TimeSheetProjectDto project;
     private @Nullable TimesheetResourceDto resource;
+    private @Nullable TimesheetAdminTypeDto adminType;
 
     /**
      * TimesheetId
@@ -141,4 +142,16 @@ public class TimesheetDto
      * @param value The new value for resource
      */
     public void setResource(@Nullable TimesheetResourceDto value) { this.resource = value; }
+    /**
+     * The administration type associated with this timesheet entry
+     *
+     * @return The field adminType
+     */
+    public @Nullable TimesheetAdminTypeDto getAdminType() { return this.adminType; }
+    /**
+     * The administration type associated with this timesheet entry
+     *
+     * @param value The new value for adminType
+     */
+    public void setAdminType(@Nullable TimesheetAdminTypeDto value) { this.adminType = value; }
 };

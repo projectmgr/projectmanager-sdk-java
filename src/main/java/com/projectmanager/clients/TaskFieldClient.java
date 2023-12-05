@@ -21,11 +21,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
-import com.projectmanager.models.GetTaskFieldsResponseDto;
+import com.projectmanager.models.TaskFieldDto;
 
 import com.projectmanager.models.ChangeSetStatusDto;
-import com.projectmanager.models.CreateTaskFieldRequestDto;
-import com.projectmanager.models.TaskFieldsValueResponseDto;
+import com.projectmanager.models.CreateTaskFieldDto;
+import com.projectmanager.models.TaskFieldValueDto;
 import com.projectmanager.models.UpdateTaskFieldValueDto;
 
 /**
@@ -53,15 +53,15 @@ public class TaskFieldClient
      * @param projectId The unique identifier of the Project to retrieve TaskFields
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<GetTaskFieldsResponseDto[]> retrieveTaskFields(@NotNull String projectId)
+    public @NotNull AstroResult<TaskFieldDto[]> retrieveTaskFields(@NotNull String projectId)
     {
-        RestRequest<GetTaskFieldsResponseDto[]> r = new RestRequest<GetTaskFieldsResponseDto[]>(this.client, "GET", "/api/data/projects/{projectId}/tasks/fields");
+        RestRequest<TaskFieldDto[]> r = new RestRequest<TaskFieldDto[]>(this.client, "GET", "/api/data/projects/{projectId}/tasks/fields");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
-        return r.Call(new TypeToken<AstroResult<GetTaskFieldsResponseDto[]>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<TaskFieldDto[]>>() {}.getType());
     }
 
     /**
-     * Creates a new TaskFields for a specific Project within your Workspace.
+     * Creates a new TaskField for a specific Project within your Workspace.
      *
      * A TaskField is a custom field defined within your Workspace for a specific Project.  You can define TaskFields for any integration purpose that is important to your business.  Each TaskField has a data type as well as options in how it is handled.  TaskFields can be edited for each Task inside this Project.
      *
@@ -69,12 +69,37 @@ public class TaskFieldClient
      * @param body Information about the TaskField to create
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto> createTaskField(@NotNull String projectId, @NotNull CreateTaskFieldRequestDto body)
+    public @NotNull AstroResult<ChangeSetStatusDto> createTaskField(@NotNull String projectId, @NotNull CreateTaskFieldDto body)
     {
         RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "POST", "/api/data/projects/{projectId}/tasks/fields");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
+    }
+
+    /**
+     * Retrieve a list of TaskFields that match an [OData formatted query](https://www.odata.org/).
+     *
+     * A TaskField is a custom field defined within your Workspace for a specific Project.  You can define TaskFields for any integration purpose that is important to your business.  Each TaskField has a data type as well as options in how it is handled.  TaskFields can be edited for each Task inside a Project.
+     *
+     * @param top The number of records to return
+     * @param skip Skips the given number of records and then returns $top records
+     * @param filter Filter the expression according to oData queries
+     * @param select Specify which properties should be returned
+     * @param orderby Order collection by this field.
+     * @param expand Include related data in the response
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<TaskFieldDto[]> queryTaskFields(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
+    {
+        RestRequest<TaskFieldDto[]> r = new RestRequest<TaskFieldDto[]>(this.client, "GET", "/api/data/projects/tasks/fields");
+        if (top != null) { r.AddQuery("$top", top.toString()); }
+        if (skip != null) { r.AddQuery("$skip", skip.toString()); }
+        if (filter != null) { r.AddQuery("$filter", filter.toString()); }
+        if (select != null) { r.AddQuery("$select", select.toString()); }
+        if (orderby != null) { r.AddQuery("$orderby", orderby.toString()); }
+        if (expand != null) { r.AddQuery("$expand", expand.toString()); }
+        return r.Call(new TypeToken<AstroResult<TaskFieldDto[]>>() {}.getType());
     }
 
     /**
@@ -95,6 +120,46 @@ public class TaskFieldClient
     }
 
     /**
+     * Retrieves all TaskField values for a particular Task.
+     *
+     * A TaskField is a custom field defined within your Workspace for a specific Project.  You can define TaskFields for any integration purpose that is important to your business.  Each TaskField has a data type as well as options in how it is handled.  TaskFields can be edited for each Task inside this Project.
+     *
+     * @param taskId The unique identifier of the Task for which we want TaskField values
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<TaskFieldValueDto[]> retrieveAllTaskFieldValues(@NotNull String taskId)
+    {
+        RestRequest<TaskFieldValueDto[]> r = new RestRequest<TaskFieldValueDto[]>(this.client, "GET", "/api/data/tasks/{taskId}/fields/values");
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
+        return r.Call(new TypeToken<AstroResult<TaskFieldValueDto[]>>() {}.getType());
+    }
+
+    /**
+     * Retrieve a list of TaskFieldValues that match an [OData formatted query](https://www.odata.org/).
+     *
+     * A TaskField is a custom field defined within your Workspace for a specific Project.  You can define TaskFields for any integration purpose that is important to your business.  Each TaskField has a data type as well as options in how it is handled.  TaskFields can be edited for each Task inside this Project.
+     *
+     * @param top The number of records to return
+     * @param skip Skips the given number of records and then returns $top records
+     * @param filter Filter the expression according to oData queries
+     * @param select Specify which properties should be returned
+     * @param orderby Order collection by this field.
+     * @param expand Include related data in the response
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<TaskFieldValueDto[]> queryTaskFieldValues(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
+    {
+        RestRequest<TaskFieldValueDto[]> r = new RestRequest<TaskFieldValueDto[]>(this.client, "GET", "/api/data/tasks/fields/values");
+        if (top != null) { r.AddQuery("$top", top.toString()); }
+        if (skip != null) { r.AddQuery("$skip", skip.toString()); }
+        if (filter != null) { r.AddQuery("$filter", filter.toString()); }
+        if (select != null) { r.AddQuery("$select", select.toString()); }
+        if (orderby != null) { r.AddQuery("$orderby", orderby.toString()); }
+        if (expand != null) { r.AddQuery("$expand", expand.toString()); }
+        return r.Call(new TypeToken<AstroResult<TaskFieldValueDto[]>>() {}.getType());
+    }
+
+    /**
      * Retrieves the current TaskField value for a particular Task and TaskField.
      *
      * A TaskField is a custom field defined within your Workspace for a specific Project.  You can define TaskFields for any integration purpose that is important to your business.  Each TaskField has a data type as well as options in how it is handled.  TaskFields can be edited for each Task inside this Project.
@@ -103,16 +168,16 @@ public class TaskFieldClient
      * @param fieldId The unique identifier of the TaskField of the value to retrieve
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TaskFieldsValueResponseDto> retrieveTaskFieldValue(@NotNull String taskId, @NotNull String fieldId)
+    public @NotNull AstroResult<TaskFieldValueDto> retrieveTaskFieldValue(@NotNull String taskId, @NotNull String fieldId)
     {
-        RestRequest<TaskFieldsValueResponseDto> r = new RestRequest<TaskFieldsValueResponseDto>(this.client, "GET", "/api/data/tasks/{taskId}/fields/{fieldId}");
+        RestRequest<TaskFieldValueDto> r = new RestRequest<TaskFieldValueDto>(this.client, "GET", "/api/data/tasks/{taskId}/fields/{fieldId}/values");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
         r.AddPath("{fieldId}", fieldId == null ? "" : fieldId.toString());
-        return r.Call(new TypeToken<AstroResult<TaskFieldsValueResponseDto>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<TaskFieldValueDto>>() {}.getType());
     }
 
     /**
-     * Replaces the current value of a TaskFields for a specific Task within your Workspace.
+     * Replaces the current value of a TaskField for a specific Task within your Workspace.
      *
      * A TaskField is a custom field defined within your Workspace for a specific Project.  You can define TaskFields for any integration purpose that is important to your business.  Each TaskField has a data type as well as options in how it is handled.  TaskFields can be edited for each Task inside this Project.
      *
@@ -123,25 +188,10 @@ public class TaskFieldClient
      */
     public @NotNull AstroResult<ChangeSetStatusDto> updateTaskFieldValue(@NotNull String taskId, @NotNull String fieldId, @NotNull UpdateTaskFieldValueDto body)
     {
-        RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "PUT", "/api/data/tasks/{taskId}/fields/{fieldId}");
+        RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "PUT", "/api/data/tasks/{taskId}/fields/{fieldId}/values");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
         r.AddPath("{fieldId}", fieldId == null ? "" : fieldId.toString());
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
-    }
-
-    /**
-     * Retrieves all TaskField values for a particular Task.
-     *
-     * A TaskField is a custom field defined within your Workspace for a specific Project.  You can define TaskFields for any integration purpose that is important to your business.  Each TaskField has a data type as well as options in how it is handled.  TaskFields can be edited for each Task inside this Project.
-     *
-     * @param taskId The unique identifier of the Task for which we want TaskField values
-     * @return A {@link com.projectmanager.AstroResult} containing the results
-     */
-    public @NotNull AstroResult<TaskFieldsValueResponseDto[]> retrieveAllTaskFieldValues(@NotNull String taskId)
-    {
-        RestRequest<TaskFieldsValueResponseDto[]> r = new RestRequest<TaskFieldsValueResponseDto[]>(this.client, "GET", "/api/data/tasks/{taskId}/fields");
-        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
-        return r.Call(new TypeToken<AstroResult<TaskFieldsValueResponseDto[]>>() {}.getType());
     }
 }

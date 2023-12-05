@@ -24,7 +24,6 @@ import com.projectmanager.AstroResult;
 import com.projectmanager.models.GetProjectFieldsResponseDto;
 import com.projectmanager.models.CreateProjectFieldResponseDto;
 import com.projectmanager.models.CreateProjectFieldDto;
-import com.projectmanager.models.DeleteProjectFieldDto;
 
 import com.projectmanager.models.UpdateProjectFieldValueDto;
 import com.projectmanager.models.ProjectFieldsValueResponseDto;
@@ -79,27 +78,27 @@ public class ProjectFieldClient
      *
      * A ProjectField is a custom field defined within your Workspace.  You can define ProjectFields for any integration purpose that is important to your business.  Each ProjectField has a data type as well as options in how it is handled.  ProjectFields can be edited for each Project within your Workspace.
      *
-     * @param body The identity of the ProjectField to delete
+     * @param fieldId The unique identifier or short ID of this ProjectField
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> deleteProjectField(@NotNull DeleteProjectFieldDto body)
+    public @NotNull AstroResult<Object> deleteProjectField(@NotNull String fieldId)
     {
-        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/fields");
-        if (body != null) { r.AddBody(body); }
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/fields/{fieldId}");
+        r.AddPath("{fieldId}", fieldId == null ? "" : fieldId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 
     /**
-     * Updates an existing ProjectField with new information.
+     * Replaces the current value of a ProjectField for a specific Project within your Workspace.
      *
      * A ProjectField is a custom field defined within your Workspace.  You can define ProjectFields for any integration purpose that is important to your business.  Each ProjectField has a data type as well as options in how it is handled.  ProjectFields can be edited for each Project within your Workspace.
      *
      * @param projectId The unique identifier of the Project that contains this ProjectField
-     * @param fieldId The unique identifier of this ProjectField
+     * @param fieldId The unique identifier or short ID of this ProjectField
      * @param body The new information for this ProjectField
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> updateProjectField(@NotNull String projectId, @NotNull String fieldId, @NotNull UpdateProjectFieldValueDto body)
+    public @NotNull AstroResult<Object> updateProjectFieldValue(@NotNull String projectId, @NotNull String fieldId, @NotNull UpdateProjectFieldValueDto body)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "PUT", "/api/data/projects/{projectId}/fields/{fieldId}");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
@@ -111,8 +110,10 @@ public class ProjectFieldClient
     /**
      * Retrieves the current ProjectField value for a particular Project and ProjectField.
      *
+     * A ProjectField is a custom field defined within your Workspace.  You can define ProjectFields for any integration purpose that is important to your business.  Each ProjectField has a data type as well as options in how it is handled.  ProjectFields can be edited for each Project within your Workspace.
+     *
      * @param projectId The unique identifier of the Project of the value to retrieve
-     * @param fieldId The unique identifier of the ProjectField of the value to retrieve
+     * @param fieldId The unique identifier or short ID of the ProjectField of the value to retrieve
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
     public @NotNull AstroResult<ProjectFieldsValueResponseDto> retrieveProjectFieldValue(@NotNull String projectId, @NotNull String fieldId)
@@ -125,6 +126,8 @@ public class ProjectFieldClient
 
     /**
      * Retrieves all ProjectField values for a particular Project.
+     *
+     * A ProjectField is a custom field defined within your Workspace.  You can define ProjectFields for any integration purpose that is important to your business.  Each ProjectField has a data type as well as options in how it is handled.  ProjectFields can be edited for each Project within your Workspace.
      *
      * @param projectId The unique identifier of the Project for which we want ProjectField values
      * @return A {@link com.projectmanager.AstroResult} containing the results
