@@ -14,7 +14,6 @@
 package com.projectmanager;
 
 import java.io.ByteArrayOutputStream;
-import java.lang.reflect.Type;
 import java.net.InetAddress;
 import java.net.URI;
 import java.time.Duration;
@@ -105,7 +104,7 @@ public class BlobRequest {
      *
      * @return a {@link com.projectmanager.AstroResult} object.
      */
-    public @NotNull AstroResult<byte[]> Call() {
+    public @NotNull AstroResult<byte[]> Call(Type classReference) {
         Instant start = Instant.now();
         AstroResult<byte[]> result = new AstroResult<byte[]>();
         try {
@@ -148,7 +147,7 @@ public class BlobRequest {
             }
 
             request.addHeader("SdkName", "Java");
-            request.addHeader("SdkVersion", "2022.10.63.0");
+            request.addHeader("SdkVersion", "99.0.2550.0");
 
             String applicationName = this.client.getAppName();
 

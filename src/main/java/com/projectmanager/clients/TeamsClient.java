@@ -17,9 +17,11 @@ package com.projectmanager.clients;
 
 import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
+import com.projectmanager.BlobRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
+import com.projectmanager.AstroResult;
 
 
 /**
