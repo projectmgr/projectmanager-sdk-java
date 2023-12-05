@@ -107,7 +107,7 @@ public class BlobRequest {
      */
     public @NotNull AstroResult<byte[]> Call() {
         Instant start = Instant.now();
-        AstroResult<byte[]> response = new AstroResult<byte[]>();
+        AstroResult<byte[]> result = new AstroResult<byte[]>();
         try {
 
             CloseableHttpClient httpclient = HttpClients.createDefault();
@@ -188,20 +188,20 @@ public class BlobRequest {
             }
 
             // Detect success or failure
-            response.Parse(getClass(), bearerToken, code, serverDuration, roundTripTime);
+            result.Parse(getClass(), bearerToken, code, serverDuration, roundTripTime);
             
             if (code >= 200 && code < 300) {
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 rawResponse.getEntity().writeTo(baos);
-                response.ParseBlob(getClass(), baos.toByteArray(), code, serverDuration, roundTripTime);
+                result.ParseBlob(getClass(), baos.toByteArray(), code, serverDuration, roundTripTime);
             } else {
                 String content = EntityUtils.toString(rawResponse.getEntity());
-                response.Parse(getClass(), content, code, serverDuration, roundTripTime);
+                result.Parse(getClass(), content, code, serverDuration, roundTripTime);
             }
-            return response;
+            return result;
         } catch (Exception e) {
             result.Parse(getClass(), e.toString(), -1, -1, -1);
         }
-        return response;
+        return result;
     }
 }
