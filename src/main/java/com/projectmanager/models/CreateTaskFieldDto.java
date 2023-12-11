@@ -24,10 +24,11 @@ import org.jetbrains.annotations.Nullable;
  * TaskField has a data type as well as options in how it is handled.  TaskFields can be edited
  * for each Task inside this Project.
  */
-public class CreateTaskFieldRequestDto
+public class CreateTaskFieldDto
 {
     private @Nullable String name;
     private @Nullable String type;
+    private @Nullable String[] options;
     private @Nullable String shortId;
 
     /**
@@ -49,7 +50,8 @@ public class CreateTaskFieldRequestDto
      * * Date
      * * Checkbox
      * * Currency
-     * * Dropdown
+     * * DropdownSingle
+     * * DropdownMulti
      *
      * @return The field type
      */
@@ -61,11 +63,34 @@ public class CreateTaskFieldRequestDto
      * * Date
      * * Checkbox
      * * Currency
-     * * Dropdown
+     * * DropdownSingle
+     * * DropdownMulti
      *
      * @param value The new value for type
      */
     public void setType(@Nullable String value) { this.type = value; }
+    /**
+     * A list of options for use of this TaskField.  This is only valid if
+     * the `Type` value is set to `Dropdown`.
+     *
+     * When a custom TaskField of type `DropDown` is shown to a user in the
+     * application, they will be able to choose one of the `Options` in this
+     * list.
+     *
+     * @return The field options
+     */
+    public @Nullable String[] getOptions() { return this.options; }
+    /**
+     * A list of options for use of this TaskField.  This is only valid if
+     * the `Type` value is set to `Dropdown`.
+     *
+     * When a custom TaskField of type `DropDown` is shown to a user in the
+     * application, they will be able to choose one of the `Options` in this
+     * list.
+     *
+     * @param value The new value for options
+     */
+    public void setOptions(@Nullable String[] value) { this.options = value; }
     /**
      * The short Id of this field - human readable identity
      *

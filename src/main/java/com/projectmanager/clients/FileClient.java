@@ -17,6 +17,7 @@ package com.projectmanager.clients;
 
 import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
+import com.projectmanager.BlobRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
@@ -58,6 +59,26 @@ public class FileClient
         r.AddPath("{documentId}", documentId == null ? "" : documentId.toString());
         if (type != null) { r.AddQuery("type", type.toString()); }
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+    }
+
+    /**
+     * Downloads a thumbnail image associated with a document that was previously uploaded to ProjectManager.com.
+     *
+     * ProjectManager allows you to store files linked to various elements within your Workspace,
+     * such as Projects, Tasks, or your Home. Files are organized based on their storage location.
+     *
+     * When uploading a file, please allow some time for the file to undergo processing and verification.
+     * ProjectManager may reject file uploads containing issues such as malware. Once a file has
+     * completed the upload process, you can retrieve its associated thumbnail using the DownloadThumbnail API.
+     *
+     * @param documentId The unique identifier of the document for which to download the thumbnail.
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<byte[]> downloadaThumbnailImage(@NotNull String documentId)
+    {
+        BlobRequest r = new BlobRequest(this.client, "GET", "/api/data/files/{documentId}/thumbnail");
+        r.AddPath("{documentId}", documentId == null ? "" : documentId.toString());
+        return r.Call(new TypeToken<AstroResult<byte[]>>() {}.getType());
     }
 
     /**

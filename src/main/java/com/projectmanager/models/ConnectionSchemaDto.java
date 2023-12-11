@@ -23,9 +23,22 @@ import org.jetbrains.annotations.Nullable;
  */
 public class ConnectionSchemaDto
 {
+    private @NotNull Boolean connected;
     private @Nullable String url;
     private @Nullable Object authScheme;
 
+    /**
+     * Whether or not the Integration Provider is connected.
+     *
+     * @return The field connected
+     */
+    public @NotNull Boolean getConnected() { return this.connected; }
+    /**
+     * Whether or not the Integration Provider is connected.
+     *
+     * @param value The new value for connected
+     */
+    public void setConnected(@NotNull Boolean value) { this.connected = value; }
     /**
      * The URL to use to authenticate with the Integration Provider.
      *

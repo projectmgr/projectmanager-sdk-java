@@ -22,35 +22,36 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
-import com.projectmanager.models.ProjectFolderDto;
+
 
 /**
- * Contains all methods related to ProjectFolder
+ * Contains all methods related to Teams
  */
-public class ProjectFolderClient
+public class TeamsClient
 {
     private ProjectManagerClient client;
 
     /**
-     * Constructor for the ProjectFolder API collection
+     * Constructor for the Teams API collection
      *
      * @param client A {@link com.projectmanager.ProjectManagerClient} platform client
      */
-    public ProjectFolderClient(@NotNull ProjectManagerClient client) {
+    public TeamsClient(@NotNull ProjectManagerClient client) {
         super();
         this.client = client;
     }
 
     /**
-     * Retrieves all ProjectFolders defined within your Workspace.
+     * Retrieves zip file for teams integrations.
      *
-     * A ProjectFolder is a named storage location that can contain Projects.
+     * The Teams API is intended for use by ProjectManager and its business development partners.  Please
+     * contact ProjectManager's sales team to request use of this API.
      *
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectFolderDto[]> retrieveProjectFolders()
+    public @NotNull AstroResult<byte[]> retrievezipfileforTeamsIntegrations()
     {
-        RestRequest<ProjectFolderDto[]> r = new RestRequest<ProjectFolderDto[]>(this.client, "GET", "/api/data/project-folders");
-        return r.Call(new TypeToken<AstroResult<ProjectFolderDto[]>>() {}.getType());
+        BlobRequest r = new BlobRequest(this.client, "GET", "/api/data/integrations/teams/application");
+        return r.Call(new TypeToken<AstroResult<byte[]>>() {}.getType());
     }
 }

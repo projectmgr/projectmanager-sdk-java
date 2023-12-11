@@ -19,36 +19,46 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * A ProjectField is a custom field defined within your Workspace.  You can define ProjectFields
- * for any integration purpose that is important to your business.  Each ProjectField has a data
- * type as well as options in how it is handled.  ProjectFields can be edited for each Project
- * within your Workspace.
+ * The TaskFieldProject is a summary of the Project that this TaskField relates to.
  */
-public class DeleteProjectFieldDto
+public class TaskFieldProjectDto
 {
-    private @Nullable String id;
+    private @NotNull String id;
+    private @Nullable String shortId;
     private @Nullable String name;
 
     /**
-     * The unique identifier of the ProjectField being deleted
+     * The unique identifier of this Project.
      *
      * @return The field id
      */
-    public @Nullable String getId() { return this.id; }
+    public @NotNull String getId() { return this.id; }
     /**
-     * The unique identifier of the ProjectField being deleted
+     * The unique identifier of this Project.
      *
      * @param value The new value for id
      */
-    public void setId(@Nullable String value) { this.id = value; }
+    public void setId(@NotNull String value) { this.id = value; }
     /**
-     * The name of the ProjectField being deleted
+     * The ShortId of this Project.
+     *
+     * @return The field shortId
+     */
+    public @Nullable String getShortId() { return this.shortId; }
+    /**
+     * The ShortId of this Project.
+     *
+     * @param value The new value for shortId
+     */
+    public void setShortId(@Nullable String value) { this.shortId = value; }
+    /**
+     * The common name of this Project.
      *
      * @return The field name
      */
     public @Nullable String getName() { return this.name; }
     /**
-     * The name of the ProjectField being deleted
+     * The common name of this Project.
      *
      * @param value The new value for name
      */

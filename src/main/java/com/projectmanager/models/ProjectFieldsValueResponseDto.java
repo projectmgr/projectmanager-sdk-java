@@ -19,8 +19,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * A Project Field is a custom field defined within your Workspace for each Project. Each
- * Project Field has a data type as well as options in how it is handled.
+ * A ProjectField is a custom field defined within your Workspace for each Project. Each
+ * ProjectField has a data type as well as options in how it is handled.
  */
 public class ProjectFieldsValueResponseDto
 {
@@ -28,6 +28,9 @@ public class ProjectFieldsValueResponseDto
     private @Nullable String value;
     private @Nullable String name;
     private @Nullable String type;
+    private @Nullable String shortId;
+    private @NotNull String createdDate;
+    private @NotNull String modifiedDate;
 
     /**
      * The unique identifier of this Project Field.
@@ -89,4 +92,40 @@ public class ProjectFieldsValueResponseDto
      * @param value The new value for type
      */
     public void setType(@Nullable String value) { this.type = value; }
+    /**
+     * The short Id of this field - human readable identity
+     *
+     * @return The field shortId
+     */
+    public @Nullable String getShortId() { return this.shortId; }
+    /**
+     * The short Id of this field - human readable identity
+     *
+     * @param value The new value for shortId
+     */
+    public void setShortId(@Nullable String value) { this.shortId = value; }
+    /**
+     * Date and time (in UTC) that this TaskField was created.
+     *
+     * @return The field createdDate
+     */
+    public @NotNull String getCreatedDate() { return this.createdDate; }
+    /**
+     * Date and time (in UTC) that this TaskField was created.
+     *
+     * @param value The new value for createdDate
+     */
+    public void setCreatedDate(@NotNull String value) { this.createdDate = value; }
+    /**
+     * Date and time (in UTC) that this TaskField was last modified.
+     *
+     * @return The field modifiedDate
+     */
+    public @NotNull String getModifiedDate() { return this.modifiedDate; }
+    /**
+     * Date and time (in UTC) that this TaskField was last modified.
+     *
+     * @param value The new value for modifiedDate
+     */
+    public void setModifiedDate(@NotNull String value) { this.modifiedDate = value; }
 };

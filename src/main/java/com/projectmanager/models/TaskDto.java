@@ -50,7 +50,7 @@ public class TaskDto
     private @Nullable Double plannedCost;
     private @Nullable Integer plannedDuration;
     private @Nullable Integer plannedEffort;
-    private @Nullable TaskFieldDto[] fields;
+    private @Nullable TaskFieldValueDto[] fields;
 
     /**
      * The unique identifier of this Task.
@@ -471,11 +471,11 @@ public class TaskDto
      *
      * @return The field fields
      */
-    public @Nullable TaskFieldDto[] getFields() { return this.fields; }
+    public @Nullable TaskFieldValueDto[] getFields() { return this.fields; }
     /**
      * Task fields array with values
      *
      * @param value The new value for fields
      */
-    public void setFields(@Nullable TaskFieldDto[] value) { this.fields = value; }
+    public void setFields(@Nullable TaskFieldValueDto[] value) { this.fields = value; }
 };

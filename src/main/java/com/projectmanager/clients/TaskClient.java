@@ -17,13 +17,13 @@ package com.projectmanager.clients;
 
 import com.projectmanager.ProjectManagerClient;
 import com.projectmanager.RestRequest;
+import com.projectmanager.BlobRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.TaskDto;
 
-import com.projectmanager.models.TaskDetailsDto;
 import com.projectmanager.models.ChangeSetStatusDto;
 import com.projectmanager.models.TaskUpdateDto;
 import com.projectmanager.models.TaskCreateDto;
@@ -79,11 +79,11 @@ public class TaskClient
      * @param taskId The unique identifier or short ID of the Task to retrieve
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TaskDetailsDto> retrieveTask(@NotNull String taskId)
+    public @NotNull AstroResult<TaskDto> retrieveTask(@NotNull String taskId)
     {
-        RestRequest<TaskDetailsDto> r = new RestRequest<TaskDetailsDto>(this.client, "GET", "/api/data/tasks/{taskId}");
+        RestRequest<TaskDto> r = new RestRequest<TaskDto>(this.client, "GET", "/api/data/tasks/{taskId}");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
-        return r.Call(new TypeToken<AstroResult<TaskDetailsDto>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<TaskDto>>() {}.getType());
     }
 
     /**

@@ -14,6 +14,7 @@
 package com.projectmanager;
 
 import java.lang.reflect.Type;
+import java.io.ByteArrayOutputStream;
 import java.net.InetAddress;
 import java.net.URI;
 import java.time.Duration;
@@ -36,11 +37,10 @@ import org.jetbrains.annotations.NotNull;
 
 import com.google.gson.Gson;
 
-
 /**
  * Represents a request to a remote web server
  */
-public class RestRequest<@NotNull T> {
+public class BlobRequest {
     private Hashtable<String, String> queryParams;
     private Hashtable<String, String> pathReplacements;
     private String method;
@@ -50,14 +50,14 @@ public class RestRequest<@NotNull T> {
 
     /**
      * <p>
-     * Constructor for RestRequest.
+     * Constructor for BlobRequest.
      * </p>
      *
      * @param client a {@link com.projectmanager.ProjectManagerClient} object.
      * @param method a {@link java.lang.String} object.
      * @param path   a {@link java.lang.String} object.
      */
-    public RestRequest(@NotNull ProjectManagerClient client, @NotNull String method, @NotNull String path) {
+    public BlobRequest(@NotNull ProjectManagerClient client, @NotNull String method, @NotNull String path) {
         this.client = client;
         this.method = method;
         this.path = path;
@@ -105,9 +105,9 @@ public class RestRequest<@NotNull T> {
      *
      * @return a {@link com.projectmanager.AstroResult} object.
      */
-    public @NotNull AstroResult<T> Call(Type classReference) {
+    public @NotNull AstroResult<byte[]> Call(Type classReference) {
         Instant start = Instant.now();
-        AstroResult<T> result = new AstroResult<T>();
+        AstroResult<byte[]> result = new AstroResult<byte[]>();
         try {
 
             CloseableHttpClient httpclient = HttpClients.createDefault();
@@ -168,25 +168,39 @@ public class RestRequest<@NotNull T> {
             }
 
             // If we have a request body
+            Gson gson = new Gson();
             if (body != null) {
-                Gson gson = new Gson();
                 StringEntity stringEntity = new StringEntity(gson.toJson(body));
                 request.setEntity(stringEntity);
             }
-            
             // Execute and parse results
-            final CloseableHttpResponse response = httpclient.execute(request);
+            final CloseableHttpResponse rawResponse = httpclient.execute(request);
+
+            // get round trip time
+            long roundTripTime = Duration.between(start, Instant.now()).toMillis();
 
             // Did we succeed?
+            int code = rawResponse.getCode();
             long serverDuration = 0;
-            if (response.getHeader("ServerDuration") != null) {
-                serverDuration = Long.parseLong(response.getHeader("ServerDuration").getValue());
+
+            if (rawResponse.getHeader("ServerDuration") != null) {
+                serverDuration = Long.parseLong(rawResponse.getHeader("ServerDuration").getValue());
             }
-            String content = EntityUtils.toString(response.getEntity());
-            long roundTripTime = Duration.between(start, Instant.now()).toMillis();
-            result.Parse(classReference, content, response.getCode(), serverDuration, roundTripTime);
+
+            // Detect success or failure
+            result.Parse(getClass(), bearerToken, code, serverDuration, roundTripTime);
+            
+            if (code >= 200 && code < 300) {
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                rawResponse.getEntity().writeTo(baos);
+                result.ParseBlob(getClass(), baos.toByteArray(), code, serverDuration, roundTripTime);
+            } else {
+                String content = EntityUtils.toString(rawResponse.getEntity());
+                result.Parse(getClass(), content, code, serverDuration, roundTripTime);
+            }
+            return result;
         } catch (Exception e) {
-            result.Parse(classReference, e.toString(), -1, -1, -1);
+            result.Parse(getClass(), e.toString(), -1, -1, -1);
         }
         return result;
     }

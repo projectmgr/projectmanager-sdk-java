@@ -35,6 +35,7 @@ public class IntegrationProviderDto
     private @NotNull Boolean authenticated;
     private @Nullable IntegrationDto[] integrations;
     private @Nullable IntegrationAuthSetupDto authSetup;
+    private @NotNull Boolean createInWorkato;
 
     /**
      * The unique identifier of this Provider.
@@ -168,4 +169,16 @@ public class IntegrationProviderDto
      * @param value The new value for authSetup
      */
     public void setAuthSetup(@Nullable IntegrationAuthSetupDto value) { this.authSetup = value; }
+    /**
+     * Flag whether user/workspace needs to be setup in Workato
+     *
+     * @return The field createInWorkato
+     */
+    public @NotNull Boolean getCreateInWorkato() { return this.createInWorkato; }
+    /**
+     * Flag whether user/workspace needs to be setup in Workato
+     *
+     * @param value The new value for createInWorkato
+     */
+    public void setCreateInWorkato(@NotNull Boolean value) { this.createInWorkato = value; }
 };
