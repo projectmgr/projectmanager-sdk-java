@@ -21,9 +21,8 @@ import com.projectmanager.BlobRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
-import com.projectmanager.models.byte;
-
 import com.projectmanager.AstroResult;
+
 import com.projectmanager.models.UpdateRequestDto;
 
 /**
@@ -61,12 +60,12 @@ public class FileClient
      * @param type If you specify a type of `html`, processes the file using text encoding, otherwise binary
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<byte> downloadFile(@NotNull String documentId, @Nullable String type)
+    public @NotNull AstroResult<byte[]> downloadFile(@NotNull String documentId, @Nullable String type)
     {
-        RestRequest<byte> r = new RestRequest<byte>(this.client, "GET", "/api/data/files/{documentId}/download");
+        BlobRequest r = new BlobRequest(this.client, "GET", "/api/data/files/{documentId}/download");
         r.AddPath("{documentId}", documentId == null ? "" : documentId.toString());
         if (type != null) { r.AddQuery("type", type.toString()); }
-        return r.Call(new TypeToken<AstroResult<byte>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<byte[]>>() {}.getType());
     }
 
     /**
@@ -85,11 +84,11 @@ public class FileClient
      * @param documentId The unique identifier of the document for which to download the thumbnail.
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<byte> downloadaThumbnailImage(@NotNull String documentId)
+    public @NotNull AstroResult<byte[]> downloadaThumbnailImage(@NotNull String documentId)
     {
-        RestRequest<byte> r = new RestRequest<byte>(this.client, "GET", "/api/data/files/{documentId}/thumbnail");
+        BlobRequest r = new BlobRequest(this.client, "GET", "/api/data/files/{documentId}/thumbnail");
         r.AddPath("{documentId}", documentId == null ? "" : documentId.toString());
-        return r.Call(new TypeToken<AstroResult<byte>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<byte[]>>() {}.getType());
     }
 
     /**
