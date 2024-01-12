@@ -19,36 +19,48 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * When managing users, you can choose who will approve a person's Timesheets. This
- * is a ResourceApprover.  You can specify this person within the Resource object.
+ * Resource holiday entry
  */
-public class ResourceApproverDto
+public class ResourceHolidayDto
 {
     private @NotNull String id;
-    private @Nullable String name;
+    private @NotNull String date;
+    private @NotNull String resourceId;
 
     /**
-     * The unique identifier of this ResourceApprover
+     * Holiday id
      *
      * @return The field id
      */
     public @NotNull String getId() { return this.id; }
     /**
-     * The unique identifier of this ResourceApprover
+     * Holiday id
      *
      * @param value The new value for id
      */
     public void setId(@NotNull String value) { this.id = value; }
     /**
-     * The name of this ResourceApprover
+     * Date of holiday
      *
-     * @return The field name
+     * @return The field date
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getDate() { return this.date; }
     /**
-     * The name of this ResourceApprover
+     * Date of holiday
      *
-     * @param value The new value for name
+     * @param value The new value for date
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setDate(@NotNull String value) { this.date = value; }
+    /**
+     * Resource id holoday associated to
+     *
+     * @return The field resourceId
+     */
+    public @NotNull String getResourceId() { return this.resourceId; }
+    /**
+     * Resource id holoday associated to
+     *
+     * @param value The new value for resourceId
+     */
+    public void setResourceId(@NotNull String value) { this.resourceId = value; }
 };

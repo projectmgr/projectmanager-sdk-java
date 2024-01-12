@@ -2,13 +2,13 @@
 /**
  * ProjectManager API for Java
  *
- * (c) 2023-2023 ProjectManager.com, Inc.
+ * (c) 2023-2024 ProjectManager.com, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
  * @author     ProjectManager.com <support@projectmanager.com>
- * @copyright  2023-2023 ProjectManager.com, Inc.
+ * @copyright  2023-2024 ProjectManager.com, Inc.
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -21,8 +21,7 @@ import com.projectmanager.BlobRequest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
-import com.projectmanager.AstroResult;
-
+import com.projectmanager.models.byte;
 
 /**
  * Contains all methods related to Teams
@@ -49,9 +48,9 @@ public class TeamsClient
      *
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<byte[]> retrievezipfileforTeamsIntegrations()
+    public @NotNull AstroResult<byte> retrievezipfileforTeamsIntegrations()
     {
-        BlobRequest r = new BlobRequest(this.client, "GET", "/api/data/integrations/teams/application");
-        return r.Call(new TypeToken<AstroResult<byte[]>>() {}.getType());
+        RestRequest<byte> r = new RestRequest<byte>(this.client, "GET", "/api/data/integrations/teams/application");
+        return r.Call(new TypeToken<AstroResult<byte>>() {}.getType());
     }
 }

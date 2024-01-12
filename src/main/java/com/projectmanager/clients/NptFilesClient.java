@@ -26,24 +26,24 @@ import com.projectmanager.models.FileDto;
 
 
 /**
- * Contains all methods related to TaskFile
+ * Contains all methods related to NptFiles
  */
-public class TaskFileClient
+public class NptFilesClient
 {
     private ProjectManagerClient client;
 
     /**
-     * Constructor for the TaskFile API collection
+     * Constructor for the NptFiles API collection
      *
      * @param client A {@link com.projectmanager.ProjectManagerClient} platform client
      */
-    public TaskFileClient(@NotNull ProjectManagerClient client) {
+    public NptFilesClient(@NotNull ProjectManagerClient client) {
         super();
         this.client = client;
     }
 
     /**
-     * Uploads a file to a task.
+     * Uploads a file to a non-project task.
      *
      * ProjectManager allows you to store Files connected to other elements of your Workspace such as a Project, a Task, or Home.  Files are maintained separately based on the location where the file was stored.
      *
@@ -55,9 +55,9 @@ public class TaskFileClient
      * @param filename The full path of a file to upload to the API
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<FileDto> uploadTaskFile(@NotNull String taskId, @NotNull byte[] filename)
+    public @NotNull AstroResult<FileDto> uploadFileToNonProjectTasks(@NotNull String taskId, @NotNull byte[] filename)
     {
-        RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/tasks/{taskId}/files");
+        RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/non-project-tasks/{taskId}/files");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
         return r.Call(new TypeToken<AstroResult<FileDto>>() {}.getType());
     }

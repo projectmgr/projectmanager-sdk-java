@@ -2,13 +2,13 @@
 /**
  * ProjectManager API for Java
  *
- * (c) 2023-2023 ProjectManager.com, Inc.
+ * (c) 2023-2024 ProjectManager.com, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
  * @author     ProjectManager.com <support@projectmanager.com>
- * @copyright  2023-2023 ProjectManager.com, Inc.
+ * @copyright  2023-2024 ProjectManager.com, Inc.
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -19,16 +19,15 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * A ProjectField is a custom field defined within your Workspace for each Project. Each
- * ProjectField has a data type as well as options in how it is handled.
+ * A model that contains the value for a ProjectField.
  */
-public class ProjectFieldsValueResponseDto
+public class ProjectFieldValueDto
 {
     private @NotNull String id;
-    private @Nullable String value;
+    private @Nullable String shortId;
     private @Nullable String name;
     private @Nullable String type;
-    private @Nullable String shortId;
+    private @Nullable String value;
     private @NotNull String createdDate;
     private @NotNull String modifiedDate;
 
@@ -45,17 +44,17 @@ public class ProjectFieldsValueResponseDto
      */
     public void setId(@NotNull String value) { this.id = value; }
     /**
-     * The value currently set for this Project Field.
+     * The unique Short Id of this Project Field.
      *
-     * @return The field value
+     * @return The field shortId
      */
-    public @Nullable String getValue() { return this.value; }
+    public @Nullable String getShortId() { return this.shortId; }
     /**
-     * The value currently set for this Project Field.
+     * The unique Short Id of this Project Field.
      *
-     * @param value The new value for value
+     * @param value The new value for shortId
      */
-    public void setValue(@Nullable String value) { this.value = value; }
+    public void setShortId(@Nullable String value) { this.shortId = value; }
     /**
      * The name of this Project Field.
      *
@@ -93,17 +92,17 @@ public class ProjectFieldsValueResponseDto
      */
     public void setType(@Nullable String value) { this.type = value; }
     /**
-     * The short Id of this field - human readable identity
+     * The value currently set for this Project Field Value.
      *
-     * @return The field shortId
+     * @return The field value
      */
-    public @Nullable String getShortId() { return this.shortId; }
+    public @Nullable String getValue() { return this.value; }
     /**
-     * The short Id of this field - human readable identity
+     * The value currently set for this Project Field Value.
      *
-     * @param value The new value for shortId
+     * @param value The new value for value
      */
-    public void setShortId(@Nullable String value) { this.shortId = value; }
+    public void setValue(@Nullable String value) { this.value = value; }
     /**
      * Date and time (in UTC) that this TaskField was created.
      *

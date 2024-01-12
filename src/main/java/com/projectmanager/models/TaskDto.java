@@ -2,13 +2,13 @@
 /**
  * ProjectManager API for Java
  *
- * (c) 2023-2023 ProjectManager.com, Inc.
+ * (c) 2023-2024 ProjectManager.com, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
  * @author     ProjectManager.com <support@projectmanager.com>
- * @copyright  2023-2023 ProjectManager.com, Inc.
+ * @copyright  2023-2024 ProjectManager.com, Inc.
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -50,7 +50,7 @@ public class TaskDto
     private @Nullable Double plannedCost;
     private @Nullable Integer plannedDuration;
     private @Nullable Integer plannedEffort;
-    private @Nullable TaskFieldValueDto[] fields;
+    private @Nullable TaskFieldValueDto[] fieldValues;
 
     /**
      * The unique identifier of this Task.
@@ -469,13 +469,13 @@ public class TaskDto
     /**
      * Task fields array with values
      *
-     * @return The field fields
+     * @return The field fieldValues
      */
-    public @Nullable TaskFieldValueDto[] getFields() { return this.fields; }
+    public @Nullable TaskFieldValueDto[] getFieldValues() { return this.fieldValues; }
     /**
      * Task fields array with values
      *
-     * @param value The new value for fields
+     * @param value The new value for fieldValues
      */
-    public void setFields(@Nullable TaskFieldValueDto[] value) { this.fields = value; }
+    public void setFieldValues(@Nullable TaskFieldValueDto[] value) { this.fieldValues = value; }
 };

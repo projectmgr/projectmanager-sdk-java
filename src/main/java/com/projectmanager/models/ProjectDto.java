@@ -2,13 +2,13 @@
 /**
  * ProjectManager API for Java
  *
- * (c) 2023-2023 ProjectManager.com, Inc.
+ * (c) 2023-2024 ProjectManager.com, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
  * @author     ProjectManager.com <support@projectmanager.com>
- * @copyright  2023-2023 ProjectManager.com, Inc.
+ * @copyright  2023-2024 ProjectManager.com, Inc.
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -50,8 +50,9 @@ public class ProjectDto
     private @NotNull String createDate;
     private @NotNull Boolean isTemplate;
     private @NotNull Boolean favorite;
+    private @Nullable String creationTemplateId;
     private @Nullable ProjectMemberDto[] members;
-    private @Nullable Object fields;
+    private @Nullable ProjectFieldValueDto[] fieldValues;
 
     /**
      * The unique identifier of the Project.  This value is set by the system and cannot
@@ -450,6 +451,20 @@ public class ProjectDto
      */
     public void setFavorite(@NotNull Boolean value) { this.favorite = value; }
     /**
+     * The TemplateId that this project was created from.
+     * Will be null if no template was selected at project creation.
+     *
+     * @return The field creationTemplateId
+     */
+    public @Nullable String getCreationTemplateId() { return this.creationTemplateId; }
+    /**
+     * The TemplateId that this project was created from.
+     * Will be null if no template was selected at project creation.
+     *
+     * @param value The new value for creationTemplateId
+     */
+    public void setCreationTemplateId(@Nullable String value) { this.creationTemplateId = value; }
+    /**
      * The members of the project
      *
      * @return The field members
@@ -464,13 +479,13 @@ public class ProjectDto
     /**
      * Project fields array with values
      *
-     * @return The field fields
+     * @return The field fieldValues
      */
-    public @Nullable Object getFields() { return this.fields; }
+    public @Nullable ProjectFieldValueDto[] getFieldValues() { return this.fieldValues; }
     /**
      * Project fields array with values
      *
-     * @param value The new value for fields
+     * @param value The new value for fieldValues
      */
-    public void setFields(@Nullable Object value) { this.fields = value; }
+    public void setFieldValues(@Nullable ProjectFieldValueDto[] value) { this.fieldValues = value; }
 };
