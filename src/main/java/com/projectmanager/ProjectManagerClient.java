@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2024 ProjectManager.com, Inc.
- * @version    101.0.2818
+ * @version    102.0.2886
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -47,6 +47,7 @@ import com.projectmanager.clients.TaskClient;
 import com.projectmanager.clients.TaskAssigneeClient;
 import com.projectmanager.clients.TaskFieldClient;
 import com.projectmanager.clients.TaskFileClient;
+import com.projectmanager.clients.TaskMetadataClient;
 import com.projectmanager.clients.TaskStatusClient;
 import com.projectmanager.clients.TaskTagClient;
 import com.projectmanager.clients.TeamsClient;
@@ -96,6 +97,7 @@ public class ProjectManagerClient {
     private TaskAssigneeClient taskAssignee;
     private TaskFieldClient taskField;
     private TaskFileClient taskFile;
+    private TaskMetadataClient taskMetadata;
     private TaskStatusClient taskStatus;
     private TaskTagClient taskTag;
     private TeamsClient teams;
@@ -138,6 +140,7 @@ public class ProjectManagerClient {
         this.taskAssignee = new TaskAssigneeClient(this);
         this.taskField = new TaskFieldClient(this);
         this.taskFile = new TaskFileClient(this);
+        this.taskMetadata = new TaskMetadataClient(this);
         this.taskStatus = new TaskStatusClient(this);
         this.taskTag = new TaskTagClient(this);
         this.teams = new TeamsClient(this);
@@ -332,6 +335,12 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.TaskFileClient client} methods in the API.
      */
     public @NotNull TaskFileClient getTaskFileClient() { return this.taskFile; }
+    /**
+     * A collection of API methods relating to TaskMetadata
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.TaskMetadataClient client} methods in the API.
+     */
+    public @NotNull TaskMetadataClient getTaskMetadataClient() { return this.taskMetadata; }
     /**
      * A collection of API methods relating to TaskStatus
      *

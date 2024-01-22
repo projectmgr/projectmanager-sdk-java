@@ -67,18 +67,16 @@ public class TimesheetClient
      * @param top The number of records to return
      * @param skip Skips the given number of records and then returns $top records
      * @param filter Filter the expression according to oData queries
-     * @param select Specify which properties should be returned
      * @param orderby Order collection by this field.
      * @param expand Include related data in the response
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TimesheetDto[]> queryTimeSheets(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String select, @Nullable String orderby, @Nullable String expand)
+    public @NotNull AstroResult<TimesheetDto[]> queryTimeSheets(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String orderby, @Nullable String expand)
     {
         RestRequest<TimesheetDto[]> r = new RestRequest<TimesheetDto[]>(this.client, "GET", "/api/data/timesheets");
         if (top != null) { r.AddQuery("$top", top.toString()); }
         if (skip != null) { r.AddQuery("$skip", skip.toString()); }
         if (filter != null) { r.AddQuery("$filter", filter.toString()); }
-        if (select != null) { r.AddQuery("$select", select.toString()); }
         if (orderby != null) { r.AddQuery("$orderby", orderby.toString()); }
         if (expand != null) { r.AddQuery("$expand", expand.toString()); }
         return r.Call(new TypeToken<AstroResult<TimesheetDto[]>>() {}.getType());

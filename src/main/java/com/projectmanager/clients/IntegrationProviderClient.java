@@ -139,4 +139,19 @@ public class IntegrationProviderClient
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
+
+    /**
+     * Allows you to disconnect the provider specific user connection.
+     *
+     * An IntegrationProvider is the name of an external application or service that can be connected to ProjectManager.com.  The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
+     *
+     * @param providerId The identifier to the provider
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<Object> disconnectUserIntegrationProviderConnection(@NotNull String providerId)
+    {
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/integrations/providers/{providerId}/user-connection");
+        r.AddPath("{providerId}", providerId == null ? "" : providerId.toString());
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+    }
 }

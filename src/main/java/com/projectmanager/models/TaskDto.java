@@ -51,6 +51,7 @@ public class TaskDto
     private @Nullable Integer plannedDuration;
     private @Nullable Integer plannedEffort;
     private @Nullable TaskFieldValueDto[] fieldValues;
+    private @Nullable TaskFileDto[] files;
 
     /**
      * The unique identifier of this Task.
@@ -478,4 +479,24 @@ public class TaskDto
      * @param value The new value for fieldValues
      */
     public void setFieldValues(@Nullable TaskFieldValueDto[] value) { this.fieldValues = value; }
+    /**
+     * The list of files associated with this Task, if any.
+     *
+     * This field will be present when you fetch a single object.
+     * When you query for multiple objects, this field is not included in results by default.
+     * To expand this field, specify the name of this field in the `$expand` parameter.
+     *
+     * @return The field files
+     */
+    public @Nullable TaskFileDto[] getFiles() { return this.files; }
+    /**
+     * The list of files associated with this Task, if any.
+     *
+     * This field will be present when you fetch a single object.
+     * When you query for multiple objects, this field is not included in results by default.
+     * To expand this field, specify the name of this field in the `$expand` parameter.
+     *
+     * @param value The new value for files
+     */
+    public void setFiles(@Nullable TaskFileDto[] value) { this.files = value; }
 };

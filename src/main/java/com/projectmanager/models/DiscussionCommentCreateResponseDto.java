@@ -24,28 +24,20 @@ import org.jetbrains.annotations.Nullable;
  * and users should be aware that HTML embedding is not permitted due to the risk of cross-site
  * attacks and other embedding challenges.
  */
-public class DiscussionCreateDto
+public class DiscussionCommentCreateResponseDto
 {
-    private @Nullable String text;
+    private @NotNull String discussionCommentId;
 
     /**
-     * The text of the comment to add to the discussion, in Markdown format.
+     * The unique identifier of the discussion comment created.
      *
-     * Discussion comments are formatted using [Markdown](https://www.markdownguide.org/)
-     * and users should be aware that HTML embedding is not permitted due to the risk of cross-site
-     * attacks and other embedding challenges.
-     *
-     * @return The field text
+     * @return The field discussionCommentId
      */
-    public @Nullable String getText() { return this.text; }
+    public @NotNull String getDiscussionCommentId() { return this.discussionCommentId; }
     /**
-     * The text of the comment to add to the discussion, in Markdown format.
+     * The unique identifier of the discussion comment created.
      *
-     * Discussion comments are formatted using [Markdown](https://www.markdownguide.org/)
-     * and users should be aware that HTML embedding is not permitted due to the risk of cross-site
-     * attacks and other embedding challenges.
-     *
-     * @param value The new value for text
+     * @param value The new value for discussionCommentId
      */
-    public void setText(@Nullable String value) { this.text = value; }
+    public void setDiscussionCommentId(@NotNull String value) { this.discussionCommentId = value; }
 };

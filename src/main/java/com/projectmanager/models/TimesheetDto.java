@@ -33,6 +33,7 @@ public class TimesheetDto
     private @Nullable TimeSheetProjectDto project;
     private @Nullable TimesheetResourceDto resource;
     private @Nullable TimesheetAdminTypeDto adminType;
+    private @Nullable TimesheetFileDto[] files;
 
     /**
      * TimesheetId
@@ -154,4 +155,24 @@ public class TimesheetDto
      * @param value The new value for adminType
      */
     public void setAdminType(@Nullable TimesheetAdminTypeDto value) { this.adminType = value; }
+    /**
+     * The list of files associated with this Timesheet, if any.
+     *
+     * This field will be present when you fetch a single object.
+     * When you query for multiple objects, this field is not included in results by default.
+     * To expand this field, specify the name of this field in the `$expand` parameter.
+     *
+     * @return The field files
+     */
+    public @Nullable TimesheetFileDto[] getFiles() { return this.files; }
+    /**
+     * The list of files associated with this Timesheet, if any.
+     *
+     * This field will be present when you fetch a single object.
+     * When you query for multiple objects, this field is not included in results by default.
+     * To expand this field, specify the name of this field in the `$expand` parameter.
+     *
+     * @param value The new value for files
+     */
+    public void setFiles(@Nullable TimesheetFileDto[] value) { this.files = value; }
 };

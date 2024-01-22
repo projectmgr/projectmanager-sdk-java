@@ -53,6 +53,7 @@ public class ProjectDto
     private @Nullable String creationTemplateId;
     private @Nullable ProjectMemberDto[] members;
     private @Nullable ProjectFieldValueDto[] fieldValues;
+    private @Nullable ProjectFileDto[] files;
 
     /**
      * The unique identifier of the Project.  This value is set by the system and cannot
@@ -488,4 +489,24 @@ public class ProjectDto
      * @param value The new value for fieldValues
      */
     public void setFieldValues(@Nullable ProjectFieldValueDto[] value) { this.fieldValues = value; }
+    /**
+     * The list of files associated with this Project, if any.
+     *
+     * This field will be present when you fetch a single object.
+     * When you query for multiple objects, this field is not included in results by default.
+     * To expand this field, specify the name of this field in the `$expand` parameter.
+     *
+     * @return The field files
+     */
+    public @Nullable ProjectFileDto[] getFiles() { return this.files; }
+    /**
+     * The list of files associated with this Project, if any.
+     *
+     * This field will be present when you fetch a single object.
+     * When you query for multiple objects, this field is not included in results by default.
+     * To expand this field, specify the name of this field in the `$expand` parameter.
+     *
+     * @param value The new value for files
+     */
+    public void setFiles(@Nullable ProjectFileDto[] value) { this.files = value; }
 };
