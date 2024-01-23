@@ -24,7 +24,6 @@ import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 
 import com.projectmanager.models.TaskMetadataUpdateDto;
-import com.projectmanager.models.StringObjectDictionary;
 import com.projectmanager.models.TaskMetadataSearchDto;
 
 /**
@@ -61,20 +60,6 @@ public class TaskMetadataClient
         if (isOverride != null) { r.AddQuery("isOverride", isOverride.toString()); }
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
-    }
-
-    /**
-     *
-     * @param taskId Task ID
-     * @param isSystem If metadata is for system or customer, isSystem = true is only of ProjectManager
-     * @return A {@link com.projectmanager.AstroResult} containing the results
-     */
-    public @NotNull AstroResult<StringObjectDictionary> gettaskmetadata(@NotNull String taskId, @Nullable Boolean isSystem)
-    {
-        RestRequest<StringObjectDictionary> r = new RestRequest<StringObjectDictionary>(this.client, "GET", "/api/data/tasks/{taskId}/metadata");
-        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
-        if (isSystem != null) { r.AddQuery("isSystem", isSystem.toString()); }
-        return r.Call(new TypeToken<AstroResult<StringObjectDictionary>>() {}.getType());
     }
 
     /**
