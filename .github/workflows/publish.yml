@@ -27,8 +27,8 @@ jobs:
         java-version: 11
         distribution: 'temurin'
         server-id: ossrh
-        server-username: OSSRH_USERNAME
-        server-password: OSSRH_PASSWORD
+        server-username: MAVEN_USERNAME
+        server-password: MAVEN_CENTRAL_TOKEN
         gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
         gpg-passphrase: MAVEN_GPG_PASSPHRASE
 
@@ -38,21 +38,21 @@ jobs:
 
     - name: Verify javadoc
       if: github.event_name == 'pull_request'
-      run: mvn -B -Prelease javadoc:test-javadoc
+      run: mvn -B javadoc:test-javadoc
 
     - name: Compile
-      run: mvn -B -Prelease compile
+      run: mvn -B compile
 
     - name: Javadoc
-      run: mvn -B -Prelease javadoc:jar
+      run: mvn -B javadoc:jar
 
     - name: Source
-      run: mvn -B -Prelease source:jar
+      run: mvn -B source:jar
 
     - name: Publish to Apache Maven Central
       if: github.ref == 'refs/heads/main' && github.event_name == 'push' 
-      run: mvn -B -Prelease deploy
+      run: mvn -B deploy
       env:
-        OSSRH_USERNAME: ${{ secrets.MAVEN_USERNAME }}
-        OSSRH_PASSWORD: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
-        MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+        MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+        MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
+        GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
