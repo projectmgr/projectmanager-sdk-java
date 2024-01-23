@@ -1,15 +1,15 @@
 /***
  * ProjectManager API for Java
  *
- * (c) 2023-2023 ProjectManager.com, Inc.
+ * (c) 2023-2024 ProjectManager.com, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
- * @copyright  2023-2023 ProjectManager.com, Inc.
- * @version    99.0.2550
+ * @copyright  2023-2024 ProjectManager.com, Inc.
+ * @version    102.0.2886
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -21,12 +21,14 @@ import com.projectmanager.clients.ChangesetClient;
 import com.projectmanager.clients.DashboardClient;
 import com.projectmanager.clients.DiscussionClient;
 import com.projectmanager.clients.FileClient;
+import com.projectmanager.clients.HolidayClient;
 import com.projectmanager.clients.HomeFileClient;
 import com.projectmanager.clients.IntegrationClient;
 import com.projectmanager.clients.IntegrationCategoryClient;
 import com.projectmanager.clients.IntegrationProviderClient;
 import com.projectmanager.clients.LicenseClient;
 import com.projectmanager.clients.MeClient;
+import com.projectmanager.clients.NptFilesClient;
 import com.projectmanager.clients.ProjectClient;
 import com.projectmanager.clients.ProjectChargeCodeClient;
 import com.projectmanager.clients.ProjectCustomerClient;
@@ -45,6 +47,7 @@ import com.projectmanager.clients.TaskClient;
 import com.projectmanager.clients.TaskAssigneeClient;
 import com.projectmanager.clients.TaskFieldClient;
 import com.projectmanager.clients.TaskFileClient;
+import com.projectmanager.clients.TaskMetadataClient;
 import com.projectmanager.clients.TaskStatusClient;
 import com.projectmanager.clients.TaskTagClient;
 import com.projectmanager.clients.TeamsClient;
@@ -68,12 +71,14 @@ public class ProjectManagerClient {
     private DashboardClient dashboard;
     private DiscussionClient discussion;
     private FileClient file;
+    private HolidayClient holiday;
     private HomeFileClient homeFile;
     private IntegrationClient integration;
     private IntegrationCategoryClient integrationCategory;
     private IntegrationProviderClient integrationProvider;
     private LicenseClient license;
     private MeClient me;
+    private NptFilesClient nptFiles;
     private ProjectClient project;
     private ProjectChargeCodeClient projectChargeCode;
     private ProjectCustomerClient projectCustomer;
@@ -92,6 +97,7 @@ public class ProjectManagerClient {
     private TaskAssigneeClient taskAssignee;
     private TaskFieldClient taskField;
     private TaskFileClient taskFile;
+    private TaskMetadataClient taskMetadata;
     private TaskStatusClient taskStatus;
     private TaskTagClient taskTag;
     private TeamsClient teams;
@@ -108,12 +114,14 @@ public class ProjectManagerClient {
         this.dashboard = new DashboardClient(this);
         this.discussion = new DiscussionClient(this);
         this.file = new FileClient(this);
+        this.holiday = new HolidayClient(this);
         this.homeFile = new HomeFileClient(this);
         this.integration = new IntegrationClient(this);
         this.integrationCategory = new IntegrationCategoryClient(this);
         this.integrationProvider = new IntegrationProviderClient(this);
         this.license = new LicenseClient(this);
         this.me = new MeClient(this);
+        this.nptFiles = new NptFilesClient(this);
         this.project = new ProjectClient(this);
         this.projectChargeCode = new ProjectChargeCodeClient(this);
         this.projectCustomer = new ProjectCustomerClient(this);
@@ -132,6 +140,7 @@ public class ProjectManagerClient {
         this.taskAssignee = new TaskAssigneeClient(this);
         this.taskField = new TaskFieldClient(this);
         this.taskFile = new TaskFileClient(this);
+        this.taskMetadata = new TaskMetadataClient(this);
         this.taskStatus = new TaskStatusClient(this);
         this.taskTag = new TaskTagClient(this);
         this.teams = new TeamsClient(this);
@@ -171,6 +180,12 @@ public class ProjectManagerClient {
      */
     public @NotNull FileClient getFileClient() { return this.file; }
     /**
+     * A collection of API methods relating to Holiday
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.HolidayClient client} methods in the API.
+     */
+    public @NotNull HolidayClient getHolidayClient() { return this.holiday; }
+    /**
      * A collection of API methods relating to HomeFile
      *
      * @return A collection containing the {@link com.projectmanager.clients.HomeFileClient client} methods in the API.
@@ -206,6 +221,12 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.MeClient client} methods in the API.
      */
     public @NotNull MeClient getMeClient() { return this.me; }
+    /**
+     * A collection of API methods relating to NptFiles
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.NptFilesClient client} methods in the API.
+     */
+    public @NotNull NptFilesClient getNptFilesClient() { return this.nptFiles; }
     /**
      * A collection of API methods relating to Project
      *
@@ -314,6 +335,12 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.TaskFileClient client} methods in the API.
      */
     public @NotNull TaskFileClient getTaskFileClient() { return this.taskFile; }
+    /**
+     * A collection of API methods relating to TaskMetadata
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.TaskMetadataClient client} methods in the API.
+     */
+    public @NotNull TaskMetadataClient getTaskMetadataClient() { return this.taskMetadata; }
     /**
      * A collection of API methods relating to TaskStatus
      *

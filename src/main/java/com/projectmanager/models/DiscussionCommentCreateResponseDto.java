@@ -2,13 +2,13 @@
 /**
  * ProjectManager API for Java
  *
- * (c) 2023-2023 ProjectManager.com, Inc.
+ * (c) 2023-2024 ProjectManager.com, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
  * @author     ProjectManager.com <support@projectmanager.com>
- * @copyright  2023-2023 ProjectManager.com, Inc.
+ * @copyright  2023-2024 ProjectManager.com, Inc.
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -24,7 +24,7 @@ import org.jetbrains.annotations.Nullable;
  * and users should be aware that HTML embedding is not permitted due to the risk of cross-site
  * attacks and other embedding challenges.
  */
-public class DiscussionCreateResponseDto
+public class DiscussionCommentCreateResponseDto
 {
     private @NotNull String discussionCommentId;
 

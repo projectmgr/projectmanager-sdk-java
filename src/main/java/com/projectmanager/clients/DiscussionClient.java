@@ -2,13 +2,13 @@
 /**
  * ProjectManager API for Java
  *
- * (c) 2023-2023 ProjectManager.com, Inc.
+ * (c) 2023-2024 ProjectManager.com, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
  * @author     ProjectManager.com <support@projectmanager.com>
- * @copyright  2023-2023 ProjectManager.com, Inc.
+ * @copyright  2023-2024 ProjectManager.com, Inc.
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -22,10 +22,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
-import com.projectmanager.models.DiscussionDto;
+import com.projectmanager.models.DiscussionCommentDto;
 
-import com.projectmanager.models.DiscussionCreateResponseDto;
-import com.projectmanager.models.DiscussionCreateDto;
+import com.projectmanager.models.DiscussionCommentCreateResponseDto;
+import com.projectmanager.models.DiscussionCommentCreateDto;
 
 /**
  * Contains all methods related to Discussion
@@ -50,11 +50,11 @@ public class DiscussionClient
      * @param taskId The unique ID number of the task to retrieve comments
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<DiscussionDto[]> retrieveTaskComments(@NotNull String taskId)
+    public @NotNull AstroResult<DiscussionCommentDto[]> retrieveTaskComments(@NotNull String taskId)
     {
-        RestRequest<DiscussionDto[]> r = new RestRequest<DiscussionDto[]>(this.client, "GET", "/api/data/tasks/{taskId}/discussions");
+        RestRequest<DiscussionCommentDto[]> r = new RestRequest<DiscussionCommentDto[]>(this.client, "GET", "/api/data/tasks/{taskId}/comments");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
-        return r.Call(new TypeToken<AstroResult<DiscussionDto[]>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<DiscussionCommentDto[]>>() {}.getType());
     }
 
     /**
@@ -66,11 +66,11 @@ public class DiscussionClient
      * @param body The Markdown-formatted text of the comment
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<DiscussionCreateResponseDto> createTaskComments(@NotNull String taskId, @NotNull DiscussionCreateDto body)
+    public @NotNull AstroResult<DiscussionCommentCreateResponseDto> createTaskComments(@NotNull String taskId, @NotNull DiscussionCommentCreateDto body)
     {
-        RestRequest<DiscussionCreateResponseDto> r = new RestRequest<DiscussionCreateResponseDto>(this.client, "POST", "/api/data/tasks/{taskId}/discussions");
+        RestRequest<DiscussionCommentCreateResponseDto> r = new RestRequest<DiscussionCommentCreateResponseDto>(this.client, "POST", "/api/data/tasks/{taskId}/comments");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
         if (body != null) { r.AddBody(body); }
-        return r.Call(new TypeToken<AstroResult<DiscussionCreateResponseDto>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<DiscussionCommentCreateResponseDto>>() {}.getType());
     }
 }

@@ -2,13 +2,13 @@
 /**
  * ProjectManager API for Java
  *
- * (c) 2023-2023 ProjectManager.com, Inc.
+ * (c) 2023-2024 ProjectManager.com, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
  * @author     ProjectManager.com <support@projectmanager.com>
- * @copyright  2023-2023 ProjectManager.com, Inc.
+ * @copyright  2023-2024 ProjectManager.com, Inc.
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -34,6 +34,8 @@ public class TaskAssigneeDto
     private @Nullable String lastName;
     private @Nullable String shortName;
     private @Nullable String avatarUrl;
+    private @Nullable String email;
+    private @Nullable Integer allocatedEffort;
 
     /**
      * The unique identifier of this TaskAssignee
@@ -177,4 +179,28 @@ public class TaskAssigneeDto
      * @param value The new value for avatarUrl
      */
     public void setAvatarUrl(@Nullable String value) { this.avatarUrl = value; }
+    /**
+     * The email address for the resource. It can be empty if the resource does not have a login.
+     *
+     * @return The field email
+     */
+    public @Nullable String getEmail() { return this.email; }
+    /**
+     * The email address for the resource. It can be empty if the resource does not have a login.
+     *
+     * @param value The new value for email
+     */
+    public void setEmail(@Nullable String value) { this.email = value; }
+    /**
+     * The allocated effort (in minutes) for this Task and Assignee.
+     *
+     * @return The field allocatedEffort
+     */
+    public @Nullable Integer getAllocatedEffort() { return this.allocatedEffort; }
+    /**
+     * The allocated effort (in minutes) for this Task and Assignee.
+     *
+     * @param value The new value for allocatedEffort
+     */
+    public void setAllocatedEffort(@Nullable Integer value) { this.allocatedEffort = value; }
 };

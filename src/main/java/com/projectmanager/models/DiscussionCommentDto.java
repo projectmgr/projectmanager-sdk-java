@@ -2,13 +2,13 @@
 /**
  * ProjectManager API for Java
  *
- * (c) 2023-2023 ProjectManager.com, Inc.
+ * (c) 2023-2024 ProjectManager.com, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
  * @author     ProjectManager.com <support@projectmanager.com>
- * @copyright  2023-2023 ProjectManager.com, Inc.
+ * @copyright  2023-2024 ProjectManager.com, Inc.
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -24,16 +24,29 @@ import org.jetbrains.annotations.Nullable;
  * and users should be aware that HTML embedding is not permitted due to the risk of cross-site
  * attacks and other embedding challenges.
  */
-public class DiscussionDto
+public class DiscussionCommentDto
 {
+    private @NotNull String id;
     private @Nullable String text;
-    private @NotNull String discussionCommentId;
     private @NotNull String authorId;
     private @Nullable String authorName;
     private @NotNull String createDate;
     private @Nullable String modifyDate;
     private @Nullable DiscussionEmoji[] emoji;
+    private @Nullable DiscussionCommentFileDto[] files;
 
+    /**
+     * The unique ID of the discussion comment.
+     *
+     * @return The field id
+     */
+    public @NotNull String getId() { return this.id; }
+    /**
+     * The unique ID of the discussion comment.
+     *
+     * @param value The new value for id
+     */
+    public void setId(@NotNull String value) { this.id = value; }
     /**
      * The text of the comment to add to the discussion, in Markdown format.
      *
@@ -54,18 +67,6 @@ public class DiscussionDto
      * @param value The new value for text
      */
     public void setText(@Nullable String value) { this.text = value; }
-    /**
-     * The unique ID of the discussion comment.
-     *
-     * @return The field discussionCommentId
-     */
-    public @NotNull String getDiscussionCommentId() { return this.discussionCommentId; }
-    /**
-     * The unique ID of the discussion comment.
-     *
-     * @param value The new value for discussionCommentId
-     */
-    public void setDiscussionCommentId(@NotNull String value) { this.discussionCommentId = value; }
     /**
      * The unique ID of the resource that wrote this comment.
      *
@@ -128,4 +129,24 @@ public class DiscussionDto
      * @param value The new value for emoji
      */
     public void setEmoji(@Nullable DiscussionEmoji[] value) { this.emoji = value; }
+    /**
+     * The list of files associated with this Comment, if any.
+     *
+     * This field will be present when you fetch a single object.
+     * When you query for multiple objects, this field is not included in results by default.
+     * To expand this field, specify the name of this field in the `$expand` parameter.
+     *
+     * @return The field files
+     */
+    public @Nullable DiscussionCommentFileDto[] getFiles() { return this.files; }
+    /**
+     * The list of files associated with this Comment, if any.
+     *
+     * This field will be present when you fetch a single object.
+     * When you query for multiple objects, this field is not included in results by default.
+     * To expand this field, specify the name of this field in the `$expand` parameter.
+     *
+     * @param value The new value for files
+     */
+    public void setFiles(@Nullable DiscussionCommentFileDto[] value) { this.files = value; }
 };
