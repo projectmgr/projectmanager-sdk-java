@@ -21,7 +21,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up JDK 21
+    - name: Set up JDK 
       uses: actions/setup-java@v2
       with:
         java-version: 21
@@ -29,7 +29,7 @@ jobs:
         server-id: central
         server-username: MAVEN_USERNAME
         server-password: MAVEN_CENTRAL_TOKEN
-        gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+        gpg-private-key: MAVEN_GPG_PRIVATE_KEY
         gpg-passphrase: MAVEN_GPG_PASSPHRASE
 
     - name: Verify with Maven
