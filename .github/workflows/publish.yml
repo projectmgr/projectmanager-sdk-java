@@ -34,7 +34,7 @@ jobs:
 
     - name: Verify with Maven
       if: github.event_name == 'pull_request'
-      run: mvn -B clean verify javadoc:test-javadoc
+      run: mvn -B -X clean verify javadoc:test-javadoc
 
     - name: Publish to Apache Maven Central
       if: github.ref == 'refs/heads/main' && github.event_name == 'push' 
