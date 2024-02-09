@@ -115,4 +115,21 @@ public class ProjectClient
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
+
+    /**
+     * Delete a project based on the details provided.
+     *
+     * A Project is a collection of Tasks that contributes towards a goal.  Within a Project, Tasks represent individual items of work that team members must complete.  The sum total of Tasks within a Project represents the work to be completed for that Project.
+     *
+     * @param projectId The unique identifier of the Project to delete
+     * @param hardDelete Hard delete project true or false
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<Object> deleteProject(@NotNull String projectId, @Nullable Boolean hardDelete)
+    {
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/{projectId}");
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        if (hardDelete != null) { r.AddQuery("hardDelete", hardDelete.toString()); }
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+    }
 }

@@ -6,10 +6,10 @@
 
     <groupId>com.projectmanager</groupId>
     <artifactId>projectmanagersdk</artifactId>
-    <version>102.0.2886</version>
+    <version>103.0.3003</version>
 
     <name>ProjectManagerSDK</name>
-    <description> for Java</description>
+    <description>Software development kit for the ProjectManager.com API. for Java</description>
     <url></url>
 
     <licenses>

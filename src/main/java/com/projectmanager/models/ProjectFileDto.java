@@ -24,6 +24,7 @@ public class ProjectFileDto
     private @Nullable String name;
     private @Nullable String url;
     private @Nullable ProjectFileTaskDto task;
+    private @Nullable ProjectFileFolderDto folder;
 
     /**
      * The identifier for this file
@@ -81,4 +82,24 @@ public class ProjectFileDto
      * @param value The new value for task
      */
     public void setTask(@Nullable ProjectFileTaskDto value) { this.task = value; }
+    /**
+     * The folder that this file relates to.
+     *
+     * This field will be present when you fetch a single object.
+     * When you query for multiple objects, this field is not included in results by default.
+     * To expand this field, specify the name of this field in the `$expand` parameter.
+     *
+     * @return The field folder
+     */
+    public @Nullable ProjectFileFolderDto getFolder() { return this.folder; }
+    /**
+     * The folder that this file relates to.
+     *
+     * This field will be present when you fetch a single object.
+     * When you query for multiple objects, this field is not included in results by default.
+     * To expand this field, specify the name of this field in the `$expand` parameter.
+     *
+     * @param value The new value for folder
+     */
+    public void setFolder(@Nullable ProjectFileFolderDto value) { this.folder = value; }
 };
