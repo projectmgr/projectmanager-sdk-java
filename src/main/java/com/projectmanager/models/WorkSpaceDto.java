@@ -34,7 +34,6 @@ public class WorkSpaceDto
     private @Nullable String color;
     private @Nullable String roleName;
     private @NotNull String registerDate;
-    private @NotNull Boolean isInviteAccepted;
     private @Nullable String businessUserId;
     private @NotNull Boolean isPaid;
 
@@ -148,18 +147,6 @@ public class WorkSpaceDto
      * @param value The new value for registerDate
      */
     public void setRegisterDate(@NotNull String value) { this.registerDate = value; }
-    /**
-     * True if the user has accepted an invitation to this Workspace.
-     *
-     * @return The field isInviteAccepted
-     */
-    public @NotNull Boolean getIsInviteAccepted() { return this.isInviteAccepted; }
-    /**
-     * True if the user has accepted an invitation to this Workspace.
-     *
-     * @param value The new value for isInviteAccepted
-     */
-    public void setIsInviteAccepted(@NotNull Boolean value) { this.isInviteAccepted = value; }
     /**
      * The unique identifier of the BusinessUser that is the owner of this Workspace.
      *
