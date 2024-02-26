@@ -21,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 /**
  * The project task change set
  */
-public class ChangeSetResponseDto
+public class ChangeSetDto
 {
     private @NotNull Integer projectChangeSetId;
     private @NotNull String id;

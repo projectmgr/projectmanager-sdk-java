@@ -22,9 +22,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
-import com.projectmanager.models.ChangesetGetResponseDto;
+import com.projectmanager.models.ProjectChangeStatusDto;
 
-import com.projectmanager.models.ChangeSetResponseDto;
+import com.projectmanager.models.ProjectChangeDto;
 
 /**
  * Contains all methods related to Changeset
@@ -53,11 +53,11 @@ public class ChangesetClient
      * @param changeSetId The unique ID number of the Changeset to retrieve
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangesetGetResponseDto> retrieveChangeset(@NotNull String changeSetId)
+    public @NotNull AstroResult<ProjectChangeStatusDto> retrieveChangesetstatus(@NotNull String changeSetId)
     {
-        RestRequest<ChangesetGetResponseDto> r = new RestRequest<ChangesetGetResponseDto>(this.client, "GET", "/api/data/changesets/{changeSetId}");
+        RestRequest<ProjectChangeStatusDto> r = new RestRequest<ProjectChangeStatusDto>(this.client, "GET", "/api/data/changesets/{changeSetId}");
         r.AddPath("{changeSetId}", changeSetId == null ? "" : changeSetId.toString());
-        return r.Call(new TypeToken<AstroResult<ChangesetGetResponseDto>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<ProjectChangeStatusDto>>() {}.getType());
     }
 
     /**
@@ -72,15 +72,15 @@ public class ChangesetClient
      * @param changeSetId The unique ID number of the Changeset to retrieve
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangesetGetResponseDto> retrieveCompletedChangeset(@NotNull String changeSetId)
+    public @NotNull AstroResult<ProjectChangeStatusDto> retrieveCompletedChangesetstatus(@NotNull String changeSetId)
     {
-        RestRequest<ChangesetGetResponseDto> r = new RestRequest<ChangesetGetResponseDto>(this.client, "GET", "/api/data/changesets/{changeSetId}/poll");
+        RestRequest<ProjectChangeStatusDto> r = new RestRequest<ProjectChangeStatusDto>(this.client, "GET", "/api/data/changesets/{changeSetId}/poll");
         r.AddPath("{changeSetId}", changeSetId == null ? "" : changeSetId.toString());
-        return r.Call(new TypeToken<AstroResult<ChangesetGetResponseDto>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<ProjectChangeStatusDto>>() {}.getType());
     }
 
     /**
-     * Retrieve Changesets by Project ID
+     * Retrieve specific Project Changes by Project ID
      *
      * @param projectId Documentation pending
      * @param version Documentation pending
@@ -88,13 +88,13 @@ public class ChangesetClient
      * @param take Documentation pending
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetResponseDto[]> retrieveChangesetsbyprojectID(@NotNull String projectId, @Nullable Integer version, @Nullable Integer page, @Nullable Integer take)
+    public @NotNull AstroResult<ProjectChangeDto[]> retrieveProjectChangesbyprojectID(@NotNull String projectId, @Nullable Integer version, @Nullable Integer page, @Nullable Integer take)
     {
-        RestRequest<ChangeSetResponseDto[]> r = new RestRequest<ChangeSetResponseDto[]>(this.client, "GET", "/api/data/projects/{projectId}/changesets");
+        RestRequest<ProjectChangeDto[]> r = new RestRequest<ProjectChangeDto[]>(this.client, "GET", "/api/data/projects/{projectId}/changes");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
         if (version != null) { r.AddQuery("version", version.toString()); }
         if (page != null) { r.AddQuery("page", page.toString()); }
         if (take != null) { r.AddQuery("take", take.toString()); }
-        return r.Call(new TypeToken<AstroResult<ChangeSetResponseDto[]>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<ProjectChangeDto[]>>() {}.getType());
     }
 }
