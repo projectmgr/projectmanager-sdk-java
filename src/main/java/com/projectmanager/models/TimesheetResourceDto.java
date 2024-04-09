@@ -31,6 +31,7 @@ public class TimesheetResourceDto
     private @Nullable String firstName;
     private @Nullable String lastName;
     private @Nullable String email;
+    private @Nullable Double hourlyRate;
 
     /**
      * The unique identifier of this Resource.
@@ -88,4 +89,16 @@ public class TimesheetResourceDto
      * @param value The new value for email
      */
     public void setEmail(@Nullable String value) { this.email = value; }
+    /**
+     * The default hourly rate of the resource.
+     *
+     * @return The field hourlyRate
+     */
+    public @Nullable Double getHourlyRate() { return this.hourlyRate; }
+    /**
+     * The default hourly rate of the resource.
+     *
+     * @param value The new value for hourlyRate
+     */
+    public void setHourlyRate(@Nullable Double value) { this.hourlyRate = value; }
 };

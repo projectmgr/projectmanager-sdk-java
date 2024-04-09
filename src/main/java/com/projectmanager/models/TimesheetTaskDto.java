@@ -42,7 +42,11 @@ public class TimesheetTaskDto
     private @Nullable String wbs;
     private @Nullable String color;
     private @Nullable Double actualCost;
+    private @Nullable Double actualResourceCost;
+    private @Nullable Integer actualEffort;
     private @Nullable Double plannedCost;
+    private @Nullable Double plannedResourceCost;
+    private @Nullable Integer plannedEffort;
 
     /**
      * The unique identifier of this Task.
@@ -351,17 +355,41 @@ public class TimesheetTaskDto
      */
     public void setColor(@Nullable String value) { this.color = value; }
     /**
-     * The actual cost of this Task to date, if known.
+     * The actual cost of this Task, if known.
      *
      * @return The field actualCost
      */
     public @Nullable Double getActualCost() { return this.actualCost; }
     /**
-     * The actual cost of this Task to date, if known.
+     * The actual cost of this Task, if known.
      *
      * @param value The new value for actualCost
      */
     public void setActualCost(@Nullable Double value) { this.actualCost = value; }
+    /**
+     * The actual resource cost of this Task
+     *
+     * @return The field actualResourceCost
+     */
+    public @Nullable Double getActualResourceCost() { return this.actualResourceCost; }
+    /**
+     * The actual resource cost of this Task
+     *
+     * @param value The new value for actualResourceCost
+     */
+    public void setActualResourceCost(@Nullable Double value) { this.actualResourceCost = value; }
+    /**
+     * The actual effort (in minutes) of this task, if known.
+     *
+     * @return The field actualEffort
+     */
+    public @Nullable Integer getActualEffort() { return this.actualEffort; }
+    /**
+     * The actual effort (in minutes) of this task, if known.
+     *
+     * @param value The new value for actualEffort
+     */
+    public void setActualEffort(@Nullable Integer value) { this.actualEffort = value; }
     /**
      * The planned cost for this Task.  Cannot be negative.
      *
@@ -374,4 +402,28 @@ public class TimesheetTaskDto
      * @param value The new value for plannedCost
      */
     public void setPlannedCost(@Nullable Double value) { this.plannedCost = value; }
+    /**
+     * The planned resource cost of this Task
+     *
+     * @return The field plannedResourceCost
+     */
+    public @Nullable Double getPlannedResourceCost() { return this.plannedResourceCost; }
+    /**
+     * The planned resource cost of this Task
+     *
+     * @param value The new value for plannedResourceCost
+     */
+    public void setPlannedResourceCost(@Nullable Double value) { this.plannedResourceCost = value; }
+    /**
+     * The planned effort (in minutes) of this task, if known.
+     *
+     * @return The field plannedEffort
+     */
+    public @Nullable Integer getPlannedEffort() { return this.plannedEffort; }
+    /**
+     * The planned effort (in minutes) of this task, if known.
+     *
+     * @param value The new value for plannedEffort
+     */
+    public void setPlannedEffort(@Nullable Integer value) { this.plannedEffort = value; }
 };

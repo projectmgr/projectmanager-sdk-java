@@ -39,6 +39,7 @@ public class TaskDto
     private @Nullable String plannedFinishDate;
     private @Nullable String actualStartDate;
     private @Nullable String actualFinishDate;
+    private @Nullable Integer actualEffort;
     private @NotNull String modifyDate;
     private @NotNull String createDate;
     private @NotNull Integer percentComplete;
@@ -47,7 +48,9 @@ public class TaskDto
     private @Nullable String wbs;
     private @Nullable String color;
     private @Nullable Double actualCost;
+    private @Nullable Double actualResourceCost;
     private @Nullable Double plannedCost;
+    private @Nullable Double plannedResourceCost;
     private @Nullable Integer plannedDuration;
     private @Nullable Integer plannedEffort;
     private @Nullable TaskFieldValueDto[] fieldValues;
@@ -304,6 +307,18 @@ public class TaskDto
      */
     public void setActualFinishDate(@Nullable String value) { this.actualFinishDate = value; }
     /**
+     * The actual effort (in minutes) for this Task.
+     *
+     * @return The field actualEffort
+     */
+    public @Nullable Integer getActualEffort() { return this.actualEffort; }
+    /**
+     * The actual effort (in minutes) for this Task.
+     *
+     * @param value The new value for actualEffort
+     */
+    public void setActualEffort(@Nullable Integer value) { this.actualEffort = value; }
+    /**
      * The timestamp in UTC when this Task was most recently modified.
      *
      * @return The field modifyDate
@@ -432,6 +447,18 @@ public class TaskDto
      */
     public void setActualCost(@Nullable Double value) { this.actualCost = value; }
     /**
+     * The actual resource cost of this Task
+     *
+     * @return The field actualResourceCost
+     */
+    public @Nullable Double getActualResourceCost() { return this.actualResourceCost; }
+    /**
+     * The actual resource cost of this Task
+     *
+     * @param value The new value for actualResourceCost
+     */
+    public void setActualResourceCost(@Nullable Double value) { this.actualResourceCost = value; }
+    /**
      * The planned cost for this Task.  Cannot be negative.
      *
      * @return The field plannedCost
@@ -443,6 +470,18 @@ public class TaskDto
      * @param value The new value for plannedCost
      */
     public void setPlannedCost(@Nullable Double value) { this.plannedCost = value; }
+    /**
+     * The planned resource cost of this Task
+     *
+     * @return The field plannedResourceCost
+     */
+    public @Nullable Double getPlannedResourceCost() { return this.plannedResourceCost; }
+    /**
+     * The planned resource cost of this Task
+     *
+     * @param value The new value for plannedResourceCost
+     */
+    public void setPlannedResourceCost(@Nullable Double value) { this.plannedResourceCost = value; }
     /**
      * The planned duration (in minutes) for this Task.
      *
