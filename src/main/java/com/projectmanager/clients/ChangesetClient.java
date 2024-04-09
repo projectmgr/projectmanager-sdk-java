@@ -24,7 +24,6 @@ import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.ProjectChangeStatusDto;
 
-import com.projectmanager.models.ProjectChangeDto;
 
 /**
  * Contains all methods related to Changeset
@@ -77,24 +76,5 @@ public class ChangesetClient
         RestRequest<ProjectChangeStatusDto> r = new RestRequest<ProjectChangeStatusDto>(this.client, "GET", "/api/data/changesets/{changeSetId}/poll");
         r.AddPath("{changeSetId}", changeSetId == null ? "" : changeSetId.toString());
         return r.Call(new TypeToken<AstroResult<ProjectChangeStatusDto>>() {}.getType());
-    }
-
-    /**
-     * Retrieve specific Project Changes by Project ID
-     *
-     * @param projectId Documentation pending
-     * @param version Documentation pending
-     * @param page Documentation pending
-     * @param take Documentation pending
-     * @return A {@link com.projectmanager.AstroResult} containing the results
-     */
-    public @NotNull AstroResult<ProjectChangeDto[]> retrieveProjectChangesbyprojectID(@NotNull String projectId, @Nullable Integer version, @Nullable Integer page, @Nullable Integer take)
-    {
-        RestRequest<ProjectChangeDto[]> r = new RestRequest<ProjectChangeDto[]>(this.client, "GET", "/api/data/projects/{projectId}/changes");
-        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
-        if (version != null) { r.AddQuery("version", version.toString()); }
-        if (page != null) { r.AddQuery("page", page.toString()); }
-        if (take != null) { r.AddQuery("take", take.toString()); }
-        return r.Call(new TypeToken<AstroResult<ProjectChangeDto[]>>() {}.getType());
     }
 }

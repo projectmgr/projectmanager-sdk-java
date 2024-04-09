@@ -67,13 +67,13 @@ public class TimesheetCreateRequestDto
      */
     public void setTaskId(@Nullable String value) { this.taskId = value; }
     /**
-     * Admin task id that time reportsed to
+     * Admin task id that time reported to
      *
      * @return The field adminTypeId
      */
     public @Nullable String getAdminTypeId() { return this.adminTypeId; }
     /**
-     * Admin task id that time reportsed to
+     * Admin task id that time reported to
      *
      * @param value The new value for adminTypeId
      */
