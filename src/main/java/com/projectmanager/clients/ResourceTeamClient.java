@@ -47,7 +47,9 @@ public class ResourceTeamClient
     /**
      * Retrieves all ResourceTeams defined within your Workspace that match an [OData formatted query](https://www.odata.org/).
      *
-     * A ResourceTeam is a grouping of Resources that allows you to keep track of assignments in a manner consistent with your business needs.  You can assign Resources to be members of zero, one, or many ResourceTeams.
+     * A ResourceTeam is a grouping of Resources that allows you to keep track of assignments
+     * in a manner consistent with your business needs.  You can assign Resources to be members
+     * of zero, one, or many ResourceTeams.
      *
      * @param top The number of records to return
      * @param skip Skips the given number of records and then returns $top records

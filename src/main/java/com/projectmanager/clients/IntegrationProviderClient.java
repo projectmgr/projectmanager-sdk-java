@@ -49,7 +49,9 @@ public class IntegrationProviderClient
     /**
      * List all available IntegrationProviders that can be activated.
      *
-     * An IntegrationProvider is the name of an external application or service that can be connected to ProjectManager.com.  The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
+     * An IntegrationProvider is the name of an external application or service that can be connected to
+     * ProjectManager.com.  The Integrations API is intended for use by ProjectManager and its business
+     * development partners.  Please contact ProjectManager's sales team to request use of this API.
      *
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
@@ -62,7 +64,9 @@ public class IntegrationProviderClient
     /**
      * Activates an Integration Provider and retrieves authentication information about a specific IntegrationProvider.
      *
-     * An IntegrationProvider is the name of an external application or service that can be connected to ProjectManager.com.  The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
+     * An IntegrationProvider is the name of an external application or service that can be connected to
+     * ProjectManager.com.  The Integrations API is intended for use by ProjectManager and its business
+     * development partners.  Please contact ProjectManager's sales team to request use of this API.
      *
      * @param providerId The unique identifier of the IntegrationProvider for which you are requesting authentication information
      * @return A {@link com.projectmanager.AstroResult} containing the results
@@ -77,7 +81,9 @@ public class IntegrationProviderClient
     /**
      * Allows you to update the auth status of the provider specific connection.
      *
-     * An IntegrationProvider is the name of an external application or service that can be connected to ProjectManager.com.  The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
+     * An IntegrationProvider is the name of an external application or service that can be connected to
+     * ProjectManager.com.  The Integrations API is intended for use by ProjectManager and its business
+     * development partners.  Please contact ProjectManager's sales team to request use of this API.
      *
      * @param providerId The identifier to the provider
      * @param body Specify the auth status
@@ -94,7 +100,9 @@ public class IntegrationProviderClient
     /**
      * Allows you to deactivate an integration provider.
      *
-     * An IntegrationProvider is the name of an external application or service that can be connected to ProjectManager.com.  The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
+     * An IntegrationProvider is the name of an external application or service that can be connected to
+     * ProjectManager.com.  The Integrations API is intended for use by ProjectManager and its business
+     * development partners.  Please contact ProjectManager's sales team to request use of this API.
      *
      * @param providerId The identifier to the provider
      * @return A {@link com.projectmanager.AstroResult} containing the results
@@ -111,7 +119,9 @@ public class IntegrationProviderClient
      *
      * This connection can be used for requests to Providers that require specific user data.
      *
-     * An IntegrationProvider is the name of an external application or service that can be connected to ProjectManager.com.  The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
+     * An IntegrationProvider is the name of an external application or service that can be connected to
+     * ProjectManager.com.  The Integrations API is intended for use by ProjectManager and its business
+     * development partners.  Please contact ProjectManager's sales team to request use of this API.
      *
      * @param providerId The unique identifier of the IntegrationProvider for which you are requesting authentication information
      * @return A {@link com.projectmanager.AstroResult} containing the results
@@ -126,7 +136,9 @@ public class IntegrationProviderClient
     /**
      * Allows you to update the auth status of the provider specific user connection.
      *
-     * An IntegrationProvider is the name of an external application or service that can be connected to ProjectManager.com.  The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
+     * An IntegrationProvider is the name of an external application or service that can be connected to
+     * ProjectManager.com.  The Integrations API is intended for use by ProjectManager and its business
+     * development partners.  Please contact ProjectManager's sales team to request use of this API.
      *
      * @param providerId The identifier to the provider
      * @param body Specify the auth status
@@ -143,7 +155,9 @@ public class IntegrationProviderClient
     /**
      * Allows you to disconnect the provider specific user connection.
      *
-     * An IntegrationProvider is the name of an external application or service that can be connected to ProjectManager.com.  The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
+     * An IntegrationProvider is the name of an external application or service that can be connected to
+     * ProjectManager.com.  The Integrations API is intended for use by ProjectManager and its business
+     * development partners.  Please contact ProjectManager's sales team to request use of this API.
      *
      * @param providerId The identifier to the provider
      * @return A {@link com.projectmanager.AstroResult} containing the results
