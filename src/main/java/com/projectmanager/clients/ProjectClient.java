@@ -47,7 +47,9 @@ public class ProjectClient
     /**
      * Retrieve a list of Projects that match an [OData formatted query](https://www.odata.org/).
      *
-     * A Project is a collection of Tasks that contributes towards a goal.  Within a Project, Tasks represent individual items of work that team members must complete.  The sum total of Tasks within a Project represents the work to be completed for that Project.
+     * A Project is a collection of Tasks that contributes towards a goal.  Within a Project, Tasks
+     * represent individual items of work that team members must complete.  The sum total of Tasks
+     * within a Project represents the work to be completed for that Project.
      *
      * @param top The number of records to return
      * @param skip Skips the given number of records and then returns $top records
@@ -70,7 +72,9 @@ public class ProjectClient
     /**
      * Create a new project based on the details provided.
      *
-     * A Project is a collection of Tasks that contributes towards a goal.  Within a Project, Tasks represent individual items of work that team members must complete.  The sum total of Tasks within a Project represents the work to be completed for that Project.
+     * A Project is a collection of Tasks that contributes towards a goal.  Within a Project, Tasks
+     * represent individual items of work that team members must complete.  The sum total of Tasks
+     * within a Project represents the work to be completed for that Project.
      *
      * @param body Information about the Project you wish to create
      * @return A {@link com.projectmanager.AstroResult} containing the results
@@ -85,7 +89,9 @@ public class ProjectClient
     /**
      * Retrieves a project based on its unique identifier.
      *
-     * A Project is a collection of Tasks that contributes towards a goal.  Within a Project, Tasks represent individual items of work that team members must complete.  The sum total of Tasks within a Project represents the work to be completed for that Project.
+     * A Project is a collection of Tasks that contributes towards a goal.  Within a Project, Tasks
+     * represent individual items of work that team members must complete.  The sum total of Tasks
+     * within a Project represents the work to be completed for that Project.
      *
      * @param projectId The unique identifier of the Project to retrieve.
      * @return A {@link com.projectmanager.AstroResult} containing the results
@@ -100,9 +106,13 @@ public class ProjectClient
     /**
      * Update an existing Project and replace the values of fields specified.
      *
-     * A Project is a collection of Tasks that contributes towards a goal.  Within a Project, Tasks represent individual items of work that team members must complete.  The sum total of Tasks within a Project represents the work to be completed for that Project.
+     * A Project is a collection of Tasks that contributes towards a goal.  Within a Project, Tasks
+     * represent individual items of work that team members must complete.  The sum total of Tasks
+     * within a Project represents the work to be completed for that Project.
      *
-     * Multiple users can be working on data at the same time.  When you call an API to update an object, this call is converted into a Changeset that is then applied sequentially.  You can use RetrieveChangeset to see the status of an individual Changeset.
+     * Multiple users can be working on data at the same time.  When you call an API to update an
+     * object, this call is converted into a Changeset that is then applied sequentially.  You can use
+     * RetrieveChangeset to see the status of an individual Changeset.
      *
      * @param projectId The unique identifier of the Project to update
      * @param body All non-null fields in this object will replace previous data within the Project
@@ -119,7 +129,9 @@ public class ProjectClient
     /**
      * Delete a project based on the details provided.
      *
-     * A Project is a collection of Tasks that contributes towards a goal.  Within a Project, Tasks represent individual items of work that team members must complete.  The sum total of Tasks within a Project represents the work to be completed for that Project.
+     * A Project is a collection of Tasks that contributes towards a goal.  Within a Project, Tasks
+     * represent individual items of work that team members must complete.  The sum total of Tasks
+     * within a Project represents the work to be completed for that Project.
      *
      * @param projectId The unique identifier of the Project to delete
      * @param hardDelete Hard delete project true or false

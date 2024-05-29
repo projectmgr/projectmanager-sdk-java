@@ -45,7 +45,8 @@ public class IntegrationClient
     /**
      * Retrieves an Integration specified by a unique identifier.
      *
-     * The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
+     * The Integrations API is intended for use by ProjectManager and its business development partners.  Please
+     * contact ProjectManager's sales team to request use of this API.
      *
      * @param integrationId The unique identifier of this Integration
      * @return A {@link com.projectmanager.AstroResult} containing the results
@@ -60,7 +61,8 @@ public class IntegrationClient
     /**
      * Enable a specific Integration for the current Workspace.
      *
-     * The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
+     * The Integrations API is intended for use by ProjectManager and its business development partners.  Please
+     * contact ProjectManager's sales team to request use of this API.
      *
      * @param integrationId The unique identifier of the Integration to enable
      * @return A {@link com.projectmanager.AstroResult} containing the results
@@ -75,7 +77,8 @@ public class IntegrationClient
     /**
      * Disable a specific Integration for the current Workspace.
      *
-     * The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
+     * The Integrations API is intended for use by ProjectManager and its business development partners.  Please
+     * contact ProjectManager's sales team to request use of this API.
      *
      * @param integrationId The unique identifier of the Integration to disable
      * @return A {@link com.projectmanager.AstroResult} containing the results
@@ -90,7 +93,8 @@ public class IntegrationClient
     /**
      * Retrieves all Integrations for the current Workspace.
      *
-     * The Integrations API is intended for use by ProjectManager and its business development partners.  Please contact ProjectManager's sales team to request use of this API.
+     * The Integrations API is intended for use by ProjectManager and its business development partners.  Please
+     * contact ProjectManager's sales team to request use of this API.
      *
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */

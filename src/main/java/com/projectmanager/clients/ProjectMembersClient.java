@@ -46,7 +46,8 @@ public class ProjectMembersClient
     /**
      * Returns a list of users that can be added as members of a new project, as well as their available project security roles.
      *
-     * A project member is a user who has access to a specific project. Project members are assigned a project security role, which controls the level of access they have to the project. Possible project security roles include manage, edit, collaborate, creator, and guest.
+     * A project member is a user who has access to a specific project. Project members are assigned a project security role, which controls the level of access they have to
+     * the project. Possible project security roles include manage, edit, collaborate, creator, and guest.
      *
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
@@ -57,9 +58,11 @@ public class ProjectMembersClient
     }
 
     /**
-     * Returns a list of users that are currently members of a specified project, as well as their current project security roles and available project security roles. Optionally include users who are not currently members of the project, but who are available to be added.
+     * Returns a list of users that are currently members of a specified project, as well as their current project security roles and available project security roles.
+     * Optionally include users who are not currently members of the project, but who are available to be added.
      *
-     * A project member is a user who has access to a specific project. Project members are assigned a project security role, which controls the level of access they have to the project. Possible project security roles include manage, edit, collaborate, creator, and guest.
+     * A project member is a user who has access to a specific project. Project members are assigned a project security role, which controls the level of access they have to
+     * the project. Possible project security roles include manage, edit, collaborate, creator, and guest.
      *
      * @param projectId Reference to the project
      * @param includeAllUsers Set to true to include all users in the workspace
@@ -76,7 +79,8 @@ public class ProjectMembersClient
     /**
      * Returns the project security role in a specified project for a current project member.
      *
-     * A project member is a user who has access to a specific project. Project members are assigned a project security role, which controls the level of access they have to the project. Possible project security roles include manage, edit, collaborate, creator, and guest.
+     * A project member is a user who has access to a specific project. Project members are assigned a project security role, which controls the level of access they have to
+     * the project. Possible project security roles include manage, edit, collaborate, creator, and guest.
      *
      * @param projectId Reference of Project
      * @param userId Reference of User
@@ -93,7 +97,8 @@ public class ProjectMembersClient
     /**
      * Creates a membership for a user in a specified project, and assigns the user the appropriate project access based on the specified project security role.
      *
-     * A project member is a user who has access to a specific project. Project members are assigned a project security role, which controls the level of access they have to the project. Possible project security roles include manage, edit, collaborate, creator, and guest.
+     * A project member is a user who has access to a specific project. Project members are assigned a project security role, which controls the level of access they have to
+     * the project. Possible project security roles include manage, edit, collaborate, creator, and guest.
      *
      * @param projectId Reference to Project
      * @param userId Reference to User
@@ -112,7 +117,8 @@ public class ProjectMembersClient
     /**
      * Updates the project access for a current member of a specified project by giving the user a new project security role.
      *
-     * A project member is a user who has access to a specific project. Project members are assigned a project security role, which controls the level of access they have to the project. Possible project security roles include manage, edit, collaborate, creator, and guest.
+     * A project member is a user who has access to a specific project. Project members are assigned a project security role, which controls the level of access they have to
+     * the project. Possible project security roles include manage, edit, collaborate, creator, and guest.
      *
      * @param projectId Reference to Project
      * @param userId Reference to User
@@ -131,7 +137,8 @@ public class ProjectMembersClient
     /**
      * Removes a current project member from a specified project. This removes the user's access to that project.
      *
-     * A project member is a user who has access to a specific project. Project members are assigned a project security role, which controls the level of access they have to the project. Possible project security roles include manage, edit, collaborate, creator, and guest.
+     * A project member is a user who has access to a specific project. Project members are assigned a project security role, which controls the level of access they have to
+     * the project. Possible project security roles include manage, edit, collaborate, creator, and guest.
      *
      * @param projectId Reference to Project
      * @param userId Reference to User

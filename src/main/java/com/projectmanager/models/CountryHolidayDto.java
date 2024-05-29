@@ -26,6 +26,7 @@ public class CountryHolidayDto
     private @NotNull String id;
     private @NotNull String date;
     private @NotNull Integer countryId;
+    private @Nullable String countryName;
 
     /**
      * Holiday id
@@ -52,15 +53,27 @@ public class CountryHolidayDto
      */
     public void setDate(@NotNull String value) { this.date = value; }
     /**
-     * Country id holiday associated to
+     * The Country Id the holiday is associated to
      *
      * @return The field countryId
      */
     public @NotNull Integer getCountryId() { return this.countryId; }
     /**
-     * Country id holiday associated to
+     * The Country Id the holiday is associated to
      *
      * @param value The new value for countryId
      */
     public void setCountryId(@NotNull Integer value) { this.countryId = value; }
+    /**
+     * The Country Name the holiday is associated to
+     *
+     * @return The field countryName
+     */
+    public @Nullable String getCountryName() { return this.countryName; }
+    /**
+     * The Country Name the holiday is associated to
+     *
+     * @param value The new value for countryName
+     */
+    public void setCountryName(@Nullable String value) { this.countryName = value; }
 };
