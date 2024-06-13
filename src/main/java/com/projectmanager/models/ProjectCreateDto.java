@@ -44,6 +44,7 @@ public class ProjectCreateDto
     private @Nullable String templateId;
     private @Nullable String targetDate;
     private @Nullable Boolean favorite;
+    private @Nullable TaskStatusCreateDto[] taskStatusCreate;
 
     /**
      * The name of the Project.
@@ -281,4 +282,16 @@ public class ProjectCreateDto
      * @param value The new value for favorite
      */
     public void setFavorite(@Nullable Boolean value) { this.favorite = value; }
+    /**
+     * Create default task status upfront
+     *
+     * @return The field taskStatusCreate
+     */
+    public @Nullable TaskStatusCreateDto[] getTaskStatusCreate() { return this.taskStatusCreate; }
+    /**
+     * Create default task status upfront
+     *
+     * @param value The new value for taskStatusCreate
+     */
+    public void setTaskStatusCreate(@Nullable TaskStatusCreateDto[] value) { this.taskStatusCreate = value; }
 };
