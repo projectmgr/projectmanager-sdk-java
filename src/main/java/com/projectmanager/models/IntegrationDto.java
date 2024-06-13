@@ -35,6 +35,7 @@ public class IntegrationDto
     private @NotNull Boolean enabled;
     private @NotNull Boolean authenticated;
     private @NotNull Boolean autoEnabled;
+    private @NotNull Boolean noAdminPermission;
 
     /**
      * The unique identifier of this Integration
@@ -174,4 +175,16 @@ public class IntegrationDto
      * @param value The new value for autoEnabled
      */
     public void setAutoEnabled(@NotNull Boolean value) { this.autoEnabled = value; }
+    /**
+     * No Admin Permission
+     *
+     * @return The field noAdminPermission
+     */
+    public @NotNull Boolean getNoAdminPermission() { return this.noAdminPermission; }
+    /**
+     * No Admin Permission
+     *
+     * @param value The new value for noAdminPermission
+     */
+    public void setNoAdminPermission(@NotNull Boolean value) { this.noAdminPermission = value; }
 };

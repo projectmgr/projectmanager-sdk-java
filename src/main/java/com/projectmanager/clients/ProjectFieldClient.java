@@ -22,9 +22,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
-import com.projectmanager.models.GetProjectFieldsResponseDto;
-import com.projectmanager.models.CreateProjectFieldResponseDto;
-import com.projectmanager.models.CreateProjectFieldDto;
+import com.projectmanager.models.ProjectFieldDto;
+import com.projectmanager.models.ProjectFieldCreateDto;
 
 import com.projectmanager.models.UpdateProjectFieldValueDto;
 import com.projectmanager.models.ProjectFieldValueDto;
@@ -56,10 +55,10 @@ public class ProjectFieldClient
      *
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<GetProjectFieldsResponseDto[]> retrieveProjectFields()
+    public @NotNull AstroResult<ProjectFieldDto[]> retrieveProjectFields()
     {
-        RestRequest<GetProjectFieldsResponseDto[]> r = new RestRequest<GetProjectFieldsResponseDto[]>(this.client, "GET", "/api/data/projects/fields");
-        return r.Call(new TypeToken<AstroResult<GetProjectFieldsResponseDto[]>>() {}.getType());
+        RestRequest<ProjectFieldDto[]> r = new RestRequest<ProjectFieldDto[]>(this.client, "GET", "/api/data/projects/fields");
+        return r.Call(new TypeToken<AstroResult<ProjectFieldDto[]>>() {}.getType());
     }
 
     /**
@@ -73,11 +72,11 @@ public class ProjectFieldClient
      * @param body Information about the ProjectField to create
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<CreateProjectFieldResponseDto> createProjectField(@NotNull CreateProjectFieldDto body)
+    public @NotNull AstroResult<ProjectFieldDto> createProjectField(@NotNull ProjectFieldCreateDto body)
     {
-        RestRequest<CreateProjectFieldResponseDto> r = new RestRequest<CreateProjectFieldResponseDto>(this.client, "POST", "/api/data/projects/fields");
+        RestRequest<ProjectFieldDto> r = new RestRequest<ProjectFieldDto>(this.client, "POST", "/api/data/projects/fields");
         if (body != null) { r.AddBody(body); }
-        return r.Call(new TypeToken<AstroResult<CreateProjectFieldResponseDto>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<ProjectFieldDto>>() {}.getType());
     }
 
     /**

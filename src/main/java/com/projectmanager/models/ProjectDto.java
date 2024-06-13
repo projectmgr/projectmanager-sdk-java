@@ -54,6 +54,7 @@ public class ProjectDto
     private @Nullable ProjectMemberDto[] members;
     private @Nullable ProjectFieldValueDto[] fieldValues;
     private @Nullable ProjectFileDto[] files;
+    private @Nullable Integer percentComplete;
 
     /**
      * The unique identifier of the Project.  This value is set by the system and cannot
@@ -509,4 +510,16 @@ public class ProjectDto
      * @param value The new value for files
      */
     public void setFiles(@Nullable ProjectFileDto[] value) { this.files = value; }
+    /**
+     * The percentage of the project tasks completed
+     *
+     * @return The field percentComplete
+     */
+    public @Nullable Integer getPercentComplete() { return this.percentComplete; }
+    /**
+     * The percentage of the project tasks completed
+     *
+     * @param value The new value for percentComplete
+     */
+    public void setPercentComplete(@Nullable Integer value) { this.percentComplete = value; }
 };

@@ -28,6 +28,7 @@ public class TaskStatusCreateDto
     private @Nullable String id;
     private @NotNull String name;
     private @Nullable Integer order;
+    private @Nullable Boolean isDone;
 
     /**
      * The unique identifier of this TaskStatus.
@@ -67,4 +68,18 @@ public class TaskStatusCreateDto
      * @param value The new value for order
      */
     public void setOrder(@Nullable Integer value) { this.order = value; }
+    /**
+     * A numerical value that can be used to sort TaskStatus values according to the
+     * needs of your business.
+     *
+     * @return The field isDone
+     */
+    public @Nullable Boolean getIsDone() { return this.isDone; }
+    /**
+     * A numerical value that can be used to sort TaskStatus values according to the
+     * needs of your business.
+     *
+     * @param value The new value for isDone
+     */
+    public void setIsDone(@Nullable Boolean value) { this.isDone = value; }
 };

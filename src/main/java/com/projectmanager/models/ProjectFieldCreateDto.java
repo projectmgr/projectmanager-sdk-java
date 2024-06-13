@@ -24,11 +24,12 @@ import org.jetbrains.annotations.Nullable;
  * type as well as options in how it is handled.  ProjectFields can be edited for each Project
  * within your Workspace.
  */
-public class CreateProjectFieldDto
+public class ProjectFieldCreateDto
 {
     private @NotNull String name;
     private @NotNull String type;
     private @Nullable String shortId;
+    private @Nullable String[] options;
 
     /**
      * The name of this Field
@@ -43,37 +44,43 @@ public class CreateProjectFieldDto
      */
     public void setName(@NotNull String value) { this.name = value; }
     /**
-     * The type of the Field.  Valid types are the following:
-     * * Text
-     * * Number
-     * * Date
-     * * Currency
-     * * Dropdown
+     * The type of the Field.
      *
      * Attempting to create a field with any Type other than these will
      * return an error.
      *
-     * For Dropdown Field, specify the list of choices in the `Options`
+     * For Dropdown Field types, specify the list of choices in the `Options`
      * field.
-     * TODO - This object needs to support a list of options, in case dropdown is selected
+     *
+     *  Valid options are:
+     *  * string
+     *  * number
+     *  * date
+     *  * bool
+     *  * currency
+     *  * dropdown-single
+     *  * dropdown-multi
      *
      * @return The field type
      */
     public @NotNull String getType() { return this.type; }
     /**
-     * The type of the Field.  Valid types are the following:
-     * * Text
-     * * Number
-     * * Date
-     * * Currency
-     * * Dropdown
+     * The type of the Field.
      *
      * Attempting to create a field with any Type other than these will
      * return an error.
      *
-     * For Dropdown Field, specify the list of choices in the `Options`
+     * For Dropdown Field types, specify the list of choices in the `Options`
      * field.
-     * TODO - This object needs to support a list of options, in case dropdown is selected
+     *
+     *  Valid options are:
+     *  * string
+     *  * number
+     *  * date
+     *  * bool
+     *  * currency
+     *  * dropdown-single
+     *  * dropdown-multi
      *
      * @param value The new value for type
      */
@@ -90,4 +97,26 @@ public class CreateProjectFieldDto
      * @param value The new value for shortId
      */
     public void setShortId(@Nullable String value) { this.shortId = value; }
+    /**
+     * A list of options for use of this ProjectField.  This is only valid if
+     * the `Type` value is set to `Dropdown`.
+     *
+     * When a custom TaskField of type `DropDown` is shown to a user in the
+     * application, they will be able to choose one of the `Options` in this
+     * list.
+     *
+     * @return The field options
+     */
+    public @Nullable String[] getOptions() { return this.options; }
+    /**
+     * A list of options for use of this ProjectField.  This is only valid if
+     * the `Type` value is set to `Dropdown`.
+     *
+     * When a custom TaskField of type `DropDown` is shown to a user in the
+     * application, they will be able to choose one of the `Options` in this
+     * list.
+     *
+     * @param value The new value for options
+     */
+    public void setOptions(@Nullable String[] value) { this.options = value; }
 };
