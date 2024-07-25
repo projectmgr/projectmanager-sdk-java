@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2024 ProjectManager.com, Inc.
- * @version    112.0.3856
+ * @version    114.0.4169
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -28,6 +28,7 @@ import com.projectmanager.clients.IntegrationCategoryClient;
 import com.projectmanager.clients.IntegrationProviderClient;
 import com.projectmanager.clients.LicenseClient;
 import com.projectmanager.clients.MeClient;
+import com.projectmanager.clients.NotificationClient;
 import com.projectmanager.clients.NptFilesClient;
 import com.projectmanager.clients.ProjectClient;
 import com.projectmanager.clients.ProjectChargeCodeClient;
@@ -78,6 +79,7 @@ public class ProjectManagerClient {
     private IntegrationProviderClient integrationProvider;
     private LicenseClient license;
     private MeClient me;
+    private NotificationClient notification;
     private NptFilesClient nptFiles;
     private ProjectClient project;
     private ProjectChargeCodeClient projectChargeCode;
@@ -121,6 +123,7 @@ public class ProjectManagerClient {
         this.integrationProvider = new IntegrationProviderClient(this);
         this.license = new LicenseClient(this);
         this.me = new MeClient(this);
+        this.notification = new NotificationClient(this);
         this.nptFiles = new NptFilesClient(this);
         this.project = new ProjectClient(this);
         this.projectChargeCode = new ProjectChargeCodeClient(this);
@@ -221,6 +224,12 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.MeClient client} methods in the API.
      */
     public @NotNull MeClient getMeClient() { return this.me; }
+    /**
+     * A collection of API methods relating to Notification
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.NotificationClient client} methods in the API.
+     */
+    public @NotNull NotificationClient getNotificationClient() { return this.notification; }
     /**
      * A collection of API methods relating to NptFiles
      *

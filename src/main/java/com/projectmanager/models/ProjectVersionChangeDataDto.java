@@ -24,6 +24,7 @@ public class ProjectVersionChangeDataDto
     private @Nullable String method;
     private @Nullable String property;
     private @Nullable String value;
+    private @Nullable Integer restoreVersion;
 
     /**
      *
@@ -65,4 +66,14 @@ public class ProjectVersionChangeDataDto
      * @param value The new value for value
      */
     public void setValue(@Nullable String value) { this.value = value; }
+    /**
+     *
+     * @return The field restoreVersion
+     */
+    public @Nullable Integer getRestoreVersion() { return this.restoreVersion; }
+    /**
+     *
+     * @param value The new value for restoreVersion
+     */
+    public void setRestoreVersion(@Nullable Integer value) { this.restoreVersion = value; }
 };
