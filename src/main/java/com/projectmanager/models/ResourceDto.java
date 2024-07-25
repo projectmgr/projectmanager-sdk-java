@@ -43,6 +43,10 @@ public class ResourceDto
     private @Nullable String onlineDateTime;
     private @Nullable String role;
     private @NotNull Boolean isActive;
+    private @NotNull String createdDate;
+    private @NotNull String createdBy;
+    private @NotNull String modifiedDate;
+    private @NotNull String modifiedBy;
 
     /**
      * The unique identifier of this Resource.
@@ -276,4 +280,52 @@ public class ResourceDto
      * @param value The new value for isActive
      */
     public void setIsActive(@NotNull Boolean value) { this.isActive = value; }
+    /**
+     * The date this resource was created
+     *
+     * @return The field createdDate
+     */
+    public @NotNull String getCreatedDate() { return this.createdDate; }
+    /**
+     * The date this resource was created
+     *
+     * @param value The new value for createdDate
+     */
+    public void setCreatedDate(@NotNull String value) { this.createdDate = value; }
+    /**
+     * Set to a unique identifier of the user who created this Resource.
+     *
+     * @return The field createdBy
+     */
+    public @NotNull String getCreatedBy() { return this.createdBy; }
+    /**
+     * Set to a unique identifier of the user who created this Resource.
+     *
+     * @param value The new value for createdBy
+     */
+    public void setCreatedBy(@NotNull String value) { this.createdBy = value; }
+    /**
+     * The date this resource was last modified
+     *
+     * @return The field modifiedDate
+     */
+    public @NotNull String getModifiedDate() { return this.modifiedDate; }
+    /**
+     * The date this resource was last modified
+     *
+     * @param value The new value for modifiedDate
+     */
+    public void setModifiedDate(@NotNull String value) { this.modifiedDate = value; }
+    /**
+     * Set to a unique identifier of the user who last modified this Resource.
+     *
+     * @return The field modifiedBy
+     */
+    public @NotNull String getModifiedBy() { return this.modifiedBy; }
+    /**
+     * Set to a unique identifier of the user who last modified this Resource.
+     *
+     * @param value The new value for modifiedBy
+     */
+    public void setModifiedBy(@NotNull String value) { this.modifiedBy = value; }
 };

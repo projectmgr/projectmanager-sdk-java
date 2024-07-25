@@ -39,6 +39,8 @@ public class ResourceUpdateDto
     private @Nullable String roleId;
     private @Nullable String[] teamIds;
     private @Nullable String[] skillIds;
+    private @Nullable Boolean isActive;
+    private @Nullable String approverId;
 
     /**
      * The first name of the person Resource.
@@ -206,4 +208,32 @@ public class ResourceUpdateDto
      * @param value The new value for skillIds
      */
     public void setSkillIds(@Nullable String[] value) { this.skillIds = value; }
+    /**
+     * Active/Inactive the Resource.
+     *
+     * @return The field isActive
+     */
+    public @Nullable Boolean getIsActive() { return this.isActive; }
+    /**
+     * Active/Inactive the Resource.
+     *
+     * @param value The new value for isActive
+     */
+    public void setIsActive(@Nullable Boolean value) { this.isActive = value; }
+    /**
+     * The Approver Id associated with this Resource.
+     *
+     * Applies to personnel Resources only.
+     *
+     * @return The field approverId
+     */
+    public @Nullable String getApproverId() { return this.approverId; }
+    /**
+     * The Approver Id associated with this Resource.
+     *
+     * Applies to personnel Resources only.
+     *
+     * @param value The new value for approverId
+     */
+    public void setApproverId(@Nullable String value) { this.approverId = value; }
 };
