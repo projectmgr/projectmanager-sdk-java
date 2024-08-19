@@ -27,8 +27,21 @@ import org.jetbrains.annotations.Nullable;
  */
 public class ResourcesCreateDto
 {
+    private @Nullable String[] projectIds;
     private @Nullable ResourceCreateDto[] users;
 
+    /**
+     * When creating a user they will also be added to the projectIds specified. If null or empty the user will be invited but no access will be given to any projects.
+     *
+     * @return The field projectIds
+     */
+    public @Nullable String[] getProjectIds() { return this.projectIds; }
+    /**
+     * When creating a user they will also be added to the projectIds specified. If null or empty the user will be invited but no access will be given to any projects.
+     *
+     * @param value The new value for projectIds
+     */
+    public void setProjectIds(@Nullable String[] value) { this.projectIds = value; }
     /**
      *
      * @return The field users

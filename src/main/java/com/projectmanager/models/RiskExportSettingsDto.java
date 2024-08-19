@@ -28,6 +28,12 @@ public class RiskExportSettingsDto
     private @NotNull String[] columns;
     private @Nullable String orderBy;
     private @Nullable String orderDirection;
+    private @NotNull Integer timeZoneOffset;
+    private @Nullable ExportDueDateFilterDto dueDateFilter;
+    private @Nullable ExportPriorityFilterDto priorityFilter;
+    private @Nullable RiskExportProgressFilterDto progressFilter;
+    private @Nullable String[] assignees;
+    private @Nullable String[] tags;
 
     /**
      * the name used by the export
@@ -45,7 +51,7 @@ public class RiskExportSettingsDto
      * Format to export to, currently csv and excel are supported
      *
      *  Valid options are:
-     *  * csv
+     *  * Csv
      *  * excel
      *
      * @return The field format
@@ -55,7 +61,7 @@ public class RiskExportSettingsDto
      * Format to export to, currently csv and excel are supported
      *
      *  Valid options are:
-     *  * csv
+     *  * Csv
      *  * excel
      *
      * @param value The new value for format
@@ -135,4 +141,76 @@ public class RiskExportSettingsDto
      * @param value The new value for orderDirection
      */
     public void setOrderDirection(@Nullable String value) { this.orderDirection = value; }
+    /**
+     * Timezone offset in minutes
+     *
+     * @return The field timeZoneOffset
+     */
+    public @NotNull Integer getTimeZoneOffset() { return this.timeZoneOffset; }
+    /**
+     * Timezone offset in minutes
+     *
+     * @param value The new value for timeZoneOffset
+     */
+    public void setTimeZoneOffset(@NotNull Integer value) { this.timeZoneOffset = value; }
+    /**
+     * Specify the due date filter for the export. If left null, no due date filter will be applied
+     *
+     * @return The field dueDateFilter
+     */
+    public @Nullable ExportDueDateFilterDto getDueDateFilter() { return this.dueDateFilter; }
+    /**
+     * Specify the due date filter for the export. If left null, no due date filter will be applied
+     *
+     * @param value The new value for dueDateFilter
+     */
+    public void setDueDateFilter(@Nullable ExportDueDateFilterDto value) { this.dueDateFilter = value; }
+    /**
+     * Specify the priority filter for the export. If left null, no priority filter will be applied
+     *
+     * @return The field priorityFilter
+     */
+    public @Nullable ExportPriorityFilterDto getPriorityFilter() { return this.priorityFilter; }
+    /**
+     * Specify the priority filter for the export. If left null, no priority filter will be applied
+     *
+     * @param value The new value for priorityFilter
+     */
+    public void setPriorityFilter(@Nullable ExportPriorityFilterDto value) { this.priorityFilter = value; }
+    /**
+     * Specify the progress filter for the export. If left null, no progress filter will be applied
+     *
+     * @return The field progressFilter
+     */
+    public @Nullable RiskExportProgressFilterDto getProgressFilter() { return this.progressFilter; }
+    /**
+     * Specify the progress filter for the export. If left null, no progress filter will be applied
+     *
+     * @param value The new value for progressFilter
+     */
+    public void setProgressFilter(@Nullable RiskExportProgressFilterDto value) { this.progressFilter = value; }
+    /**
+     * A list of resourceIds to filter the risks by assignees. If left null or empty this will be ignored
+     *
+     * @return The field assignees
+     */
+    public @Nullable String[] getAssignees() { return this.assignees; }
+    /**
+     * A list of resourceIds to filter the risks by assignees. If left null or empty this will be ignored
+     *
+     * @param value The new value for assignees
+     */
+    public void setAssignees(@Nullable String[] value) { this.assignees = value; }
+    /**
+     * A list of tagIds to filter the risks by tags. If left null or empty this will be ignored
+     *
+     * @return The field tags
+     */
+    public @Nullable String[] getTags() { return this.tags; }
+    /**
+     * A list of tagIds to filter the risks by tags. If left null or empty this will be ignored
+     *
+     * @param value The new value for tags
+     */
+    public void setTags(@Nullable String[] value) { this.tags = value; }
 };
