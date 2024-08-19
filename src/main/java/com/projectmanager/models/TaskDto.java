@@ -47,6 +47,7 @@ public class TaskDto
     private @NotNull Integer priorityId;
     private @Nullable String wbs;
     private @Nullable String color;
+    private @Nullable String theme;
     private @Nullable Double actualCost;
     private @Nullable Double actualResourceCost;
     private @Nullable Double plannedCost;
@@ -423,17 +424,37 @@ public class TaskDto
      */
     public void setWbs(@Nullable String value) { this.wbs = value; }
     /**
-     * Task Color as set in the Gantt
+     * The hexadecimal RRGGBB Task Color as set in the Gantt.  This value is read-only; to set this value,
+     * change the `Theme` field.
      *
      * @return The field color
      */
     public @Nullable String getColor() { return this.color; }
     /**
-     * Task Color as set in the Gantt
+     * The hexadecimal RRGGBB Task Color as set in the Gantt.  This value is read-only; to set this value,
+     * change the `Theme` field.
      *
      * @param value The new value for color
      */
     public void setColor(@Nullable String value) { this.color = value; }
+    /**
+     * Color theme definition for this Task.
+     *
+     * eg. Blue, Brown, DarkBlue, DarkGrey, Gold, Green, Grey, LightBrown, LightGreen,
+     * LightGrey, LightPurple, LightYellow, Magenta, Mauve, Navy, Orange, Purple, Red.
+     *
+     * @return The field theme
+     */
+    public @Nullable String getTheme() { return this.theme; }
+    /**
+     * Color theme definition for this Task.
+     *
+     * eg. Blue, Brown, DarkBlue, DarkGrey, Gold, Green, Grey, LightBrown, LightGreen,
+     * LightGrey, LightPurple, LightYellow, Magenta, Mauve, Navy, Orange, Purple, Red.
+     *
+     * @param value The new value for theme
+     */
+    public void setTheme(@Nullable String value) { this.theme = value; }
     /**
      * The actual cost of this Task to date, if known.
      *

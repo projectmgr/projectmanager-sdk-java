@@ -25,9 +25,7 @@ import org.jetbrains.annotations.Nullable;
  */
 public class NotificationDto
 {
-    private @NotNull String notificationId;
-    private @NotNull String businessId;
-    private @NotNull String userId;
+    private @NotNull String id;
     private @NotNull String senderId;
     private @Nullable NotificationDto[] children;
     private @Nullable String notificationType;
@@ -40,39 +38,15 @@ public class NotificationDto
     /**
      * The unique identifier of this notification
      *
-     * @return The field notificationId
+     * @return The field id
      */
-    public @NotNull String getNotificationId() { return this.notificationId; }
+    public @NotNull String getId() { return this.id; }
     /**
      * The unique identifier of this notification
      *
-     * @param value The new value for notificationId
+     * @param value The new value for id
      */
-    public void setNotificationId(@NotNull String value) { this.notificationId = value; }
-    /**
-     * The unique identifier of the workspace for this notification
-     *
-     * @return The field businessId
-     */
-    public @NotNull String getBusinessId() { return this.businessId; }
-    /**
-     * The unique identifier of the workspace for this notification
-     *
-     * @param value The new value for businessId
-     */
-    public void setBusinessId(@NotNull String value) { this.businessId = value; }
-    /**
-     * The unique identifier of the recipient of this notification
-     *
-     * @return The field userId
-     */
-    public @NotNull String getUserId() { return this.userId; }
-    /**
-     * The unique identifier of the recipient of this notification
-     *
-     * @param value The new value for userId
-     */
-    public void setUserId(@NotNull String value) { this.userId = value; }
+    public void setId(@NotNull String value) { this.id = value; }
     /**
      * The unique identifier of the sender of this notification
      *
