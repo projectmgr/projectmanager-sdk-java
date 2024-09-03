@@ -22,7 +22,7 @@ public class UserError
 {
     private @Nullable String email;
     private @Nullable String reason;
-    private @NotNull HttpStatusCode statusCode;
+    private @NotNull String statusCode;
 
     /**
      *
@@ -48,10 +48,10 @@ public class UserError
      *
      * @return The field statusCode
      */
-    public @NotNull HttpStatusCode getStatusCode() { return this.statusCode; }
+    public @NotNull String getStatusCode() { return this.statusCode; }
     /**
      *
      * @param value The new value for statusCode
      */
-    public void setStatusCode(@NotNull HttpStatusCode value) { this.statusCode = value; }
+    public void setStatusCode(@NotNull String value) { this.statusCode = value; }
 };
