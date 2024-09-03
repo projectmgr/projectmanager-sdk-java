@@ -150,4 +150,21 @@ public class ResourceClient
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ResourcesDto>>() {}.getType());
     }
+
+    /**
+     * Resend Invite Email to a Resource within your Workspace.
+     *
+     * When you create a Resource that is a person, ProjectManager sends that person an email inviting them to join
+     * your Workspace.  If that email is accidentally deleted or sent to a spam folder, you can request this email
+     * be sent again using this API.
+     *
+     * @param resourceId The unique identifier of the Resource to send an invitation email
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<Object> resendInviteEmail(@NotNull String resourceId)
+    {
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "GET", "/api/data/resources/{resourceId}/resendinvite");
+        r.AddPath("{resourceId}", resourceId == null ? "" : resourceId.toString());
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+    }
 }

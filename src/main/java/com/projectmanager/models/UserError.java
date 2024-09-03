@@ -22,6 +22,7 @@ public class UserError
 {
     private @Nullable String email;
     private @Nullable String reason;
+    private @NotNull HttpStatusCode statusCode;
 
     /**
      *
@@ -43,4 +44,14 @@ public class UserError
      * @param value The new value for reason
      */
     public void setReason(@Nullable String value) { this.reason = value; }
+    /**
+     *
+     * @return The field statusCode
+     */
+    public @NotNull HttpStatusCode getStatusCode() { return this.statusCode; }
+    /**
+     *
+     * @param value The new value for statusCode
+     */
+    public void setStatusCode(@NotNull HttpStatusCode value) { this.statusCode = value; }
 };

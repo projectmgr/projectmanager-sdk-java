@@ -41,6 +41,7 @@ public class ResourceUpdateDto
     private @Nullable String[] skillIds;
     private @Nullable Boolean isActive;
     private @Nullable String approverId;
+    private @Nullable String colorName;
 
     /**
      * The first name of the person Resource.
@@ -236,4 +237,20 @@ public class ResourceUpdateDto
      * @param value The new value for approverId
      */
     public void setApproverId(@Nullable String value) { this.approverId = value; }
+    /**
+     * Collaboration Color for this resource.
+     *
+     * eg. teal, cyan, lightblue, blurple, purple, pink, orange, gray
+     *
+     * @return The field colorName
+     */
+    public @Nullable String getColorName() { return this.colorName; }
+    /**
+     * Collaboration Color for this resource.
+     *
+     * eg. teal, cyan, lightblue, blurple, purple, pink, orange, gray
+     *
+     * @param value The new value for colorName
+     */
+    public void setColorName(@Nullable String value) { this.colorName = value; }
 };
