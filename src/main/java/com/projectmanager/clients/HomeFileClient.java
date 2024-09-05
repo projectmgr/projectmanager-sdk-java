@@ -55,10 +55,10 @@ public class HomeFileClient
      *
      * This API returns a JSON response indicating success or failure.
      *
-     * @param filename The full path of a file to upload to the API
+     * @param fileName The full path of a file to upload to the API
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<FileDto> uploadHomeFile(@NotNull byte[] filename)
+    public @NotNull AstroResult<FileDto> uploadHomeFile(@NotNull byte[] fileName)
     {
         RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/home/files");
         return r.Call(new TypeToken<AstroResult<FileDto>>() {}.getType());
@@ -80,10 +80,10 @@ public class HomeFileClient
      * This API returns a JSON response indicating success or failure.
      *
      * @param folderId The reference to the sub folder to put the file into
-     * @param filename The full path of a file to upload to the API
+     * @param fileName The full path of a file to upload to the API
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<FileDto> uploadHomeFileToFolder(@NotNull String folderId, @NotNull byte[] filename)
+    public @NotNull AstroResult<FileDto> uploadHomeFileToFolder(@NotNull String folderId, @NotNull byte[] fileName)
     {
         RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/home/folders/{folderId}/files");
         r.AddPath("{folderId}", folderId == null ? "" : folderId.toString());

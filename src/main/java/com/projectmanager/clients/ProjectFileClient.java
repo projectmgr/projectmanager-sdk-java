@@ -56,10 +56,10 @@ public class ProjectFileClient
      * This API returns a JSON response indicating success or failure.
      *
      * @param projectId The reference to the project
-     * @param filename The full path of a file to upload to the API
+     * @param fileName The full path of a file to upload to the API
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<FileDto> uploadProjectFile(@NotNull String projectId, @NotNull byte[] filename)
+    public @NotNull AstroResult<FileDto> uploadProjectFile(@NotNull String projectId, @NotNull byte[] fileName)
     {
         RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/projects/{projectId}/files");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
@@ -83,10 +83,10 @@ public class ProjectFileClient
      *
      * @param projectId The reference to the project
      * @param folderId The reference to the sub folder to put the file into
-     * @param filename The full path of a file to upload to the API
+     * @param fileName The full path of a file to upload to the API
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<FileDto> uploadProjectFileToFolder(@NotNull String projectId, @NotNull String folderId, @NotNull byte[] filename)
+    public @NotNull AstroResult<FileDto> uploadProjectFileToFolder(@NotNull String projectId, @NotNull String folderId, @NotNull byte[] fileName)
     {
         RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/projects/{projectId}/folders/{folderId}/files");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());

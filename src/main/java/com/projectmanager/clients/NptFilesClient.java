@@ -56,10 +56,10 @@ public class NptFilesClient
      * This API returns a JSON response indicating success or failure.
      *
      * @param taskId The reference to the task
-     * @param filename The full path of a file to upload to the API
+     * @param fileName The full path of a file to upload to the API
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<FileDto> uploadFileToNonProjectTasks(@NotNull String taskId, @NotNull byte[] filename)
+    public @NotNull AstroResult<FileDto> uploadFileToNonProjectTasks(@NotNull String taskId, @NotNull byte[] fileName)
     {
         RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/non-project-tasks/{taskId}/files");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());

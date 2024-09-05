@@ -47,6 +47,8 @@ public class ResourceDto
     private @NotNull String createdBy;
     private @NotNull String modifiedDate;
     private @NotNull String modifiedBy;
+    private @Nullable String colorName;
+    private @Nullable String color;
 
     /**
      * The unique identifier of this Resource.
@@ -328,4 +330,32 @@ public class ResourceDto
      * @param value The new value for modifiedBy
      */
     public void setModifiedBy(@NotNull String value) { this.modifiedBy = value; }
+    /**
+     * Collaboration Color for this resource.
+     *
+     * eg. teal, cyan, lightblue, blurple, purple, pink, orange, gray
+     *
+     * @return The field colorName
+     */
+    public @Nullable String getColorName() { return this.colorName; }
+    /**
+     * Collaboration Color for this resource.
+     *
+     * eg. teal, cyan, lightblue, blurple, purple, pink, orange, gray
+     *
+     * @param value The new value for colorName
+     */
+    public void setColorName(@Nullable String value) { this.colorName = value; }
+    /**
+     * Read only Hex code of the ColorName
+     *
+     * @return The field color
+     */
+    public @Nullable String getColor() { return this.color; }
+    /**
+     * Read only Hex code of the ColorName
+     *
+     * @param value The new value for color
+     */
+    public void setColor(@Nullable String value) { this.color = value; }
 };

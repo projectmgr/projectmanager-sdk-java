@@ -25,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
  */
 public class TaskPriorityDto
 {
-    private @NotNull Integer id;
+    private @Nullable Integer id;
     private @Nullable String name;
 
     /**
@@ -33,13 +33,13 @@ public class TaskPriorityDto
      *
      * @return The field id
      */
-    public @NotNull Integer getId() { return this.id; }
+    public @Nullable Integer getId() { return this.id; }
     /**
      * The unique identifier of this TaskPriority.
      *
      * @param value The new value for id
      */
-    public void setId(@NotNull Integer value) { this.id = value; }
+    public void setId(@Nullable Integer value) { this.id = value; }
     /**
      * The name of this TaskPriority.
      *

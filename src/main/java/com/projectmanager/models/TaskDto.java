@@ -44,7 +44,7 @@ public class TaskDto
     private @NotNull String createDate;
     private @NotNull Integer percentComplete;
     private @NotNull Boolean isSummary;
-    private @NotNull Integer priorityId;
+    private @Nullable Integer priorityId;
     private @Nullable String wbs;
     private @Nullable String color;
     private @Nullable String theme;
@@ -392,13 +392,13 @@ public class TaskDto
      *
      * @return The field priorityId
      */
-    public @NotNull Integer getPriorityId() { return this.priorityId; }
+    public @Nullable Integer getPriorityId() { return this.priorityId; }
     /**
      * Return the priority of a task
      *
      * @param value The new value for priorityId
      */
-    public void setPriorityId(@NotNull Integer value) { this.priorityId = value; }
+    public void setPriorityId(@Nullable Integer value) { this.priorityId = value; }
     /**
      * The WBS (Work Breakdown Structure) number for this task within the Gantt chart hierarchy.  See [What
      * Is a Work Breakdown Structure (WBS)?](https://www.projectmanager.com/guides/work-breakdown-structure)

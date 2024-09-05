@@ -19,11 +19,17 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Created Time entry response data
+ * A Timesheet entry is a single record that contains information about time spent by a person on a task.  Each
+ * Timesheet entry object contains information about one task/day/person combination.  A fully completed Timesheet
+ * will often contain multiple records for the same date range which must be combined to produce a finished
+ * Timesheet.
  */
 public class TimesheetDto
 {
     private @NotNull String id;
+    private @NotNull String resourceId;
+    private @NotNull String taskId;
+    private @NotNull String projectId;
     private @NotNull String date;
     private @Nullable String notes;
     private @NotNull Boolean approved;
@@ -36,61 +42,105 @@ public class TimesheetDto
     private @Nullable TimesheetFileDto[] files;
 
     /**
-     * TimesheetId
+     * A unique identifier of a timesheet data entry
      *
      * @return The field id
      */
     public @NotNull String getId() { return this.id; }
     /**
-     * TimesheetId
+     * A unique identifier of a timesheet data entry
      *
      * @param value The new value for id
      */
     public void setId(@NotNull String value) { this.id = value; }
     /**
-     * Date of time entry
+     * The unique identifier of the resource who is preparing this Timesheet.  You can filter on this value to measure
+     * the total work performed by this specific Resource.
+     *
+     * @return The field resourceId
+     */
+    public @NotNull String getResourceId() { return this.resourceId; }
+    /**
+     * The unique identifier of the resource who is preparing this Timesheet.  You can filter on this value to measure
+     * the total work performed by this specific Resource.
+     *
+     * @param value The new value for resourceId
+     */
+    public void setResourceId(@NotNull String value) { this.resourceId = value; }
+    /**
+     * The unique identifier of the task worked on for this Timesheet.  You can filter on this value to measure the
+     * total work performed against a specific Task.
+     *
+     * @return The field taskId
+     */
+    public @NotNull String getTaskId() { return this.taskId; }
+    /**
+     * The unique identifier of the task worked on for this Timesheet.  You can filter on this value to measure the
+     * total work performed against a specific Task.
+     *
+     * @param value The new value for taskId
+     */
+    public void setTaskId(@NotNull String value) { this.taskId = value; }
+    /**
+     * The unique identifier of the project worked on for this Timesheet.  You can filter on this value to measure the
+     * total work performed against a specific Project.
+     *
+     * @return The field projectId
+     */
+    public @NotNull String getProjectId() { return this.projectId; }
+    /**
+     * The unique identifier of the project worked on for this Timesheet.  You can filter on this value to measure the
+     * total work performed against a specific Project.
+     *
+     * @param value The new value for projectId
+     */
+    public void setProjectId(@NotNull String value) { this.projectId = value; }
+    /**
+     * The date of this time entry record.  You can filter on this value to obtain Timesheet data for a specific date
+     * range.
      *
      * @return The field date
      */
     public @NotNull String getDate() { return this.date; }
     /**
-     * Date of time entry
+     * The date of this time entry record.  You can filter on this value to obtain Timesheet data for a specific date
+     * range.
      *
      * @param value The new value for date
      */
     public void setDate(@NotNull String value) { this.date = value; }
     /**
-     * Notes
+     * Notes associated with this Timesheet, if any
      *
      * @return The field notes
      */
     public @Nullable String getNotes() { return this.notes; }
     /**
-     * Notes
+     * Notes associated with this Timesheet, if any
      *
      * @param value The new value for notes
      */
     public void setNotes(@Nullable String value) { this.notes = value; }
     /**
-     * Shows if timesheet approved
+     * True if this Timesheet was approved by a person with the role of a Timesheet approver
      *
      * @return The field approved
      */
     public @NotNull Boolean getApproved() { return this.approved; }
     /**
-     * Shows if timesheet approved
+     * True if this Timesheet was approved by a person with the role of a Timesheet approver
      *
      * @param value The new value for approved
      */
     public void setApproved(@NotNull Boolean value) { this.approved = value; }
     /**
-     * Total Hours
+     * Total Hours spent on this Task by this Resource on this specific Date
      *
      * @return The field hours
      */
     public @NotNull Double getHours() { return this.hours; }
     /**
-     * Total Hours
+     * Total Hours spent on this Task by this Resource on this specific Date
      *
      * @param value The new value for hours
      */

@@ -39,6 +39,7 @@ public class ResourceCreateDto
     private @Nullable String roleId;
     private @Nullable String[] teamIds;
     private @Nullable String[] skillIds;
+    private @Nullable String colorName;
 
     /**
      * The first name of the person Resource.
@@ -202,4 +203,20 @@ public class ResourceCreateDto
      * @param value The new value for skillIds
      */
     public void setSkillIds(@Nullable String[] value) { this.skillIds = value; }
+    /**
+     * Collaboration Color for this resource.
+     *
+     * eg. teal, cyan, lightblue, blurple, purple, pink, orange, gray
+     *
+     * @return The field colorName
+     */
+    public @Nullable String getColorName() { return this.colorName; }
+    /**
+     * Collaboration Color for this resource.
+     *
+     * eg. teal, cyan, lightblue, blurple, purple, pink, orange, gray
+     *
+     * @param value The new value for colorName
+     */
+    public void setColorName(@Nullable String value) { this.colorName = value; }
 };
