@@ -18,6 +18,10 @@ package com.projectmanager.models;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * The ProjectFile represents an attached file that is connected to a Project
+ * and can be retrieved for download.
+ */
 public class ProjectFileDto
 {
     private @NotNull String id;

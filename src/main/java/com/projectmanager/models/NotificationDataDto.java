@@ -96,11 +96,13 @@ public class NotificationDataDto
      */
     public void setProjectName(@Nullable String value) { this.projectName = value; }
     /**
+     * Name of the task this notification is related to
      *
      * @return The field taskName
      */
     public @Nullable String getTaskName() { return this.taskName; }
     /**
+     * Name of the task this notification is related to
      *
      * @param value The new value for taskName
      */

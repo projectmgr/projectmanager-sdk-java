@@ -117,7 +117,7 @@ public class NotificationClient
      * workspace. Notifications are ephemeral and may be deleted when they are no longer needed.  When a user has more
      * than 1,000 pending notifications some old notifications will be deleted automatically.
      *
-     * @param id Documentation pending
+     * @param id The unique identifier of the notification to mark read
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
     public @NotNull AstroResult<NotificationTimestampDto> markNotificationRead(@NotNull String id)
@@ -149,7 +149,7 @@ public class NotificationClient
      * workspace. Notifications are ephemeral and may be deleted when they are no longer needed.  When a user has more
      * than 1,000 pending notifications some old notifications will be deleted automatically.
      *
-     * @param id Documentation pending
+     * @param id The unique identifier of the notification to mark read
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
     public @NotNull AstroResult<Object> deleteNotification(@NotNull String id)
@@ -166,7 +166,7 @@ public class NotificationClient
      * workspace. Notifications are ephemeral and may be deleted when they are no longer needed.  When a user has more
      * than 1,000 pending notifications some old notifications will be deleted automatically.
      *
-     * @param id Documentation pending
+     * @param id The unique identifier of the notification to mark read
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
     public @NotNull AstroResult<Object> markNotificationUnread(@NotNull String id)

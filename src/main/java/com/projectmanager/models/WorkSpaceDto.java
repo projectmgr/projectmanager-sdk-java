@@ -28,7 +28,6 @@ public class WorkSpaceDto
     private @NotNull String id;
     private @Nullable String company;
     private @Nullable String customProductDomain;
-    private @Nullable String customerId;
     private @NotNull Boolean isOwner;
     private @Nullable String organizationId;
     private @Nullable String color;
@@ -73,18 +72,6 @@ public class WorkSpaceDto
      * @param value The new value for customProductDomain
      */
     public void setCustomProductDomain(@Nullable String value) { this.customProductDomain = value; }
-    /**
-     * TODO - What is this value?
-     *
-     * @return The field customerId
-     */
-    public @Nullable String getCustomerId() { return this.customerId; }
-    /**
-     * TODO - What is this value?
-     *
-     * @param value The new value for customerId
-     */
-    public void setCustomerId(@Nullable String value) { this.customerId = value; }
     /**
      * This value is set to true if the user who retrieves this Workspace object via an API call is
      * the owner of this Workspace.

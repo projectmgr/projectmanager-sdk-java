@@ -18,6 +18,9 @@ package com.projectmanager.models;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * Represents information about a Task that is relevant to a ProjectFile
+ */
 public class ProjectFileTaskDto
 {
     private @NotNull String id;

@@ -63,13 +63,14 @@ public class TaskMetadataClient
     }
 
     /**
+     * Get tasks by project ID and foreign key ID
      *
      * @param foreignKey Foreign Key ID
      * @param projectId Project ID
      * @param isSystem If metadata is for system or customer, isSystem = true is only of ProjectManager
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TaskMetadataSearchDto[]> gettasksbyprojectIDandforeignkeyID(@Nullable String foreignKey, @NotNull String projectId, @Nullable Boolean isSystem)
+    public @NotNull AstroResult<TaskMetadataSearchDto[]> taskMetadataSearch(@Nullable String foreignKey, @NotNull String projectId, @Nullable Boolean isSystem)
     {
         RestRequest<TaskMetadataSearchDto[]> r = new RestRequest<TaskMetadataSearchDto[]>(this.client, "GET", "/api/data/projects/{projectId}/tasks/metadata");
         if (foreignKey != null) { r.AddQuery("foreignKey", foreignKey.toString()); }
