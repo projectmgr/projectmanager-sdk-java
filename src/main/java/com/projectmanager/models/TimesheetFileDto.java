@@ -18,6 +18,9 @@ package com.projectmanager.models;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * Represents information about a file attached to a Timesheet.
+ */
 public class TimesheetFileDto
 {
     private @NotNull String id;

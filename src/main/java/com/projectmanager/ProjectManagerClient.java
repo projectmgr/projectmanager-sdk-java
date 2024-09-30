@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2024 ProjectManager.com, Inc.
- * @version    117.0.4438
+ * @version    119.0.4625
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -23,15 +23,15 @@ import com.projectmanager.clients.DiscussionClient;
 import com.projectmanager.clients.FileClient;
 import com.projectmanager.clients.HolidayClient;
 import com.projectmanager.clients.HomeFileClient;
-import com.projectmanager.clients.IntegrationClient;
 import com.projectmanager.clients.IntegrationCategoryClient;
+import com.projectmanager.clients.IntegrationClient;
 import com.projectmanager.clients.IntegrationProviderClient;
 import com.projectmanager.clients.LicenseClient;
 import com.projectmanager.clients.MeClient;
 import com.projectmanager.clients.NotificationClient;
 import com.projectmanager.clients.NptFilesClient;
-import com.projectmanager.clients.ProjectClient;
 import com.projectmanager.clients.ProjectChargeCodeClient;
+import com.projectmanager.clients.ProjectClient;
 import com.projectmanager.clients.ProjectCustomerClient;
 import com.projectmanager.clients.ProjectFieldClient;
 import com.projectmanager.clients.ProjectFileClient;
@@ -40,12 +40,14 @@ import com.projectmanager.clients.ProjectMembersClient;
 import com.projectmanager.clients.ProjectPriorityClient;
 import com.projectmanager.clients.ProjectStatusClient;
 import com.projectmanager.clients.ProjectTemplateClient;
+import com.projectmanager.clients.ProjectVersionClient;
 import com.projectmanager.clients.ResourceClient;
 import com.projectmanager.clients.ResourceSkillClient;
 import com.projectmanager.clients.ResourceTeamClient;
+import com.projectmanager.clients.RiskClient;
 import com.projectmanager.clients.TagClient;
-import com.projectmanager.clients.TaskClient;
 import com.projectmanager.clients.TaskAssigneeClient;
+import com.projectmanager.clients.TaskClient;
 import com.projectmanager.clients.TaskFieldClient;
 import com.projectmanager.clients.TaskFileClient;
 import com.projectmanager.clients.TaskMetadataClient;
@@ -74,15 +76,15 @@ public class ProjectManagerClient {
     private FileClient file;
     private HolidayClient holiday;
     private HomeFileClient homeFile;
-    private IntegrationClient integration;
     private IntegrationCategoryClient integrationCategory;
+    private IntegrationClient integration;
     private IntegrationProviderClient integrationProvider;
     private LicenseClient license;
     private MeClient me;
     private NotificationClient notification;
     private NptFilesClient nptFiles;
-    private ProjectClient project;
     private ProjectChargeCodeClient projectChargeCode;
+    private ProjectClient project;
     private ProjectCustomerClient projectCustomer;
     private ProjectFieldClient projectField;
     private ProjectFileClient projectFile;
@@ -91,12 +93,14 @@ public class ProjectManagerClient {
     private ProjectPriorityClient projectPriority;
     private ProjectStatusClient projectStatus;
     private ProjectTemplateClient projectTemplate;
+    private ProjectVersionClient projectVersion;
     private ResourceClient resource;
     private ResourceSkillClient resourceSkill;
     private ResourceTeamClient resourceTeam;
+    private RiskClient risk;
     private TagClient tag;
-    private TaskClient task;
     private TaskAssigneeClient taskAssignee;
+    private TaskClient task;
     private TaskFieldClient taskField;
     private TaskFileClient taskFile;
     private TaskMetadataClient taskMetadata;
@@ -118,15 +122,15 @@ public class ProjectManagerClient {
         this.file = new FileClient(this);
         this.holiday = new HolidayClient(this);
         this.homeFile = new HomeFileClient(this);
-        this.integration = new IntegrationClient(this);
         this.integrationCategory = new IntegrationCategoryClient(this);
+        this.integration = new IntegrationClient(this);
         this.integrationProvider = new IntegrationProviderClient(this);
         this.license = new LicenseClient(this);
         this.me = new MeClient(this);
         this.notification = new NotificationClient(this);
         this.nptFiles = new NptFilesClient(this);
-        this.project = new ProjectClient(this);
         this.projectChargeCode = new ProjectChargeCodeClient(this);
+        this.project = new ProjectClient(this);
         this.projectCustomer = new ProjectCustomerClient(this);
         this.projectField = new ProjectFieldClient(this);
         this.projectFile = new ProjectFileClient(this);
@@ -135,12 +139,14 @@ public class ProjectManagerClient {
         this.projectPriority = new ProjectPriorityClient(this);
         this.projectStatus = new ProjectStatusClient(this);
         this.projectTemplate = new ProjectTemplateClient(this);
+        this.projectVersion = new ProjectVersionClient(this);
         this.resource = new ResourceClient(this);
         this.resourceSkill = new ResourceSkillClient(this);
         this.resourceTeam = new ResourceTeamClient(this);
+        this.risk = new RiskClient(this);
         this.tag = new TagClient(this);
-        this.task = new TaskClient(this);
         this.taskAssignee = new TaskAssigneeClient(this);
+        this.task = new TaskClient(this);
         this.taskField = new TaskFieldClient(this);
         this.taskFile = new TaskFileClient(this);
         this.taskMetadata = new TaskMetadataClient(this);
@@ -195,17 +201,17 @@ public class ProjectManagerClient {
      */
     public @NotNull HomeFileClient getHomeFileClient() { return this.homeFile; }
     /**
-     * A collection of API methods relating to Integration
-     *
-     * @return A collection containing the {@link com.projectmanager.clients.IntegrationClient client} methods in the API.
-     */
-    public @NotNull IntegrationClient getIntegrationClient() { return this.integration; }
-    /**
      * A collection of API methods relating to IntegrationCategory
      *
      * @return A collection containing the {@link com.projectmanager.clients.IntegrationCategoryClient client} methods in the API.
      */
     public @NotNull IntegrationCategoryClient getIntegrationCategoryClient() { return this.integrationCategory; }
+    /**
+     * A collection of API methods relating to Integration
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.IntegrationClient client} methods in the API.
+     */
+    public @NotNull IntegrationClient getIntegrationClient() { return this.integration; }
     /**
      * A collection of API methods relating to IntegrationProvider
      *
@@ -237,17 +243,17 @@ public class ProjectManagerClient {
      */
     public @NotNull NptFilesClient getNptFilesClient() { return this.nptFiles; }
     /**
-     * A collection of API methods relating to Project
-     *
-     * @return A collection containing the {@link com.projectmanager.clients.ProjectClient client} methods in the API.
-     */
-    public @NotNull ProjectClient getProjectClient() { return this.project; }
-    /**
      * A collection of API methods relating to ProjectChargeCode
      *
      * @return A collection containing the {@link com.projectmanager.clients.ProjectChargeCodeClient client} methods in the API.
      */
     public @NotNull ProjectChargeCodeClient getProjectChargeCodeClient() { return this.projectChargeCode; }
+    /**
+     * A collection of API methods relating to Project
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.ProjectClient client} methods in the API.
+     */
+    public @NotNull ProjectClient getProjectClient() { return this.project; }
     /**
      * A collection of API methods relating to ProjectCustomer
      *
@@ -297,6 +303,12 @@ public class ProjectManagerClient {
      */
     public @NotNull ProjectTemplateClient getProjectTemplateClient() { return this.projectTemplate; }
     /**
+     * A collection of API methods relating to ProjectVersion
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.ProjectVersionClient client} methods in the API.
+     */
+    public @NotNull ProjectVersionClient getProjectVersionClient() { return this.projectVersion; }
+    /**
      * A collection of API methods relating to Resource
      *
      * @return A collection containing the {@link com.projectmanager.clients.ResourceClient client} methods in the API.
@@ -315,23 +327,29 @@ public class ProjectManagerClient {
      */
     public @NotNull ResourceTeamClient getResourceTeamClient() { return this.resourceTeam; }
     /**
+     * A collection of API methods relating to Risk
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.RiskClient client} methods in the API.
+     */
+    public @NotNull RiskClient getRiskClient() { return this.risk; }
+    /**
      * A collection of API methods relating to Tag
      *
      * @return A collection containing the {@link com.projectmanager.clients.TagClient client} methods in the API.
      */
     public @NotNull TagClient getTagClient() { return this.tag; }
     /**
-     * A collection of API methods relating to Task
-     *
-     * @return A collection containing the {@link com.projectmanager.clients.TaskClient client} methods in the API.
-     */
-    public @NotNull TaskClient getTaskClient() { return this.task; }
-    /**
      * A collection of API methods relating to TaskAssignee
      *
      * @return A collection containing the {@link com.projectmanager.clients.TaskAssigneeClient client} methods in the API.
      */
     public @NotNull TaskAssigneeClient getTaskAssigneeClient() { return this.taskAssignee; }
+    /**
+     * A collection of API methods relating to Task
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.TaskClient client} methods in the API.
+     */
+    public @NotNull TaskClient getTaskClient() { return this.task; }
     /**
      * A collection of API methods relating to TaskField
      *

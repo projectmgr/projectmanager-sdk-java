@@ -18,6 +18,10 @@ package com.projectmanager.models;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * The DiscussionCommentFile represents a file that has been attached to a discussion
+ * and is available for download.
+ */
 public class DiscussionCommentFileDto
 {
     private @NotNull String id;
@@ -49,13 +53,13 @@ public class DiscussionCommentFileDto
      */
     public void setName(@Nullable String value) { this.name = value; }
     /**
-     * The url of the file which can be used for downloading
+     * The url of the DownloadFile API to retrieve this file
      *
      * @return The field url
      */
     public @Nullable String getUrl() { return this.url; }
     /**
-     * The url of the file which can be used for downloading
+     * The url of the DownloadFile API to retrieve this file
      *
      * @param value The new value for url
      */
