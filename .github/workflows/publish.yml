@@ -53,6 +53,12 @@ jobs:
     - name: Prepare Maven environnement with Java 17 for deployment to Sonatype
       run: export MAVEN_OPTS="--add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED"
 
+    - name: Import GPG Key
+      uses: crazy-max/ghaction-import-gpg@v1
+      env:
+        GPG_PRIVATE_KEY: ${{ secrets.GPG_SIGNING_KEY }}
+        PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+
     - name: Publish to Sonatype Central
       if: github.ref == 'refs/heads/main' && github.event_name == 'push' 
       run: mvn -B -PsonatypeDeploy deploy
