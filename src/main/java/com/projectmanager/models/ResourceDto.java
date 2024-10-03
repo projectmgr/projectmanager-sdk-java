@@ -43,10 +43,10 @@ public class ResourceDto
     private @Nullable String onlineDateTime;
     private @Nullable String role;
     private @NotNull Boolean isActive;
-    private @NotNull String createdDate;
-    private @NotNull String createdBy;
-    private @NotNull String modifiedDate;
-    private @NotNull String modifiedBy;
+    private @Nullable String createdDate;
+    private @Nullable String createdBy;
+    private @Nullable String modifiedDate;
+    private @Nullable String modifiedBy;
     private @Nullable String colorName;
     private @Nullable String color;
 
@@ -287,49 +287,49 @@ public class ResourceDto
      *
      * @return The field createdDate
      */
-    public @NotNull String getCreatedDate() { return this.createdDate; }
+    public @Nullable String getCreatedDate() { return this.createdDate; }
     /**
      * The date this resource was created
      *
      * @param value The new value for createdDate
      */
-    public void setCreatedDate(@NotNull String value) { this.createdDate = value; }
+    public void setCreatedDate(@Nullable String value) { this.createdDate = value; }
     /**
      * Set to a unique identifier of the user who created this Resource.
      *
      * @return The field createdBy
      */
-    public @NotNull String getCreatedBy() { return this.createdBy; }
+    public @Nullable String getCreatedBy() { return this.createdBy; }
     /**
      * Set to a unique identifier of the user who created this Resource.
      *
      * @param value The new value for createdBy
      */
-    public void setCreatedBy(@NotNull String value) { this.createdBy = value; }
+    public void setCreatedBy(@Nullable String value) { this.createdBy = value; }
     /**
      * The date this resource was last modified
      *
      * @return The field modifiedDate
      */
-    public @NotNull String getModifiedDate() { return this.modifiedDate; }
+    public @Nullable String getModifiedDate() { return this.modifiedDate; }
     /**
      * The date this resource was last modified
      *
      * @param value The new value for modifiedDate
      */
-    public void setModifiedDate(@NotNull String value) { this.modifiedDate = value; }
+    public void setModifiedDate(@Nullable String value) { this.modifiedDate = value; }
     /**
      * Set to a unique identifier of the user who last modified this Resource.
      *
      * @return The field modifiedBy
      */
-    public @NotNull String getModifiedBy() { return this.modifiedBy; }
+    public @Nullable String getModifiedBy() { return this.modifiedBy; }
     /**
      * Set to a unique identifier of the user who last modified this Resource.
      *
      * @param value The new value for modifiedBy
      */
-    public void setModifiedBy(@NotNull String value) { this.modifiedBy = value; }
+    public void setModifiedBy(@Nullable String value) { this.modifiedBy = value; }
     /**
      * Collaboration Color for this resource.
      *
