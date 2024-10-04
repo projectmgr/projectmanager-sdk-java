@@ -4,8 +4,8 @@
   <servers>
     <server>
       <id>central</id>
-      <username>${env.MAVEN_USERNAME}</username>
-      <password>${env.MAVEN_CENTRAL_TOKEN}</password>
+      <username>${server.username}</username>
+      <password>${server.password}</password>
     </server>
     <server>
       <id>gpg.passphrase</id>
