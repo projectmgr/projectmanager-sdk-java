@@ -36,7 +36,6 @@
     "VersionNumberRegex": "version\": \"(.*)\"",
     "Java": {
         "ModuleName": "ProjectManagerSDK",
-        "Folder": "C:\\github\\projectmanager-sdk-java",
         "ClassName": "ProjectManagerClient",
         "ResponseClass": "AstroResult",
         "Namespace": "com.projectmanager",
