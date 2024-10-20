@@ -35,9 +35,9 @@ import org.jetbrains.annotations.Nullable;
 public class ProjectFieldDto
 {
     private @NotNull String id;
-    private @Nullable String name;
-    private @Nullable String type;
-    private @Nullable String entityType;
+    private @NotNull String name;
+    private @NotNull String type;
+    private @NotNull String entityType;
     private @Nullable String[] options;
     private @Nullable String shortId;
 
@@ -58,13 +58,13 @@ public class ProjectFieldDto
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The name of this Field
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * The type of the Field.  Valid types are the following:
      * * Text
@@ -81,7 +81,7 @@ public class ProjectFieldDto
      *
      * @return The field type
      */
-    public @Nullable String getType() { return this.type; }
+    public @NotNull String getType() { return this.type; }
     /**
      * The type of the Field.  Valid types are the following:
      * * Text
@@ -98,19 +98,19 @@ public class ProjectFieldDto
      *
      * @param value The new value for type
      */
-    public void setType(@Nullable String value) { this.type = value; }
+    public void setType(@NotNull String value) { this.type = value; }
     /**
      * The entity type of the Field, either `projects` or `tasks`.
      *
      * @return The field entityType
      */
-    public @Nullable String getEntityType() { return this.entityType; }
+    public @NotNull String getEntityType() { return this.entityType; }
     /**
      * The entity type of the Field, either `projects` or `tasks`.
      *
      * @param value The new value for entityType
      */
-    public void setEntityType(@Nullable String value) { this.entityType = value; }
+    public void setEntityType(@NotNull String value) { this.entityType = value; }
     /**
      * A list of options for use of this Field.  This is only valid if
      * the `Type` value is set to `Dropdown`.

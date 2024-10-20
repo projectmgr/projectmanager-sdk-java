@@ -26,12 +26,12 @@ import org.jetbrains.annotations.Nullable;
 public class ProjectDto
 {
     private @NotNull String id;
-    private @Nullable String name;
+    private @NotNull String name;
     private @Nullable String description;
-    private @Nullable String shortCode;
-    private @Nullable String shortId;
+    private @NotNull String shortCode;
+    private @NotNull String shortId;
     private @Nullable ProjectFolderDto folder;
-    private @Nullable ProjectStatusDto status;
+    private @NotNull ProjectStatusDto status;
     private @Nullable String startDate;
     private @Nullable String endDate;
     private @Nullable String targetDate;
@@ -39,7 +39,7 @@ public class ProjectDto
     private @Nullable String plannedFinishDate;
     private @Nullable String actualStartDate;
     private @Nullable String actualFinishDate;
-    private @Nullable ProjectPriorityDto priority;
+    private @NotNull ProjectPriorityDto priority;
     private @Nullable ProjectChargeCodeDto chargeCode;
     private @Nullable ProjectManagerDto manager;
     private @Nullable ProjectCustomerDto customer;
@@ -75,13 +75,13 @@ public class ProjectDto
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The name of the Project.
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * An optional description of the Project
      *
@@ -101,7 +101,7 @@ public class ProjectDto
      *
      * @return The field shortCode
      */
-    public @Nullable String getShortCode() { return this.shortCode; }
+    public @NotNull String getShortCode() { return this.shortCode; }
     /**
      * A shortened name that will be used when reporting on Projects.  This short
      * name can be edited in the Project Settings page within the application
@@ -109,7 +109,7 @@ public class ProjectDto
      *
      * @param value The new value for shortCode
      */
-    public void setShortCode(@Nullable String value) { this.shortCode = value; }
+    public void setShortCode(@NotNull String value) { this.shortCode = value; }
     /**
      * A short identifier that uniquely identifies this Project within your Workspace
      * using a single letter followed by a number.  This code can be used for APIs
@@ -124,7 +124,7 @@ public class ProjectDto
      *
      * @return The field shortId
      */
-    public @Nullable String getShortId() { return this.shortId; }
+    public @NotNull String getShortId() { return this.shortId; }
     /**
      * A short identifier that uniquely identifies this Project within your Workspace
      * using a single letter followed by a number.  This code can be used for APIs
@@ -139,7 +139,7 @@ public class ProjectDto
      *
      * @param value The new value for shortId
      */
-    public void setShortId(@Nullable String value) { this.shortId = value; }
+    public void setShortId(@NotNull String value) { this.shortId = value; }
     /**
      * If this Project is grouped within a ProjectFolder, this contains the ProjectFolder information.
      *
@@ -157,13 +157,13 @@ public class ProjectDto
      *
      * @return The field status
      */
-    public @Nullable ProjectStatusDto getStatus() { return this.status; }
+    public @NotNull ProjectStatusDto getStatus() { return this.status; }
     /**
      * The ProjectStatus chosen for this Project.
      *
      * @param value The new value for status
      */
-    public void setStatus(@Nullable ProjectStatusDto value) { this.status = value; }
+    public void setStatus(@NotNull ProjectStatusDto value) { this.status = value; }
     /**
      * The earliest planned or actual start date of tasks on the project.
      *
@@ -301,13 +301,13 @@ public class ProjectDto
      *
      * @return The field priority
      */
-    public @Nullable ProjectPriorityDto getPriority() { return this.priority; }
+    public @NotNull ProjectPriorityDto getPriority() { return this.priority; }
     /**
      * The ProjectPriority level of this Project, if defined.
      *
      * @param value The new value for priority
      */
-    public void setPriority(@Nullable ProjectPriorityDto value) { this.priority = value; }
+    public void setPriority(@NotNull ProjectPriorityDto value) { this.priority = value; }
     /**
      * The ChargeCode of this Project, if defined.
      *

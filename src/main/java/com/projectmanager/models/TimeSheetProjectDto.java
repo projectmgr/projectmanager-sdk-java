@@ -26,10 +26,10 @@ import org.jetbrains.annotations.Nullable;
 public class TimeSheetProjectDto
 {
     private @NotNull String id;
-    private @Nullable String name;
+    private @NotNull String name;
     private @Nullable String description;
-    private @Nullable String shortCode;
-    private @Nullable String shortId;
+    private @NotNull String shortCode;
+    private @NotNull String shortId;
     private @Nullable String startDate;
     private @Nullable String endDate;
     private @Nullable String targetDate;
@@ -57,13 +57,13 @@ public class TimeSheetProjectDto
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The name of the Project.
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * An optional description of the Project
      *
@@ -83,7 +83,7 @@ public class TimeSheetProjectDto
      *
      * @return The field shortCode
      */
-    public @Nullable String getShortCode() { return this.shortCode; }
+    public @NotNull String getShortCode() { return this.shortCode; }
     /**
      * A shortened name that will be used when reporting on Projects.  This short
      * name can be edited in the Project Settings page within the application
@@ -91,7 +91,7 @@ public class TimeSheetProjectDto
      *
      * @param value The new value for shortCode
      */
-    public void setShortCode(@Nullable String value) { this.shortCode = value; }
+    public void setShortCode(@NotNull String value) { this.shortCode = value; }
     /**
      * A short identifier that uniquely identifies this Project within your Workspace
      * using a single letter followed by a number.  This code can be used for APIs
@@ -106,7 +106,7 @@ public class TimeSheetProjectDto
      *
      * @return The field shortId
      */
-    public @Nullable String getShortId() { return this.shortId; }
+    public @NotNull String getShortId() { return this.shortId; }
     /**
      * A short identifier that uniquely identifies this Project within your Workspace
      * using a single letter followed by a number.  This code can be used for APIs
@@ -121,7 +121,7 @@ public class TimeSheetProjectDto
      *
      * @param value The new value for shortId
      */
-    public void setShortId(@Nullable String value) { this.shortId = value; }
+    public void setShortId(@NotNull String value) { this.shortId = value; }
     /**
      * The earliest planned or actual start date of tasks on the project.
      *

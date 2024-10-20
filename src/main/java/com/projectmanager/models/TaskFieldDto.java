@@ -27,11 +27,11 @@ import org.jetbrains.annotations.Nullable;
 public class TaskFieldDto
 {
     private @NotNull String id;
-    private @Nullable String name;
-    private @Nullable String type;
-    private @Nullable String[] options;
+    private @NotNull String name;
+    private @NotNull String type;
+    private @NotNull String[] options;
     private @Nullable String shortId;
-    private @Nullable TaskFieldProjectDto project;
+    private @NotNull TaskFieldProjectDto project;
     private @NotNull String createdDate;
     private @NotNull String modifiedDate;
 
@@ -52,13 +52,13 @@ public class TaskFieldDto
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The name of this TaskField
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * The type of this TaskField.  Valid types are the following:
      * * Text
@@ -76,7 +76,7 @@ public class TaskFieldDto
      *
      * @return The field type
      */
-    public @Nullable String getType() { return this.type; }
+    public @NotNull String getType() { return this.type; }
     /**
      * The type of this TaskField.  Valid types are the following:
      * * Text
@@ -94,7 +94,7 @@ public class TaskFieldDto
      *
      * @param value The new value for type
      */
-    public void setType(@Nullable String value) { this.type = value; }
+    public void setType(@NotNull String value) { this.type = value; }
     /**
      * A list of options for use of this TaskField.  This is only valid if
      * the `Type` value is set to `Dropdown`.
@@ -105,7 +105,7 @@ public class TaskFieldDto
      *
      * @return The field options
      */
-    public @Nullable String[] getOptions() { return this.options; }
+    public @NotNull String[] getOptions() { return this.options; }
     /**
      * A list of options for use of this TaskField.  This is only valid if
      * the `Type` value is set to `Dropdown`.
@@ -116,7 +116,7 @@ public class TaskFieldDto
      *
      * @param value The new value for options
      */
-    public void setOptions(@Nullable String[] value) { this.options = value; }
+    public void setOptions(@NotNull String[] value) { this.options = value; }
     /**
      * The short Id of this TaskField - human readable identity
      *
@@ -134,13 +134,13 @@ public class TaskFieldDto
      *
      * @return The field project
      */
-    public @Nullable TaskFieldProjectDto getProject() { return this.project; }
+    public @NotNull TaskFieldProjectDto getProject() { return this.project; }
     /**
      * The Project to which this TaskField belongs.
      *
      * @param value The new value for project
      */
-    public void setProject(@Nullable TaskFieldProjectDto value) { this.project = value; }
+    public void setProject(@NotNull TaskFieldProjectDto value) { this.project = value; }
     /**
      * Date and time (in UTC) that this TaskField was created.
      *

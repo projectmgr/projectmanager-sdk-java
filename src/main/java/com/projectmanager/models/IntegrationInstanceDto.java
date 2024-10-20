@@ -25,13 +25,13 @@ import org.jetbrains.annotations.Nullable;
 public class IntegrationInstanceDto
 {
     private @NotNull String id;
-    private @Nullable String integrationShortId;
+    private @NotNull String integrationShortId;
     private @NotNull String enabledBy;
     private @NotNull String createDate;
     private @NotNull String modifyDate;
     private @NotNull String projectId;
-    private @Nullable String providerItemId;
-    private @Nullable String providerItemName;
+    private @NotNull String providerItemId;
+    private @NotNull String providerItemName;
 
     /**
      * The unique identifier of this IntegrationInstance
@@ -50,13 +50,13 @@ public class IntegrationInstanceDto
      *
      * @return The field integrationShortId
      */
-    public @Nullable String getIntegrationShortId() { return this.integrationShortId; }
+    public @NotNull String getIntegrationShortId() { return this.integrationShortId; }
     /**
      * A short ID that uniquely identifies this IntegrationInstance
      *
      * @param value The new value for integrationShortId
      */
-    public void setIntegrationShortId(@Nullable String value) { this.integrationShortId = value; }
+    public void setIntegrationShortId(@NotNull String value) { this.integrationShortId = value; }
     /**
      * The unique identifier of the user who enabled this IntegrationInstance
      *
@@ -110,23 +110,23 @@ public class IntegrationInstanceDto
      *
      * @return The field providerItemId
      */
-    public @Nullable String getProviderItemId() { return this.providerItemId; }
+    public @NotNull String getProviderItemId() { return this.providerItemId; }
     /**
      * The identifier in the integration provider, could be a reference to a file, task, project.
      *
      * @param value The new value for providerItemId
      */
-    public void setProviderItemId(@Nullable String value) { this.providerItemId = value; }
+    public void setProviderItemId(@NotNull String value) { this.providerItemId = value; }
     /**
      * The name of the item in the integration provider.
      *
      * @return The field providerItemName
      */
-    public @Nullable String getProviderItemName() { return this.providerItemName; }
+    public @NotNull String getProviderItemName() { return this.providerItemName; }
     /**
      * The name of the item in the integration provider.
      *
      * @param value The new value for providerItemName
      */
-    public void setProviderItemName(@Nullable String value) { this.providerItemName = value; }
+    public void setProviderItemName(@NotNull String value) { this.providerItemName = value; }
 };

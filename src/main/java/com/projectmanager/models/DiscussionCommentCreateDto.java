@@ -26,7 +26,7 @@ import org.jetbrains.annotations.Nullable;
  */
 public class DiscussionCommentCreateDto
 {
-    private @Nullable String text;
+    private @NotNull String text;
 
     /**
      * The text of the comment to add to the discussion, in Markdown format.
@@ -37,7 +37,7 @@ public class DiscussionCommentCreateDto
      *
      * @return The field text
      */
-    public @Nullable String getText() { return this.text; }
+    public @NotNull String getText() { return this.text; }
     /**
      * The text of the comment to add to the discussion, in Markdown format.
      *
@@ -47,5 +47,5 @@ public class DiscussionCommentCreateDto
      *
      * @param value The new value for text
      */
-    public void setText(@Nullable String value) { this.text = value; }
+    public void setText(@NotNull String value) { this.text = value; }
 };

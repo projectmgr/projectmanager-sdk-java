@@ -148,7 +148,7 @@ public class BlobRequest {
             }
 
             request.addHeader("SdkName", "Java");
-            request.addHeader("SdkVersion", "119.0.4645.0");
+            request.addHeader("SdkVersion", "120.0.4689.0");
 
             String applicationName = this.client.getAppName();
 

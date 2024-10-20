@@ -23,8 +23,8 @@ import org.jetbrains.annotations.Nullable;
  */
 public class IntegrationAuthSetupDto
 {
-    private @Nullable String masterConnection;
-    private @Nullable String userConnection;
+    private @NotNull String masterConnection;
+    private @NotNull String userConnection;
     private @Nullable Object masterConnectionSchema;
 
     /**
@@ -32,25 +32,25 @@ public class IntegrationAuthSetupDto
      *
      * @return The field masterConnection
      */
-    public @Nullable String getMasterConnection() { return this.masterConnection; }
+    public @NotNull String getMasterConnection() { return this.masterConnection; }
     /**
      * Master Connection for provider
      *
      * @param value The new value for masterConnection
      */
-    public void setMasterConnection(@Nullable String value) { this.masterConnection = value; }
+    public void setMasterConnection(@NotNull String value) { this.masterConnection = value; }
     /**
      * UserConnection for Provider.
      *
      * @return The field userConnection
      */
-    public @Nullable String getUserConnection() { return this.userConnection; }
+    public @NotNull String getUserConnection() { return this.userConnection; }
     /**
      * UserConnection for Provider.
      *
      * @param value The new value for userConnection
      */
-    public void setUserConnection(@Nullable String value) { this.userConnection = value; }
+    public void setUserConnection(@NotNull String value) { this.userConnection = value; }
     /**
      * Master Connection scheme for Provider.
      *

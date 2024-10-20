@@ -27,9 +27,9 @@ public class TimesheetTaskDto
 {
     private @NotNull String id;
     private @NotNull String projectId;
-    private @Nullable String shortId;
-    private @Nullable String name;
-    private @Nullable String description;
+    private @NotNull String shortId;
+    private @NotNull String name;
+    private @NotNull String description;
     private @Nullable String plannedStartDate;
     private @Nullable String plannedFinishDate;
     private @Nullable String actualStartDate;
@@ -78,38 +78,38 @@ public class TimesheetTaskDto
      *
      * @return The field shortId
      */
-    public @Nullable String getShortId() { return this.shortId; }
+    public @NotNull String getShortId() { return this.shortId; }
     /**
      * A short ID that can be used to refer to this Task.  This short ID is
      * guaranteed to be unique within your Workspace.
      *
      * @param value The new value for shortId
      */
-    public void setShortId(@Nullable String value) { this.shortId = value; }
+    public void setShortId(@NotNull String value) { this.shortId = value; }
     /**
      * The common name of this Task.
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The common name of this Task.
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * A description of the work to be performed in this Task.
      *
      * @return The field description
      */
-    public @Nullable String getDescription() { return this.description; }
+    public @NotNull String getDescription() { return this.description; }
     /**
      * A description of the work to be performed in this Task.
      *
      * @param value The new value for description
      */
-    public void setDescription(@Nullable String value) { this.description = value; }
+    public void setDescription(@NotNull String value) { this.description = value; }
     /**
      * The date when work on this Task is planned to begin.
      *

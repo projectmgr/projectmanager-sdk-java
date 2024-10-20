@@ -27,7 +27,7 @@ public class ReactGridLayoutItemDto
     private @NotNull Integer h;
     private @NotNull Integer x;
     private @NotNull Integer y;
-    private @Nullable String i;
+    private @NotNull String i;
     private @NotNull Boolean moved;
     private @NotNull Boolean _static;
 
@@ -84,13 +84,13 @@ public class ReactGridLayoutItemDto
      *
      * @return The field i
      */
-    public @Nullable String getI() { return this.i; }
+    public @NotNull String getI() { return this.i; }
     /**
      * ID
      *
      * @param value The new value for i
      */
-    public void setI(@Nullable String value) { this.i = value; }
+    public void setI(@NotNull String value) { this.i = value; }
     /**
      * Moved indicator
      *

@@ -24,7 +24,7 @@ import org.jetbrains.annotations.Nullable;
 public class ProjectCreateAccessMemberDto
 {
     private @NotNull String userId;
-    private @Nullable String permission;
+    private @NotNull String permission;
 
     /**
      * Member's id
@@ -43,11 +43,11 @@ public class ProjectCreateAccessMemberDto
      *
      * @return The field permission
      */
-    public @Nullable String getPermission() { return this.permission; }
+    public @NotNull String getPermission() { return this.permission; }
     /**
      * Member's role in the project
      *
      * @param value The new value for permission
      */
-    public void setPermission(@Nullable String value) { this.permission = value; }
+    public void setPermission(@NotNull String value) { this.permission = value; }
 };

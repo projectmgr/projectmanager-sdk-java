@@ -25,13 +25,13 @@ import org.jetbrains.annotations.Nullable;
 public class IntegrationDto
 {
     private @NotNull String id;
-    private @Nullable String name;
-    private @Nullable String description;
-    private @Nullable String shortId;
+    private @NotNull String name;
+    private @NotNull String description;
+    private @NotNull String shortId;
     private @NotNull Boolean isMultiInstance;
-    private @Nullable Object config;
-    private @Nullable String[] licenseSkus;
-    private @Nullable IntegrationInstanceDto[] instances;
+    private @NotNull Object config;
+    private @NotNull String[] licenseSkus;
+    private @NotNull IntegrationInstanceDto[] instances;
     private @NotNull Boolean enabled;
     private @NotNull Boolean authenticated;
     private @NotNull Boolean autoEnabled;
@@ -54,37 +54,37 @@ public class IntegrationDto
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The friendly name of this Integration
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * A description of this Integration that can be shared with users
      *
      * @return The field description
      */
-    public @Nullable String getDescription() { return this.description; }
+    public @NotNull String getDescription() { return this.description; }
     /**
      * A description of this Integration that can be shared with users
      *
      * @param value The new value for description
      */
-    public void setDescription(@Nullable String value) { this.description = value; }
+    public void setDescription(@NotNull String value) { this.description = value; }
     /**
      * A short ID that uniquely identifies this Integration
      *
      * @return The field shortId
      */
-    public @Nullable String getShortId() { return this.shortId; }
+    public @NotNull String getShortId() { return this.shortId; }
     /**
      * A short ID that uniquely identifies this Integration
      *
      * @param value The new value for shortId
      */
-    public void setShortId(@Nullable String value) { this.shortId = value; }
+    public void setShortId(@NotNull String value) { this.shortId = value; }
     /**
      * True if this Integration allows multiple Instances.
      *
@@ -108,37 +108,37 @@ public class IntegrationDto
      *
      * @return The field config
      */
-    public @Nullable Object getConfig() { return this.config; }
+    public @NotNull Object getConfig() { return this.config; }
     /**
      * Extra configuration metadata for this Instance.
      *
      * @param value The new value for config
      */
-    public void setConfig(@Nullable Object value) { this.config = value; }
+    public void setConfig(@NotNull Object value) { this.config = value; }
     /**
      * The list of SKUS for this Integration.
      *
      * @return The field licenseSkus
      */
-    public @Nullable String[] getLicenseSkus() { return this.licenseSkus; }
+    public @NotNull String[] getLicenseSkus() { return this.licenseSkus; }
     /**
      * The list of SKUS for this Integration.
      *
      * @param value The new value for licenseSkus
      */
-    public void setLicenseSkus(@Nullable String[] value) { this.licenseSkus = value; }
+    public void setLicenseSkus(@NotNull String[] value) { this.licenseSkus = value; }
     /**
      * For multi-Instance Integrations, this contains the list of IntegrationInstances.
      *
      * @return The field instances
      */
-    public @Nullable IntegrationInstanceDto[] getInstances() { return this.instances; }
+    public @NotNull IntegrationInstanceDto[] getInstances() { return this.instances; }
     /**
      * For multi-Instance Integrations, this contains the list of IntegrationInstances.
      *
      * @param value The new value for instances
      */
-    public void setInstances(@Nullable IntegrationInstanceDto[] value) { this.instances = value; }
+    public void setInstances(@NotNull IntegrationInstanceDto[] value) { this.instances = value; }
     /**
      * True if this Integration is enabled for the current Workspace.
      *

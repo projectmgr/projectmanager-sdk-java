@@ -25,8 +25,8 @@ import org.jetbrains.annotations.Nullable;
 public class TagDto
 {
     private @NotNull String id;
-    private @Nullable String name;
-    private @Nullable String color;
+    private @NotNull String name;
+    private @NotNull String color;
 
     /**
      * The unique identifier of this Tag.
@@ -45,13 +45,13 @@ public class TagDto
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The name of this Tag.
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * The color that will be used to represent this Tag visually.  This color
      * is automatically chosen by the application when a user creates a Tag.
@@ -62,7 +62,7 @@ public class TagDto
      *
      * @return The field color
      */
-    public @Nullable String getColor() { return this.color; }
+    public @NotNull String getColor() { return this.color; }
     /**
      * The color that will be used to represent this Tag visually.  This color
      * is automatically chosen by the application when a user creates a Tag.
@@ -73,5 +73,5 @@ public class TagDto
      *
      * @param value The new value for color
      */
-    public void setColor(@Nullable String value) { this.color = value; }
+    public void setColor(@NotNull String value) { this.color = value; }
 };

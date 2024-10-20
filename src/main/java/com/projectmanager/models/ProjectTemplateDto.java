@@ -26,14 +26,14 @@ import org.jetbrains.annotations.Nullable;
 public class ProjectTemplateDto
 {
     private @NotNull String id;
-    private @Nullable String name;
-    private @Nullable String title;
-    private @Nullable String description;
-    private @Nullable String icon;
-    private @Nullable String previewImage;
+    private @NotNull String name;
+    private @NotNull String title;
+    private @NotNull String description;
+    private @NotNull String icon;
+    private @NotNull String previewImage;
     private @NotNull Integer order;
     private @NotNull Boolean isCustom;
-    private @Nullable String defaultView;
+    private @NotNull String defaultView;
 
     /**
      * The unique identifier of this ProjectTemplate.
@@ -54,7 +54,7 @@ public class ProjectTemplateDto
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The name of this ProjectTemplate.
      *
@@ -62,7 +62,7 @@ public class ProjectTemplateDto
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * The title of this ProjectTemplate.
      *
@@ -70,7 +70,7 @@ public class ProjectTemplateDto
      *
      * @return The field title
      */
-    public @Nullable String getTitle() { return this.title; }
+    public @NotNull String getTitle() { return this.title; }
     /**
      * The title of this ProjectTemplate.
      *
@@ -78,43 +78,43 @@ public class ProjectTemplateDto
      *
      * @param value The new value for title
      */
-    public void setTitle(@Nullable String value) { this.title = value; }
+    public void setTitle(@NotNull String value) { this.title = value; }
     /**
      * The full text description of this ProjectTemplate.
      *
      * @return The field description
      */
-    public @Nullable String getDescription() { return this.description; }
+    public @NotNull String getDescription() { return this.description; }
     /**
      * The full text description of this ProjectTemplate.
      *
      * @param value The new value for description
      */
-    public void setDescription(@Nullable String value) { this.description = value; }
+    public void setDescription(@NotNull String value) { this.description = value; }
     /**
      * The icon path for this ProjectTemplate.
      *
      * @return The field icon
      */
-    public @Nullable String getIcon() { return this.icon; }
+    public @NotNull String getIcon() { return this.icon; }
     /**
      * The icon path for this ProjectTemplate.
      *
      * @param value The new value for icon
      */
-    public void setIcon(@Nullable String value) { this.icon = value; }
+    public void setIcon(@NotNull String value) { this.icon = value; }
     /**
      * The preview image path for this ProjectTemplate.
      *
      * @return The field previewImage
      */
-    public @Nullable String getPreviewImage() { return this.previewImage; }
+    public @NotNull String getPreviewImage() { return this.previewImage; }
     /**
      * The preview image path for this ProjectTemplate.
      *
      * @param value The new value for previewImage
      */
-    public void setPreviewImage(@Nullable String value) { this.previewImage = value; }
+    public void setPreviewImage(@NotNull String value) { this.previewImage = value; }
     /**
      * The overall order of this ProjectTemplate.
      *
@@ -154,11 +154,11 @@ public class ProjectTemplateDto
      *
      * @return The field defaultView
      */
-    public @Nullable String getDefaultView() { return this.defaultView; }
+    public @NotNull String getDefaultView() { return this.defaultView; }
     /**
      * The web default view of the template.
      *
      * @param value The new value for defaultView
      */
-    public void setDefaultView(@Nullable String value) { this.defaultView = value; }
+    public void setDefaultView(@NotNull String value) { this.defaultView = value; }
 };

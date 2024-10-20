@@ -26,15 +26,15 @@ import org.jetbrains.annotations.Nullable;
 public class TaskDto
 {
     private @NotNull String id;
-    private @Nullable TaskProjectDto project;
+    private @NotNull TaskProjectDto project;
     private @Nullable TaskTagDto[] tags;
     private @NotNull String projectId;
     private @Nullable TaskAssigneeDto[] assignees;
     private @Nullable TaskTodoDto[] todos;
     private @Nullable String shortId;
-    private @Nullable String name;
+    private @NotNull String name;
     private @Nullable String description;
-    private @Nullable TaskStatusDto status;
+    private @NotNull TaskStatusDto status;
     private @NotNull String plannedStartDate;
     private @Nullable String plannedFinishDate;
     private @Nullable String actualStartDate;
@@ -76,13 +76,13 @@ public class TaskDto
      *
      * @return The field project
      */
-    public @Nullable TaskProjectDto getProject() { return this.project; }
+    public @NotNull TaskProjectDto getProject() { return this.project; }
     /**
      * The Project to which this Task belongs.
      *
      * @param value The new value for project
      */
-    public void setProject(@Nullable TaskProjectDto value) { this.project = value; }
+    public void setProject(@NotNull TaskProjectDto value) { this.project = value; }
     /**
      * The TaskTags that apply to this Task.
      *
@@ -150,13 +150,13 @@ public class TaskDto
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The common name of this Task.
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * A description of the work to be performed in this Task.
      *
@@ -174,13 +174,13 @@ public class TaskDto
      *
      * @return The field status
      */
-    public @Nullable TaskStatusDto getStatus() { return this.status; }
+    public @NotNull TaskStatusDto getStatus() { return this.status; }
     /**
      * The TaskStatus assigned to this Task.
      *
      * @param value The new value for status
      */
-    public void setStatus(@Nullable TaskStatusDto value) { this.status = value; }
+    public void setStatus(@NotNull TaskStatusDto value) { this.status = value; }
     /**
      * The date when work on this Task is planned to begin.
      *

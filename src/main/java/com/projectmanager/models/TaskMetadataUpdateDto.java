@@ -23,18 +23,18 @@ import org.jetbrains.annotations.Nullable;
  */
 public class TaskMetadataUpdateDto
 {
-    private @Nullable Object data;
+    private @NotNull Object data;
 
     /**
      * Customer or system metadata
      *
      * @return The field data
      */
-    public @Nullable Object getData() { return this.data; }
+    public @NotNull Object getData() { return this.data; }
     /**
      * Customer or system metadata
      *
      * @param value The new value for data
      */
-    public void setData(@Nullable Object value) { this.data = value; }
+    public void setData(@NotNull Object value) { this.data = value; }
 };

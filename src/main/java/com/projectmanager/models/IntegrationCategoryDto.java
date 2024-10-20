@@ -24,9 +24,9 @@ import org.jetbrains.annotations.Nullable;
 public class IntegrationCategoryDto
 {
     private @NotNull String id;
-    private @Nullable String name;
-    private @Nullable String shortId;
-    private @Nullable String[] integrationShortIds;
+    private @NotNull String name;
+    private @NotNull String shortId;
+    private @NotNull String[] integrationShortIds;
 
     /**
      * The unique identifier of this Integration Category.
@@ -45,35 +45,35 @@ public class IntegrationCategoryDto
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * A friendly name for this Integration Category.
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * A short identifier that uniquely identifies this Integration Category.
      *
      * @return The field shortId
      */
-    public @Nullable String getShortId() { return this.shortId; }
+    public @NotNull String getShortId() { return this.shortId; }
     /**
      * A short identifier that uniquely identifies this Integration Category.
      *
      * @param value The new value for shortId
      */
-    public void setShortId(@Nullable String value) { this.shortId = value; }
+    public void setShortId(@NotNull String value) { this.shortId = value; }
     /**
      * A list of short identifiers for Integrations available within this Integration Category.
      *
      * @return The field integrationShortIds
      */
-    public @Nullable String[] getIntegrationShortIds() { return this.integrationShortIds; }
+    public @NotNull String[] getIntegrationShortIds() { return this.integrationShortIds; }
     /**
      * A list of short identifiers for Integrations available within this Integration Category.
      *
      * @param value The new value for integrationShortIds
      */
-    public void setIntegrationShortIds(@Nullable String[] value) { this.integrationShortIds = value; }
+    public void setIntegrationShortIds(@NotNull String[] value) { this.integrationShortIds = value; }
 };

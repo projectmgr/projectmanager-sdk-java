@@ -28,12 +28,12 @@ public class NotificationDto
     private @NotNull String id;
     private @NotNull String senderId;
     private @Nullable NotificationDto[] children;
-    private @Nullable String notificationType;
+    private @NotNull String notificationType;
     private @NotNull String createDate;
-    private @Nullable String subject;
-    private @Nullable String message;
+    private @NotNull String subject;
+    private @NotNull String message;
     private @Nullable String readDate;
-    private @Nullable NotificationDataDto data;
+    private @NotNull NotificationDataDto data;
 
     /**
      * The unique identifier of this notification
@@ -80,13 +80,13 @@ public class NotificationDto
      *
      * @return The field notificationType
      */
-    public @Nullable String getNotificationType() { return this.notificationType; }
+    public @NotNull String getNotificationType() { return this.notificationType; }
     /**
      * A friendly category or type for this notification
      *
      * @param value The new value for notificationType
      */
-    public void setNotificationType(@Nullable String value) { this.notificationType = value; }
+    public void setNotificationType(@NotNull String value) { this.notificationType = value; }
     /**
      * Timestamp when the notification was sent
      *
@@ -104,25 +104,25 @@ public class NotificationDto
      *
      * @return The field subject
      */
-    public @Nullable String getSubject() { return this.subject; }
+    public @NotNull String getSubject() { return this.subject; }
     /**
      * User readable subject line for the notification
      *
      * @param value The new value for subject
      */
-    public void setSubject(@Nullable String value) { this.subject = value; }
+    public void setSubject(@NotNull String value) { this.subject = value; }
     /**
      * User readable message content for the notification
      *
      * @return The field message
      */
-    public @Nullable String getMessage() { return this.message; }
+    public @NotNull String getMessage() { return this.message; }
     /**
      * User readable message content for the notification
      *
      * @param value The new value for message
      */
-    public void setMessage(@Nullable String value) { this.message = value; }
+    public void setMessage(@NotNull String value) { this.message = value; }
     /**
      * Timestamp when the notification was acknowledged as read
      *
@@ -140,11 +140,11 @@ public class NotificationDto
      *
      * @return The field data
      */
-    public @Nullable NotificationDataDto getData() { return this.data; }
+    public @NotNull NotificationDataDto getData() { return this.data; }
     /**
      * A string containing JSON-encoded extra data for the notification
      *
      * @param value The new value for data
      */
-    public void setData(@Nullable NotificationDataDto value) { this.data = value; }
+    public void setData(@NotNull NotificationDataDto value) { this.data = value; }
 };

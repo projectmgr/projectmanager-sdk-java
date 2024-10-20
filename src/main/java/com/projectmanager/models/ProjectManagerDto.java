@@ -24,8 +24,8 @@ import org.jetbrains.annotations.Nullable;
 public class ProjectManagerDto
 {
     private @NotNull String id;
-    private @Nullable String name;
-    private @Nullable String initials;
+    private @NotNull String name;
+    private @NotNull String initials;
     private @Nullable String avatarUrl;
 
     /**
@@ -45,25 +45,25 @@ public class ProjectManagerDto
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The name of this ProjectManager
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * Manager initials
      *
      * @return The field initials
      */
-    public @Nullable String getInitials() { return this.initials; }
+    public @NotNull String getInitials() { return this.initials; }
     /**
      * Manager initials
      *
      * @param value The new value for initials
      */
-    public void setInitials(@Nullable String value) { this.initials = value; }
+    public void setInitials(@NotNull String value) { this.initials = value; }
     /**
      * Avatar's url
      *

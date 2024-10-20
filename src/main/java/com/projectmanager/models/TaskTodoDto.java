@@ -25,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 public class TaskTodoDto
 {
     private @NotNull String id;
-    private @Nullable String text;
+    private @NotNull String text;
     private @NotNull Boolean complete;
     private @NotNull String createDate;
     private @NotNull String modifyDate;
@@ -47,13 +47,13 @@ public class TaskTodoDto
      *
      * @return The field text
      */
-    public @Nullable String getText() { return this.text; }
+    public @NotNull String getText() { return this.text; }
     /**
      * The full description of this TaskTodo.
      *
      * @param value The new value for text
      */
-    public void setText(@Nullable String value) { this.text = value; }
+    public void setText(@NotNull String value) { this.text = value; }
     /**
      * True if this TaskTodo is complete.
      *

@@ -25,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 public class TagCreateDto
 {
     private @NotNull String name;
-    private @Nullable String color;
+    private @NotNull String color;
 
     /**
      * The name of this Tag.
@@ -49,7 +49,7 @@ public class TagCreateDto
      *
      * @return The field color
      */
-    public @Nullable String getColor() { return this.color; }
+    public @NotNull String getColor() { return this.color; }
     /**
      * The color that will be used to represent this Tag visually.  This color
      * is automatically chosen by the application when a user creates a Tag.
@@ -60,5 +60,5 @@ public class TagCreateDto
      *
      * @param value The new value for color
      */
-    public void setColor(@Nullable String value) { this.color = value; }
+    public void setColor(@NotNull String value) { this.color = value; }
 };

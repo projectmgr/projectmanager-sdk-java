@@ -25,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 public class TaskAssigneeDto
 {
     private @NotNull String id;
-    private @Nullable String initials;
+    private @NotNull String initials;
     private @Nullable String name;
     private @Nullable String description;
     private @NotNull Boolean isActive;
@@ -55,14 +55,14 @@ public class TaskAssigneeDto
      *
      * @return The field initials
      */
-    public @Nullable String getInitials() { return this.initials; }
+    public @NotNull String getInitials() { return this.initials; }
     /**
      * A shortened set of initials to use when representing this TaskAssignee visually
      * in small areas.  The initials may be used in small icons or other overlays.
      *
      * @param value The new value for initials
      */
-    public void setInitials(@Nullable String value) { this.initials = value; }
+    public void setInitials(@NotNull String value) { this.initials = value; }
     /**
      * The name of this TaskAssignee
      *

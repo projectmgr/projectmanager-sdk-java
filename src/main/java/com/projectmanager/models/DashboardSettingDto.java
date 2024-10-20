@@ -25,7 +25,7 @@ public class DashboardSettingDto
 {
     private @NotNull String id;
     private @NotNull String userId;
-    private @Nullable String type;
+    private @NotNull String type;
     private @Nullable ReactGridLayoutDto reactGridLayout;
 
     /**
@@ -57,13 +57,13 @@ public class DashboardSettingDto
      *
      * @return The field type
      */
-    public @Nullable String getType() { return this.type; }
+    public @NotNull String getType() { return this.type; }
     /**
      * Either custom or one of DashboardType enum
      *
      * @param value The new value for type
      */
-    public void setType(@Nullable String value) { this.type = value; }
+    public void setType(@NotNull String value) { this.type = value; }
     /**
      * React grid layout configuration
      *

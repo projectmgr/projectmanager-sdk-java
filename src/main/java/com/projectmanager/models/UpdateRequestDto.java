@@ -29,7 +29,7 @@ import org.jetbrains.annotations.Nullable;
  */
 public class UpdateRequestDto
 {
-    private @Nullable String name;
+    private @NotNull String name;
     private @Nullable String taskId;
     private @Nullable String folderId;
 
@@ -38,13 +38,13 @@ public class UpdateRequestDto
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The new name for the File.
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * To assign this File to a Task, specify the TaskId here.
      *

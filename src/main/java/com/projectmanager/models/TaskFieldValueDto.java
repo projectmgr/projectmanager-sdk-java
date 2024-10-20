@@ -25,12 +25,12 @@ public class TaskFieldValueDto
 {
     private @NotNull String id;
     private @Nullable String shortId;
-    private @Nullable String name;
-    private @Nullable String type;
-    private @Nullable String value;
+    private @NotNull String name;
+    private @NotNull String type;
+    private @NotNull String value;
     private @NotNull String createdDate;
     private @NotNull String modifiedDate;
-    private @Nullable TaskFieldValueTaskDto task;
+    private @NotNull TaskFieldValueTaskDto task;
 
     /**
      * The unique identifier of this TaskField.
@@ -61,13 +61,13 @@ public class TaskFieldValueDto
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The name of this Project Field.
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * The type of this TaskField.  Valid types are the following:
      * * Text
@@ -79,7 +79,7 @@ public class TaskFieldValueDto
      *
      * @return The field type
      */
-    public @Nullable String getType() { return this.type; }
+    public @NotNull String getType() { return this.type; }
     /**
      * The type of this TaskField.  Valid types are the following:
      * * Text
@@ -91,19 +91,19 @@ public class TaskFieldValueDto
      *
      * @param value The new value for type
      */
-    public void setType(@Nullable String value) { this.type = value; }
+    public void setType(@NotNull String value) { this.type = value; }
     /**
      * The value currently set for this TaskFieldValue.
      *
      * @return The field value
      */
-    public @Nullable String getValue() { return this.value; }
+    public @NotNull String getValue() { return this.value; }
     /**
      * The value currently set for this TaskFieldValue.
      *
      * @param value The new value for value
      */
-    public void setValue(@Nullable String value) { this.value = value; }
+    public void setValue(@NotNull String value) { this.value = value; }
     /**
      * Date and time (in UTC) that this TaskField was created.
      *
@@ -133,11 +133,11 @@ public class TaskFieldValueDto
      *
      * @return The field task
      */
-    public @Nullable TaskFieldValueTaskDto getTask() { return this.task; }
+    public @NotNull TaskFieldValueTaskDto getTask() { return this.task; }
     /**
      * The Task to which this Value belongs.
      *
      * @param value The new value for task
      */
-    public void setTask(@Nullable TaskFieldValueTaskDto value) { this.task = value; }
+    public void setTask(@NotNull TaskFieldValueTaskDto value) { this.task = value; }
 };

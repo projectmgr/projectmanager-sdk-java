@@ -25,16 +25,16 @@ import org.jetbrains.annotations.Nullable;
 public class IntegrationProviderDto
 {
     private @NotNull String id;
-    private @Nullable String name;
-    private @Nullable String shortId;
-    private @Nullable String summary;
-    private @Nullable String description;
-    private @Nullable String[] licenseSkus;
-    private @Nullable String[] categoryShortIds;
+    private @NotNull String name;
+    private @NotNull String shortId;
+    private @NotNull String summary;
+    private @NotNull String description;
+    private @NotNull String[] licenseSkus;
+    private @NotNull String[] categoryShortIds;
     private @NotNull Boolean activated;
     private @NotNull Boolean authenticated;
-    private @Nullable IntegrationDto[] integrations;
-    private @Nullable IntegrationAuthSetupDto authSetup;
+    private @NotNull IntegrationDto[] integrations;
+    private @NotNull IntegrationAuthSetupDto authSetup;
     private @NotNull Boolean createInWorkato;
 
     /**
@@ -54,73 +54,73 @@ public class IntegrationProviderDto
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The friendly name of this Provider.
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * A short ID that uniquely identifies this Provider.
      *
      * @return The field shortId
      */
-    public @Nullable String getShortId() { return this.shortId; }
+    public @NotNull String getShortId() { return this.shortId; }
     /**
      * A short ID that uniquely identifies this Provider.
      *
      * @param value The new value for shortId
      */
-    public void setShortId(@Nullable String value) { this.shortId = value; }
+    public void setShortId(@NotNull String value) { this.shortId = value; }
     /**
      * A short summary of this Provider and their service.
      *
      * @return The field summary
      */
-    public @Nullable String getSummary() { return this.summary; }
+    public @NotNull String getSummary() { return this.summary; }
     /**
      * A short summary of this Provider and their service.
      *
      * @param value The new value for summary
      */
-    public void setSummary(@Nullable String value) { this.summary = value; }
+    public void setSummary(@NotNull String value) { this.summary = value; }
     /**
      * A longer description of this Provider and their service.
      *
      * @return The field description
      */
-    public @Nullable String getDescription() { return this.description; }
+    public @NotNull String getDescription() { return this.description; }
     /**
      * A longer description of this Provider and their service.
      *
      * @param value The new value for description
      */
-    public void setDescription(@Nullable String value) { this.description = value; }
+    public void setDescription(@NotNull String value) { this.description = value; }
     /**
      * A list of available license SKUs for this Provider.
      *
      * @return The field licenseSkus
      */
-    public @Nullable String[] getLicenseSkus() { return this.licenseSkus; }
+    public @NotNull String[] getLicenseSkus() { return this.licenseSkus; }
     /**
      * A list of available license SKUs for this Provider.
      *
      * @param value The new value for licenseSkus
      */
-    public void setLicenseSkus(@Nullable String[] value) { this.licenseSkus = value; }
+    public void setLicenseSkus(@NotNull String[] value) { this.licenseSkus = value; }
     /**
      * A list of category IDs that this Provider exists within.
      *
      * @return The field categoryShortIds
      */
-    public @Nullable String[] getCategoryShortIds() { return this.categoryShortIds; }
+    public @NotNull String[] getCategoryShortIds() { return this.categoryShortIds; }
     /**
      * A list of category IDs that this Provider exists within.
      *
      * @param value The new value for categoryShortIds
      */
-    public void setCategoryShortIds(@Nullable String[] value) { this.categoryShortIds = value; }
+    public void setCategoryShortIds(@NotNull String[] value) { this.categoryShortIds = value; }
     /**
      * True if this Provider is available for use.
      *
@@ -150,25 +150,25 @@ public class IntegrationProviderDto
      *
      * @return The field integrations
      */
-    public @Nullable IntegrationDto[] getIntegrations() { return this.integrations; }
+    public @NotNull IntegrationDto[] getIntegrations() { return this.integrations; }
     /**
      * The list of available Integrations for this Provider.
      *
      * @param value The new value for integrations
      */
-    public void setIntegrations(@Nullable IntegrationDto[] value) { this.integrations = value; }
+    public void setIntegrations(@NotNull IntegrationDto[] value) { this.integrations = value; }
     /**
      * The list of available AuthSetup for this Provider.
      *
      * @return The field authSetup
      */
-    public @Nullable IntegrationAuthSetupDto getAuthSetup() { return this.authSetup; }
+    public @NotNull IntegrationAuthSetupDto getAuthSetup() { return this.authSetup; }
     /**
      * The list of available AuthSetup for this Provider.
      *
      * @param value The new value for authSetup
      */
-    public void setAuthSetup(@Nullable IntegrationAuthSetupDto value) { this.authSetup = value; }
+    public void setAuthSetup(@NotNull IntegrationAuthSetupDto value) { this.authSetup = value; }
     /**
      * Flag whether user/workspace needs to be setup in Workato
      *

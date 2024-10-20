@@ -23,8 +23,8 @@ import org.jetbrains.annotations.Nullable;
  */
 public class IntegrationConnectionSchemeObjectDto
 {
-    private @Nullable String value;
-    private @Nullable String type;
+    private @NotNull String value;
+    private @NotNull String type;
     private @NotNull Boolean sendToClient;
 
     /**
@@ -32,25 +32,25 @@ public class IntegrationConnectionSchemeObjectDto
      *
      * @return The field value
      */
-    public @Nullable String getValue() { return this.value; }
+    public @NotNull String getValue() { return this.value; }
     /**
      * The value of the property
      *
      * @param value The new value for value
      */
-    public void setValue(@Nullable String value) { this.value = value; }
+    public void setValue(@NotNull String value) { this.value = value; }
     /**
      * The type of the property
      *
      * @return The field type
      */
-    public @Nullable String getType() { return this.type; }
+    public @NotNull String getType() { return this.type; }
     /**
      * The type of the property
      *
      * @param value The new value for type
      */
-    public void setType(@Nullable String value) { this.type = value; }
+    public void setType(@NotNull String value) { this.type = value; }
     /**
      * Send to the client true/false
      *

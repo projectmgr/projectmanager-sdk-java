@@ -29,7 +29,7 @@ import org.jetbrains.annotations.Nullable;
  */
 public class ResourcesDto
 {
-    private @Nullable ResourceDto[] resources;
+    private @NotNull ResourceDto[] resources;
     private @Nullable UserError[] errors;
 
     /**
@@ -37,13 +37,13 @@ public class ResourcesDto
      *
      * @return The field resources
      */
-    public @Nullable ResourceDto[] getResources() { return this.resources; }
+    public @NotNull ResourceDto[] getResources() { return this.resources; }
     /**
      * The list of the Resources created by this API call.
      *
      * @param value The new value for resources
      */
-    public void setResources(@Nullable ResourceDto[] value) { this.resources = value; }
+    public void setResources(@NotNull ResourceDto[] value) { this.resources = value; }
     /**
      * The list of errors that occurred for Resources that could not be created.
      *
