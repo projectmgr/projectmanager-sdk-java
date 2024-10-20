@@ -25,8 +25,8 @@ import org.jetbrains.annotations.Nullable;
 public class ProjectFileDto
 {
     private @NotNull String id;
-    private @Nullable String name;
-    private @Nullable String url;
+    private @NotNull String name;
+    private @NotNull String url;
     private @Nullable ProjectFileTaskDto task;
     private @Nullable ProjectFileFolderDto folder;
 
@@ -47,25 +47,25 @@ public class ProjectFileDto
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The name of the file
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * The url of the file which can be used for downloading
      *
      * @return The field url
      */
-    public @Nullable String getUrl() { return this.url; }
+    public @NotNull String getUrl() { return this.url; }
     /**
      * The url of the file which can be used for downloading
      *
      * @param value The new value for url
      */
-    public void setUrl(@Nullable String value) { this.url = value; }
+    public void setUrl(@NotNull String value) { this.url = value; }
     /**
      * The project task that this file relates to.
      *

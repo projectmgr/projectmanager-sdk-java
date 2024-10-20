@@ -25,7 +25,7 @@ public class TaskMetadataSearchDto
 {
     private @NotNull String id;
     private @NotNull String projectId;
-    private @Nullable Object metadata;
+    private @NotNull Object metadata;
 
     /**
      * Task ID
@@ -56,11 +56,11 @@ public class TaskMetadataSearchDto
      *
      * @return The field metadata
      */
-    public @Nullable Object getMetadata() { return this.metadata; }
+    public @NotNull Object getMetadata() { return this.metadata; }
     /**
      * Customer or system metadata
      *
      * @param value The new value for metadata
      */
-    public void setMetadata(@Nullable Object value) { this.metadata = value; }
+    public void setMetadata(@NotNull Object value) { this.metadata = value; }
 };

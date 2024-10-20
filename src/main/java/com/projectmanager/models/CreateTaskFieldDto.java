@@ -26,8 +26,8 @@ import org.jetbrains.annotations.Nullable;
  */
 public class CreateTaskFieldDto
 {
-    private @Nullable String name;
-    private @Nullable String type;
+    private @NotNull String name;
+    private @NotNull String type;
     private @Nullable String[] options;
     private @Nullable String shortId;
 
@@ -36,13 +36,13 @@ public class CreateTaskFieldDto
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The name of the TaskField
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * The type of this TaskField.  Valid types are the following:
      * * Text
@@ -55,7 +55,7 @@ public class CreateTaskFieldDto
      *
      * @return The field type
      */
-    public @Nullable String getType() { return this.type; }
+    public @NotNull String getType() { return this.type; }
     /**
      * The type of this TaskField.  Valid types are the following:
      * * Text
@@ -68,7 +68,7 @@ public class CreateTaskFieldDto
      *
      * @param value The new value for type
      */
-    public void setType(@Nullable String value) { this.type = value; }
+    public void setType(@NotNull String value) { this.type = value; }
     /**
      * A list of options for use of this TaskField.  This is only valid if
      * the `Type` value is set to `Dropdown`.

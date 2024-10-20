@@ -25,8 +25,8 @@ import org.jetbrains.annotations.Nullable;
  */
 public class ProjectVersionChangeDataDto
 {
-    private @Nullable String type;
-    private @Nullable String method;
+    private @NotNull String type;
+    private @NotNull String method;
     private @Nullable String property;
     private @Nullable String value;
     private @Nullable Integer restoreVersion;
@@ -36,25 +36,25 @@ public class ProjectVersionChangeDataDto
      *
      * @return The field type
      */
-    public @Nullable String getType() { return this.type; }
+    public @NotNull String getType() { return this.type; }
     /**
      * The type of change made
      *
      * @param value The new value for type
      */
-    public void setType(@Nullable String value) { this.type = value; }
+    public void setType(@NotNull String value) { this.type = value; }
     /**
      * The method used to make the change
      *
      * @return The field method
      */
-    public @Nullable String getMethod() { return this.method; }
+    public @NotNull String getMethod() { return this.method; }
     /**
      * The method used to make the change
      *
      * @param value The new value for method
      */
-    public void setMethod(@Nullable String value) { this.method = value; }
+    public void setMethod(@NotNull String value) { this.method = value; }
     /**
      * The property that was changed, if any
      *

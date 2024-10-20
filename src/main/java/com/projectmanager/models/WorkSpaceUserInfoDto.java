@@ -25,12 +25,12 @@ import org.jetbrains.annotations.Nullable;
  */
 public class WorkSpaceUserInfoDto
 {
-    private @Nullable WorkSpaceLinksDto links;
-    private @Nullable String emailAddress;
+    private @NotNull WorkSpaceLinksDto links;
+    private @NotNull String emailAddress;
     private @NotNull String id;
-    private @Nullable String fullName;
-    private @Nullable String workSpaceName;
-    private @Nullable String roleName;
+    private @NotNull String fullName;
+    private @NotNull String workSpaceName;
+    private @NotNull String roleName;
     private @Nullable Boolean isGlobalAdmin;
     private @Nullable Boolean isAccountAdministrator;
 
@@ -39,25 +39,25 @@ public class WorkSpaceUserInfoDto
      *
      * @return The field links
      */
-    public @Nullable WorkSpaceLinksDto getLinks() { return this.links; }
+    public @NotNull WorkSpaceLinksDto getLinks() { return this.links; }
     /**
      * A collection of shortcut links for the currently logged in Workspace.
      *
      * @param value The new value for links
      */
-    public void setLinks(@Nullable WorkSpaceLinksDto value) { this.links = value; }
+    public void setLinks(@NotNull WorkSpaceLinksDto value) { this.links = value; }
     /**
      * The email address of the currently logged in user.
      *
      * @return The field emailAddress
      */
-    public @Nullable String getEmailAddress() { return this.emailAddress; }
+    public @NotNull String getEmailAddress() { return this.emailAddress; }
     /**
      * The email address of the currently logged in user.
      *
      * @param value The new value for emailAddress
      */
-    public void setEmailAddress(@Nullable String value) { this.emailAddress = value; }
+    public void setEmailAddress(@NotNull String value) { this.emailAddress = value; }
     /**
      * The unique identity of the currently logged in user.
      *
@@ -75,39 +75,39 @@ public class WorkSpaceUserInfoDto
      *
      * @return The field fullName
      */
-    public @Nullable String getFullName() { return this.fullName; }
+    public @NotNull String getFullName() { return this.fullName; }
     /**
      * The full name of the currently logged in user.
      *
      * @param value The new value for fullName
      */
-    public void setFullName(@Nullable String value) { this.fullName = value; }
+    public void setFullName(@NotNull String value) { this.fullName = value; }
     /**
      * The name of the Workspace that the current user has logged onto.  For most companies, the workspace
      * name will be the name of the business.
      *
      * @return The field workSpaceName
      */
-    public @Nullable String getWorkSpaceName() { return this.workSpaceName; }
+    public @NotNull String getWorkSpaceName() { return this.workSpaceName; }
     /**
      * The name of the Workspace that the current user has logged onto.  For most companies, the workspace
      * name will be the name of the business.
      *
      * @param value The new value for workSpaceName
      */
-    public void setWorkSpaceName(@Nullable String value) { this.workSpaceName = value; }
+    public void setWorkSpaceName(@NotNull String value) { this.workSpaceName = value; }
     /**
      * The user's role within the current Workspace.
      *
      * @return The field roleName
      */
-    public @Nullable String getRoleName() { return this.roleName; }
+    public @NotNull String getRoleName() { return this.roleName; }
     /**
      * The user's role within the current Workspace.
      *
      * @param value The new value for roleName
      */
-    public void setRoleName(@Nullable String value) { this.roleName = value; }
+    public void setRoleName(@NotNull String value) { this.roleName = value; }
     /**
      * True if this user is considered a global administrator of the current Workspace.
      *

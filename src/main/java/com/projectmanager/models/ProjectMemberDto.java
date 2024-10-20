@@ -26,11 +26,11 @@ import org.jetbrains.annotations.Nullable;
 public class ProjectMemberDto
 {
     private @NotNull String id;
-    private @Nullable String initials;
-    private @Nullable String name;
+    private @NotNull String initials;
+    private @NotNull String name;
     private @Nullable String avatarUrl;
     private @Nullable String permission;
-    private @Nullable String color;
+    private @NotNull String color;
     private @Nullable PermissionOptionsDto permissionOptions;
 
     /**
@@ -50,25 +50,25 @@ public class ProjectMemberDto
      *
      * @return The field initials
      */
-    public @Nullable String getInitials() { return this.initials; }
+    public @NotNull String getInitials() { return this.initials; }
     /**
      * the initials of the user
      *
      * @param value The new value for initials
      */
-    public void setInitials(@Nullable String value) { this.initials = value; }
+    public void setInitials(@NotNull String value) { this.initials = value; }
     /**
      * The display name of the user
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The display name of the user
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * Avatar URL
      *
@@ -98,13 +98,13 @@ public class ProjectMemberDto
      *
      * @return The field color
      */
-    public @Nullable String getColor() { return this.color; }
+    public @NotNull String getColor() { return this.color; }
     /**
      * The color for their avatar
      *
      * @param value The new value for color
      */
-    public void setColor(@Nullable String value) { this.color = value; }
+    public void setColor(@NotNull String value) { this.color = value; }
     /**
      * Specifies the permissions that you can set against the project member. This changes based on who is logged in and the role they have.
      *

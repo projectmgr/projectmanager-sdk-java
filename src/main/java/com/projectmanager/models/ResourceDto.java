@@ -28,6 +28,7 @@ import org.jetbrains.annotations.Nullable;
 public class ResourceDto
 {
     private @NotNull String id;
+    private @NotNull String initials;
     private @Nullable String firstName;
     private @Nullable String lastName;
     private @Nullable String email;
@@ -38,8 +39,8 @@ public class ResourceDto
     private @Nullable String country;
     private @Nullable String notes;
     private @Nullable ResourceApproverDto approver;
-    private @Nullable ResourceTeamDto[] teams;
-    private @Nullable ResourceSkillDto[] skills;
+    private @NotNull ResourceTeamDto[] teams;
+    private @NotNull ResourceSkillDto[] skills;
     private @Nullable String onlineDateTime;
     private @Nullable String role;
     private @NotNull Boolean isActive;
@@ -49,6 +50,7 @@ public class ResourceDto
     private @Nullable String modifiedBy;
     private @Nullable String colorName;
     private @Nullable String color;
+    private @Nullable String avatarUrl;
 
     /**
      * The unique identifier of this Resource.
@@ -62,6 +64,18 @@ public class ResourceDto
      * @param value The new value for id
      */
     public void setId(@NotNull String value) { this.id = value; }
+    /**
+     * The resource initials.
+     *
+     * @return The field initials
+     */
+    public @NotNull String getInitials() { return this.initials; }
+    /**
+     * The resource initials.
+     *
+     * @param value The new value for initials
+     */
+    public void setInitials(@NotNull String value) { this.initials = value; }
     /**
      * The first name of the person Resource.
      *
@@ -211,25 +225,25 @@ public class ResourceDto
      *
      * @return The field teams
      */
-    public @Nullable ResourceTeamDto[] getTeams() { return this.teams; }
+    public @NotNull ResourceTeamDto[] getTeams() { return this.teams; }
     /**
      * The list of ResourceTeams to which this Resource belongs.
      *
      * @param value The new value for teams
      */
-    public void setTeams(@Nullable ResourceTeamDto[] value) { this.teams = value; }
+    public void setTeams(@NotNull ResourceTeamDto[] value) { this.teams = value; }
     /**
      * The list of ResourceSkills possessed by this Resource.
      *
      * @return The field skills
      */
-    public @Nullable ResourceSkillDto[] getSkills() { return this.skills; }
+    public @NotNull ResourceSkillDto[] getSkills() { return this.skills; }
     /**
      * The list of ResourceSkills possessed by this Resource.
      *
      * @param value The new value for skills
      */
-    public void setSkills(@Nullable ResourceSkillDto[] value) { this.skills = value; }
+    public void setSkills(@NotNull ResourceSkillDto[] value) { this.skills = value; }
     /**
      * The last time when this Resource was online.
      *
@@ -358,4 +372,16 @@ public class ResourceDto
      * @param value The new value for color
      */
     public void setColor(@Nullable String value) { this.color = value; }
+    /**
+     * The resources avatar url, if any.
+     *
+     * @return The field avatarUrl
+     */
+    public @Nullable String getAvatarUrl() { return this.avatarUrl; }
+    /**
+     * The resources avatar url, if any.
+     *
+     * @param value The new value for avatarUrl
+     */
+    public void setAvatarUrl(@Nullable String value) { this.avatarUrl = value; }
 };

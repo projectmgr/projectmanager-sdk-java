@@ -29,13 +29,13 @@ public class FileDto
     private @NotNull String ownerId;
     private @NotNull String createdDate;
     private @NotNull String folderId;
-    private @Nullable String fileType;
-    private @Nullable String fileTypeLabel;
+    private @NotNull String fileType;
+    private @NotNull String fileTypeLabel;
     private @NotNull Integer size;
-    private @Nullable String downloadPath;
+    private @NotNull String downloadPath;
     private @NotNull Boolean deleted;
-    private @Nullable String type;
-    private @Nullable String name;
+    private @NotNull String type;
+    private @NotNull String name;
     private @NotNull String entityOwnerId;
 
     /**
@@ -115,25 +115,25 @@ public class FileDto
      *
      * @return The field fileType
      */
-    public @Nullable String getFileType() { return this.fileType; }
+    public @NotNull String getFileType() { return this.fileType; }
     /**
      * The type of the file
      *
      * @param value The new value for fileType
      */
-    public void setFileType(@Nullable String value) { this.fileType = value; }
+    public void setFileType(@NotNull String value) { this.fileType = value; }
     /**
      * A user friendly label for the file type
      *
      * @return The field fileTypeLabel
      */
-    public @Nullable String getFileTypeLabel() { return this.fileTypeLabel; }
+    public @NotNull String getFileTypeLabel() { return this.fileTypeLabel; }
     /**
      * A user friendly label for the file type
      *
      * @param value The new value for fileTypeLabel
      */
-    public void setFileTypeLabel(@Nullable String value) { this.fileTypeLabel = value; }
+    public void setFileTypeLabel(@NotNull String value) { this.fileTypeLabel = value; }
     /**
      * Size of the file in bytes
      *
@@ -151,13 +151,13 @@ public class FileDto
      *
      * @return The field downloadPath
      */
-    public @Nullable String getDownloadPath() { return this.downloadPath; }
+    public @NotNull String getDownloadPath() { return this.downloadPath; }
     /**
      * Path to download the file
      *
      * @param value The new value for downloadPath
      */
-    public void setDownloadPath(@Nullable String value) { this.downloadPath = value; }
+    public void setDownloadPath(@NotNull String value) { this.downloadPath = value; }
     /**
      * Is the file in the trash can
      *
@@ -175,25 +175,25 @@ public class FileDto
      *
      * @return The field type
      */
-    public @Nullable String getType() { return this.type; }
+    public @NotNull String getType() { return this.type; }
     /**
      * Defines the object type the file belongs to.
      *
      * @param value The new value for type
      */
-    public void setType(@Nullable String value) { this.type = value; }
+    public void setType(@NotNull String value) { this.type = value; }
     /**
      * The name of the file
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The name of the file
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * Id of owner of parent entity
      *

@@ -23,31 +23,31 @@ import org.jetbrains.annotations.Nullable;
  */
 public class WorkSpaceLinksDto
 {
-    private @Nullable String project;
-    private @Nullable String workSpaceApi;
+    private @NotNull String project;
+    private @NotNull String workSpaceApi;
 
     /**
      * The name of the project for this link.
      *
      * @return The field project
      */
-    public @Nullable String getProject() { return this.project; }
+    public @NotNull String getProject() { return this.project; }
     /**
      * The name of the project for this link.
      *
      * @param value The new value for project
      */
-    public void setProject(@Nullable String value) { this.project = value; }
+    public void setProject(@NotNull String value) { this.project = value; }
     /**
      * This is the link to the api for this business.  Some endpoints may need this value.
      *
      * @return The field workSpaceApi
      */
-    public @Nullable String getWorkSpaceApi() { return this.workSpaceApi; }
+    public @NotNull String getWorkSpaceApi() { return this.workSpaceApi; }
     /**
      * This is the link to the api for this business.  Some endpoints may need this value.
      *
      * @param value The new value for workSpaceApi
      */
-    public void setWorkSpaceApi(@Nullable String value) { this.workSpaceApi = value; }
+    public void setWorkSpaceApi(@NotNull String value) { this.workSpaceApi = value; }
 };

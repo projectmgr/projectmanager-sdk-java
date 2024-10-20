@@ -26,7 +26,7 @@ import org.jetbrains.annotations.Nullable;
 public class ProjectPriorityDto
 {
     private @NotNull String id;
-    private @Nullable String name;
+    private @NotNull String name;
 
     /**
      * The unique identifier of this ProjectPriority.
@@ -45,11 +45,11 @@ public class ProjectPriorityDto
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The name of this ProjectPriority.
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
 };

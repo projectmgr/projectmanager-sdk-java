@@ -24,9 +24,9 @@ import org.jetbrains.annotations.Nullable;
 public class ProjectTemplateCategoryDto
 {
     private @NotNull String id;
-    private @Nullable String name;
+    private @NotNull String name;
     private @NotNull Integer order;
-    private @Nullable ProjectTemplateDto[] templates;
+    private @NotNull ProjectTemplateDto[] templates;
 
     /**
      * The unique identifier of this ProjectTemplate Category.
@@ -45,13 +45,13 @@ public class ProjectTemplateCategoryDto
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * A friendly name for this ProjectTemplate Category.
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * The overall order of this ProjectTemplate Category
      *
@@ -69,11 +69,11 @@ public class ProjectTemplateCategoryDto
      *
      * @return The field templates
      */
-    public @Nullable ProjectTemplateDto[] getTemplates() { return this.templates; }
+    public @NotNull ProjectTemplateDto[] getTemplates() { return this.templates; }
     /**
      * A list of templates in this category
      *
      * @param value The new value for templates
      */
-    public void setTemplates(@Nullable ProjectTemplateDto[] value) { this.templates = value; }
+    public void setTemplates(@NotNull ProjectTemplateDto[] value) { this.templates = value; }
 };

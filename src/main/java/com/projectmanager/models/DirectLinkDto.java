@@ -23,18 +23,18 @@ import org.jetbrains.annotations.Nullable;
  */
 public class DirectLinkDto
 {
-    private @Nullable String url;
+    private @NotNull String url;
 
     /**
      * The URL to use to authenticate with the Integration Provider.
      *
      * @return The field url
      */
-    public @Nullable String getUrl() { return this.url; }
+    public @NotNull String getUrl() { return this.url; }
     /**
      * The URL to use to authenticate with the Integration Provider.
      *
      * @param value The new value for url
      */
-    public void setUrl(@Nullable String value) { this.url = value; }
+    public void setUrl(@NotNull String value) { this.url = value; }
 };

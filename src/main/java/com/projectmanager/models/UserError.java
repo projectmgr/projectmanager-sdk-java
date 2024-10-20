@@ -24,8 +24,8 @@ import org.jetbrains.annotations.Nullable;
  */
 public class UserError
 {
-    private @Nullable String email;
-    private @Nullable String reason;
+    private @NotNull String email;
+    private @NotNull String reason;
     private @NotNull String statusCode;
 
     /**
@@ -33,25 +33,25 @@ public class UserError
      *
      * @return The field email
      */
-    public @Nullable String getEmail() { return this.email; }
+    public @NotNull String getEmail() { return this.email; }
     /**
      * The email of the Resource that could not be created
      *
      * @param value The new value for email
      */
-    public void setEmail(@Nullable String value) { this.email = value; }
+    public void setEmail(@NotNull String value) { this.email = value; }
     /**
      * A description of the reason this Resource could not be created
      *
      * @return The field reason
      */
-    public @Nullable String getReason() { return this.reason; }
+    public @NotNull String getReason() { return this.reason; }
     /**
      * A description of the reason this Resource could not be created
      *
      * @param value The new value for reason
      */
-    public void setReason(@Nullable String value) { this.reason = value; }
+    public void setReason(@NotNull String value) { this.reason = value; }
     /**
      * A status code explaining the category of reason this Resource could not be created
      *

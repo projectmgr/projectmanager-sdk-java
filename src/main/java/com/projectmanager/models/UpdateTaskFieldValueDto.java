@@ -23,18 +23,18 @@ import org.jetbrains.annotations.Nullable;
  */
 public class UpdateTaskFieldValueDto
 {
-    private @Nullable String value;
+    private @NotNull String value;
 
     /**
      * The new value to be set for this TaskField.
      *
      * @return The field value
      */
-    public @Nullable String getValue() { return this.value; }
+    public @NotNull String getValue() { return this.value; }
     /**
      * The new value to be set for this TaskField.
      *
      * @param value The new value for value
      */
-    public void setValue(@Nullable String value) { this.value = value; }
+    public void setValue(@NotNull String value) { this.value = value; }
 };

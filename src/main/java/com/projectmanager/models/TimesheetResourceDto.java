@@ -28,9 +28,9 @@ import org.jetbrains.annotations.Nullable;
 public class TimesheetResourceDto
 {
     private @NotNull String id;
-    private @Nullable String firstName;
-    private @Nullable String lastName;
-    private @Nullable String email;
+    private @NotNull String firstName;
+    private @NotNull String lastName;
+    private @NotNull String email;
     private @Nullable Double hourlyRate;
 
     /**
@@ -52,7 +52,7 @@ public class TimesheetResourceDto
      *
      * @return The field firstName
      */
-    public @Nullable String getFirstName() { return this.firstName; }
+    public @NotNull String getFirstName() { return this.firstName; }
     /**
      * The first name of the person Resource.
      *
@@ -60,7 +60,7 @@ public class TimesheetResourceDto
      *
      * @param value The new value for firstName
      */
-    public void setFirstName(@Nullable String value) { this.firstName = value; }
+    public void setFirstName(@NotNull String value) { this.firstName = value; }
     /**
      * The last name of the person Resource.
      *
@@ -68,7 +68,7 @@ public class TimesheetResourceDto
      *
      * @return The field lastName
      */
-    public @Nullable String getLastName() { return this.lastName; }
+    public @NotNull String getLastName() { return this.lastName; }
     /**
      * The last name of the person Resource.
      *
@@ -76,19 +76,19 @@ public class TimesheetResourceDto
      *
      * @param value The new value for lastName
      */
-    public void setLastName(@Nullable String value) { this.lastName = value; }
+    public void setLastName(@NotNull String value) { this.lastName = value; }
     /**
      * The email address of this Resource.
      *
      * @return The field email
      */
-    public @Nullable String getEmail() { return this.email; }
+    public @NotNull String getEmail() { return this.email; }
     /**
      * The email address of this Resource.
      *
      * @param value The new value for email
      */
-    public void setEmail(@Nullable String value) { this.email = value; }
+    public void setEmail(@NotNull String value) { this.email = value; }
     /**
      * The default hourly rate of the resource.
      *

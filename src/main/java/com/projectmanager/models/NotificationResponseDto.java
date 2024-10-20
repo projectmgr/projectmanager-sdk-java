@@ -27,7 +27,7 @@ import org.jetbrains.annotations.Nullable;
  */
 public class NotificationResponseDto
 {
-    private @Nullable NotificationDto[] items;
+    private @NotNull NotificationDto[] items;
     private @NotNull Integer totalCount;
     private @NotNull Integer unreadCount;
 
@@ -38,7 +38,7 @@ public class NotificationResponseDto
      *
      * @return The field items
      */
-    public @Nullable NotificationDto[] getItems() { return this.items; }
+    public @NotNull NotificationDto[] getItems() { return this.items; }
     /**
      * The most recent notifications pending for the current user.  If no notifications are pending for the current
      * user, this will be an empty array.  If there are more than 1,000 notifications this list may be truncated to
@@ -46,7 +46,7 @@ public class NotificationResponseDto
      *
      * @param value The new value for items
      */
-    public void setItems(@Nullable NotificationDto[] value) { this.items = value; }
+    public void setItems(@NotNull NotificationDto[] value) { this.items = value; }
     /**
      * The total number of pending notifications for the current user, including both read and unread.
      *

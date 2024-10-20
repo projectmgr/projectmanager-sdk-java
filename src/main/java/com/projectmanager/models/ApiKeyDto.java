@@ -26,8 +26,8 @@ public class ApiKeyDto
     private @NotNull String id;
     private @NotNull String createdBy;
     private @NotNull String expires;
-    private @Nullable String apiKey;
-    private @Nullable String name;
+    private @NotNull String apiKey;
+    private @NotNull String name;
 
     /**
      * Internal access token id
@@ -70,23 +70,23 @@ public class ApiKeyDto
      *
      * @return The field apiKey
      */
-    public @Nullable String getApiKey() { return this.apiKey; }
+    public @NotNull String getApiKey() { return this.apiKey; }
     /**
      * Bearer Key
      *
      * @param value The new value for apiKey
      */
-    public void setApiKey(@Nullable String value) { this.apiKey = value; }
+    public void setApiKey(@NotNull String value) { this.apiKey = value; }
     /**
      * Name of token
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * Name of token
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
 };

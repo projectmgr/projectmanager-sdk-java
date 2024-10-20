@@ -26,12 +26,12 @@ import org.jetbrains.annotations.Nullable;
 public class WorkSpaceDto
 {
     private @NotNull String id;
-    private @Nullable String company;
-    private @Nullable String customProductDomain;
+    private @NotNull String company;
+    private @NotNull String customProductDomain;
     private @NotNull Boolean isOwner;
-    private @Nullable String organizationId;
-    private @Nullable String color;
-    private @Nullable String roleName;
+    private @NotNull String organizationId;
+    private @NotNull String color;
+    private @NotNull String roleName;
     private @NotNull String registerDate;
     private @Nullable String businessUserId;
     private @NotNull Boolean isPaid;
@@ -53,25 +53,25 @@ public class WorkSpaceDto
      *
      * @return The field company
      */
-    public @Nullable String getCompany() { return this.company; }
+    public @NotNull String getCompany() { return this.company; }
     /**
      * The name of this Workspace.
      *
      * @param value The new value for company
      */
-    public void setCompany(@Nullable String value) { this.company = value; }
+    public void setCompany(@NotNull String value) { this.company = value; }
     /**
      * The unique DNS domain of this Workspace.
      *
      * @return The field customProductDomain
      */
-    public @Nullable String getCustomProductDomain() { return this.customProductDomain; }
+    public @NotNull String getCustomProductDomain() { return this.customProductDomain; }
     /**
      * The unique DNS domain of this Workspace.
      *
      * @param value The new value for customProductDomain
      */
-    public void setCustomProductDomain(@Nullable String value) { this.customProductDomain = value; }
+    public void setCustomProductDomain(@NotNull String value) { this.customProductDomain = value; }
     /**
      * This value is set to true if the user who retrieves this Workspace object via an API call is
      * the owner of this Workspace.
@@ -91,37 +91,37 @@ public class WorkSpaceDto
      *
      * @return The field organizationId
      */
-    public @Nullable String getOrganizationId() { return this.organizationId; }
+    public @NotNull String getOrganizationId() { return this.organizationId; }
     /**
      * The organization code used for authentication systems for this Workspace.
      *
      * @param value The new value for organizationId
      */
-    public void setOrganizationId(@Nullable String value) { this.organizationId = value; }
+    public void setOrganizationId(@NotNull String value) { this.organizationId = value; }
     /**
      * The RGB color in the format `#RRGGBB` for this Workspace.
      *
      * @return The field color
      */
-    public @Nullable String getColor() { return this.color; }
+    public @NotNull String getColor() { return this.color; }
     /**
      * The RGB color in the format `#RRGGBB` for this Workspace.
      *
      * @param value The new value for color
      */
-    public void setColor(@Nullable String value) { this.color = value; }
+    public void setColor(@NotNull String value) { this.color = value; }
     /**
      * The role of the current user within this Workspace.
      *
      * @return The field roleName
      */
-    public @Nullable String getRoleName() { return this.roleName; }
+    public @NotNull String getRoleName() { return this.roleName; }
     /**
      * The role of the current user within this Workspace.
      *
      * @param value The new value for roleName
      */
-    public void setRoleName(@Nullable String value) { this.roleName = value; }
+    public void setRoleName(@NotNull String value) { this.roleName = value; }
     /**
      * The timestamp when the Workspace was created.
      *

@@ -25,8 +25,8 @@ import org.jetbrains.annotations.Nullable;
 public class LicenseDto
 {
     private @NotNull String id;
-    private @Nullable String licenseSku;
-    private @Nullable String bundleSku;
+    private @NotNull String licenseSku;
+    private @NotNull String bundleSku;
     private @NotNull Boolean optional;
 
     /**
@@ -46,25 +46,25 @@ public class LicenseDto
      *
      * @return The field licenseSku
      */
-    public @Nullable String getLicenseSku() { return this.licenseSku; }
+    public @NotNull String getLicenseSku() { return this.licenseSku; }
     /**
      * The SKU code of this License, used for billing purposes.
      *
      * @param value The new value for licenseSku
      */
-    public void setLicenseSku(@Nullable String value) { this.licenseSku = value; }
+    public void setLicenseSku(@NotNull String value) { this.licenseSku = value; }
     /**
      * The SKU code of the bundle of this License, used for billing purposes.
      *
      * @return The field bundleSku
      */
-    public @Nullable String getBundleSku() { return this.bundleSku; }
+    public @NotNull String getBundleSku() { return this.bundleSku; }
     /**
      * The SKU code of the bundle of this License, used for billing purposes.
      *
      * @param value The new value for bundleSku
      */
-    public void setBundleSku(@Nullable String value) { this.bundleSku = value; }
+    public void setBundleSku(@NotNull String value) { this.bundleSku = value; }
     /**
      * True if this license is optional.
      *

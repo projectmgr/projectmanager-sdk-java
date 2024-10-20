@@ -24,10 +24,10 @@ import org.jetbrains.annotations.Nullable;
 public class RiskExportSettingsDto
 {
     private @Nullable String name;
-    private @Nullable String format;
+    private @NotNull String format;
     private @NotNull String[] columns;
-    private @Nullable String orderBy;
-    private @Nullable String orderDirection;
+    private @NotNull String orderBy;
+    private @NotNull String orderDirection;
     private @NotNull Integer timeZoneOffset;
     private @Nullable ExportDueDateFilterDto dueDateFilter;
     private @Nullable ExportPriorityFilterDto priorityFilter;
@@ -56,7 +56,7 @@ public class RiskExportSettingsDto
      *
      * @return The field format
      */
-    public @Nullable String getFormat() { return this.format; }
+    public @NotNull String getFormat() { return this.format; }
     /**
      * Format to export to, currently csv and excel are supported
      *
@@ -66,7 +66,7 @@ public class RiskExportSettingsDto
      *
      * @param value The new value for format
      */
-    public void setFormat(@Nullable String value) { this.format = value; }
+    public void setFormat(@NotNull String value) { this.format = value; }
     /**
      * The list of column names to export
      *
@@ -99,7 +99,7 @@ public class RiskExportSettingsDto
      *
      * @return The field orderBy
      */
-    public @Nullable String getOrderBy() { return this.orderBy; }
+    public @NotNull String getOrderBy() { return this.orderBy; }
     /**
      * Which column should be used to order the data
      *
@@ -120,7 +120,7 @@ public class RiskExportSettingsDto
      *
      * @param value The new value for orderBy
      */
-    public void setOrderBy(@Nullable String value) { this.orderBy = value; }
+    public void setOrderBy(@NotNull String value) { this.orderBy = value; }
     /**
      * Specifies the direction of the order. Valid values are "asc" and "desc"
      *
@@ -130,7 +130,7 @@ public class RiskExportSettingsDto
      *
      * @return The field orderDirection
      */
-    public @Nullable String getOrderDirection() { return this.orderDirection; }
+    public @NotNull String getOrderDirection() { return this.orderDirection; }
     /**
      * Specifies the direction of the order. Valid values are "asc" and "desc"
      *
@@ -140,7 +140,7 @@ public class RiskExportSettingsDto
      *
      * @param value The new value for orderDirection
      */
-    public void setOrderDirection(@Nullable String value) { this.orderDirection = value; }
+    public void setOrderDirection(@NotNull String value) { this.orderDirection = value; }
     /**
      * Timezone offset in minutes
      *

@@ -31,7 +31,7 @@ import org.jetbrains.annotations.Nullable;
 public class ResourcesCreateDto
 {
     private @Nullable String[] projectIds;
-    private @Nullable ResourceCreateDto[] users;
+    private @NotNull ResourceCreateDto[] users;
 
     /**
      * When creating a user they will also be added to the projectIds specified. If null or empty the user will be
@@ -52,11 +52,11 @@ public class ResourcesCreateDto
      *
      * @return The field users
      */
-    public @Nullable ResourceCreateDto[] getUsers() { return this.users; }
+    public @NotNull ResourceCreateDto[] getUsers() { return this.users; }
     /**
      * A list of Users to create
      *
      * @param value The new value for users
      */
-    public void setUsers(@Nullable ResourceCreateDto[] value) { this.users = value; }
+    public void setUsers(@NotNull ResourceCreateDto[] value) { this.users = value; }
 };

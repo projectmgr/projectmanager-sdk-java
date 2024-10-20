@@ -24,8 +24,8 @@ import org.jetbrains.annotations.Nullable;
 public class TaskFieldValueTaskDto
 {
     private @NotNull String id;
-    private @Nullable String shortId;
-    private @Nullable String name;
+    private @NotNull String shortId;
+    private @NotNull String name;
 
     /**
      * The unique identifier of this Task.
@@ -44,23 +44,23 @@ public class TaskFieldValueTaskDto
      *
      * @return The field shortId
      */
-    public @Nullable String getShortId() { return this.shortId; }
+    public @NotNull String getShortId() { return this.shortId; }
     /**
      * The unique Short Id of this Task.
      *
      * @param value The new value for shortId
      */
-    public void setShortId(@Nullable String value) { this.shortId = value; }
+    public void setShortId(@NotNull String value) { this.shortId = value; }
     /**
      * The common name of this Task.
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The common name of this Task.
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
 };

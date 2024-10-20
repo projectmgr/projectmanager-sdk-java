@@ -23,18 +23,18 @@ import org.jetbrains.annotations.Nullable;
  */
 public class ApiKeyCreateDto
 {
-    private @Nullable String tokenName;
+    private @NotNull String tokenName;
 
     /**
      * Name of token
      *
      * @return The field tokenName
      */
-    public @Nullable String getTokenName() { return this.tokenName; }
+    public @NotNull String getTokenName() { return this.tokenName; }
     /**
      * Name of token
      *
      * @param value The new value for tokenName
      */
-    public void setTokenName(@Nullable String value) { this.tokenName = value; }
+    public void setTokenName(@NotNull String value) { this.tokenName = value; }
 };

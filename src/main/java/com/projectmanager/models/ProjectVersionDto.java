@@ -27,14 +27,14 @@ public class ProjectVersionDto
 {
     private @NotNull String id;
     private @NotNull Integer version;
-    private @Nullable String initials;
-    private @Nullable String name;
+    private @NotNull String initials;
+    private @NotNull String name;
     private @Nullable String avatarUrl;
-    private @Nullable String color;
+    private @NotNull String color;
     private @NotNull String createDate;
     private @NotNull String userId;
     private @Nullable String groupId;
-    private @Nullable ProjectVersionChangeDataDto changeData;
+    private @NotNull ProjectVersionChangeDataDto changeData;
 
     /**
      * The unique identifier of the project version.
@@ -65,25 +65,25 @@ public class ProjectVersionDto
      *
      * @return The field initials
      */
-    public @Nullable String getInitials() { return this.initials; }
+    public @NotNull String getInitials() { return this.initials; }
     /**
      * the initials of the user
      *
      * @param value The new value for initials
      */
-    public void setInitials(@Nullable String value) { this.initials = value; }
+    public void setInitials(@NotNull String value) { this.initials = value; }
     /**
      * The display name of the user
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The display name of the user
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * Avatar URL
      *
@@ -101,13 +101,13 @@ public class ProjectVersionDto
      *
      * @return The field color
      */
-    public @Nullable String getColor() { return this.color; }
+    public @NotNull String getColor() { return this.color; }
     /**
      * The color for their avatar
      *
      * @param value The new value for color
      */
-    public void setColor(@Nullable String value) { this.color = value; }
+    public void setColor(@NotNull String value) { this.color = value; }
     /**
      * Version datetime
      *
@@ -149,11 +149,11 @@ public class ProjectVersionDto
      *
      * @return The field changeData
      */
-    public @Nullable ProjectVersionChangeDataDto getChangeData() { return this.changeData; }
+    public @NotNull ProjectVersionChangeDataDto getChangeData() { return this.changeData; }
     /**
      * Subset of the changes related to this ProjectVersion
      *
      * @param value The new value for changeData
      */
-    public void setChangeData(@Nullable ProjectVersionChangeDataDto value) { this.changeData = value; }
+    public void setChangeData(@NotNull ProjectVersionChangeDataDto value) { this.changeData = value; }
 };
