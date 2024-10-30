@@ -24,20 +24,33 @@ import org.jetbrains.annotations.Nullable;
 public class TimesheetUpdateRequestDto
 {
     private @Nullable Double hours;
+    private @Nullable Integer minutes;
     private @Nullable String notes;
 
     /**
-     * Reported hours
+     * Reported hours. If minutes is specified this property is ignored
      *
      * @return The field hours
      */
     public @Nullable Double getHours() { return this.hours; }
     /**
-     * Reported hours
+     * Reported hours. If minutes is specified this property is ignored
      *
      * @param value The new value for hours
      */
     public void setHours(@Nullable Double value) { this.hours = value; }
+    /**
+     * Specify the time in minutes. This overrides the Hours property.
+     *
+     * @return The field minutes
+     */
+    public @Nullable Integer getMinutes() { return this.minutes; }
+    /**
+     * Specify the time in minutes. This overrides the Hours property.
+     *
+     * @param value The new value for minutes
+     */
+    public void setMinutes(@Nullable Integer value) { this.minutes = value; }
     /**
      * Notes
      *

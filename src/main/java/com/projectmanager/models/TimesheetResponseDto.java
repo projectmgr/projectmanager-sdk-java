@@ -32,6 +32,7 @@ public class TimesheetResponseDto
     private @Nullable String notes;
     private @NotNull Boolean approved;
     private @NotNull Double hours;
+    private @NotNull Integer minutes;
 
     /**
      * TimesheetId
@@ -141,4 +142,16 @@ public class TimesheetResponseDto
      * @param value The new value for hours
      */
     public void setHours(@NotNull Double value) { this.hours = value; }
+    /**
+     * Total Minutes
+     *
+     * @return The field minutes
+     */
+    public @NotNull Integer getMinutes() { return this.minutes; }
+    /**
+     * Total Minutes
+     *
+     * @param value The new value for minutes
+     */
+    public void setMinutes(@NotNull Integer value) { this.minutes = value; }
 };

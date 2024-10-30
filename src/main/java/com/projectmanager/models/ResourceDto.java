@@ -37,6 +37,7 @@ public class ResourceDto
     private @Nullable String city;
     private @Nullable String state;
     private @Nullable String country;
+    private @Nullable String countryName;
     private @Nullable String notes;
     private @Nullable ResourceApproverDto approver;
     private @NotNull ResourceTeamDto[] teams;
@@ -192,6 +193,18 @@ public class ResourceDto
      * @param value The new value for country
      */
     public void setCountry(@Nullable String value) { this.country = value; }
+    /**
+     * Returns the name of the country
+     *
+     * @return The field countryName
+     */
+    public @Nullable String getCountryName() { return this.countryName; }
+    /**
+     * Returns the name of the country
+     *
+     * @param value The new value for countryName
+     */
+    public void setCountryName(@Nullable String value) { this.countryName = value; }
     /**
      * Free-form text notes about this Resource.  You may use this field to store extra
      * information about the Resource.

@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2024 ProjectManager.com, Inc.
- * @version    120.0.4689
+ * @version    121.0.4887
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -53,6 +53,7 @@ import com.projectmanager.clients.TaskFileClient;
 import com.projectmanager.clients.TaskMetadataClient;
 import com.projectmanager.clients.TaskStatusClient;
 import com.projectmanager.clients.TaskTagClient;
+import com.projectmanager.clients.TaskTodoClient;
 import com.projectmanager.clients.TeamsClient;
 import com.projectmanager.clients.TimesheetClient;
 import com.projectmanager.clients.UserRoleClient;
@@ -106,6 +107,7 @@ public class ProjectManagerClient {
     private TaskMetadataClient taskMetadata;
     private TaskStatusClient taskStatus;
     private TaskTagClient taskTag;
+    private TaskTodoClient taskTodo;
     private TeamsClient teams;
     private TimesheetClient timesheet;
     private UserRoleClient userRole;
@@ -152,6 +154,7 @@ public class ProjectManagerClient {
         this.taskMetadata = new TaskMetadataClient(this);
         this.taskStatus = new TaskStatusClient(this);
         this.taskTag = new TaskTagClient(this);
+        this.taskTodo = new TaskTodoClient(this);
         this.teams = new TeamsClient(this);
         this.timesheet = new TimesheetClient(this);
         this.userRole = new UserRoleClient(this);
@@ -380,6 +383,12 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.TaskTagClient client} methods in the API.
      */
     public @NotNull TaskTagClient getTaskTagClient() { return this.taskTag; }
+    /**
+     * A collection of API methods relating to TaskTodo
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.TaskTodoClient client} methods in the API.
+     */
+    public @NotNull TaskTodoClient getTaskTodoClient() { return this.taskTodo; }
     /**
      * A collection of API methods relating to Teams
      *

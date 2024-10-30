@@ -76,4 +76,43 @@ public class DiscussionClient
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<DiscussionCommentCreateResponseDto>>() {}.getType());
     }
+
+    /**
+     * Puts a thumbsup on a comment
+     *
+     * @param commentId the id of the comment
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<Object> likeacomment(@NotNull String commentId)
+    {
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "POST", "/api/data/comments/{commentId}/like");
+        r.AddPath("{commentId}", commentId == null ? "" : commentId.toString());
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+    }
+
+    /**
+     * Unlike a comment that was previously liked
+     *
+     * @param commentId the id of the comment
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<Object> removesathumbsupfromacomment(@NotNull String commentId)
+    {
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/comments/{commentId}/like");
+        r.AddPath("{commentId}", commentId == null ? "" : commentId.toString());
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+    }
+
+    /**
+     * Removes a comment by it's id
+     *
+     * @param commentId Remove a comment
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<Object> removeacomment(@NotNull String commentId)
+    {
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/comments/{commentId}");
+        r.AddPath("{commentId}", commentId == null ? "" : commentId.toString());
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+    }
 }

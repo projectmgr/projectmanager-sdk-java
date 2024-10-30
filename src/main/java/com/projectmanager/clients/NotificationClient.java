@@ -56,12 +56,18 @@ public class NotificationClient
      * using the parameter `lastId` of the oldest notification from each batch to fetch the next 500 notifications.
      *
      * @param lastId To continue loading more notifications in a series of requests, provide the ID of the oldest notification from the currently loaded batch as the `lastId` parameter
+     * @param senderId Filter the notifications to only those sent by the user with the specified ID
+     * @param notificationTypes Specifies the types of notifications to return. If not provided, all notifications will be returned.
+     * @param asFlatList If set to true all notifications will be returned as a flat list, otherwise they will be grouped by parent in the same manner as displayed in the UI.
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<NotificationResponseDto> retrieveNotifications(@Nullable String lastId)
+    public @NotNull AstroResult<NotificationResponseDto> retrieveNotifications(@Nullable String lastId, @Nullable String senderId, @Nullable String[] notificationTypes, @Nullable Boolean asFlatList)
     {
         RestRequest<NotificationResponseDto> r = new RestRequest<NotificationResponseDto>(this.client, "GET", "/api/data/notifications");
         if (lastId != null) { r.AddQuery("lastId", lastId.toString()); }
+        if (senderId != null) { r.AddQuery("senderId", senderId.toString()); }
+        if (notificationTypes != null) { r.AddQuery("notificationTypes", notificationTypes.toString()); }
+        if (asFlatList != null) { r.AddQuery("asFlatList", asFlatList.toString()); }
         return r.Call(new TypeToken<AstroResult<NotificationResponseDto>>() {}.getType());
     }
 
