@@ -34,6 +34,7 @@ public class TimesheetDto
     private @Nullable String notes;
     private @NotNull Boolean approved;
     private @NotNull Double hours;
+    private @NotNull Integer minutes;
     private @NotNull String modifiedDate;
     private @Nullable TimesheetTaskDto task;
     private @Nullable TimeSheetProjectDto project;
@@ -145,6 +146,18 @@ public class TimesheetDto
      * @param value The new value for hours
      */
     public void setHours(@NotNull Double value) { this.hours = value; }
+    /**
+     * Total minutes spent on this Task by this Resource on this specific Date
+     *
+     * @return The field minutes
+     */
+    public @NotNull Integer getMinutes() { return this.minutes; }
+    /**
+     * Total minutes spent on this Task by this Resource on this specific Date
+     *
+     * @param value The new value for minutes
+     */
+    public void setMinutes(@NotNull Integer value) { this.minutes = value; }
     /**
      * Date and time (in UTC) that this timesheet entry was last modified.
      *
