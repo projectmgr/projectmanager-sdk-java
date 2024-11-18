@@ -100,12 +100,16 @@ public class ProjectUpdateDto
      * To assign this Project to a ProjectCustomer, set this to the unique identifier of the
      * ProjectCustomer.
      *
+     * If set to an empty guid the Project will be unassigned from the current ProjectCustomer.
+     *
      * @return The field customerId
      */
     public @Nullable String getCustomerId() { return this.customerId; }
     /**
      * To assign this Project to a ProjectCustomer, set this to the unique identifier of the
      * ProjectCustomer.
+     *
+     * If set to an empty guid the Project will be unassigned from the current ProjectCustomer.
      *
      * @param value The new value for customerId
      */

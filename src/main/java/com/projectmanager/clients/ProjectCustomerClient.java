@@ -23,6 +23,8 @@ import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.ProjectCustomerDto;
+import com.projectmanager.models.ProjectCustomerCreateDto;
+
 
 /**
  * Contains all methods related to ProjectCustomer
@@ -54,5 +56,46 @@ public class ProjectCustomerClient
     {
         RestRequest<ProjectCustomerDto[]> r = new RestRequest<ProjectCustomerDto[]>(this.client, "GET", "/api/data/projects/customers");
         return r.Call(new TypeToken<AstroResult<ProjectCustomerDto[]>>() {}.getType());
+    }
+
+    /**
+     * Create a project customer
+     *
+     * @param body The data to create the customer
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ProjectCustomerDto> createProjectCustomer(@NotNull ProjectCustomerCreateDto body)
+    {
+        RestRequest<ProjectCustomerDto> r = new RestRequest<ProjectCustomerDto>(this.client, "POST", "/api/data/projects/customers");
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<ProjectCustomerDto>>() {}.getType());
+    }
+
+    /**
+     * Updates a project customer
+     *
+     * @param customerId The id of the customer to update
+     * @param body The data to update
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ProjectCustomerDto> updateProjectCustomer(@NotNull String customerId, @NotNull ProjectCustomerCreateDto body)
+    {
+        RestRequest<ProjectCustomerDto> r = new RestRequest<ProjectCustomerDto>(this.client, "PUT", "/api/data/projects/customers/{customerId}");
+        r.AddPath("{customerId}", customerId == null ? "" : customerId.toString());
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<ProjectCustomerDto>>() {}.getType());
+    }
+
+    /**
+     * Delete a project customer. They will also be removed from any projects they were assigned too.
+     *
+     * @param customerId The id of the customer to remove
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<Object> deleteProjectCustomer(@NotNull String customerId)
+    {
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/customers/{customerId}");
+        r.AddPath("{customerId}", customerId == null ? "" : customerId.toString());
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }
