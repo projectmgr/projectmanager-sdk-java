@@ -1,13 +1,13 @@
 /**
  * ProjectManager API for Java
  *
- * (c) 2023-2024 ProjectManager.com
+ * (c) 2023-2025 ProjectManager.com
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
  * @author     ProjectManager.com <support@projectmanager.com>
- * @copyright  2023-2024 ProjectManager.com
+ * @copyright  2023-2025 ProjectManager.com
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -148,7 +148,7 @@ public class RestRequest<@NotNull T> {
             }
 
             request.addHeader("SdkName", "Java");
-            request.addHeader("SdkVersion", "122.0.214.0");
+            request.addHeader("SdkVersion", "125.2.176.0");
 
             String applicationName = this.client.getAppName();
 

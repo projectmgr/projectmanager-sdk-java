@@ -2,13 +2,13 @@
 /**
  * ProjectManager API for Java
  *
- * (c) 2023-2024 ProjectManager.com, Inc.
+ * (c) ProjectManager.com, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
  * @author     ProjectManager.com <support@projectmanager.com>
- * @copyright  2023-2024 ProjectManager.com, Inc.
+ * @copyright  ProjectManager.com, Inc.
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -33,6 +33,7 @@ public class WorkSpaceUserInfoDto
     private @NotNull String roleName;
     private @Nullable Boolean isGlobalAdmin;
     private @Nullable Boolean isAccountAdministrator;
+    private @NotNull WorkSpacePermissionsDto permissions;
 
     /**
      * A collection of shortcut links for the currently logged in Workspace.
@@ -132,4 +133,16 @@ public class WorkSpaceUserInfoDto
      * @param value The new value for isAccountAdministrator
      */
     public void setIsAccountAdministrator(@Nullable Boolean value) { this.isAccountAdministrator = value; }
+    /**
+     * Workspace Permissions that the user has within the current Workspace.
+     *
+     * @return The field permissions
+     */
+    public @NotNull WorkSpacePermissionsDto getPermissions() { return this.permissions; }
+    /**
+     * Workspace Permissions that the user has within the current Workspace.
+     *
+     * @param value The new value for permissions
+     */
+    public void setPermissions(@NotNull WorkSpacePermissionsDto value) { this.permissions = value; }
 };
