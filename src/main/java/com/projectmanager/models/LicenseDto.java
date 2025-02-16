@@ -26,8 +26,7 @@ public class LicenseDto
 {
     private @NotNull String id;
     private @NotNull String licenseSku;
-    private @NotNull String bundleSku;
-    private @NotNull Boolean optional;
+    private @Nullable String bundleSku;
 
     /**
      * The unique identifier of this License.
@@ -58,23 +57,11 @@ public class LicenseDto
      *
      * @return The field bundleSku
      */
-    public @NotNull String getBundleSku() { return this.bundleSku; }
+    public @Nullable String getBundleSku() { return this.bundleSku; }
     /**
      * The SKU code of the bundle of this License, used for billing purposes.
      *
      * @param value The new value for bundleSku
      */
-    public void setBundleSku(@NotNull String value) { this.bundleSku = value; }
-    /**
-     * True if this license is optional.
-     *
-     * @return The field optional
-     */
-    public @NotNull Boolean getOptional() { return this.optional; }
-    /**
-     * True if this license is optional.
-     *
-     * @param value The new value for optional
-     */
-    public void setOptional(@NotNull Boolean value) { this.optional = value; }
+    public void setBundleSku(@Nullable String value) { this.bundleSku = value; }
 };
