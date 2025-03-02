@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2025 ProjectManager.com, Inc.
- * @version    125.2.176
+ * @version    127.0.185
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
