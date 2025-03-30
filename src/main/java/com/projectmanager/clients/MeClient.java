@@ -24,6 +24,7 @@ import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.WorkSpaceUserInfoDto;
 
+
 /**
  * Contains all methods related to Me
  */
@@ -55,5 +56,17 @@ public class MeClient
     {
         RestRequest<WorkSpaceUserInfoDto> r = new RestRequest<WorkSpaceUserInfoDto>(this.client, "GET", "/api/data/me");
         return r.Call(new TypeToken<AstroResult<WorkSpaceUserInfoDto>>() {}.getType());
+    }
+
+    /**
+     * Updates the logged in user avatar
+     *
+     * @param fileName The full path of a file to upload to the API
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<Object> updateMyAvatar(@NotNull byte[] fileName)
+    {
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "POST", "/api/data/me/avatar");
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

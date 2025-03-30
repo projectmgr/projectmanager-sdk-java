@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2025 ProjectManager.com, Inc.
- * @version    127.0.185
+ * @version    129.0.113
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -29,7 +29,9 @@ import com.projectmanager.clients.IntegrationProviderClient;
 import com.projectmanager.clients.LicenseClient;
 import com.projectmanager.clients.MeClient;
 import com.projectmanager.clients.NotificationClient;
+import com.projectmanager.clients.NptClient;
 import com.projectmanager.clients.NptFilesClient;
+import com.projectmanager.clients.NptStatusClient;
 import com.projectmanager.clients.ProjectClient;
 import com.projectmanager.clients.ProjectChargeCodeClient;
 import com.projectmanager.clients.ProjectCustomerClient;
@@ -83,7 +85,9 @@ public class ProjectManagerClient {
     private LicenseClient license;
     private MeClient me;
     private NotificationClient notification;
+    private NptClient npt;
     private NptFilesClient nptFiles;
+    private NptStatusClient nptStatus;
     private ProjectClient project;
     private ProjectChargeCodeClient projectChargeCode;
     private ProjectCustomerClient projectCustomer;
@@ -130,7 +134,9 @@ public class ProjectManagerClient {
         this.license = new LicenseClient(this);
         this.me = new MeClient(this);
         this.notification = new NotificationClient(this);
+        this.npt = new NptClient(this);
         this.nptFiles = new NptFilesClient(this);
+        this.nptStatus = new NptStatusClient(this);
         this.project = new ProjectClient(this);
         this.projectChargeCode = new ProjectChargeCodeClient(this);
         this.projectCustomer = new ProjectCustomerClient(this);
@@ -240,11 +246,23 @@ public class ProjectManagerClient {
      */
     public @NotNull NotificationClient getNotificationClient() { return this.notification; }
     /**
+     * A collection of API methods relating to Npt
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.NptClient client} methods in the API.
+     */
+    public @NotNull NptClient getNptClient() { return this.npt; }
+    /**
      * A collection of API methods relating to NptFiles
      *
      * @return A collection containing the {@link com.projectmanager.clients.NptFilesClient client} methods in the API.
      */
     public @NotNull NptFilesClient getNptFilesClient() { return this.nptFiles; }
+    /**
+     * A collection of API methods relating to NptStatus
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.NptStatusClient client} methods in the API.
+     */
+    public @NotNull NptStatusClient getNptStatusClient() { return this.nptStatus; }
     /**
      * A collection of API methods relating to Project
      *
