@@ -50,7 +50,7 @@ public class TaskTodoClient
      * @param taskId the id of the task
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TaskTodoDto[]> gettodosforatask(@NotNull String taskId)
+    public @NotNull AstroResult<TaskTodoDto[]> getTodos(@NotNull String taskId)
     {
         RestRequest<TaskTodoDto[]> r = new RestRequest<TaskTodoDto[]>(this.client, "GET", "/api/data/tasks/{taskId}/todos");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
@@ -64,7 +64,7 @@ public class TaskTodoClient
      * @param body the data for creating a todo
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TaskTodoDto> createatodoforatask(@NotNull String taskId, @NotNull TaskTodoCreateDto body)
+    public @NotNull AstroResult<TaskTodoDto> createTodo(@NotNull String taskId, @NotNull TaskTodoCreateDto body)
     {
         RestRequest<TaskTodoDto> r = new RestRequest<TaskTodoDto>(this.client, "POST", "/api/data/tasks/{taskId}/todos");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
@@ -79,7 +79,7 @@ public class TaskTodoClient
      * @param body the data for updating a todo
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TaskTodoDto> updateatodo(@NotNull String todoId, @NotNull TaskTodoUpdateDto body)
+    public @NotNull AstroResult<TaskTodoDto> updateTodo(@NotNull String todoId, @NotNull TaskTodoUpdateDto body)
     {
         RestRequest<TaskTodoDto> r = new RestRequest<TaskTodoDto>(this.client, "PUT", "/api/data/tasks/todos/{todoId}");
         r.AddPath("{todoId}", todoId == null ? "" : todoId.toString());
@@ -93,7 +93,7 @@ public class TaskTodoClient
      * @param todoId the id of the todo
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> deleteatodo(@NotNull String todoId)
+    public @NotNull AstroResult<Object> deleteTodo(@NotNull String todoId)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/tasks/todos/{todoId}");
         r.AddPath("{todoId}", todoId == null ? "" : todoId.toString());

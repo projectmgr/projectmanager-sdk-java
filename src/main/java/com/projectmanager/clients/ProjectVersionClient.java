@@ -24,6 +24,7 @@ import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.ProjectVersionDto;
 
+import com.projectmanager.models.ProjectRestoreProjectDto;
 
 /**
  * Contains all methods related to ProjectVersion
@@ -94,12 +95,12 @@ public class ProjectVersionClient
      * @param timezoneOffset If specified, sets the default timezone of the newly copied Project to this specified timezone
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> copyProjectVersion(@NotNull String projectId, @NotNull Integer version, @Nullable Integer timezoneOffset)
+    public @NotNull AstroResult<ProjectRestoreProjectDto> copyProjectVersion(@NotNull String projectId, @NotNull Integer version, @Nullable Integer timezoneOffset)
     {
-        RestRequest<Object> r = new RestRequest<Object>(this.client, "POST", "/api/data/projects/{projectId}/version/{version}/copy");
+        RestRequest<ProjectRestoreProjectDto> r = new RestRequest<ProjectRestoreProjectDto>(this.client, "POST", "/api/data/projects/{projectId}/version/{version}/copy");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
         r.AddPath("{version}", version == null ? "" : version.toString());
         if (timezoneOffset != null) { r.AddQuery("timezoneOffset", timezoneOffset.toString()); }
-        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<ProjectRestoreProjectDto>>() {}.getType());
     }
 }
