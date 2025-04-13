@@ -23,18 +23,18 @@ import org.jetbrains.annotations.Nullable;
  */
 public class UpdateResourceSkillDto
 {
-    private @NotNull String name;
+    private @Nullable String name;
 
     /**
-     * The name of this Skill.
+     * The name of this Skill, if specified it will be updated
      *
      * @return The field name
      */
-    public @NotNull String getName() { return this.name; }
+    public @Nullable String getName() { return this.name; }
     /**
-     * The name of this Skill.
+     * The name of this Skill, if specified it will be updated
      *
      * @param value The new value for name
      */
-    public void setName(@NotNull String value) { this.name = value; }
+    public void setName(@Nullable String value) { this.name = value; }
 };

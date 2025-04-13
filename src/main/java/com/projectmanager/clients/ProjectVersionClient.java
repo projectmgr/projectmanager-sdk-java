@@ -79,12 +79,12 @@ public class ProjectVersionClient
      * @param version The version number to restore to
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> restoreProjectVersion(@NotNull String projectId, @NotNull Integer version)
+    public @NotNull AstroResult<ProjectRestoreProjectDto> restoreProjectVersion(@NotNull String projectId, @NotNull Integer version)
     {
-        RestRequest<Object> r = new RestRequest<Object>(this.client, "POST", "/api/data/projects/{projectId}/version/{version}/restore");
+        RestRequest<ProjectRestoreProjectDto> r = new RestRequest<ProjectRestoreProjectDto>(this.client, "POST", "/api/data/projects/{projectId}/version/{version}/restore");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
         r.AddPath("{version}", version == null ? "" : version.toString());
-        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<ProjectRestoreProjectDto>>() {}.getType());
     }
 
     /**

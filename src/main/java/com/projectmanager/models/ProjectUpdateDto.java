@@ -41,6 +41,7 @@ public class ProjectUpdateDto
     private @Nullable Double budget;
     private @Nullable String statusUpdate;
     private @Nullable Boolean favorite;
+    private @Nullable Boolean template;
 
     /**
      * The name of the Project.
@@ -218,4 +219,28 @@ public class ProjectUpdateDto
      * @param value The new value for favorite
      */
     public void setFavorite(@Nullable Boolean value) { this.favorite = value; }
+    /**
+     * True if this Project is a template that will be reused as a framework
+     * for future Projects.
+     *
+     * You can save a Project as a template and reuse it in the future for creating
+     * additional Projects.  If this Project is a template, set this to `true` and this
+     * template will be available to choose from when creating a new Project within the
+     * application.
+     *
+     * @return The field template
+     */
+    public @Nullable Boolean getTemplate() { return this.template; }
+    /**
+     * True if this Project is a template that will be reused as a framework
+     * for future Projects.
+     *
+     * You can save a Project as a template and reuse it in the future for creating
+     * additional Projects.  If this Project is a template, set this to `true` and this
+     * template will be available to choose from when creating a new Project within the
+     * application.
+     *
+     * @param value The new value for template
+     */
+    public void setTemplate(@Nullable Boolean value) { this.template = value; }
 };
