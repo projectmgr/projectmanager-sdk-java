@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2025 ProjectManager.com, Inc.
- * @version    129.0.113
+ * @version    130.1.162
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -47,6 +47,7 @@ import com.projectmanager.clients.ResourceClient;
 import com.projectmanager.clients.ResourceSkillClient;
 import com.projectmanager.clients.ResourceTeamClient;
 import com.projectmanager.clients.RiskClient;
+import com.projectmanager.clients.RiskFileClient;
 import com.projectmanager.clients.TagClient;
 import com.projectmanager.clients.TaskClient;
 import com.projectmanager.clients.TaskAssigneeClient;
@@ -103,6 +104,7 @@ public class ProjectManagerClient {
     private ResourceSkillClient resourceSkill;
     private ResourceTeamClient resourceTeam;
     private RiskClient risk;
+    private RiskFileClient riskFile;
     private TagClient tag;
     private TaskClient task;
     private TaskAssigneeClient taskAssignee;
@@ -152,6 +154,7 @@ public class ProjectManagerClient {
         this.resourceSkill = new ResourceSkillClient(this);
         this.resourceTeam = new ResourceTeamClient(this);
         this.risk = new RiskClient(this);
+        this.riskFile = new RiskFileClient(this);
         this.tag = new TagClient(this);
         this.task = new TaskClient(this);
         this.taskAssignee = new TaskAssigneeClient(this);
@@ -353,6 +356,12 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.RiskClient client} methods in the API.
      */
     public @NotNull RiskClient getRiskClient() { return this.risk; }
+    /**
+     * A collection of API methods relating to RiskFile
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.RiskFileClient client} methods in the API.
+     */
+    public @NotNull RiskFileClient getRiskFileClient() { return this.riskFile; }
     /**
      * A collection of API methods relating to Tag
      *
