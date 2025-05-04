@@ -29,6 +29,7 @@ import org.jetbrains.annotations.Nullable;
 public class ProjectUpdateDto
 {
     private @Nullable String name;
+    private @Nullable String shortName;
     private @Nullable String description;
     private @Nullable String targetDate;
     private @Nullable String folderId;
@@ -42,6 +43,7 @@ public class ProjectUpdateDto
     private @Nullable String statusUpdate;
     private @Nullable Boolean favorite;
     private @Nullable Boolean template;
+    private @Nullable Boolean updatePlannedWithActual;
 
     /**
      * The name of the Project.
@@ -55,6 +57,18 @@ public class ProjectUpdateDto
      * @param value The new value for name
      */
     public void setName(@Nullable String value) { this.name = value; }
+    /**
+     * The short name of the Project.
+     *
+     * @return The field shortName
+     */
+    public @Nullable String getShortName() { return this.shortName; }
+    /**
+     * The short name of the Project.
+     *
+     * @param value The new value for shortName
+     */
+    public void setShortName(@Nullable String value) { this.shortName = value; }
     /**
      * An optional description of the Project
      *
@@ -243,4 +257,16 @@ public class ProjectUpdateDto
      * @param value The new value for template
      */
     public void setTemplate(@Nullable Boolean value) { this.template = value; }
+    /**
+     * True if allow actual dates to update planned dates
+     *
+     * @return The field updatePlannedWithActual
+     */
+    public @Nullable Boolean getUpdatePlannedWithActual() { return this.updatePlannedWithActual; }
+    /**
+     * True if allow actual dates to update planned dates
+     *
+     * @param value The new value for updatePlannedWithActual
+     */
+    public void setUpdatePlannedWithActual(@Nullable Boolean value) { this.updatePlannedWithActual = value; }
 };

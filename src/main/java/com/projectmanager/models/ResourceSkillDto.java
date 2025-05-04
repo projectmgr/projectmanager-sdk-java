@@ -28,6 +28,7 @@ public class ResourceSkillDto
 {
     private @NotNull String id;
     private @NotNull String name;
+    private @NotNull Boolean inUse;
 
     /**
      * The unique identifier of this ResourceSkill
@@ -53,4 +54,16 @@ public class ResourceSkillDto
      * @param value The new value for name
      */
     public void setName(@NotNull String value) { this.name = value; }
+    /**
+     * Set to true if this ResourceSkill is in use
+     *
+     * @return The field inUse
+     */
+    public @NotNull Boolean getInUse() { return this.inUse; }
+    /**
+     * Set to true if this ResourceSkill is in use
+     *
+     * @param value The new value for inUse
+     */
+    public void setInUse(@NotNull Boolean value) { this.inUse = value; }
 };
