@@ -30,6 +30,7 @@ public class ProjectCreateDto
 {
     private @NotNull String name;
     private @Nullable String description;
+    private @Nullable String shortName;
     private @Nullable String folderId;
     private @Nullable ProjectCreateAccessDto projectAccess;
     private @Nullable String customerId;
@@ -43,7 +44,9 @@ public class ProjectCreateDto
     private @Nullable String templateId;
     private @Nullable String targetDate;
     private @Nullable Boolean favorite;
+    private @Nullable Boolean updatePlannedWithActual;
     private @Nullable TaskStatusCreateDto[] taskStatusCreate;
+    private @Nullable ProjectWorkingDaysDto workingDays;
 
     /**
      * The name of the Project.
@@ -69,6 +72,18 @@ public class ProjectCreateDto
      * @param value The new value for description
      */
     public void setDescription(@Nullable String value) { this.description = value; }
+    /**
+     * An optional project short name. Up to 7 symbols
+     *
+     * @return The field shortName
+     */
+    public @Nullable String getShortName() { return this.shortName; }
+    /**
+     * An optional project short name. Up to 7 symbols
+     *
+     * @param value The new value for shortName
+     */
+    public void setShortName(@Nullable String value) { this.shortName = value; }
     /**
      * The unique identifier of the folder of this project, or null if not assigned.
      *
@@ -258,6 +273,18 @@ public class ProjectCreateDto
      */
     public void setFavorite(@Nullable Boolean value) { this.favorite = value; }
     /**
+     * True if allow actual dates to update planned dates
+     *
+     * @return The field updatePlannedWithActual
+     */
+    public @Nullable Boolean getUpdatePlannedWithActual() { return this.updatePlannedWithActual; }
+    /**
+     * True if allow actual dates to update planned dates
+     *
+     * @param value The new value for updatePlannedWithActual
+     */
+    public void setUpdatePlannedWithActual(@Nullable Boolean value) { this.updatePlannedWithActual = value; }
+    /**
      * Create default task status upfront
      *
      * @return The field taskStatusCreate
@@ -269,4 +296,18 @@ public class ProjectCreateDto
      * @param value The new value for taskStatusCreate
      */
     public void setTaskStatusCreate(@Nullable TaskStatusCreateDto[] value) { this.taskStatusCreate = value; }
+    /**
+     * Working days for the project. If not specified, the workspace working days will be used.
+     * This value can be set when the project is created but may not be updated afterwards.
+     *
+     * @return The field workingDays
+     */
+    public @Nullable ProjectWorkingDaysDto getWorkingDays() { return this.workingDays; }
+    /**
+     * Working days for the project. If not specified, the workspace working days will be used.
+     * This value can be set when the project is created but may not be updated afterwards.
+     *
+     * @param value The new value for workingDays
+     */
+    public void setWorkingDays(@Nullable ProjectWorkingDaysDto value) { this.workingDays = value; }
 };

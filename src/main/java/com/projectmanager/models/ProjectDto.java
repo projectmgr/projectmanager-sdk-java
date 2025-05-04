@@ -55,6 +55,7 @@ public class ProjectDto
     private @Nullable ProjectFieldValueDto[] fieldValues;
     private @Nullable ProjectFileDto[] files;
     private @Nullable Integer percentComplete;
+    private @NotNull Boolean updatePlannedWithActual;
 
     /**
      * The unique identifier of the Project.  This value is set by the system and cannot
@@ -522,4 +523,16 @@ public class ProjectDto
      * @param value The new value for percentComplete
      */
     public void setPercentComplete(@Nullable Integer value) { this.percentComplete = value; }
+    /**
+     * True if allow actual dates to update planned dates
+     *
+     * @return The field updatePlannedWithActual
+     */
+    public @NotNull Boolean getUpdatePlannedWithActual() { return this.updatePlannedWithActual; }
+    /**
+     * True if allow actual dates to update planned dates
+     *
+     * @param value The new value for updatePlannedWithActual
+     */
+    public void setUpdatePlannedWithActual(@NotNull Boolean value) { this.updatePlannedWithActual = value; }
 };
