@@ -24,6 +24,7 @@ import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.ProjectMemberDto;
 
+import com.projectmanager.models.ProjectMembersAccessDto;
 import com.projectmanager.models.ProjectMemberRoleDto;
 
 /**
@@ -59,7 +60,7 @@ public class ProjectMembersClient
 
     /**
      * Returns a list of users that are currently members of a specified project, as well as their current project security roles and available project security roles.
-     * Optionally include users who are not currently members of the project, but who are available to be added.
+     * Optionally include users who are not currently members of the project, but who can be added.
      *
      * A project member is a user who has access to a specific project. Project members are assigned a project security role, which controls the level of access they have to
      * the project. Possible project security roles include manage, edit, collaborate, creator, and guest.
@@ -74,6 +75,27 @@ public class ProjectMembersClient
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
         if (includeAllUsers != null) { r.AddQuery("includeAllUsers", includeAllUsers.toString()); }
         return r.Call(new TypeToken<AstroResult<ProjectMemberDto[]>>() {}.getType());
+    }
+
+    /**
+     * Updates the project access for a current member of a specified project
+     * by giving the users a new project security role.
+     *
+     * A project member is a user who has access to a specific project.
+     * Project members are assigned a project security role, which controls the level of access they have to
+     * the project.
+     * Possible project security roles include manage, edit, collaborate, creator, and guest.
+     *
+     * @param projectId Reference to Project
+     * @param body The permission to update
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ProjectMemberDto> updateAListOfUserProjectMembership(@NotNull String projectId, @NotNull ProjectMembersAccessDto body)
+    {
+        RestRequest<ProjectMemberDto> r = new RestRequest<ProjectMemberDto>(this.client, "PUT", "/api/data/projects/{projectId}/members");
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<ProjectMemberDto>>() {}.getType());
     }
 
     /**
@@ -95,10 +117,13 @@ public class ProjectMembersClient
     }
 
     /**
-     * Creates a membership for a user in a specified project, and assigns the user the appropriate project access based on the specified project security role.
+     * Creates a membership for a user in a specified project
+     * and assigns the user the appropriate project access based on the specified project security role.
      *
-     * A project member is a user who has access to a specific project. Project members are assigned a project security role, which controls the level of access they have to
-     * the project. Possible project security roles include manage, edit, collaborate, creator, and guest.
+     * A project member is a user who has access to a specific project.
+     * Project members are assigned a project security role, which controls the level of access they have to
+     * the project.
+     * Possible project security roles include manage, edit, collaborate, creator, and guest.
      *
      * @param projectId Reference to Project
      * @param userId Reference to User

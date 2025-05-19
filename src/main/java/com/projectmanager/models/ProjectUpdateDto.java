@@ -44,6 +44,7 @@ public class ProjectUpdateDto
     private @Nullable Boolean favorite;
     private @Nullable Boolean template;
     private @Nullable Boolean updatePlannedWithActual;
+    private @Nullable String notes;
 
     /**
      * The name of the Project.
@@ -269,4 +270,16 @@ public class ProjectUpdateDto
      * @param value The new value for updatePlannedWithActual
      */
     public void setUpdatePlannedWithActual(@Nullable Boolean value) { this.updatePlannedWithActual = value; }
+    /**
+     * To update the project notes
+     *
+     * @return The field notes
+     */
+    public @Nullable String getNotes() { return this.notes; }
+    /**
+     * To update the project notes
+     *
+     * @param value The new value for notes
+     */
+    public void setNotes(@Nullable String value) { this.notes = value; }
 };
