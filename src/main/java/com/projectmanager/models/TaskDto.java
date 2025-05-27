@@ -56,6 +56,8 @@ public class TaskDto
     private @Nullable Double plannedResourceCost;
     private @Nullable Integer plannedDuration;
     private @Nullable Integer plannedEffort;
+    private @NotNull Integer index;
+    private @NotNull Integer level;
     private @Nullable TaskFieldValueDto[] fieldValues;
     private @Nullable TaskFileDto[] files;
 
@@ -573,6 +575,42 @@ public class TaskDto
      * @param value The new value for plannedEffort
      */
     public void setPlannedEffort(@Nullable Integer value) { this.plannedEffort = value; }
+    /**
+     * The one-based index of this Task within its parent project.
+     *
+     * This value is used to determine the order of tasks and sub-tasks in a project.
+     * For example, a Task with an Index of 1 is the first Task in the project.
+     *
+     * @return The field index
+     */
+    public @NotNull Integer getIndex() { return this.index; }
+    /**
+     * The one-based index of this Task within its parent project.
+     *
+     * This value is used to determine the order of tasks and sub-tasks in a project.
+     * For example, a Task with an Index of 1 is the first Task in the project.
+     *
+     * @param value The new value for index
+     */
+    public void setIndex(@NotNull Integer value) { this.index = value; }
+    /**
+     * The hierarchical level of this Task within the Task structure.
+     *
+     * A Level of 1 indicates that the Task is at the top level (e.g. a root Task),
+     * while higher values indicate deeper levels in the hierarchy (e.g. subtasks).
+     *
+     * @return The field level
+     */
+    public @NotNull Integer getLevel() { return this.level; }
+    /**
+     * The hierarchical level of this Task within the Task structure.
+     *
+     * A Level of 1 indicates that the Task is at the top level (e.g. a root Task),
+     * while higher values indicate deeper levels in the hierarchy (e.g. subtasks).
+     *
+     * @param value The new value for level
+     */
+    public void setLevel(@NotNull Integer value) { this.level = value; }
     /**
      * Task fields array with values
      *
