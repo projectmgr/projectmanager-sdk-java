@@ -41,6 +41,7 @@ public class TimesheetDto
     private @Nullable TimesheetResourceDto resource;
     private @Nullable TimesheetAdminTypeDto adminType;
     private @Nullable TimesheetFileDto[] files;
+    private @NotNull Boolean isCopied;
 
     /**
      * A unique identifier of a timesheet data entry
@@ -238,4 +239,16 @@ public class TimesheetDto
      * @param value The new value for files
      */
     public void setFiles(@Nullable TimesheetFileDto[] value) { this.files = value; }
+    /**
+     * Indicates if the timesheet entry is copied from another week.
+     *
+     * @return The field isCopied
+     */
+    public @NotNull Boolean getIsCopied() { return this.isCopied; }
+    /**
+     * Indicates if the timesheet entry is copied from another week.
+     *
+     * @param value The new value for isCopied
+     */
+    public void setIsCopied(@NotNull Boolean value) { this.isCopied = value; }
 };

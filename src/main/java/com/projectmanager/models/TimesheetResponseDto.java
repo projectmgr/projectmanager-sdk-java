@@ -33,6 +33,7 @@ public class TimesheetResponseDto
     private @NotNull Boolean approved;
     private @NotNull Double hours;
     private @NotNull Integer minutes;
+    private @NotNull Boolean isCopied;
 
     /**
      * TimesheetId
@@ -154,4 +155,16 @@ public class TimesheetResponseDto
      * @param value The new value for minutes
      */
     public void setMinutes(@NotNull Integer value) { this.minutes = value; }
+    /**
+     * Is the timesheet entry copied from another week?
+     *
+     * @return The field isCopied
+     */
+    public @NotNull Boolean getIsCopied() { return this.isCopied; }
+    /**
+     * Is the timesheet entry copied from another week?
+     *
+     * @param value The new value for isCopied
+     */
+    public void setIsCopied(@NotNull Boolean value) { this.isCopied = value; }
 };
