@@ -28,6 +28,7 @@
             <id>com.projectmanager</id>
             <name>ProjectManager.com</name>
             <email>support@projectmanager.com</email>
+            <url>https://developer.projectmanager.com</url>
         </developer>
     </developers>
 
