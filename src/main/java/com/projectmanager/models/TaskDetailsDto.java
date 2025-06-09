@@ -23,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
  * Task can have one or more Resources assigned to it.  Tasks can be linked to other Tasks to
  * indicate whether they have a dependency or a connection.
  */
-public class TaskDto
+public class TaskDetailsDto
 {
     private @NotNull String id;
     private @NotNull TaskProjectDto project;
@@ -61,6 +61,7 @@ public class TaskDto
     private @NotNull Integer level;
     private @Nullable TaskFieldValueDto[] fieldValues;
     private @Nullable TaskFileDto[] files;
+    private @Nullable String parentTaskId;
 
     /**
      * The unique identifier of this Task.
@@ -656,4 +657,16 @@ public class TaskDto
      * @param value The new value for files
      */
     public void setFiles(@Nullable TaskFileDto[] value) { this.files = value; }
+    /**
+     * The parent task of this Task.
+     *
+     * @return The field parentTaskId
+     */
+    public @Nullable String getParentTaskId() { return this.parentTaskId; }
+    /**
+     * The parent task of this Task.
+     *
+     * @param value The new value for parentTaskId
+     */
+    public void setParentTaskId(@Nullable String value) { this.parentTaskId = value; }
 };

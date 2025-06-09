@@ -28,6 +28,9 @@ import com.projectmanager.models.TimesheetDto;
 
 import com.projectmanager.models.TimesheetUpdateRequestDto;
 import com.projectmanager.models.TimesheetAdminTypeDto;
+import com.projectmanager.models.TimeSheetApprovalResponseDto;
+import com.projectmanager.models.TimeSheetApprovalDto;
+import com.projectmanager.models.TimeSheetApprovalRejectDto;
 
 /**
  * Contains all methods related to Timesheet
@@ -119,5 +122,44 @@ public class TimesheetClient
     {
         RestRequest<TimesheetAdminTypeDto[]> r = new RestRequest<TimesheetAdminTypeDto[]>(this.client, "GET", "/api/data/timesheets/admin-tasks");
         return r.Call(new TypeToken<AstroResult<TimesheetAdminTypeDto[]>>() {}.getType());
+    }
+
+    /**
+     * Submit a timesheet for approval for a specific resource.
+     *
+     * @param body The timesheet to be submitted for approval
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<TimeSheetApprovalResponseDto> submitResourceTimeSheetForApproval(@NotNull TimeSheetApprovalDto body)
+    {
+        RestRequest<TimeSheetApprovalResponseDto> r = new RestRequest<TimeSheetApprovalResponseDto>(this.client, "POST", "/api/data/timesheets/approvals");
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<TimeSheetApprovalResponseDto>>() {}.getType());
+    }
+
+    /**
+     * Approve a timesheet approval request
+     *
+     * @param body The timesheet to approve
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<TimeSheetApprovalResponseDto> approveResourceTimeSheetApprovalRequest(@NotNull TimeSheetApprovalDto body)
+    {
+        RestRequest<TimeSheetApprovalResponseDto> r = new RestRequest<TimeSheetApprovalResponseDto>(this.client, "POST", "/api/data/timesheets/approvals/approve");
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<TimeSheetApprovalResponseDto>>() {}.getType());
+    }
+
+    /**
+     * Rejects a specific resource's timesheet approval request for a specific week.
+     *
+     * @param body The data for rejecting the approval request
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<TimeSheetApprovalResponseDto> rejectResourceTimeSheetApprovalRequest(@NotNull TimeSheetApprovalRejectDto body)
+    {
+        RestRequest<TimeSheetApprovalResponseDto> r = new RestRequest<TimeSheetApprovalResponseDto>(this.client, "POST", "/api/data/timesheets/approvals/reject");
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<TimeSheetApprovalResponseDto>>() {}.getType());
     }
 }
