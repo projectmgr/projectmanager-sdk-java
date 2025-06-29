@@ -24,7 +24,7 @@ import org.jetbrains.annotations.Nullable;
 public class ProjectCreateAccessMemberDto
 {
     private @NotNull String userId;
-    private @NotNull String permission;
+    private @Nullable String permission;
 
     /**
      * Member's id
@@ -39,15 +39,27 @@ public class ProjectCreateAccessMemberDto
      */
     public void setUserId(@NotNull String value) { this.userId = value; }
     /**
-     * Member's role in the project
+     * Member's role in the project, if left empty the default role will be used
+     *
+     * For users with Access All Data permission, this will be set to `Manager`.
+     * For guests, this will be set to `Guest`.
+     * For all other users, this will be set to `Editor`.
+     *
+     * Valid values are: `Manager`, `Editor`, `Collaborate`, `Guest`.
      *
      * @return The field permission
      */
-    public @NotNull String getPermission() { return this.permission; }
+    public @Nullable String getPermission() { return this.permission; }
     /**
-     * Member's role in the project
+     * Member's role in the project, if left empty the default role will be used
+     *
+     * For users with Access All Data permission, this will be set to `Manager`.
+     * For guests, this will be set to `Guest`.
+     * For all other users, this will be set to `Editor`.
+     *
+     * Valid values are: `Manager`, `Editor`, `Collaborate`, `Guest`.
      *
      * @param value The new value for permission
      */
-    public void setPermission(@NotNull String value) { this.permission = value; }
+    public void setPermission(@Nullable String value) { this.permission = value; }
 };

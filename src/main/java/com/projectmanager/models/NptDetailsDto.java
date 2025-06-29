@@ -23,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
  *
  * NPT's are a lightweight version of a project task.
  */
-public class NptDto
+public class NptDetailsDto
 {
     private @NotNull String id;
     private @NotNull String name;

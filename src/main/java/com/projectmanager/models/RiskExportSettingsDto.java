@@ -68,13 +68,13 @@ public class RiskExportSettingsDto
      */
     public void setFormat(@NotNull String value) { this.format = value; }
     /**
-     * The list of column names to export
+     * The list of column names to export, if blank all columns will be exported
      *
      * @return The field columns
      */
     public @NotNull String[] getColumns() { return this.columns; }
     /**
-     * The list of column names to export
+     * The list of column names to export, if blank all columns will be exported
      *
      * @param value The new value for columns
      */

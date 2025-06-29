@@ -4,11 +4,11 @@
 
     <groupId>com.projectmanager</groupId>
     <artifactId>projectmanagersdk</artifactId>
-    <version>134.0.125</version>
+    <version>135.0.134</version>
 
     <name>ProjectManagerSDK</name>
     <description>Software development kit for the ProjectManager.com API. for Java</description>
-    <url>https://developer.projectmanager.com</url>
+    <url></url>
 
     <licenses>
         <license>
@@ -28,7 +28,6 @@
             <id>com.projectmanager</id>
             <name>ProjectManager.com</name>
             <email>support@projectmanager.com</email>
-            <url>https://developer.projectmanager.com</url>
         </developer>
     </developers>
 

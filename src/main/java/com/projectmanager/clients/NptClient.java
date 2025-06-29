@@ -22,8 +22,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
-import com.projectmanager.models.NptDto;
+import com.projectmanager.models.NptDetailsDto;
 
+import com.projectmanager.models.NptDto;
 import com.projectmanager.models.NptUpdateDto;
 import com.projectmanager.models.NptCreateDto;
 
@@ -50,11 +51,11 @@ public class NptClient
      * @param nptId the id of the npt
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<NptDto> getNpt(@NotNull String nptId)
+    public @NotNull AstroResult<NptDetailsDto> getNpt(@NotNull String nptId)
     {
-        RestRequest<NptDto> r = new RestRequest<NptDto>(this.client, "GET", "/api/data/non-project-tasks/{nptId}");
+        RestRequest<NptDetailsDto> r = new RestRequest<NptDetailsDto>(this.client, "GET", "/api/data/non-project-tasks/{nptId}");
         r.AddPath("{nptId}", nptId == null ? "" : nptId.toString());
-        return r.Call(new TypeToken<AstroResult<NptDto>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<NptDetailsDto>>() {}.getType());
     }
 
     /**

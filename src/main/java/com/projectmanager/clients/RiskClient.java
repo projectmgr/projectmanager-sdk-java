@@ -25,6 +25,7 @@ import com.projectmanager.AstroResult;
 import com.projectmanager.models.ExportDto;
 
 import com.projectmanager.models.RiskExportSettingsDto;
+import com.projectmanager.models.RiskDto;
 
 /**
  * Contains all methods related to Risk
@@ -58,5 +59,26 @@ public class RiskClient
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ExportDto>>() {}.getType());
+    }
+
+    /**
+     * Retrieve a list of risks that match an [OData formatted query](https://www.odata.org/).
+     *
+     * @param top The number of records to return
+     * @param skip Skips the given number of records and then returns $top records
+     * @param filter Filter the expression according to oData queries
+     * @param orderby Order collection by this field.
+     * @param expand Include related data in the response
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<RiskDto[]> getrisklist(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String orderby, @Nullable String expand)
+    {
+        RestRequest<RiskDto[]> r = new RestRequest<RiskDto[]>(this.client, "GET", "/api/data/risks");
+        if (top != null) { r.AddQuery("$top", top.toString()); }
+        if (skip != null) { r.AddQuery("$skip", skip.toString()); }
+        if (filter != null) { r.AddQuery("$filter", filter.toString()); }
+        if (orderby != null) { r.AddQuery("$orderby", orderby.toString()); }
+        if (expand != null) { r.AddQuery("$expand", expand.toString()); }
+        return r.Call(new TypeToken<AstroResult<RiskDto[]>>() {}.getType());
     }
 }
