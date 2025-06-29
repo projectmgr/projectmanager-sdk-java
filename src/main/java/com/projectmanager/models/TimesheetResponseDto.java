@@ -31,9 +31,10 @@ public class TimesheetResponseDto
     private @NotNull String date;
     private @Nullable String notes;
     private @NotNull Boolean approved;
-    private @NotNull Double hours;
-    private @NotNull Integer minutes;
+    private @Nullable Double hours;
+    private @Nullable Integer minutes;
     private @NotNull Boolean isCopied;
+    private @Nullable String lastUpdatedDate;
 
     /**
      * TimesheetId
@@ -136,25 +137,25 @@ public class TimesheetResponseDto
      *
      * @return The field hours
      */
-    public @NotNull Double getHours() { return this.hours; }
+    public @Nullable Double getHours() { return this.hours; }
     /**
      * Total Hours
      *
      * @param value The new value for hours
      */
-    public void setHours(@NotNull Double value) { this.hours = value; }
+    public void setHours(@Nullable Double value) { this.hours = value; }
     /**
      * Total Minutes
      *
      * @return The field minutes
      */
-    public @NotNull Integer getMinutes() { return this.minutes; }
+    public @Nullable Integer getMinutes() { return this.minutes; }
     /**
      * Total Minutes
      *
      * @param value The new value for minutes
      */
-    public void setMinutes(@NotNull Integer value) { this.minutes = value; }
+    public void setMinutes(@Nullable Integer value) { this.minutes = value; }
     /**
      * Is the timesheet entry copied from another week?
      *
@@ -167,4 +168,16 @@ public class TimesheetResponseDto
      * @param value The new value for isCopied
      */
     public void setIsCopied(@NotNull Boolean value) { this.isCopied = value; }
+    /**
+     * Is the last timesheet modified by the user
+     *
+     * @return The field lastUpdatedDate
+     */
+    public @Nullable String getLastUpdatedDate() { return this.lastUpdatedDate; }
+    /**
+     * Is the last timesheet modified by the user
+     *
+     * @param value The new value for lastUpdatedDate
+     */
+    public void setLastUpdatedDate(@Nullable String value) { this.lastUpdatedDate = value; }
 };
