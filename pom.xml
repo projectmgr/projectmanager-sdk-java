@@ -8,7 +8,7 @@
 
     <name>ProjectManagerSDK</name>
     <description>Software development kit for the ProjectManager.com API. for Java</description>
-    <url></url>
+    <url>https://developer.projectmanager.com</url>
 
     <licenses>
         <license>
@@ -28,6 +28,7 @@
             <id>com.projectmanager</id>
             <name>ProjectManager.com</name>
             <email>support@projectmanager.com</email>
+            <url>https://developer.projectmanager.com</url>
         </developer>
     </developers>
 
