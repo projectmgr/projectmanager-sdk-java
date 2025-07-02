@@ -23,21 +23,21 @@ import org.jetbrains.annotations.Nullable;
  */
 public class TimeSheetApprovalDto
 {
-    private @NotNull String resourceId;
+    private @Nullable String resourceId;
     private @NotNull String date;
 
     /**
-     * The resource whose timesheet is being approved
+     * The id for the resource, if null it indicates the request is for the current logged-in user
      *
      * @return The field resourceId
      */
-    public @NotNull String getResourceId() { return this.resourceId; }
+    public @Nullable String getResourceId() { return this.resourceId; }
     /**
-     * The resource whose timesheet is being approved
+     * The id for the resource, if null it indicates the request is for the current logged-in user
      *
      * @param value The new value for resourceId
      */
-    public void setResourceId(@NotNull String value) { this.resourceId = value; }
+    public void setResourceId(@Nullable String value) { this.resourceId = value; }
     /**
      * The date of the week to which the timesheet applies
      *

@@ -24,8 +24,8 @@ import org.jetbrains.annotations.Nullable;
 public class TimesheetCreateRequestDto
 {
     private @NotNull String date;
-    private @NotNull Double hours;
-    private @NotNull Integer minutes;
+    private @Nullable Double hours;
+    private @Nullable Integer minutes;
     private @Nullable String taskId;
     private @Nullable String adminTypeId;
     private @Nullable String resourceId;
@@ -48,25 +48,25 @@ public class TimesheetCreateRequestDto
      *
      * @return The field hours
      */
-    public @NotNull Double getHours() { return this.hours; }
+    public @Nullable Double getHours() { return this.hours; }
     /**
      * Reported hours. If minutes is specified this property is ignored
      *
      * @param value The new value for hours
      */
-    public void setHours(@NotNull Double value) { this.hours = value; }
+    public void setHours(@Nullable Double value) { this.hours = value; }
     /**
      * Specify the time in minutes. This overrides the Hours property.
      *
      * @return The field minutes
      */
-    public @NotNull Integer getMinutes() { return this.minutes; }
+    public @Nullable Integer getMinutes() { return this.minutes; }
     /**
      * Specify the time in minutes. This overrides the Hours property.
      *
      * @param value The new value for minutes
      */
-    public void setMinutes(@NotNull Integer value) { this.minutes = value; }
+    public void setMinutes(@Nullable Integer value) { this.minutes = value; }
     /**
      * Task id that time reported to
      *
