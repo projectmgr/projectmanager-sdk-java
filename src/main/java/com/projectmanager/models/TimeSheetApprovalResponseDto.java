@@ -23,8 +23,21 @@ import org.jetbrains.annotations.Nullable;
  */
 public class TimeSheetApprovalResponseDto
 {
+    private @NotNull String modifiedDate;
     private @NotNull PendingTimeSheetApprovalDto[] pendingApprovals;
 
+    /**
+     * Date and time (in UTC) that this timesheet entry was last modified.
+     *
+     * @return The field modifiedDate
+     */
+    public @NotNull String getModifiedDate() { return this.modifiedDate; }
+    /**
+     * Date and time (in UTC) that this timesheet entry was last modified.
+     *
+     * @param value The new value for modifiedDate
+     */
+    public void setModifiedDate(@NotNull String value) { this.modifiedDate = value; }
     /**
      * A list of pending timesheet approvals
      *

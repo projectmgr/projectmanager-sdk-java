@@ -96,6 +96,7 @@ public class RiskExportSettingsDto
      *  * tags
      *  * description
      *  * resolution
+     *  * type
      *
      * @return The field orderBy
      */
@@ -117,6 +118,7 @@ public class RiskExportSettingsDto
      *  * tags
      *  * description
      *  * resolution
+     *  * type
      *
      * @param value The new value for orderBy
      */

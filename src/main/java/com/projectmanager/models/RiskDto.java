@@ -45,6 +45,7 @@ public class RiskDto
     private @NotNull TaskOwnerDto owner;
     private @Nullable Integer filesCount;
     private @Nullable Integer commentsCount;
+    private @NotNull Integer riskTypeId;
 
     /**
      * The unique identifier of this risk.
@@ -316,4 +317,26 @@ public class RiskDto
      * @param value The new value for commentsCount
      */
     public void setCommentsCount(@Nullable Integer value) { this.commentsCount = value; }
+    /**
+     * The id of the Risk Type
+     * Risk = 1
+     * Assumption = 2
+     * Issue = 3
+     * Dependency = 4
+     * Change = 5
+     *
+     * @return The field riskTypeId
+     */
+    public @NotNull Integer getRiskTypeId() { return this.riskTypeId; }
+    /**
+     * The id of the Risk Type
+     * Risk = 1
+     * Assumption = 2
+     * Issue = 3
+     * Dependency = 4
+     * Change = 5
+     *
+     * @param value The new value for riskTypeId
+     */
+    public void setRiskTypeId(@NotNull Integer value) { this.riskTypeId = value; }
 };

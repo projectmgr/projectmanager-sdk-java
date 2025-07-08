@@ -26,6 +26,7 @@ public class TimesheetUpdateRequestDto
     private @Nullable Double hours;
     private @Nullable Integer minutes;
     private @Nullable String notes;
+    private @Nullable String[] documentIds;
 
     /**
      * Reported hours. If minutes is specified this property is ignored
@@ -63,4 +64,16 @@ public class TimesheetUpdateRequestDto
      * @param value The new value for notes
      */
     public void setNotes(@Nullable String value) { this.notes = value; }
+    /**
+     * Document Ids
+     *
+     * @return The field documentIds
+     */
+    public @Nullable String[] getDocumentIds() { return this.documentIds; }
+    /**
+     * Document Ids
+     *
+     * @param value The new value for documentIds
+     */
+    public void setDocumentIds(@Nullable String[] value) { this.documentIds = value; }
 };
