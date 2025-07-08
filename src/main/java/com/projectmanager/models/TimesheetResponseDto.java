@@ -34,7 +34,8 @@ public class TimesheetResponseDto
     private @Nullable Double hours;
     private @Nullable Integer minutes;
     private @NotNull Boolean isCopied;
-    private @Nullable String lastUpdatedDate;
+    private @NotNull String lastUpdatedDate;
+    private @NotNull TimesheetFileResponseDto[] documents;
 
     /**
      * TimesheetId
@@ -173,11 +174,23 @@ public class TimesheetResponseDto
      *
      * @return The field lastUpdatedDate
      */
-    public @Nullable String getLastUpdatedDate() { return this.lastUpdatedDate; }
+    public @NotNull String getLastUpdatedDate() { return this.lastUpdatedDate; }
     /**
      * Is the last timesheet modified by the user
      *
      * @param value The new value for lastUpdatedDate
      */
-    public void setLastUpdatedDate(@Nullable String value) { this.lastUpdatedDate = value; }
+    public void setLastUpdatedDate(@NotNull String value) { this.lastUpdatedDate = value; }
+    /**
+     * Document Details
+     *
+     * @return The field documents
+     */
+    public @NotNull TimesheetFileResponseDto[] getDocuments() { return this.documents; }
+    /**
+     * Document Details
+     *
+     * @param value The new value for documents
+     */
+    public void setDocuments(@NotNull TimesheetFileResponseDto[] value) { this.documents = value; }
 };
