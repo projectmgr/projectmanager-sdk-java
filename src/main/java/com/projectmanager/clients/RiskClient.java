@@ -64,6 +64,9 @@ public class RiskClient
     /**
      * Retrieve a list of risks that match an [OData formatted query](https://www.odata.org/).
      *
+     * A Risk represents a tracked item of concern for a project.  Risks may be categorized as Changes, Risks,
+     * Assumptions, Issues, or Dependencies.
+     *
      * @param top The number of records to return
      * @param skip Skips the given number of records and then returns $top records
      * @param filter Filter the expression according to oData queries
@@ -71,7 +74,7 @@ public class RiskClient
      * @param expand Include related data in the response
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<RiskDto[]> getrisklist(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String orderby, @Nullable String expand)
+    public @NotNull AstroResult<RiskDto[]> queryRisks(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String orderby, @Nullable String expand)
     {
         RestRequest<RiskDto[]> r = new RestRequest<RiskDto[]>(this.client, "GET", "/api/data/risks");
         if (top != null) { r.AddQuery("$top", top.toString()); }
