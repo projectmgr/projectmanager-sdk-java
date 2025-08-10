@@ -28,51 +28,51 @@ import com.projectmanager.models.DiscussionCommentCreateResponseDto;
 import com.projectmanager.models.DiscussionCommentCreateDto;
 
 /**
- * Contains all methods related to Discussion
+ * Contains all methods related to NptDiscussion
  */
-public class DiscussionClient
+public class NptDiscussionClient
 {
     private ProjectManagerClient client;
 
     /**
-     * Constructor for the Discussion API collection
+     * Constructor for the NptDiscussion API collection
      *
      * @param client A {@link com.projectmanager.ProjectManagerClient} platform client
      */
-    public DiscussionClient(@NotNull ProjectManagerClient client) {
+    public NptDiscussionClient(@NotNull ProjectManagerClient client) {
         super();
         this.client = client;
     }
 
     /**
-     * Retrieve all comments written about a task
+     * Retrieve all comments written about a Npt
      *
-     * @param taskId The unique ID number of the task to retrieve comments
+     * @param nptId The unique ID number of the Npt to retrieve comments
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<DiscussionCommentDto[]> retrieveTaskComments(@NotNull String taskId)
+    public @NotNull AstroResult<DiscussionCommentDto[]> retrieveNptComments(@NotNull String nptId)
     {
-        RestRequest<DiscussionCommentDto[]> r = new RestRequest<DiscussionCommentDto[]>(this.client, "GET", "/api/data/tasks/{taskId}/comments");
-        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
+        RestRequest<DiscussionCommentDto[]> r = new RestRequest<DiscussionCommentDto[]>(this.client, "GET", "/api/data/non-project-tasks/{nptId}/comments");
+        r.AddPath("{nptId}", nptId == null ? "" : nptId.toString());
         return r.Call(new TypeToken<AstroResult<DiscussionCommentDto[]>>() {}.getType());
     }
 
     /**
-     * Adds a Markdown-formatted comment to a task.
+     * Adds a Markdown-formatted comment to a Npt.
      *
-     * Tasks can have discussions attached to them.  These discussions can include text with simple
+     * Npts can have discussions attached to them.  These discussions can include text with simple
      * formatting.  Discussion comments are formatted using [Markdown](https://www.markdownguide.org/)
      * and users should be aware that HTML embedding is not permitted due to the risk of cross-site
      * attacks and other embedding challenges.
      *
-     * @param taskId The unique ID number of the task being commented upon
+     * @param nptId The unique ID number of the Npt being commented upon
      * @param body The Markdown-formatted text of the comment
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<DiscussionCommentCreateResponseDto> createTaskComment(@NotNull String taskId, @NotNull DiscussionCommentCreateDto body)
+    public @NotNull AstroResult<DiscussionCommentCreateResponseDto> createNptComments(@NotNull String nptId, @NotNull DiscussionCommentCreateDto body)
     {
-        RestRequest<DiscussionCommentCreateResponseDto> r = new RestRequest<DiscussionCommentCreateResponseDto>(this.client, "POST", "/api/data/tasks/{taskId}/comments");
-        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
+        RestRequest<DiscussionCommentCreateResponseDto> r = new RestRequest<DiscussionCommentCreateResponseDto>(this.client, "POST", "/api/data/non-project-tasks/{nptId}/comments");
+        r.AddPath("{nptId}", nptId == null ? "" : nptId.toString());
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<DiscussionCommentCreateResponseDto>>() {}.getType());
     }
@@ -83,9 +83,9 @@ public class DiscussionClient
      * @param commentId the id of the comment
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> likeComment(@NotNull String commentId)
+    public @NotNull AstroResult<Object> likeacomment(@NotNull String commentId)
     {
-        RestRequest<Object> r = new RestRequest<Object>(this.client, "POST", "/api/data/comments/{commentId}/like");
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "POST", "/api/data/non-project-tasks/comments/{commentId}/like");
         r.AddPath("{commentId}", commentId == null ? "" : commentId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
@@ -96,9 +96,9 @@ public class DiscussionClient
      * @param commentId the id of the comment
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> unlikeComment(@NotNull String commentId)
+    public @NotNull AstroResult<Object> removesathumbsupfromacomment(@NotNull String commentId)
     {
-        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/comments/{commentId}/like");
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/non-project-tasks/comments/{commentId}/like");
         r.AddPath("{commentId}", commentId == null ? "" : commentId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
@@ -109,9 +109,9 @@ public class DiscussionClient
      * @param commentId Remove a comment
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> removeComment(@NotNull String commentId)
+    public @NotNull AstroResult<Object> removeacomment(@NotNull String commentId)
     {
-        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/comments/{commentId}");
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/non-project-tasks/comments/{commentId}");
         r.AddPath("{commentId}", commentId == null ? "" : commentId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }

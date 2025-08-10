@@ -27,6 +27,7 @@ public class ProjectManagerDto
     private @NotNull String name;
     private @NotNull String initials;
     private @Nullable String avatarUrl;
+    private @Nullable String color;
 
     /**
      * The unique identifier of this ProjectManager
@@ -76,4 +77,20 @@ public class ProjectManagerDto
      * @param value The new value for avatarUrl
      */
     public void setAvatarUrl(@Nullable String value) { this.avatarUrl = value; }
+    /**
+     * Collaboration Color for this resource.
+     *
+     * eg. teal, cyan, lightblue, blurple, purple, pink, orange, gray
+     *
+     * @return The field color
+     */
+    public @Nullable String getColor() { return this.color; }
+    /**
+     * Collaboration Color for this resource.
+     *
+     * eg. teal, cyan, lightblue, blurple, purple, pink, orange, gray
+     *
+     * @param value The new value for color
+     */
+    public void setColor(@Nullable String value) { this.color = value; }
 };

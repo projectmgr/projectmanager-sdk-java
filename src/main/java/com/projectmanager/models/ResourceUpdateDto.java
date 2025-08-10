@@ -42,6 +42,7 @@ public class ResourceUpdateDto
     private @Nullable Boolean isActive;
     private @Nullable String approverId;
     private @Nullable String colorName;
+    private @Nullable String language;
 
     /**
      * The first name of the person Resource.
@@ -253,4 +254,20 @@ public class ResourceUpdateDto
      * @param value The new value for colorName
      */
     public void setColorName(@Nullable String value) { this.colorName = value; }
+    /**
+     * Translation Language for this resource.
+     *
+     * e.g. en-US, en-GB, fr-FR, es-ES
+     *
+     * @return The field language
+     */
+    public @Nullable String getLanguage() { return this.language; }
+    /**
+     * Translation Language for this resource.
+     *
+     * e.g. en-US, en-GB, fr-FR, es-ES
+     *
+     * @param value The new value for language
+     */
+    public void setLanguage(@Nullable String value) { this.language = value; }
 };

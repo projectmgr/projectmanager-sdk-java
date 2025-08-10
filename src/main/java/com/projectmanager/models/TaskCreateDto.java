@@ -41,6 +41,7 @@ public class TaskCreateDto
     private @Nullable String theme;
     private @Nullable Boolean isLocked;
     private @Nullable Boolean isMilestone;
+    private @Nullable String parentId;
 
     /**
      * The common name of this Task.
@@ -262,4 +263,16 @@ public class TaskCreateDto
      * @param value The new value for isMilestone
      */
     public void setIsMilestone(@Nullable Boolean value) { this.isMilestone = value; }
+    /**
+     * ParentId
+     *
+     * @return The field parentId
+     */
+    public @Nullable String getParentId() { return this.parentId; }
+    /**
+     * ParentId
+     *
+     * @param value The new value for parentId
+     */
+    public void setParentId(@Nullable String value) { this.parentId = value; }
 };
