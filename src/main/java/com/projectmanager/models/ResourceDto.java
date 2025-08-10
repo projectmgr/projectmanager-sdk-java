@@ -29,6 +29,7 @@ public class ResourceDto
 {
     private @NotNull String id;
     private @NotNull String initials;
+    private @Nullable String name;
     private @Nullable String firstName;
     private @Nullable String lastName;
     private @Nullable String email;
@@ -52,6 +53,7 @@ public class ResourceDto
     private @Nullable String colorName;
     private @Nullable String color;
     private @Nullable String avatarUrl;
+    private @Nullable String language;
 
     /**
      * The unique identifier of this Resource.
@@ -77,6 +79,18 @@ public class ResourceDto
      * @param value The new value for initials
      */
     public void setInitials(@NotNull String value) { this.initials = value; }
+    /**
+     * The name of the Resource. Usually this is the same as the FirstName and LastName
+     *
+     * @return The field name
+     */
+    public @Nullable String getName() { return this.name; }
+    /**
+     * The name of the Resource. Usually this is the same as the FirstName and LastName
+     *
+     * @param value The new value for name
+     */
+    public void setName(@Nullable String value) { this.name = value; }
     /**
      * The first name of the person Resource.
      *
@@ -397,4 +411,16 @@ public class ResourceDto
      * @param value The new value for avatarUrl
      */
     public void setAvatarUrl(@Nullable String value) { this.avatarUrl = value; }
+    /**
+     * The language preference for this Resource, used for localization and communication.
+     *
+     * @return The field language
+     */
+    public @Nullable String getLanguage() { return this.language; }
+    /**
+     * The language preference for this Resource, used for localization and communication.
+     *
+     * @param value The new value for language
+     */
+    public void setLanguage(@Nullable String value) { this.language = value; }
 };

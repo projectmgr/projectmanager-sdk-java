@@ -22,24 +22,23 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
-import com.projectmanager.models.ChangeSetStatusDto;
-
-import com.projectmanager.models.NameDto;
 import com.projectmanager.models.TaskTagDto;
 
+import com.projectmanager.models.NameDto;
+
 /**
- * Contains all methods related to TaskTag
+ * Contains all methods related to NptTag
  */
-public class TaskTagClient
+public class NptTagClient
 {
     private ProjectManagerClient client;
 
     /**
-     * Constructor for the TaskTag API collection
+     * Constructor for the NptTag API collection
      *
      * @param client A {@link com.projectmanager.ProjectManagerClient} platform client
      */
-    public TaskTagClient(@NotNull ProjectManagerClient client) {
+    public NptTagClient(@NotNull ProjectManagerClient client) {
         super();
         this.client = client;
     }
@@ -55,12 +54,12 @@ public class TaskTagClient
      * @param body The replacement list of TaskTags for this Task
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto> replaceTaskTags(@NotNull String taskId, @NotNull NameDto[] body)
+    public @NotNull AstroResult<TaskTagDto[]> replaceTaskTags(@NotNull String taskId, @NotNull NameDto[] body)
     {
-        RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "POST", "/api/data/tasks/{taskId}/tags");
+        RestRequest<TaskTagDto[]> r = new RestRequest<TaskTagDto[]>(this.client, "POST", "/api/data/non-project-tasks/{taskId}/tags");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
         if (body != null) { r.AddBody(body); }
-        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<TaskTagDto[]>>() {}.getType());
     }
 
     /**
@@ -74,12 +73,12 @@ public class TaskTagClient
      * @param body The new TaskTags to add to this Task
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto> addTaskTagtoTask(@NotNull String taskId, @NotNull NameDto[] body)
+    public @NotNull AstroResult<TaskTagDto[]> addTaskTagtoTask(@NotNull String taskId, @NotNull NameDto[] body)
     {
-        RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "PUT", "/api/data/tasks/{taskId}/tags");
+        RestRequest<TaskTagDto[]> r = new RestRequest<TaskTagDto[]>(this.client, "PUT", "/api/data/non-project-tasks/{taskId}/tags");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
         if (body != null) { r.AddBody(body); }
-        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<TaskTagDto[]>>() {}.getType());
     }
 
     /**
@@ -93,12 +92,12 @@ public class TaskTagClient
      * @param body The TaskTags to remove from this Task
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ChangeSetStatusDto> removeTaskTagfromTask(@NotNull String taskId, @NotNull NameDto[] body)
+    public @NotNull AstroResult<Object> removeTaskTagfromTask(@NotNull String taskId, @NotNull NameDto[] body)
     {
-        RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "DELETE", "/api/data/tasks/{taskId}/tags");
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/non-project-tasks/{taskId}/tags");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
         if (body != null) { r.AddBody(body); }
-        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 
     /**
@@ -113,7 +112,7 @@ public class TaskTagClient
      */
     public @NotNull AstroResult<TaskTagDto[]> retrieveTaskTags(@NotNull String taskId)
     {
-        RestRequest<TaskTagDto[]> r = new RestRequest<TaskTagDto[]>(this.client, "GET", "/api/data/tasks/{taskId}/tags");
+        RestRequest<TaskTagDto[]> r = new RestRequest<TaskTagDto[]>(this.client, "GET", "/api/data/non-project-tasks/{taskId}/tags");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
         return r.Call(new TypeToken<AstroResult<TaskTagDto[]>>() {}.getType());
     }

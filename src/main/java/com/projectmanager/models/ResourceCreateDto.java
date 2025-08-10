@@ -40,6 +40,7 @@ public class ResourceCreateDto
     private @Nullable String[] teamIds;
     private @Nullable String[] skillIds;
     private @Nullable String colorName;
+    private @Nullable String language;
 
     /**
      * The first name of the person Resource.
@@ -219,4 +220,16 @@ public class ResourceCreateDto
      * @param value The new value for colorName
      */
     public void setColorName(@Nullable String value) { this.colorName = value; }
+    /**
+     * Language code for this Resource.
+     *
+     * @return The field language
+     */
+    public @Nullable String getLanguage() { return this.language; }
+    /**
+     * Language code for this Resource.
+     *
+     * @param value The new value for language
+     */
+    public void setLanguage(@Nullable String value) { this.language = value; }
 };

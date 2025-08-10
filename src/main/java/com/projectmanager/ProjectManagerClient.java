@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2025 ProjectManager.com, Inc.
- * @version    137.0.201
+ * @version    138.1.170
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -30,8 +30,11 @@ import com.projectmanager.clients.LicenseClient;
 import com.projectmanager.clients.MeClient;
 import com.projectmanager.clients.NotificationClient;
 import com.projectmanager.clients.NptClient;
+import com.projectmanager.clients.NptDiscussionClient;
 import com.projectmanager.clients.NptFilesClient;
 import com.projectmanager.clients.NptStatusClient;
+import com.projectmanager.clients.NptTagClient;
+import com.projectmanager.clients.NptTodosClient;
 import com.projectmanager.clients.ProjectClient;
 import com.projectmanager.clients.ProjectChargeCodeClient;
 import com.projectmanager.clients.ProjectCustomerClient;
@@ -87,8 +90,11 @@ public class ProjectManagerClient {
     private MeClient me;
     private NotificationClient notification;
     private NptClient npt;
+    private NptDiscussionClient nptDiscussion;
     private NptFilesClient nptFiles;
     private NptStatusClient nptStatus;
+    private NptTagClient nptTag;
+    private NptTodosClient nptTodos;
     private ProjectClient project;
     private ProjectChargeCodeClient projectChargeCode;
     private ProjectCustomerClient projectCustomer;
@@ -137,8 +143,11 @@ public class ProjectManagerClient {
         this.me = new MeClient(this);
         this.notification = new NotificationClient(this);
         this.npt = new NptClient(this);
+        this.nptDiscussion = new NptDiscussionClient(this);
         this.nptFiles = new NptFilesClient(this);
         this.nptStatus = new NptStatusClient(this);
+        this.nptTag = new NptTagClient(this);
+        this.nptTodos = new NptTodosClient(this);
         this.project = new ProjectClient(this);
         this.projectChargeCode = new ProjectChargeCodeClient(this);
         this.projectCustomer = new ProjectCustomerClient(this);
@@ -255,6 +264,12 @@ public class ProjectManagerClient {
      */
     public @NotNull NptClient getNptClient() { return this.npt; }
     /**
+     * A collection of API methods relating to NptDiscussion
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.NptDiscussionClient client} methods in the API.
+     */
+    public @NotNull NptDiscussionClient getNptDiscussionClient() { return this.nptDiscussion; }
+    /**
      * A collection of API methods relating to NptFiles
      *
      * @return A collection containing the {@link com.projectmanager.clients.NptFilesClient client} methods in the API.
@@ -266,6 +281,18 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.NptStatusClient client} methods in the API.
      */
     public @NotNull NptStatusClient getNptStatusClient() { return this.nptStatus; }
+    /**
+     * A collection of API methods relating to NptTag
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.NptTagClient client} methods in the API.
+     */
+    public @NotNull NptTagClient getNptTagClient() { return this.nptTag; }
+    /**
+     * A collection of API methods relating to NptTodos
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.NptTodosClient client} methods in the API.
+     */
+    public @NotNull NptTodosClient getNptTodosClient() { return this.nptTodos; }
     /**
      * A collection of API methods relating to Project
      *

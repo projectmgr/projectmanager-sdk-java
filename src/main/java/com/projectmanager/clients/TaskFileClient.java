@@ -24,6 +24,7 @@ import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.FileDto;
 
+import com.projectmanager.models.TaskFileDto;
 
 /**
  * Contains all methods related to TaskFile
@@ -64,5 +65,18 @@ public class TaskFileClient
         RestRequest<FileDto> r = new RestRequest<FileDto>(this.client, "POST", "/api/data/tasks/{taskId}/files");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
         return r.Call(new TypeToken<AstroResult<FileDto>>() {}.getType());
+    }
+
+    /**
+     * retrieves task files
+     *
+     * @param taskId The reference to the task
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<TaskFileDto[]> getTaskFiles(@NotNull String taskId)
+    {
+        RestRequest<TaskFileDto[]> r = new RestRequest<TaskFileDto[]>(this.client, "GET", "/api/data/tasks/{taskId}/files");
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
+        return r.Call(new TypeToken<AstroResult<TaskFileDto[]>>() {}.getType());
     }
 }
