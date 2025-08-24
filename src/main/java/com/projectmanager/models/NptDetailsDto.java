@@ -30,12 +30,21 @@ public class NptDetailsDto
     private @Nullable String description;
     private @Nullable String plannedStartDate;
     private @Nullable String plannedFinishDate;
+    private @Nullable String actualStartDate;
+    private @Nullable String actualFinishDate;
     private @Nullable Integer actualEffort;
+    private @Nullable Integer actualDuration;
+    private @Nullable Double actualCost;
+    private @Nullable Double plannedCost;
+    private @Nullable Integer plannedDuration;
+    private @Nullable Integer plannedEffort;
     private @Nullable Integer priorityId;
     private @NotNull Integer percentComplete;
     private @NotNull NptStatusDto status;
     private @NotNull NptAssigneeDto[] assignees;
     private @Nullable String shortId;
+    private @Nullable TaskTagDto[] tags;
+    private @Nullable TaskTodoDto[] todos;
 
     /**
      * The unique identifier of the NPT
@@ -116,6 +125,70 @@ public class NptDetailsDto
      */
     public void setPlannedFinishDate(@Nullable String value) { this.plannedFinishDate = value; }
     /**
+     * If set, this is the actual date when work began on the Task.
+     *
+     * This value contains only the date in year-month-day format.  For display, this
+     * date will always be shown as this same year-month-day regardless of time zone.
+     * For reporting purposes, this date is calculated against the official time zone
+     * of the Workspace.
+     *
+     * For example: A Task has a planned completion date of July 5, 2023 in a Workspace
+     * that has a time zone of US Pacific Time (GMT-7 or GMT-8, depending on daylight
+     * savings time).  This project is considered overdue on 12:01 AM July 6th 2023 in
+     * US Pacific time.
+     *
+     * @return The field actualStartDate
+     */
+    public @Nullable String getActualStartDate() { return this.actualStartDate; }
+    /**
+     * If set, this is the actual date when work began on the Task.
+     *
+     * This value contains only the date in year-month-day format.  For display, this
+     * date will always be shown as this same year-month-day regardless of time zone.
+     * For reporting purposes, this date is calculated against the official time zone
+     * of the Workspace.
+     *
+     * For example: A Task has a planned completion date of July 5, 2023 in a Workspace
+     * that has a time zone of US Pacific Time (GMT-7 or GMT-8, depending on daylight
+     * savings time).  This project is considered overdue on 12:01 AM July 6th 2023 in
+     * US Pacific time.
+     *
+     * @param value The new value for actualStartDate
+     */
+    public void setActualStartDate(@Nullable String value) { this.actualStartDate = value; }
+    /**
+     * If set, this is the actual date when work was completed on this Task.
+     *
+     * This value contains only the date in year-month-day format.  For display, this
+     * date will always be shown as this same year-month-day regardless of time zone.
+     * For reporting purposes, this date is calculated against the official time zone
+     * of the Workspace.
+     *
+     * For example: A Task has a planned completion date of July 5, 2023 in a Workspace
+     * that has a time zone of US Pacific Time (GMT-7 or GMT-8, depending on daylight
+     * savings time).  This project is considered overdue on 12:01 AM July 6th 2023 in
+     * US Pacific time.
+     *
+     * @return The field actualFinishDate
+     */
+    public @Nullable String getActualFinishDate() { return this.actualFinishDate; }
+    /**
+     * If set, this is the actual date when work was completed on this Task.
+     *
+     * This value contains only the date in year-month-day format.  For display, this
+     * date will always be shown as this same year-month-day regardless of time zone.
+     * For reporting purposes, this date is calculated against the official time zone
+     * of the Workspace.
+     *
+     * For example: A Task has a planned completion date of July 5, 2023 in a Workspace
+     * that has a time zone of US Pacific Time (GMT-7 or GMT-8, depending on daylight
+     * savings time).  This project is considered overdue on 12:01 AM July 6th 2023 in
+     * US Pacific time.
+     *
+     * @param value The new value for actualFinishDate
+     */
+    public void setActualFinishDate(@Nullable String value) { this.actualFinishDate = value; }
+    /**
      * The actual effort (in minutes) for this Task.
      *
      * @return The field actualEffort
@@ -127,6 +200,66 @@ public class NptDetailsDto
      * @param value The new value for actualEffort
      */
     public void setActualEffort(@Nullable Integer value) { this.actualEffort = value; }
+    /**
+     * The actual duration (in minutes) for this Task.
+     *
+     * @return The field actualDuration
+     */
+    public @Nullable Integer getActualDuration() { return this.actualDuration; }
+    /**
+     * The actual duration (in minutes) for this Task.
+     *
+     * @param value The new value for actualDuration
+     */
+    public void setActualDuration(@Nullable Integer value) { this.actualDuration = value; }
+    /**
+     * The actual cost of this Task to date, if known.
+     *
+     * @return The field actualCost
+     */
+    public @Nullable Double getActualCost() { return this.actualCost; }
+    /**
+     * The actual cost of this Task to date, if known.
+     *
+     * @param value The new value for actualCost
+     */
+    public void setActualCost(@Nullable Double value) { this.actualCost = value; }
+    /**
+     * The planned cost for this Task.  Cannot be negative.
+     *
+     * @return The field plannedCost
+     */
+    public @Nullable Double getPlannedCost() { return this.plannedCost; }
+    /**
+     * The planned cost for this Task.  Cannot be negative.
+     *
+     * @param value The new value for plannedCost
+     */
+    public void setPlannedCost(@Nullable Double value) { this.plannedCost = value; }
+    /**
+     * The planned duration (in minutes) for this Task.
+     *
+     * @return The field plannedDuration
+     */
+    public @Nullable Integer getPlannedDuration() { return this.plannedDuration; }
+    /**
+     * The planned duration (in minutes) for this Task.
+     *
+     * @param value The new value for plannedDuration
+     */
+    public void setPlannedDuration(@Nullable Integer value) { this.plannedDuration = value; }
+    /**
+     * The planned effort (in minutes) for this Task.
+     *
+     * @return The field plannedEffort
+     */
+    public @Nullable Integer getPlannedEffort() { return this.plannedEffort; }
+    /**
+     * The planned effort (in minutes) for this Task.
+     *
+     * @param value The new value for plannedEffort
+     */
+    public void setPlannedEffort(@Nullable Integer value) { this.plannedEffort = value; }
     /**
      * Return the priority of a task
      *
@@ -199,4 +332,28 @@ public class NptDetailsDto
      * @param value The new value for shortId
      */
     public void setShortId(@Nullable String value) { this.shortId = value; }
+    /**
+     * The TaskTags that apply to this Task.
+     *
+     * @return The field tags
+     */
+    public @Nullable TaskTagDto[] getTags() { return this.tags; }
+    /**
+     * The TaskTags that apply to this Task.
+     *
+     * @param value The new value for tags
+     */
+    public void setTags(@Nullable TaskTagDto[] value) { this.tags = value; }
+    /**
+     * A list of TaskTodo items, which are sub-tasks within this Task.
+     *
+     * @return The field todos
+     */
+    public @Nullable TaskTodoDto[] getTodos() { return this.todos; }
+    /**
+     * A list of TaskTodo items, which are sub-tasks within this Task.
+     *
+     * @param value The new value for todos
+     */
+    public void setTodos(@Nullable TaskTodoDto[] value) { this.todos = value; }
 };

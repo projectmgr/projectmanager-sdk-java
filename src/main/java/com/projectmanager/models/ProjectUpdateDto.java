@@ -45,6 +45,7 @@ public class ProjectUpdateDto
     private @Nullable Boolean template;
     private @Nullable Boolean updatePlannedWithActual;
     private @Nullable String notes;
+    private @Nullable String externalReferenceId;
 
     /**
      * The name of the Project.
@@ -282,4 +283,20 @@ public class ProjectUpdateDto
      * @param value The new value for notes
      */
     public void setNotes(@Nullable String value) { this.notes = value; }
+    /**
+     * An optional external reference identifier for this Project.
+     * This value can be used to link the Project to records in external systems,
+     * such as ERP, CRM, or other integrations.
+     *
+     * @return The field externalReferenceId
+     */
+    public @Nullable String getExternalReferenceId() { return this.externalReferenceId; }
+    /**
+     * An optional external reference identifier for this Project.
+     * This value can be used to link the Project to records in external systems,
+     * such as ERP, CRM, or other integrations.
+     *
+     * @param value The new value for externalReferenceId
+     */
+    public void setExternalReferenceId(@Nullable String value) { this.externalReferenceId = value; }
 };

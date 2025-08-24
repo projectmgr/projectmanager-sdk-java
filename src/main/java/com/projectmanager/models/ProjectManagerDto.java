@@ -25,7 +25,7 @@ public class ProjectManagerDto
 {
     private @NotNull String id;
     private @NotNull String name;
-    private @NotNull String initials;
+    private @Nullable String initials;
     private @Nullable String avatarUrl;
     private @Nullable String color;
 
@@ -58,13 +58,13 @@ public class ProjectManagerDto
      *
      * @return The field initials
      */
-    public @NotNull String getInitials() { return this.initials; }
+    public @Nullable String getInitials() { return this.initials; }
     /**
      * Manager initials
      *
      * @param value The new value for initials
      */
-    public void setInitials(@NotNull String value) { this.initials = value; }
+    public void setInitials(@Nullable String value) { this.initials = value; }
     /**
      * Avatar's url
      *

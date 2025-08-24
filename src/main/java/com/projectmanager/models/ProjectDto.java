@@ -56,6 +56,7 @@ public class ProjectDto
     private @Nullable ProjectFileDto[] files;
     private @Nullable Integer percentComplete;
     private @NotNull Boolean updatePlannedWithActual;
+    private @Nullable String externalReferenceId;
 
     /**
      * The unique identifier of the Project.  This value is set by the system and cannot
@@ -535,4 +536,20 @@ public class ProjectDto
      * @param value The new value for updatePlannedWithActual
      */
     public void setUpdatePlannedWithActual(@NotNull Boolean value) { this.updatePlannedWithActual = value; }
+    /**
+     * An optional external reference identifier for this Project.
+     * This value can be used to link the Project to records in external systems,
+     * such as ERP, CRM, or other integrations.
+     *
+     * @return The field externalReferenceId
+     */
+    public @Nullable String getExternalReferenceId() { return this.externalReferenceId; }
+    /**
+     * An optional external reference identifier for this Project.
+     * This value can be used to link the Project to records in external systems,
+     * such as ERP, CRM, or other integrations.
+     *
+     * @param value The new value for externalReferenceId
+     */
+    public void setExternalReferenceId(@Nullable String value) { this.externalReferenceId = value; }
 };

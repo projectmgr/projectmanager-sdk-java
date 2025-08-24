@@ -33,6 +33,10 @@ public class NptUpdateDto
     private @Nullable Integer percentComplete;
     private @Nullable String statusId;
     private @Nullable String[] assignees;
+    private @Nullable String actualStartDate;
+    private @Nullable String actualFinishDate;
+    private @Nullable Double plannedCost;
+    private @Nullable Double actualCost;
 
     /**
      * The common name of this Task.
@@ -158,4 +162,92 @@ public class NptUpdateDto
      * @param value The new value for assignees
      */
     public void setAssignees(@Nullable String[] value) { this.assignees = value; }
+    /**
+     * If set, this is the actual date when work began on the Task.
+     *
+     * This value contains only the date in year-month-day format.  For display, this
+     * date will always be shown as this same year-month-day regardless of time zone.
+     * For reporting purposes, this date is calculated against the official time zone
+     * of the Workspace.
+     *
+     * For example: A Task has a planned completion date of July 5, 2023 in a Workspace
+     * that has a time zone of US Pacific Time (GMT-7 or GMT-8, depending on daylight
+     * savings time).  This project is considered overdue on 12:01 AM July 6th 2023 in
+     * US Pacific time.
+     *
+     * @return The field actualStartDate
+     */
+    public @Nullable String getActualStartDate() { return this.actualStartDate; }
+    /**
+     * If set, this is the actual date when work began on the Task.
+     *
+     * This value contains only the date in year-month-day format.  For display, this
+     * date will always be shown as this same year-month-day regardless of time zone.
+     * For reporting purposes, this date is calculated against the official time zone
+     * of the Workspace.
+     *
+     * For example: A Task has a planned completion date of July 5, 2023 in a Workspace
+     * that has a time zone of US Pacific Time (GMT-7 or GMT-8, depending on daylight
+     * savings time).  This project is considered overdue on 12:01 AM July 6th 2023 in
+     * US Pacific time.
+     *
+     * @param value The new value for actualStartDate
+     */
+    public void setActualStartDate(@Nullable String value) { this.actualStartDate = value; }
+    /**
+     * If set, this is the actual date when work was completed on the Task.
+     *
+     * This value contains only the date in year-month-day format.  For display, this
+     * date will always be shown as this same year-month-day regardless of time zone.
+     * For reporting purposes, this date is calculated against the official time zone
+     * of the Workspace.
+     *
+     * For example: A Task has a planned completion date of July 5, 2023 in a Workspace
+     * that has a time zone of US Pacific Time (GMT-7 or GMT-8, depending on daylight
+     * savings time).  This project is considered overdue on 12:01 AM July 6th 2023 in
+     * US Pacific time.
+     *
+     * @return The field actualFinishDate
+     */
+    public @Nullable String getActualFinishDate() { return this.actualFinishDate; }
+    /**
+     * If set, this is the actual date when work was completed on the Task.
+     *
+     * This value contains only the date in year-month-day format.  For display, this
+     * date will always be shown as this same year-month-day regardless of time zone.
+     * For reporting purposes, this date is calculated against the official time zone
+     * of the Workspace.
+     *
+     * For example: A Task has a planned completion date of July 5, 2023 in a Workspace
+     * that has a time zone of US Pacific Time (GMT-7 or GMT-8, depending on daylight
+     * savings time).  This project is considered overdue on 12:01 AM July 6th 2023 in
+     * US Pacific time.
+     *
+     * @param value The new value for actualFinishDate
+     */
+    public void setActualFinishDate(@Nullable String value) { this.actualFinishDate = value; }
+    /**
+     * The planned cost for this Task.  Cannot be negative.
+     *
+     * @return The field plannedCost
+     */
+    public @Nullable Double getPlannedCost() { return this.plannedCost; }
+    /**
+     * The planned cost for this Task.  Cannot be negative.
+     *
+     * @param value The new value for plannedCost
+     */
+    public void setPlannedCost(@Nullable Double value) { this.plannedCost = value; }
+    /**
+     * If set, this represents the actual tracked cost for this Task.
+     *
+     * @return The field actualCost
+     */
+    public @Nullable Double getActualCost() { return this.actualCost; }
+    /**
+     * If set, this represents the actual tracked cost for this Task.
+     *
+     * @param value The new value for actualCost
+     */
+    public void setActualCost(@Nullable Double value) { this.actualCost = value; }
 };

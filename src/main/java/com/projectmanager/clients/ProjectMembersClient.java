@@ -23,6 +23,7 @@ import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.ProjectMemberDto;
+import com.projectmanager.models.ProjectAccessDto;
 
 import com.projectmanager.models.ProjectMembersAccessDto;
 import com.projectmanager.models.ProjectMemberRoleDto;
@@ -56,6 +57,17 @@ public class ProjectMembersClient
     {
         RestRequest<ProjectMemberDto[]> r = new RestRequest<ProjectMemberDto[]>(this.client, "GET", "/api/data/projects/members");
         return r.Call(new TypeToken<AstroResult<ProjectMemberDto[]>>() {}.getType());
+    }
+
+    /**
+     * Returns a list of project permissions the user is a member of
+     *
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ProjectAccessDto[]> retrieveProjectstheuserisamemberof()
+    {
+        RestRequest<ProjectAccessDto[]> r = new RestRequest<ProjectAccessDto[]>(this.client, "GET", "/api/data/projects/membership");
+        return r.Call(new TypeToken<AstroResult<ProjectAccessDto[]>>() {}.getType());
     }
 
     /**

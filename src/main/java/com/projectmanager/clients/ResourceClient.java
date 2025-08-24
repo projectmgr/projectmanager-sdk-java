@@ -186,4 +186,17 @@ public class ResourceClient
         r.AddPath("{resourceId}", resourceId == null ? "" : resourceId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
+
+    /**
+     * Get Resource Avatar
+     *
+     * @param resourceId The id of the resource
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<Object> getResourceAvatar(@NotNull String resourceId)
+    {
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "GET", "/api/data/resources/{resourceId}/avatar");
+        r.AddPath("{resourceId}", resourceId == null ? "" : resourceId.toString());
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+    }
 }
