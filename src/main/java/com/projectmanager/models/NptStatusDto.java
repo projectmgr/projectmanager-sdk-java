@@ -26,7 +26,7 @@ import org.jetbrains.annotations.Nullable;
 public class NptStatusDto
 {
     private @NotNull String id;
-    private @Nullable String name;
+    private @NotNull String name;
     private @NotNull Integer order;
     private @NotNull Boolean isDone;
 
@@ -47,13 +47,13 @@ public class NptStatusDto
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The name of this TaskStatus.
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * A numerical value that can be used to sort TaskStatus values according to the
      * needs of your business.

@@ -29,11 +29,17 @@ public class WorkSpaceUserInfoDto
     private @NotNull String emailAddress;
     private @NotNull String id;
     private @NotNull String fullName;
+    private @NotNull String workSpaceId;
     private @NotNull String workSpaceName;
     private @NotNull String roleName;
     private @Nullable Boolean isGlobalAdmin;
     private @Nullable Boolean isAccountAdministrator;
     private @NotNull WorkSpacePermissionsDto permissions;
+    private @NotNull String workSpaceStatus;
+    private @NotNull Boolean workSpaceIsActive;
+    private @NotNull String workSpaceCountry;
+    private @NotNull String workSpaceCountryCode;
+    private @NotNull String location;
 
     /**
      * A collection of shortcut links for the currently logged in Workspace.
@@ -83,6 +89,18 @@ public class WorkSpaceUserInfoDto
      * @param value The new value for fullName
      */
     public void setFullName(@NotNull String value) { this.fullName = value; }
+    /**
+     * The id of the workspace the user is currently logged into.
+     *
+     * @return The field workSpaceId
+     */
+    public @NotNull String getWorkSpaceId() { return this.workSpaceId; }
+    /**
+     * The id of the workspace the user is currently logged into.
+     *
+     * @param value The new value for workSpaceId
+     */
+    public void setWorkSpaceId(@NotNull String value) { this.workSpaceId = value; }
     /**
      * The name of the Workspace that the current user has logged onto.  For most companies, the workspace
      * name will be the name of the business.
@@ -145,4 +163,72 @@ public class WorkSpaceUserInfoDto
      * @param value The new value for permissions
      */
     public void setPermissions(@NotNull WorkSpacePermissionsDto value) { this.permissions = value; }
+    /**
+     * The current account status of this WorkSpace. This can be one of four statuses:
+     *  - Trial
+     *  - Active
+     *  - Cancelled
+     *  - Expired
+     *
+     * @return The field workSpaceStatus
+     */
+    public @NotNull String getWorkSpaceStatus() { return this.workSpaceStatus; }
+    /**
+     * The current account status of this WorkSpace. This can be one of four statuses:
+     *  - Trial
+     *  - Active
+     *  - Cancelled
+     *  - Expired
+     *
+     * @param value The new value for workSpaceStatus
+     */
+    public void setWorkSpaceStatus(@NotNull String value) { this.workSpaceStatus = value; }
+    /**
+     * This is true if the WorkSpace is in the Active or Trial state.
+     *
+     * @return The field workSpaceIsActive
+     */
+    public @NotNull Boolean getWorkSpaceIsActive() { return this.workSpaceIsActive; }
+    /**
+     * This is true if the WorkSpace is in the Active or Trial state.
+     *
+     * @param value The new value for workSpaceIsActive
+     */
+    public void setWorkSpaceIsActive(@NotNull Boolean value) { this.workSpaceIsActive = value; }
+    /**
+     * The name of the country that the current Workspace is located in.
+     *
+     * @return The field workSpaceCountry
+     */
+    public @NotNull String getWorkSpaceCountry() { return this.workSpaceCountry; }
+    /**
+     * The name of the country that the current Workspace is located in.
+     *
+     * @param value The new value for workSpaceCountry
+     */
+    public void setWorkSpaceCountry(@NotNull String value) { this.workSpaceCountry = value; }
+    /**
+     * Returns the iso country code for the current workspace.
+     *
+     * @return The field workSpaceCountryCode
+     */
+    public @NotNull String getWorkSpaceCountryCode() { return this.workSpaceCountryCode; }
+    /**
+     * Returns the iso country code for the current workspace.
+     *
+     * @param value The new value for workSpaceCountryCode
+     */
+    public void setWorkSpaceCountryCode(@NotNull String value) { this.workSpaceCountryCode = value; }
+    /**
+     * The location of the user, which is a combination of city, state (US Only), and country.
+     *
+     * @return The field location
+     */
+    public @NotNull String getLocation() { return this.location; }
+    /**
+     * The location of the user, which is a combination of city, state (US Only), and country.
+     *
+     * @param value The new value for location
+     */
+    public void setLocation(@NotNull String value) { this.location = value; }
 };

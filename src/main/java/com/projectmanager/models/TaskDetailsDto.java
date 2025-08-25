@@ -62,6 +62,8 @@ public class TaskDetailsDto
     private @Nullable TaskFieldValueDto[] fieldValues;
     private @Nullable TaskFileDto[] files;
     private @Nullable String parentTaskId;
+    private @Nullable Integer childTaskCount;
+    private @Nullable String parentTaskName;
 
     /**
      * The unique identifier of this Task.
@@ -669,4 +671,28 @@ public class TaskDetailsDto
      * @param value The new value for parentTaskId
      */
     public void setParentTaskId(@Nullable String value) { this.parentTaskId = value; }
+    /**
+     * The number of child tasks
+     *
+     * @return The field childTaskCount
+     */
+    public @Nullable Integer getChildTaskCount() { return this.childTaskCount; }
+    /**
+     * The number of child tasks
+     *
+     * @param value The new value for childTaskCount
+     */
+    public void setChildTaskCount(@Nullable Integer value) { this.childTaskCount = value; }
+    /**
+     * The name for the parent task of this Task.
+     *
+     * @return The field parentTaskName
+     */
+    public @Nullable String getParentTaskName() { return this.parentTaskName; }
+    /**
+     * The name for the parent task of this Task.
+     *
+     * @param value The new value for parentTaskName
+     */
+    public void setParentTaskName(@Nullable String value) { this.parentTaskName = value; }
 };
