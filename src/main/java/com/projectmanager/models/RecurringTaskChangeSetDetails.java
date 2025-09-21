@@ -19,22 +19,22 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * This class contains the URL to use to authenticate with the Integration Provider.
+ * RecurringTaskChangeSetDetails
  */
-public class DirectLinkDto
+public class RecurringTaskChangeSetDetails
 {
-    private @NotNull String url;
+    private @NotNull String[] taskIds;
 
     /**
-     * The URL to use to authenticate with the Integration Provider.
+     * The created Task Ids
      *
-     * @return The field url
+     * @return The field taskIds
      */
-    public @NotNull String getUrl() { return this.url; }
+    public @NotNull String[] getTaskIds() { return this.taskIds; }
     /**
-     * The URL to use to authenticate with the Integration Provider.
+     * The created Task Ids
      *
-     * @param value The new value for url
+     * @param value The new value for taskIds
      */
-    public void setUrl(@NotNull String value) { this.url = value; }
+    public void setTaskIds(@NotNull String[] value) { this.taskIds = value; }
 };

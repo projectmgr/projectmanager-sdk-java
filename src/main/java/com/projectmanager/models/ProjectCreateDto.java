@@ -43,6 +43,7 @@ public class ProjectCreateDto
     private @Nullable Double budget;
     private @Nullable String statusUpdate;
     private @Nullable String templateId;
+    private @Nullable Boolean template;
     private @Nullable String targetDate;
     private @Nullable Boolean favorite;
     private @Nullable Boolean updatePlannedWithActual;
@@ -280,6 +281,18 @@ public class ProjectCreateDto
      * @param value The new value for templateId
      */
     public void setTemplateId(@Nullable String value) { this.templateId = value; }
+    /**
+     * True if this Project is a Template project. Template projects can be used as
+     *
+     * @return The field template
+     */
+    public @Nullable Boolean getTemplate() { return this.template; }
+    /**
+     * True if this Project is a Template project. Template projects can be used as
+     *
+     * @param value The new value for template
+     */
+    public void setTemplate(@Nullable Boolean value) { this.template = value; }
     /**
      * The target planned completion date for this Project, or null if one has
      * not been selected.  This value can be updated in the Project Settings

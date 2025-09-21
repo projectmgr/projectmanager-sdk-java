@@ -144,4 +144,21 @@ public class ProjectClient
         if (hardDelete != null) { r.AddQuery("hardDelete", hardDelete.toString()); }
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
+
+    /**
+     * Restore a soft deleted project based on its unique identifier.
+     *
+     * A Project is a collection of Tasks that contributes towards a goal.  Within a Project, Tasks
+     * represent individual items of work that team members must complete.  The sum total of Tasks
+     * within a Project represents the work to be completed for that Project.
+     *
+     * @param projectId The unique identifier of the Project to delete
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<Object> restoreProject(@NotNull String projectId)
+    {
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "PUT", "/api/data/projects/{projectId}/restore");
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+    }
 }
