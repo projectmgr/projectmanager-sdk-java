@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2025 ProjectManager.com, Inc.
- * @version    139.0.157
+ * @version    141.1.156
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -57,6 +57,7 @@ import com.projectmanager.clients.TaskAssigneeClient;
 import com.projectmanager.clients.TaskFieldClient;
 import com.projectmanager.clients.TaskFileClient;
 import com.projectmanager.clients.TaskMetadataClient;
+import com.projectmanager.clients.TaskRecurrencyClient;
 import com.projectmanager.clients.TaskStatusClient;
 import com.projectmanager.clients.TaskTagClient;
 import com.projectmanager.clients.TaskTodoClient;
@@ -117,6 +118,7 @@ public class ProjectManagerClient {
     private TaskFieldClient taskField;
     private TaskFileClient taskFile;
     private TaskMetadataClient taskMetadata;
+    private TaskRecurrencyClient taskRecurrency;
     private TaskStatusClient taskStatus;
     private TaskTagClient taskTag;
     private TaskTodoClient taskTodo;
@@ -170,6 +172,7 @@ public class ProjectManagerClient {
         this.taskField = new TaskFieldClient(this);
         this.taskFile = new TaskFileClient(this);
         this.taskMetadata = new TaskMetadataClient(this);
+        this.taskRecurrency = new TaskRecurrencyClient(this);
         this.taskStatus = new TaskStatusClient(this);
         this.taskTag = new TaskTagClient(this);
         this.taskTodo = new TaskTodoClient(this);
@@ -425,6 +428,12 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.TaskMetadataClient client} methods in the API.
      */
     public @NotNull TaskMetadataClient getTaskMetadataClient() { return this.taskMetadata; }
+    /**
+     * A collection of API methods relating to TaskRecurrency
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.TaskRecurrencyClient client} methods in the API.
+     */
+    public @NotNull TaskRecurrencyClient getTaskRecurrencyClient() { return this.taskRecurrency; }
     /**
      * A collection of API methods relating to TaskStatus
      *
