@@ -30,6 +30,7 @@ public class NptCreateDto
     private @Nullable String plannedStartDate;
     private @Nullable String plannedFinishDate;
     private @Nullable String[] assignees;
+    private @Nullable String statusId;
 
     /**
      * The common name of this Task.
@@ -109,4 +110,16 @@ public class NptCreateDto
      * @param value The new value for assignees
      */
     public void setAssignees(@Nullable String[] value) { this.assignees = value; }
+    /**
+     * The unique identifier of the NptStatus for this Npt
+     *
+     * @return The field statusId
+     */
+    public @Nullable String getStatusId() { return this.statusId; }
+    /**
+     * The unique identifier of the NptStatus for this Npt
+     *
+     * @param value The new value for statusId
+     */
+    public void setStatusId(@Nullable String value) { this.statusId = value; }
 };

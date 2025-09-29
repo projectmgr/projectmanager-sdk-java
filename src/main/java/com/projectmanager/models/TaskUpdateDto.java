@@ -37,6 +37,7 @@ public class TaskUpdateDto
     private @Nullable Double plannedCost;
     private @Nullable String actualStartDate;
     private @Nullable String actualFinishDate;
+    private @Nullable Integer actualDuration;
     private @Nullable Double actualCost;
     private @Nullable String theme;
     private @Nullable Boolean isLocked;
@@ -276,6 +277,18 @@ public class TaskUpdateDto
      * @param value The new value for actualFinishDate
      */
     public void setActualFinishDate(@Nullable String value) { this.actualFinishDate = value; }
+    /**
+     * The actual duration (in minutes) for this Task.  Cannot be negative.
+     *
+     * @return The field actualDuration
+     */
+    public @Nullable Integer getActualDuration() { return this.actualDuration; }
+    /**
+     * The actual duration (in minutes) for this Task.  Cannot be negative.
+     *
+     * @param value The new value for actualDuration
+     */
+    public void setActualDuration(@Nullable Integer value) { this.actualDuration = value; }
     /**
      * If set, this represents the actual tracked cost for this Task.
      *

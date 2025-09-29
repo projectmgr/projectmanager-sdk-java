@@ -45,6 +45,9 @@ public class NptDto
     private @Nullable String shortId;
     private @Nullable TaskTagDto[] tags;
     private @Nullable TaskTodoDto[] todos;
+    private @NotNull String createDate;
+    private @Nullable TaskOwnerDto owner;
+    private @Nullable String ownerId;
 
     /**
      * The unique identifier of the NPT
@@ -356,4 +359,40 @@ public class NptDto
      * @param value The new value for todos
      */
     public void setTodos(@Nullable TaskTodoDto[] value) { this.todos = value; }
+    /**
+     * Timestamp when the NPT was created
+     *
+     * @return The field createDate
+     */
+    public @NotNull String getCreateDate() { return this.createDate; }
+    /**
+     * Timestamp when the NPT was created
+     *
+     * @param value The new value for createDate
+     */
+    public void setCreateDate(@NotNull String value) { this.createDate = value; }
+    /**
+     * The owner of this Task.
+     *
+     * @return The field owner
+     */
+    public @Nullable TaskOwnerDto getOwner() { return this.owner; }
+    /**
+     * The owner of this Task.
+     *
+     * @param value The new value for owner
+     */
+    public void setOwner(@Nullable TaskOwnerDto value) { this.owner = value; }
+    /**
+     * The ownerId of this Task.
+     *
+     * @return The field ownerId
+     */
+    public @Nullable String getOwnerId() { return this.ownerId; }
+    /**
+     * The ownerId of this Task.
+     *
+     * @param value The new value for ownerId
+     */
+    public void setOwnerId(@Nullable String value) { this.ownerId = value; }
 };

@@ -27,16 +27,20 @@ public class NptUpdateDto
 {
     private @Nullable String name;
     private @Nullable String description;
-    private @Nullable String plannedStartDate;
-    private @Nullable String plannedFinishDate;
     private @Nullable Integer priorityId;
     private @Nullable Integer percentComplete;
     private @Nullable String statusId;
-    private @Nullable String[] assignees;
+    private @Nullable String plannedStartDate;
+    private @Nullable String plannedFinishDate;
+    private @Nullable Integer plannedDuration;
+    private @Nullable Integer plannedEffort;
+    private @Nullable Double plannedCost;
     private @Nullable String actualStartDate;
     private @Nullable String actualFinishDate;
-    private @Nullable Double plannedCost;
+    private @Nullable Integer actualDuration;
     private @Nullable Double actualCost;
+    private @Nullable String[] assignees;
+    private @Nullable Boolean recurring;
 
     /**
      * The common name of this Task.
@@ -68,42 +72,6 @@ public class NptUpdateDto
      * @param value The new value for description
      */
     public void setDescription(@Nullable String value) { this.description = value; }
-    /**
-     * The date when work on this Task is planned to begin.
-     *
-     * This value contains only the date in year-month-day format. For display, this
-     * date will always be shown as this same year-month-day regardless of time zone.
-     *
-     * @return The field plannedStartDate
-     */
-    public @Nullable String getPlannedStartDate() { return this.plannedStartDate; }
-    /**
-     * The date when work on this Task is planned to begin.
-     *
-     * This value contains only the date in year-month-day format. For display, this
-     * date will always be shown as this same year-month-day regardless of time zone.
-     *
-     * @param value The new value for plannedStartDate
-     */
-    public void setPlannedStartDate(@Nullable String value) { this.plannedStartDate = value; }
-    /**
-     * The date when work on this Task is expected to complete.
-     *
-     * This value contains only the date in year-month-day format. For display, this
-     * date will always be shown as this same year-month-day regardless of time zone.
-     *
-     * @return The field plannedFinishDate
-     */
-    public @Nullable String getPlannedFinishDate() { return this.plannedFinishDate; }
-    /**
-     * The date when work on this Task is expected to complete.
-     *
-     * This value contains only the date in year-month-day format. For display, this
-     * date will always be shown as this same year-month-day regardless of time zone.
-     *
-     * @param value The new value for plannedFinishDate
-     */
-    public void setPlannedFinishDate(@Nullable String value) { this.plannedFinishDate = value; }
     /**
      * Return the priority of a task
      *
@@ -151,17 +119,77 @@ public class NptUpdateDto
      */
     public void setStatusId(@Nullable String value) { this.statusId = value; }
     /**
-     * If specified, replaces the list of resources assigned to this npt.
+     * The date when work on this Task is planned to begin.
      *
-     * @return The field assignees
+     * This value contains only the date in year-month-day format. For display, this
+     * date will always be shown as this same year-month-day regardless of time zone.
+     *
+     * @return The field plannedStartDate
      */
-    public @Nullable String[] getAssignees() { return this.assignees; }
+    public @Nullable String getPlannedStartDate() { return this.plannedStartDate; }
     /**
-     * If specified, replaces the list of resources assigned to this npt.
+     * The date when work on this Task is planned to begin.
      *
-     * @param value The new value for assignees
+     * This value contains only the date in year-month-day format. For display, this
+     * date will always be shown as this same year-month-day regardless of time zone.
+     *
+     * @param value The new value for plannedStartDate
      */
-    public void setAssignees(@Nullable String[] value) { this.assignees = value; }
+    public void setPlannedStartDate(@Nullable String value) { this.plannedStartDate = value; }
+    /**
+     * The date when work on this Task is expected to complete.
+     *
+     * This value contains only the date in year-month-day format. For display, this
+     * date will always be shown as this same year-month-day regardless of time zone.
+     *
+     * @return The field plannedFinishDate
+     */
+    public @Nullable String getPlannedFinishDate() { return this.plannedFinishDate; }
+    /**
+     * The date when work on this Task is expected to complete.
+     *
+     * This value contains only the date in year-month-day format. For display, this
+     * date will always be shown as this same year-month-day regardless of time zone.
+     *
+     * @param value The new value for plannedFinishDate
+     */
+    public void setPlannedFinishDate(@Nullable String value) { this.plannedFinishDate = value; }
+    /**
+     * The planned duration (in minutes) for this Task.  Cannot be negative.
+     *
+     * @return The field plannedDuration
+     */
+    public @Nullable Integer getPlannedDuration() { return this.plannedDuration; }
+    /**
+     * The planned duration (in minutes) for this Task.  Cannot be negative.
+     *
+     * @param value The new value for plannedDuration
+     */
+    public void setPlannedDuration(@Nullable Integer value) { this.plannedDuration = value; }
+    /**
+     * The planned effort (in minutes) for this Task.  Cannot be negative.
+     *
+     * @return The field plannedEffort
+     */
+    public @Nullable Integer getPlannedEffort() { return this.plannedEffort; }
+    /**
+     * The planned effort (in minutes) for this Task.  Cannot be negative.
+     *
+     * @param value The new value for plannedEffort
+     */
+    public void setPlannedEffort(@Nullable Integer value) { this.plannedEffort = value; }
+    /**
+     * The planned cost for this Task.  Cannot be negative.
+     *
+     * @return The field plannedCost
+     */
+    public @Nullable Double getPlannedCost() { return this.plannedCost; }
+    /**
+     * The planned cost for this Task.  Cannot be negative.
+     *
+     * @param value The new value for plannedCost
+     */
+    public void setPlannedCost(@Nullable Double value) { this.plannedCost = value; }
     /**
      * If set, this is the actual date when work began on the Task.
      *
@@ -227,17 +255,17 @@ public class NptUpdateDto
      */
     public void setActualFinishDate(@Nullable String value) { this.actualFinishDate = value; }
     /**
-     * The planned cost for this Task.  Cannot be negative.
+     * The actual duration (in minutes) for this Task.  Cannot be negative.
      *
-     * @return The field plannedCost
+     * @return The field actualDuration
      */
-    public @Nullable Double getPlannedCost() { return this.plannedCost; }
+    public @Nullable Integer getActualDuration() { return this.actualDuration; }
     /**
-     * The planned cost for this Task.  Cannot be negative.
+     * The actual duration (in minutes) for this Task.  Cannot be negative.
      *
-     * @param value The new value for plannedCost
+     * @param value The new value for actualDuration
      */
-    public void setPlannedCost(@Nullable Double value) { this.plannedCost = value; }
+    public void setActualDuration(@Nullable Integer value) { this.actualDuration = value; }
     /**
      * If set, this represents the actual tracked cost for this Task.
      *
@@ -250,4 +278,38 @@ public class NptUpdateDto
      * @param value The new value for actualCost
      */
     public void setActualCost(@Nullable Double value) { this.actualCost = value; }
+    /**
+     * If specified, replaces the list of resources assigned to this npt.
+     *
+     * @return The field assignees
+     */
+    public @Nullable String[] getAssignees() { return this.assignees; }
+    /**
+     * If specified, replaces the list of resources assigned to this npt.
+     *
+     * @param value The new value for assignees
+     */
+    public void setAssignees(@Nullable String[] value) { this.assignees = value; }
+    /**
+     * Indicates whether this task participates in a recurring series.
+     * true if the task is part of a recurrence (series parent when is, or a child otherwise);
+     * false if it is a standalone task.
+     * When saved as false during an update, the service layer detaches the task
+     * from its series, which clears parent/child relationships including
+     * and recurringSettings.
+     *
+     * @return The field recurring
+     */
+    public @Nullable Boolean getRecurring() { return this.recurring; }
+    /**
+     * Indicates whether this task participates in a recurring series.
+     * true if the task is part of a recurrence (series parent when is, or a child otherwise);
+     * false if it is a standalone task.
+     * When saved as false during an update, the service layer detaches the task
+     * from its series, which clears parent/child relationships including
+     * and recurringSettings.
+     *
+     * @param value The new value for recurring
+     */
+    public void setRecurring(@Nullable Boolean value) { this.recurring = value; }
 };

@@ -26,6 +26,7 @@ import com.projectmanager.models.ChangeSetStatusDto;
 
 import com.projectmanager.models.AssigneeUpsertDto;
 import com.projectmanager.models.IdDto;
+import com.projectmanager.models.AssigneeDto;
 
 /**
  * Contains all methods related to TaskAssignee
@@ -102,5 +103,21 @@ public class TaskAssigneeClient
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
+    }
+
+    /**
+     * Returns list of assignees.
+     *
+     * A TaskAssignee is an assignment of a Resource to a Task.  You can assign multiple Resources
+     * to a Task and designate what proportion of their time will be allocated to this Task.
+     *
+     * @param taskId The unique identifier of the Task
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<AssigneeDto[]> returnstaskassignees(@NotNull String taskId)
+    {
+        RestRequest<AssigneeDto[]> r = new RestRequest<AssigneeDto[]>(this.client, "GET", "/api/data/tasks/{taskId}/assignees");
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
+        return r.Call(new TypeToken<AstroResult<AssigneeDto[]>>() {}.getType());
     }
 }

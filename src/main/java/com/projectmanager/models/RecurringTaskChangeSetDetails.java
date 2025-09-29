@@ -24,6 +24,7 @@ import org.jetbrains.annotations.Nullable;
 public class RecurringTaskChangeSetDetails
 {
     private @NotNull String[] taskIds;
+    private @Nullable String changeSetId;
 
     /**
      * The created Task Ids
@@ -37,4 +38,16 @@ public class RecurringTaskChangeSetDetails
      * @param value The new value for taskIds
      */
     public void setTaskIds(@NotNull String[] value) { this.taskIds = value; }
+    /**
+     * The ChangeSet Id
+     *
+     * @return The field changeSetId
+     */
+    public @Nullable String getChangeSetId() { return this.changeSetId; }
+    /**
+     * The ChangeSet Id
+     *
+     * @param value The new value for changeSetId
+     */
+    public void setChangeSetId(@Nullable String value) { this.changeSetId = value; }
 };
