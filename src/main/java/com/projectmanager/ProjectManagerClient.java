@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2025 ProjectManager.com, Inc.
- * @version    141.1.156
+ * @version    142.0.226
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -32,6 +32,7 @@ import com.projectmanager.clients.NotificationClient;
 import com.projectmanager.clients.NptClient;
 import com.projectmanager.clients.NptDiscussionClient;
 import com.projectmanager.clients.NptFilesClient;
+import com.projectmanager.clients.NptRecurrencyClient;
 import com.projectmanager.clients.NptStatusClient;
 import com.projectmanager.clients.NptTagClient;
 import com.projectmanager.clients.NptTodosClient;
@@ -93,6 +94,7 @@ public class ProjectManagerClient {
     private NptClient npt;
     private NptDiscussionClient nptDiscussion;
     private NptFilesClient nptFiles;
+    private NptRecurrencyClient nptRecurrency;
     private NptStatusClient nptStatus;
     private NptTagClient nptTag;
     private NptTodosClient nptTodos;
@@ -147,6 +149,7 @@ public class ProjectManagerClient {
         this.npt = new NptClient(this);
         this.nptDiscussion = new NptDiscussionClient(this);
         this.nptFiles = new NptFilesClient(this);
+        this.nptRecurrency = new NptRecurrencyClient(this);
         this.nptStatus = new NptStatusClient(this);
         this.nptTag = new NptTagClient(this);
         this.nptTodos = new NptTodosClient(this);
@@ -278,6 +281,12 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.NptFilesClient client} methods in the API.
      */
     public @NotNull NptFilesClient getNptFilesClient() { return this.nptFiles; }
+    /**
+     * A collection of API methods relating to NptRecurrency
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.NptRecurrencyClient client} methods in the API.
+     */
+    public @NotNull NptRecurrencyClient getNptRecurrencyClient() { return this.nptRecurrency; }
     /**
      * A collection of API methods relating to NptStatus
      *

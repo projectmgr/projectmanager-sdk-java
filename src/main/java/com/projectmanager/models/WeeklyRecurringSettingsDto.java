@@ -25,7 +25,7 @@ public class WeeklyRecurringSettingsDto
 {
     private @Nullable String recurringEndDate;
     private @Nullable Integer endAfterNumberOfOccurences;
-    private @NotNull Integer repeatOnEveryNumberOfWeeks;
+    private @Nullable Integer repeatOnEveryNumberOfWeeks;
     private @NotNull Integer[] repeatWeekDays;
 
     /**
@@ -57,13 +57,13 @@ public class WeeklyRecurringSettingsDto
      *
      * @return The field repeatOnEveryNumberOfWeeks
      */
-    public @NotNull Integer getRepeatOnEveryNumberOfWeeks() { return this.repeatOnEveryNumberOfWeeks; }
+    public @Nullable Integer getRepeatOnEveryNumberOfWeeks() { return this.repeatOnEveryNumberOfWeeks; }
     /**
      * RepeatOnEveryNumberOfWeeks
      *
      * @param value The new value for repeatOnEveryNumberOfWeeks
      */
-    public void setRepeatOnEveryNumberOfWeeks(@NotNull Integer value) { this.repeatOnEveryNumberOfWeeks = value; }
+    public void setRepeatOnEveryNumberOfWeeks(@Nullable Integer value) { this.repeatOnEveryNumberOfWeeks = value; }
     /**
      * RepeatWeekDays
      *

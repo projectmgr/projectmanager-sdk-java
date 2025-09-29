@@ -64,6 +64,19 @@ public class TaskDetailsDto
     private @Nullable String parentTaskId;
     private @Nullable Integer childTaskCount;
     private @Nullable String parentTaskName;
+    private @Nullable String ownerId;
+    private @Nullable TaskOwnerDto owner;
+    private @Nullable Boolean recurring;
+    private @Nullable String recurringParentTaskId;
+    private @Nullable RecurringTaskSettingsDto recurringSettings;
+    private @Nullable String approvalStatus;
+    private @Nullable String approvalStatusModifiedBy;
+    private @Nullable String approvalStatusModifiedDate;
+    private @Nullable String approvalLastReminderDate;
+    private @Nullable DiscussionDataDto discussionData;
+    private @Nullable FileDataDto fileData;
+    private @Nullable TaskReferenceDto[] successors;
+    private @Nullable TaskReferenceDto[] predecessors;
 
     /**
      * The unique identifier of this Task.
@@ -695,4 +708,160 @@ public class TaskDetailsDto
      * @param value The new value for parentTaskName
      */
     public void setParentTaskName(@Nullable String value) { this.parentTaskName = value; }
+    /**
+     * The ownerId of this Task.
+     *
+     * @return The field ownerId
+     */
+    public @Nullable String getOwnerId() { return this.ownerId; }
+    /**
+     * The ownerId of this Task.
+     *
+     * @param value The new value for ownerId
+     */
+    public void setOwnerId(@Nullable String value) { this.ownerId = value; }
+    /**
+     * The owner of this Task.
+     *
+     * @return The field owner
+     */
+    public @Nullable TaskOwnerDto getOwner() { return this.owner; }
+    /**
+     * The owner of this Task.
+     *
+     * @param value The new value for owner
+     */
+    public void setOwner(@Nullable TaskOwnerDto value) { this.owner = value; }
+    /**
+     * If this is a recurring task
+     *
+     * @return The field recurring
+     */
+    public @Nullable Boolean getRecurring() { return this.recurring; }
+    /**
+     * If this is a recurring task
+     *
+     * @param value The new value for recurring
+     */
+    public void setRecurring(@Nullable Boolean value) { this.recurring = value; }
+    /**
+     * The parent task in the recurring task sequence
+     *
+     * @return The field recurringParentTaskId
+     */
+    public @Nullable String getRecurringParentTaskId() { return this.recurringParentTaskId; }
+    /**
+     * The parent task in the recurring task sequence
+     *
+     * @param value The new value for recurringParentTaskId
+     */
+    public void setRecurringParentTaskId(@Nullable String value) { this.recurringParentTaskId = value; }
+    /**
+     * The Task Recurrency settings
+     *
+     * @return The field recurringSettings
+     */
+    public @Nullable RecurringTaskSettingsDto getRecurringSettings() { return this.recurringSettings; }
+    /**
+     * The Task Recurrency settings
+     *
+     * @param value The new value for recurringSettings
+     */
+    public void setRecurringSettings(@Nullable RecurringTaskSettingsDto value) { this.recurringSettings = value; }
+    /**
+     * The Task Approval Status
+     *
+     * @return The field approvalStatus
+     */
+    public @Nullable String getApprovalStatus() { return this.approvalStatus; }
+    /**
+     * The Task Approval Status
+     *
+     * @param value The new value for approvalStatus
+     */
+    public void setApprovalStatus(@Nullable String value) { this.approvalStatus = value; }
+    /**
+     * The UserId who last changed the approval status
+     *
+     * @return The field approvalStatusModifiedBy
+     */
+    public @Nullable String getApprovalStatusModifiedBy() { return this.approvalStatusModifiedBy; }
+    /**
+     * The UserId who last changed the approval status
+     *
+     * @param value The new value for approvalStatusModifiedBy
+     */
+    public void setApprovalStatusModifiedBy(@Nullable String value) { this.approvalStatusModifiedBy = value; }
+    /**
+     * When the approval status was last changed
+     *
+     * @return The field approvalStatusModifiedDate
+     */
+    public @Nullable String getApprovalStatusModifiedDate() { return this.approvalStatusModifiedDate; }
+    /**
+     * When the approval status was last changed
+     *
+     * @param value The new value for approvalStatusModifiedDate
+     */
+    public void setApprovalStatusModifiedDate(@Nullable String value) { this.approvalStatusModifiedDate = value; }
+    /**
+     * the last Reminder date for the approval
+     *
+     * @return The field approvalLastReminderDate
+     */
+    public @Nullable String getApprovalLastReminderDate() { return this.approvalLastReminderDate; }
+    /**
+     * the last Reminder date for the approval
+     *
+     * @param value The new value for approvalLastReminderDate
+     */
+    public void setApprovalLastReminderDate(@Nullable String value) { this.approvalLastReminderDate = value; }
+    /**
+     * Task discussion data - number of comments, last read time
+     *
+     * @return The field discussionData
+     */
+    public @Nullable DiscussionDataDto getDiscussionData() { return this.discussionData; }
+    /**
+     * Task discussion data - number of comments, last read time
+     *
+     * @param value The new value for discussionData
+     */
+    public void setDiscussionData(@Nullable DiscussionDataDto value) { this.discussionData = value; }
+    /**
+     * Task file data - number of files, last read time
+     *
+     * @return The field fileData
+     */
+    public @Nullable FileDataDto getFileData() { return this.fileData; }
+    /**
+     * Task file data - number of files, last read time
+     *
+     * @param value The new value for fileData
+     */
+    public void setFileData(@Nullable FileDataDto value) { this.fileData = value; }
+    /**
+     * Represents a collection of tasks that should execute after the current task
+     *
+     * @return The field successors
+     */
+    public @Nullable TaskReferenceDto[] getSuccessors() { return this.successors; }
+    /**
+     * Represents a collection of tasks that should execute after the current task
+     *
+     * @param value The new value for successors
+     */
+    public void setSuccessors(@Nullable TaskReferenceDto[] value) { this.successors = value; }
+    /**
+     * Represents a collection of tasks that should execute before the current task
+     *
+     * @return The field predecessors
+     */
+    public @Nullable TaskReferenceDto[] getPredecessors() { return this.predecessors; }
+    /**
+     * Represents a collection of tasks that should execute before the current task
+     *
+     * @param value The new value for predecessors
+     */
+    public void setPredecessors(@Nullable TaskReferenceDto[] value) { this.predecessors = value; }
 };

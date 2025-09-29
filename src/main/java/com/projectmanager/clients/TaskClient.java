@@ -140,6 +140,19 @@ public class TaskClient
     }
 
     /**
+     * Fetch the first level child tasks from the task
+     *
+     * @param taskId Parent task id
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<TaskDto[]> fetchthefirstlevelchildtasksfromthetask(@NotNull String taskId)
+    {
+        RestRequest<TaskDto[]> r = new RestRequest<TaskDto[]>(this.client, "GET", "/api/data/tasks/{taskId}/subtasks");
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
+        return r.Call(new TypeToken<AstroResult<TaskDto[]>>() {}.getType());
+    }
+
+    /**
      * Create a new Task within a specified project.
      *
      * A Task is an individual element of work that must be performed to complete a Project.  A
