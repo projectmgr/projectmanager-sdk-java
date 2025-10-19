@@ -25,6 +25,7 @@ public class AssigneeDto
 {
     private @NotNull String resourceId;
     private @Nullable Double percentAssignment;
+    private @NotNull Integer assignedEffort;
 
     /**
      * Assignee resource id
@@ -50,4 +51,16 @@ public class AssigneeDto
      * @param value The new value for percentAssignment
      */
     public void setPercentAssignment(@Nullable Double value) { this.percentAssignment = value; }
+    /**
+     * Effort assigned to the resource for the task.
+     *
+     * @return The field assignedEffort
+     */
+    public @NotNull Integer getAssignedEffort() { return this.assignedEffort; }
+    /**
+     * Effort assigned to the resource for the task.
+     *
+     * @param value The new value for assignedEffort
+     */
+    public void setAssignedEffort(@NotNull Integer value) { this.assignedEffort = value; }
 };

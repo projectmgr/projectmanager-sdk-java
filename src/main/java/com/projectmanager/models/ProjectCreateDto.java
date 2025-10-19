@@ -50,6 +50,7 @@ public class ProjectCreateDto
     private @Nullable TaskStatusCreateDto[] taskStatusCreate;
     private @Nullable ProjectWorkingDaysDto workingDays;
     private @Nullable String externalReferenceId;
+    private @Nullable Boolean weekStartsOnMonday;
 
     /**
      * The name of the Project.
@@ -375,4 +376,20 @@ public class ProjectCreateDto
      * @param value The new value for externalReferenceId
      */
     public void setExternalReferenceId(@Nullable String value) { this.externalReferenceId = value; }
+    /**
+     * Controls which day is considered the first day of the week for this project.
+     * If not specified, this will be Sunday in the US and Monday everywhere else.
+     * If true, the week starts on Monday. If false, the week starts on Sunday.
+     *
+     * @return The field weekStartsOnMonday
+     */
+    public @Nullable Boolean getWeekStartsOnMonday() { return this.weekStartsOnMonday; }
+    /**
+     * Controls which day is considered the first day of the week for this project.
+     * If not specified, this will be Sunday in the US and Monday everywhere else.
+     * If true, the week starts on Monday. If false, the week starts on Sunday.
+     *
+     * @param value The new value for weekStartsOnMonday
+     */
+    public void setWeekStartsOnMonday(@Nullable Boolean value) { this.weekStartsOnMonday = value; }
 };

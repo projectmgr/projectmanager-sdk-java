@@ -26,7 +26,7 @@ import org.jetbrains.annotations.Nullable;
 public class AssigneeUpsertDto
 {
     private @NotNull String id;
-    private @NotNull Integer assignedEffort;
+    private @Nullable Integer assignedEffort;
 
     /**
      * The unique identifier of the TaskAssignee to which work is being assigned.
@@ -42,14 +42,18 @@ public class AssigneeUpsertDto
     public void setId(@NotNull String value) { this.id = value; }
     /**
      * The new amount of effort to assign for this Resource. This value is measured in minutes.
+     * If AssignedEffort is null, we try either use the existing AssignedEffort (if there is one),
+     * or the Default Planned Effort.
      *
      * @return The field assignedEffort
      */
-    public @NotNull Integer getAssignedEffort() { return this.assignedEffort; }
+    public @Nullable Integer getAssignedEffort() { return this.assignedEffort; }
     /**
      * The new amount of effort to assign for this Resource. This value is measured in minutes.
+     * If AssignedEffort is null, we try either use the existing AssignedEffort (if there is one),
+     * or the Default Planned Effort.
      *
      * @param value The new value for assignedEffort
      */
-    public void setAssignedEffort(@NotNull Integer value) { this.assignedEffort = value; }
+    public void setAssignedEffort(@Nullable Integer value) { this.assignedEffort = value; }
 };
