@@ -33,6 +33,7 @@ public class TimesheetDto
     private @NotNull String date;
     private @Nullable String notes;
     private @NotNull Boolean approved;
+    private @NotNull Integer approvalStatusId;
     private @NotNull Double hours;
     private @NotNull Integer minutes;
     private @NotNull String modifiedDate;
@@ -135,6 +136,26 @@ public class TimesheetDto
      * @param value The new value for approved
      */
     public void setApproved(@NotNull Boolean value) { this.approved = value; }
+    /**
+     * Approval status of the timesheet entry.
+     * 1 = New (not submitted for approval)
+     * 2 = Submitted (submitted for approval, pending review)
+     * 3 = Approved (approved by the approver)
+     * 4 = Declined (declined by the approver)
+     *
+     * @return The field approvalStatusId
+     */
+    public @NotNull Integer getApprovalStatusId() { return this.approvalStatusId; }
+    /**
+     * Approval status of the timesheet entry.
+     * 1 = New (not submitted for approval)
+     * 2 = Submitted (submitted for approval, pending review)
+     * 3 = Approved (approved by the approver)
+     * 4 = Declined (declined by the approver)
+     *
+     * @param value The new value for approvalStatusId
+     */
+    public void setApprovalStatusId(@NotNull Integer value) { this.approvalStatusId = value; }
     /**
      * Total Hours spent on this Task by this Resource on this specific Date
      *

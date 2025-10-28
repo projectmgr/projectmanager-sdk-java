@@ -34,6 +34,8 @@ public class ProjectTemplateDto
     private @NotNull Integer order;
     private @NotNull Boolean isCustom;
     private @NotNull String defaultView;
+    private @NotNull String ownerId;
+    private @NotNull String createDate;
 
     /**
      * The unique identifier of this ProjectTemplate.
@@ -161,4 +163,28 @@ public class ProjectTemplateDto
      * @param value The new value for defaultView
      */
     public void setDefaultView(@NotNull String value) { this.defaultView = value; }
+    /**
+     * Used for custom templates - the template owner
+     *
+     * @return The field ownerId
+     */
+    public @NotNull String getOwnerId() { return this.ownerId; }
+    /**
+     * Used for custom templates - the template owner
+     *
+     * @param value The new value for ownerId
+     */
+    public void setOwnerId(@NotNull String value) { this.ownerId = value; }
+    /**
+     * User for custom templates - when was it created?
+     *
+     * @return The field createDate
+     */
+    public @NotNull String getCreateDate() { return this.createDate; }
+    /**
+     * User for custom templates - when was it created?
+     *
+     * @param value The new value for createDate
+     */
+    public void setCreateDate(@NotNull String value) { this.createDate = value; }
 };
