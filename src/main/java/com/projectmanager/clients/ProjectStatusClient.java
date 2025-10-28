@@ -23,6 +23,7 @@ import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.ProjectStatusDto;
+import com.projectmanager.models.ProjectStatusCreateDto;
 
 /**
  * Contains all methods related to ProjectStatus
@@ -54,5 +55,18 @@ public class ProjectStatusClient
     {
         RestRequest<ProjectStatusDto[]> r = new RestRequest<ProjectStatusDto[]>(this.client, "GET", "/api/data/projects/statuses");
         return r.Call(new TypeToken<AstroResult<ProjectStatusDto[]>>() {}.getType());
+    }
+
+    /**
+     * Create a project Status
+     *
+     * @param body The data to create the Status
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ProjectStatusDto> createProjectStatus(@NotNull ProjectStatusCreateDto body)
+    {
+        RestRequest<ProjectStatusDto> r = new RestRequest<ProjectStatusDto>(this.client, "POST", "/api/data/projects/statuses");
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<ProjectStatusDto>>() {}.getType());
     }
 }

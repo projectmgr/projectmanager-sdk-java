@@ -27,6 +27,7 @@ public class ProjectChargeCodeDto
 {
     private @NotNull String id;
     private @NotNull String name;
+    private @NotNull Boolean isActive;
 
     /**
      * The unique identifier of this ChargeCode
@@ -52,4 +53,16 @@ public class ProjectChargeCodeDto
      * @param value The new value for name
      */
     public void setName(@NotNull String value) { this.name = value; }
+    /**
+     * Status of Charge Code
+     *
+     * @return The field isActive
+     */
+    public @NotNull Boolean getIsActive() { return this.isActive; }
+    /**
+     * Status of Charge Code
+     *
+     * @param value The new value for isActive
+     */
+    public void setIsActive(@NotNull Boolean value) { this.isActive = value; }
 };

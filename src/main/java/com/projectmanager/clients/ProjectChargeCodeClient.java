@@ -23,6 +23,7 @@ import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.ProjectChargeCodeDto;
+import com.projectmanager.models.ProjectChargeCodeCreateDto;
 
 /**
  * Contains all methods related to ProjectChargeCode
@@ -54,5 +55,18 @@ public class ProjectChargeCodeClient
     {
         RestRequest<ProjectChargeCodeDto[]> r = new RestRequest<ProjectChargeCodeDto[]>(this.client, "GET", "/api/data/projects/chargecodes");
         return r.Call(new TypeToken<AstroResult<ProjectChargeCodeDto[]>>() {}.getType());
+    }
+
+    /**
+     * Create a project charge code
+     *
+     * @param body The data to create the charge code
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ProjectChargeCodeDto> createProjectChargeCode(@NotNull ProjectChargeCodeCreateDto body)
+    {
+        RestRequest<ProjectChargeCodeDto> r = new RestRequest<ProjectChargeCodeDto>(this.client, "POST", "/api/data/projects/chargecodes");
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<ProjectChargeCodeDto>>() {}.getType());
     }
 }
