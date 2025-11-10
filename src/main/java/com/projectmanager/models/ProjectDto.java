@@ -57,6 +57,7 @@ public class ProjectDto
     private @Nullable Integer percentComplete;
     private @NotNull Boolean updatePlannedWithActual;
     private @Nullable String externalReferenceId;
+    private @Nullable String ownerId;
 
     /**
      * The unique identifier of the Project.  This value is set by the system and cannot
@@ -552,4 +553,18 @@ public class ProjectDto
      * @param value The new value for externalReferenceId
      */
     public void setExternalReferenceId(@Nullable String value) { this.externalReferenceId = value; }
+    /**
+     * Represents the unique identifier of the owner associated with the Project.
+     * This may be used to identify the user or entity responsible for the Project.
+     *
+     * @return The field ownerId
+     */
+    public @Nullable String getOwnerId() { return this.ownerId; }
+    /**
+     * Represents the unique identifier of the owner associated with the Project.
+     * This may be used to identify the user or entity responsible for the Project.
+     *
+     * @param value The new value for ownerId
+     */
+    public void setOwnerId(@Nullable String value) { this.ownerId = value; }
 };

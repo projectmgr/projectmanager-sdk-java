@@ -19,22 +19,22 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * A Charge Code is a code used to identify costs within your Projects.  Each
- * Charge Code has a name and a unique identifier.  ChargeCodes are defined per
+ * A ProjectStatus is a code used to identify costs within your Projects.  Each
+ * ProjectStatus has a name and a unique identifier.  Status are defined per
  * Workspace and are shared among Projects.
  */
-public class ProjectChargeCodeCreateDto
+public class ProjectStatusUpdateDto
 {
     private @NotNull String name;
 
     /**
-     * The name of this Charge Code
+     * The name of this ProjectStatus
      *
      * @return The field name
      */
     public @NotNull String getName() { return this.name; }
     /**
-     * The name of this Charge Code
+     * The name of this ProjectStatus
      *
      * @param value The new value for name
      */

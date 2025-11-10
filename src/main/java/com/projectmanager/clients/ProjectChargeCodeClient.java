@@ -25,6 +25,8 @@ import com.projectmanager.AstroResult;
 import com.projectmanager.models.ProjectChargeCodeDto;
 import com.projectmanager.models.ProjectChargeCodeCreateDto;
 
+import com.projectmanager.models.ProjectChargeCodeUpdateDto;
+
 /**
  * Contains all methods related to ProjectChargeCode
  */
@@ -68,5 +70,33 @@ public class ProjectChargeCodeClient
         RestRequest<ProjectChargeCodeDto> r = new RestRequest<ProjectChargeCodeDto>(this.client, "POST", "/api/data/projects/chargecodes");
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ProjectChargeCodeDto>>() {}.getType());
+    }
+
+    /**
+     * Update a project charge code
+     *
+     * @param chargeCodeId The id of the charge code
+     * @param body The data to update the charge code
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ProjectChargeCodeDto> updateProjectChargeCode(@NotNull String chargeCodeId, @NotNull ProjectChargeCodeUpdateDto body)
+    {
+        RestRequest<ProjectChargeCodeDto> r = new RestRequest<ProjectChargeCodeDto>(this.client, "PUT", "/api/data/projects/chargecodes/{chargeCodeId}");
+        r.AddPath("{chargeCodeId}", chargeCodeId == null ? "" : chargeCodeId.toString());
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<ProjectChargeCodeDto>>() {}.getType());
+    }
+
+    /**
+     * Delete a project charge code
+     *
+     * @param chargeCodeId The id of the charge code
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<Object> deleteProjectChargeCode(@NotNull String chargeCodeId)
+    {
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/chargecodes/{chargeCodeId}");
+        r.AddPath("{chargeCodeId}", chargeCodeId == null ? "" : chargeCodeId.toString());
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

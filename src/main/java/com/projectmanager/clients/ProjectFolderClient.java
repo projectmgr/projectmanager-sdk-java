@@ -23,6 +23,9 @@ import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.ProjectFolderDto;
+import com.projectmanager.models.ProjectFolderCreateDto;
+
+import com.projectmanager.models.ProjectFolderUpdateDto;
 
 /**
  * Contains all methods related to ProjectFolder
@@ -52,5 +55,46 @@ public class ProjectFolderClient
     {
         RestRequest<ProjectFolderDto[]> r = new RestRequest<ProjectFolderDto[]>(this.client, "GET", "/api/data/project-folders");
         return r.Call(new TypeToken<AstroResult<ProjectFolderDto[]>>() {}.getType());
+    }
+
+    /**
+     * Create a project folder
+     *
+     * @param body The data to create the folder
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ProjectFolderDto> createProjectFolder(@NotNull ProjectFolderCreateDto body)
+    {
+        RestRequest<ProjectFolderDto> r = new RestRequest<ProjectFolderDto>(this.client, "POST", "/api/data/project-folders");
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<ProjectFolderDto>>() {}.getType());
+    }
+
+    /**
+     * Update a project folder
+     *
+     * @param projectFolderId The id of the folder
+     * @param body The data to update the folder
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ProjectFolderDto> updateProjectFolder(@NotNull String projectFolderId, @NotNull ProjectFolderUpdateDto body)
+    {
+        RestRequest<ProjectFolderDto> r = new RestRequest<ProjectFolderDto>(this.client, "PUT", "/api/data/project-folders/{projectFolderId}");
+        r.AddPath("{projectFolderId}", projectFolderId == null ? "" : projectFolderId.toString());
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<ProjectFolderDto>>() {}.getType());
+    }
+
+    /**
+     * Delete a project folder
+     *
+     * @param projectFolderId The id of the folder
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<Object> deleteProjectFolder(@NotNull String projectFolderId)
+    {
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/project-folders/{projectFolderId}");
+        r.AddPath("{projectFolderId}", projectFolderId == null ? "" : projectFolderId.toString());
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }
