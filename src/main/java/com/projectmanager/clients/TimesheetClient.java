@@ -50,12 +50,27 @@ public class TimesheetClient
     }
 
     /**
-     * Creates new time entry for given resource on given day.
+     * Creates new time entry for Resource on a given day.
      *
-     * @param body Payload
+     * A Timesheet is a collection of time entries for a particular Resource for a specific week.  Each time
+     * entry records the number of whole minutes spent by this Resource on an activity. An activity can be a Task
+     * in any project that Resource can access, or the activity can be an administrative task such as "Sick
+     * Leave" or "Meetings".  When a time entry is linked to a Task, the number of minutes spent on the time entry
+     * are recorded as time spent on the Task.  Time entries linked to an administrative tasks are grouped for
+     * reporting but are not added to any Task within your Workspace.
+     *
+     * Time entries are recorded in whole minutes.  If you specify a time entry in fractional hours, either using
+     * the API or via the web application, the amount you specify will be converted to minutes and rounded to the
+     * nearest neighbor using the rounding algorithm Midpoint-Away-From-Zero.
+     *
+     * When a Timesheet is submitted for approval or approved, users are no longer permitted to create, update, or
+     * delete time entries for that week.  Users with Global Admin level access can override this restriction and
+     * continue to make changes to a Timesheet after approval.
+     *
+     * @param body The time entry you wish to create
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TimesheetResponseDto> createtimeentry(@NotNull TimesheetCreateRequestDto body)
+    public @NotNull AstroResult<TimesheetResponseDto> createTimeEntry(@NotNull TimesheetCreateRequestDto body)
     {
         RestRequest<TimesheetResponseDto> r = new RestRequest<TimesheetResponseDto>(this.client, "POST", "/api/data/timesheets");
         if (body != null) { r.AddBody(body); }
@@ -63,9 +78,22 @@ public class TimesheetClient
     }
 
     /**
-     * Retrieve a list of TimeSheets that match an [OData formatted query](https://www.odata.org/).
+     * Retrieve a list of time entries that match an [OData formatted query](https://www.odata.org/).
      *
-     * Time Sheets is a list of times per task
+     * A Timesheet is a collection of time entries for a particular Resource for a specific week.  Each time
+     * entry records the number of whole minutes spent by this Resource on an activity. An activity can be a Task
+     * in any project that Resource can access, or the activity can be an administrative task such as "Sick
+     * Leave" or "Meetings".  When a time entry is linked to a Task, the number of minutes spent on the time entry
+     * are recorded as time spent on the Task.  Time entries linked to an administrative tasks are grouped for
+     * reporting but are not added to any Task within your Workspace.
+     *
+     * Time entries are recorded in whole minutes.  If you specify a time entry in fractional hours, either using
+     * the API or via the web application, the amount you specify will be converted to minutes and rounded to the
+     * nearest neighbor using the rounding algorithm Midpoint-Away-From-Zero.
+     *
+     * When a Timesheet is submitted for approval or approved, users are no longer permitted to create, update, or
+     * delete time entries for that week.  Users with Global Admin level access can override this restriction and
+     * continue to make changes to a Timesheet after approval.
      *
      * @param top The number of records to return
      * @param skip Skips the given number of records and then returns $top records
@@ -74,7 +102,7 @@ public class TimesheetClient
      * @param expand Include related data in the response
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TimesheetDto[]> queryTimeSheets(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String orderby, @Nullable String expand)
+    public @NotNull AstroResult<TimesheetDto[]> queryTimeEntries(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String orderby, @Nullable String expand)
     {
         RestRequest<TimesheetDto[]> r = new RestRequest<TimesheetDto[]>(this.client, "GET", "/api/data/timesheets");
         if (top != null) { r.AddQuery("$top", top.toString()); }
@@ -86,12 +114,27 @@ public class TimesheetClient
     }
 
     /**
-     * Delete time entry by id.
+     * Delete time entry by its unique identifier.
      *
-     * @param timesheetId time entry id
+     * A Timesheet is a collection of time entries for a particular Resource for a specific week.  Each time
+     * entry records the number of whole minutes spent by this Resource on an activity. An activity can be a Task
+     * in any project that Resource can access, or the activity can be an administrative task such as "Sick
+     * Leave" or "Meetings".  When a time entry is linked to a Task, the number of minutes spent on the time entry
+     * are recorded as time spent on the Task.  Time entries linked to an administrative tasks are grouped for
+     * reporting but are not added to any Task within your Workspace.
+     *
+     * Time entries are recorded in whole minutes.  If you specify a time entry in fractional hours, either using
+     * the API or via the web application, the amount you specify will be converted to minutes and rounded to the
+     * nearest neighbor using the rounding algorithm Midpoint-Away-From-Zero.
+     *
+     * When a Timesheet is submitted for approval or approved, users are no longer permitted to create, update, or
+     * delete time entries for that week.  Users with Global Admin level access can override this restriction and
+     * continue to make changes to a Timesheet after approval.
+     *
+     * @param timesheetId The unique identifier of the time entry to delete
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> deletetimeentry(@NotNull String timesheetId)
+    public @NotNull AstroResult<Object> deleteTimeEntry(@NotNull String timesheetId)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/timesheets/{timesheetId}");
         r.AddPath("{timesheetId}", timesheetId == null ? "" : timesheetId.toString());
@@ -101,11 +144,26 @@ public class TimesheetClient
     /**
      * Updates a time entry by its unique identifier.
      *
-     * @param timesheetId time entry id
-     * @param body payload
+     * A Timesheet is a collection of time entries for a particular Resource for a specific week.  Each time
+     * entry records the number of whole minutes spent by this Resource on an activity. An activity can be a Task
+     * in any project that Resource can access, or the activity can be an administrative task such as "Sick
+     * Leave" or "Meetings".  When a time entry is linked to a Task, the number of minutes spent on the time entry
+     * are recorded as time spent on the Task.  Time entries linked to an administrative tasks are grouped for
+     * reporting but are not added to any Task within your Workspace.
+     *
+     * Time entries are recorded in whole minutes.  If you specify a time entry in fractional hours, either using
+     * the API or via the web application, the amount you specify will be converted to minutes and rounded to the
+     * nearest neighbor using the rounding algorithm Midpoint-Away-From-Zero.
+     *
+     * When a Timesheet is submitted for approval or approved, users are no longer permitted to create, update, or
+     * delete time entries for that week.  Users with Global Admin level access can override this restriction and
+     * continue to make changes to a Timesheet after approval.
+     *
+     * @param timesheetId The unique identifier of the time entry to update
+     * @param body The new information that should replace the previous time entry
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TimesheetResponseDto> updatetimeentry(@NotNull String timesheetId, @NotNull TimesheetUpdateRequestDto body)
+    public @NotNull AstroResult<TimesheetResponseDto> updateTimeEntry(@NotNull String timesheetId, @NotNull TimesheetUpdateRequestDto body)
     {
         RestRequest<TimesheetResponseDto> r = new RestRequest<TimesheetResponseDto>(this.client, "PUT", "/api/data/timesheets/{timesheetId}");
         r.AddPath("{timesheetId}", timesheetId == null ? "" : timesheetId.toString());
@@ -114,23 +172,56 @@ public class TimesheetClient
     }
 
     /**
-     * Returns active admin tasks that are used to report time not related to work on projects. I.e. annual/sick leave etc
+     * Retrieves a list of Administrative Tasks that are defined for use within your Workspace.
+     *
+     * Administrative tasks are a list of regular, recurring non-Task actions that are typically associated with
+     * overhead, such as sick leave, travel, or attending meetings.
+     *
+     * A Timesheet is a collection of time entries for a particular Resource for a specific week.  Each time
+     * entry records the number of whole minutes spent by this Resource on an activity. An activity can be a Task
+     * in any project that Resource can access, or the activity can be an administrative task such as "Sick
+     * Leave" or "Meetings".  When a time entry is linked to a Task, the number of minutes spent on the time entry
+     * are recorded as time spent on the Task.  Time entries linked to an administrative tasks are grouped for
+     * reporting but are not added to any Task within your Workspace.
+     *
+     * Time entries are recorded in whole minutes.  If you specify a time entry in fractional hours, either using
+     * the API or via the web application, the amount you specify will be converted to minutes and rounded to the
+     * nearest neighbor using the rounding algorithm Midpoint-Away-From-Zero.
+     *
+     * When a Timesheet is submitted for approval or approved, users are no longer permitted to create, update, or
+     * delete time entries for that week.  Users with Global Admin level access can override this restriction and
+     * continue to make changes to a Timesheet after approval.
      *
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TimesheetAdminTypeDto[]> returnsactiveadmintasksthatareusedtoreporttime()
+    public @NotNull AstroResult<TimesheetAdminTypeDto[]> retrieveAdministrativeTasks()
     {
         RestRequest<TimesheetAdminTypeDto[]> r = new RestRequest<TimesheetAdminTypeDto[]>(this.client, "GET", "/api/data/timesheets/admin-tasks");
         return r.Call(new TypeToken<AstroResult<TimesheetAdminTypeDto[]>>() {}.getType());
     }
 
     /**
-     * Submit a timesheet for approval for a specific resource.
+     * Submit a Timesheet for approval for a specific Resource and week.
      *
-     * @param body The timesheet to be submitted for approval
+     * A Timesheet is a collection of time entries for a particular Resource for a specific week.  Each time
+     * entry records the number of whole minutes spent by this Resource on an activity. An activity can be a Task
+     * in any project that Resource can access, or the activity can be an administrative task such as "Sick
+     * Leave" or "Meetings".  When a time entry is linked to a Task, the number of minutes spent on the time entry
+     * are recorded as time spent on the Task.  Time entries linked to an administrative tasks are grouped for
+     * reporting but are not added to any Task within your Workspace.
+     *
+     * Time entries are recorded in whole minutes.  If you specify a time entry in fractional hours, either using
+     * the API or via the web application, the amount you specify will be converted to minutes and rounded to the
+     * nearest neighbor using the rounding algorithm Midpoint-Away-From-Zero.
+     *
+     * When a Timesheet is submitted for approval or approved, users are no longer permitted to create, update, or
+     * delete time entries for that week.  Users with Global Admin level access can override this restriction and
+     * continue to make changes to a Timesheet after approval.
+     *
+     * @param body The Timesheet to be submitted for approval
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TimeSheetApprovalResponseDto> submitResourceTimeSheetForApproval(@NotNull TimeSheetApprovalDto body)
+    public @NotNull AstroResult<TimeSheetApprovalResponseDto> submitTimeSheet(@NotNull TimeSheetApprovalDto body)
     {
         RestRequest<TimeSheetApprovalResponseDto> r = new RestRequest<TimeSheetApprovalResponseDto>(this.client, "POST", "/api/data/timesheets/approvals");
         if (body != null) { r.AddBody(body); }
@@ -138,12 +229,27 @@ public class TimesheetClient
     }
 
     /**
-     * Approve a timesheet approval request
+     * Approve an existing Timesheet approval request.
      *
-     * @param body The timesheet to approve
+     * A Timesheet is a collection of time entries for a particular Resource for a specific week.  Each time
+     * entry records the number of whole minutes spent by this Resource on an activity. An activity can be a Task
+     * in any project that Resource can access, or the activity can be an administrative task such as "Sick
+     * Leave" or "Meetings".  When a time entry is linked to a Task, the number of minutes spent on the time entry
+     * are recorded as time spent on the Task.  Time entries linked to an administrative tasks are grouped for
+     * reporting but are not added to any Task within your Workspace.
+     *
+     * Time entries are recorded in whole minutes.  If you specify a time entry in fractional hours, either using
+     * the API or via the web application, the amount you specify will be converted to minutes and rounded to the
+     * nearest neighbor using the rounding algorithm Midpoint-Away-From-Zero.
+     *
+     * When a Timesheet is submitted for approval or approved, users are no longer permitted to create, update, or
+     * delete time entries for that week.  Users with Global Admin level access can override this restriction and
+     * continue to make changes to a Timesheet after approval.
+     *
+     * @param body The Timesheet to approve
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TimeSheetApprovalResponseDto> approveResourceTimeSheetApprovalRequest(@NotNull TimeSheetApprovalDto body)
+    public @NotNull AstroResult<TimeSheetApprovalResponseDto> approveTimeSheet(@NotNull TimeSheetApprovalDto body)
     {
         RestRequest<TimeSheetApprovalResponseDto> r = new RestRequest<TimeSheetApprovalResponseDto>(this.client, "POST", "/api/data/timesheets/approvals/approve");
         if (body != null) { r.AddBody(body); }
@@ -151,12 +257,27 @@ public class TimesheetClient
     }
 
     /**
-     * Rejects a specific resource's timesheet approval request for a specific week.
+     * Rejects a specific resource's Timesheet approval request for a specific week.
      *
-     * @param body The data for rejecting the approval request
+     * A Timesheet is a collection of time entries for a particular Resource for a specific week.  Each time
+     * entry records the number of whole minutes spent by this Resource on an activity. An activity can be a Task
+     * in any project that Resource can access, or the activity can be an administrative task such as "Sick
+     * Leave" or "Meetings".  When a time entry is linked to a Task, the number of minutes spent on the time entry
+     * are recorded as time spent on the Task.  Time entries linked to an administrative tasks are grouped for
+     * reporting but are not added to any Task within your Workspace.
+     *
+     * Time entries are recorded in whole minutes.  If you specify a time entry in fractional hours, either using
+     * the API or via the web application, the amount you specify will be converted to minutes and rounded to the
+     * nearest neighbor using the rounding algorithm Midpoint-Away-From-Zero.
+     *
+     * When a Timesheet is submitted for approval or approved, users are no longer permitted to create, update, or
+     * delete time entries for that week.  Users with Global Admin level access can override this restriction and
+     * continue to make changes to a Timesheet after approval.
+     *
+     * @param body Information about the Timesheet approval request to be rejected
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TimeSheetApprovalResponseDto> rejectResourceTimeSheetApprovalRequest(@NotNull TimeSheetApprovalRejectDto body)
+    public @NotNull AstroResult<TimeSheetApprovalResponseDto> rejectTimeSheet(@NotNull TimeSheetApprovalRejectDto body)
     {
         RestRequest<TimeSheetApprovalResponseDto> r = new RestRequest<TimeSheetApprovalResponseDto>(this.client, "POST", "/api/data/timesheets/approvals/reject");
         if (body != null) { r.AddBody(body); }

@@ -25,6 +25,8 @@ import com.projectmanager.AstroResult;
 import com.projectmanager.models.ProjectStatusDto;
 import com.projectmanager.models.ProjectStatusCreateDto;
 
+import com.projectmanager.models.ProjectStatusUpdateDto;
+
 /**
  * Contains all methods related to ProjectStatus
  */
@@ -68,5 +70,33 @@ public class ProjectStatusClient
         RestRequest<ProjectStatusDto> r = new RestRequest<ProjectStatusDto>(this.client, "POST", "/api/data/projects/statuses");
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ProjectStatusDto>>() {}.getType());
+    }
+
+    /**
+     * Update a project Status
+     *
+     * @param projectStatusId The status Id
+     * @param body The data to create the Status
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ProjectStatusDto> updateProjectStatus(@NotNull String projectStatusId, @NotNull ProjectStatusUpdateDto body)
+    {
+        RestRequest<ProjectStatusDto> r = new RestRequest<ProjectStatusDto>(this.client, "PUT", "/api/data/projects/statuses/{projectStatusId}");
+        r.AddPath("{projectStatusId}", projectStatusId == null ? "" : projectStatusId.toString());
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<ProjectStatusDto>>() {}.getType());
+    }
+
+    /**
+     * Delete a project Status
+     *
+     * @param projectStatusId The status Id
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<Object> deleteProjectStatus(@NotNull String projectStatusId)
+    {
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/statuses/{projectStatusId}");
+        r.AddPath("{projectStatusId}", projectStatusId == null ? "" : projectStatusId.toString());
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

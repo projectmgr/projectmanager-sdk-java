@@ -42,6 +42,7 @@ public class TaskCreateDto
     private @Nullable Boolean isLocked;
     private @Nullable Boolean isMilestone;
     private @Nullable String parentId;
+    private @Nullable Integer index;
 
     /**
      * The common name of this Task.
@@ -264,15 +265,31 @@ public class TaskCreateDto
      */
     public void setIsMilestone(@Nullable Boolean value) { this.isMilestone = value; }
     /**
-     * ParentId
+     * Gets or sets the unique identifier of the parent task.
+     * If set, this task will be a child of the specified parent task, supporting task hierarchies and sub-tasks.
      *
      * @return The field parentId
      */
     public @Nullable String getParentId() { return this.parentId; }
     /**
-     * ParentId
+     * Gets or sets the unique identifier of the parent task.
+     * If set, this task will be a child of the specified parent task, supporting task hierarchies and sub-tasks.
      *
      * @param value The new value for parentId
      */
     public void setParentId(@Nullable String value) { this.parentId = value; }
+    /**
+     * Gets or sets the position of the task within the list of project tasks.
+     * Used to determine the order of tasks in the project with the first task being 1.
+     *
+     * @return The field index
+     */
+    public @Nullable Integer getIndex() { return this.index; }
+    /**
+     * Gets or sets the position of the task within the list of project tasks.
+     * Used to determine the order of tasks in the project with the first task being 1.
+     *
+     * @param value The new value for index
+     */
+    public void setIndex(@Nullable Integer value) { this.index = value; }
 };
