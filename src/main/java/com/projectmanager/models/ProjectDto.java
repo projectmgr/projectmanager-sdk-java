@@ -58,6 +58,7 @@ public class ProjectDto
     private @NotNull Boolean updatePlannedWithActual;
     private @Nullable String externalReferenceId;
     private @Nullable String ownerId;
+    private @NotNull ProjectWorkingDaysDto workingDays;
 
     /**
      * The unique identifier of the Project.  This value is set by the system and cannot
@@ -567,4 +568,20 @@ public class ProjectDto
      * @param value The new value for ownerId
      */
     public void setOwnerId(@Nullable String value) { this.ownerId = value; }
+    /**
+     * Represents the configuration of working days for the project, indicating which days of the week
+     * are considered as working days.
+     * This allows for customization of scheduling and availability based on the project's requirements.
+     *
+     * @return The field workingDays
+     */
+    public @NotNull ProjectWorkingDaysDto getWorkingDays() { return this.workingDays; }
+    /**
+     * Represents the configuration of working days for the project, indicating which days of the week
+     * are considered as working days.
+     * This allows for customization of scheduling and availability based on the project's requirements.
+     *
+     * @param value The new value for workingDays
+     */
+    public void setWorkingDays(@NotNull ProjectWorkingDaysDto value) { this.workingDays = value; }
 };
