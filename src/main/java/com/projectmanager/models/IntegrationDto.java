@@ -29,7 +29,6 @@ public class IntegrationDto
     private @NotNull String description;
     private @NotNull String shortId;
     private @NotNull Boolean isMultiInstance;
-    private @NotNull Object config;
     private @NotNull String[] licenseSkus;
     private @NotNull IntegrationInstanceDto[] instances;
     private @NotNull Boolean enabled;
@@ -103,18 +102,6 @@ public class IntegrationDto
      * @param value The new value for isMultiInstance
      */
     public void setIsMultiInstance(@NotNull Boolean value) { this.isMultiInstance = value; }
-    /**
-     * Extra configuration metadata for this Instance.
-     *
-     * @return The field config
-     */
-    public @NotNull Object getConfig() { return this.config; }
-    /**
-     * Extra configuration metadata for this Instance.
-     *
-     * @param value The new value for config
-     */
-    public void setConfig(@NotNull Object value) { this.config = value; }
     /**
      * The list of SKUS for this Integration.
      *

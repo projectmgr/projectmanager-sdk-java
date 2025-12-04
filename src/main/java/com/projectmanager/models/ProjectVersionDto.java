@@ -35,6 +35,9 @@ public class ProjectVersionDto
     private @NotNull String userId;
     private @Nullable String groupId;
     private @NotNull ProjectVersionChangeDataDto changeData;
+    private @Nullable String applicationName;
+    private @Nullable String tokenId;
+    private @Nullable String tokenName;
 
     /**
      * The unique identifier of the project version.
@@ -156,4 +159,40 @@ public class ProjectVersionDto
      * @param value The new value for changeData
      */
     public void setChangeData(@NotNull ProjectVersionChangeDataDto value) { this.changeData = value; }
+    /**
+     * The name of the application that made this change
+     *
+     * @return The field applicationName
+     */
+    public @Nullable String getApplicationName() { return this.applicationName; }
+    /**
+     * The name of the application that made this change
+     *
+     * @param value The new value for applicationName
+     */
+    public void setApplicationName(@Nullable String value) { this.applicationName = value; }
+    /**
+     * The Id of the token that made this change
+     *
+     * @return The field tokenId
+     */
+    public @Nullable String getTokenId() { return this.tokenId; }
+    /**
+     * The Id of the token that made this change
+     *
+     * @param value The new value for tokenId
+     */
+    public void setTokenId(@Nullable String value) { this.tokenId = value; }
+    /**
+     * The name of the token that made this change
+     *
+     * @return The field tokenName
+     */
+    public @Nullable String getTokenName() { return this.tokenName; }
+    /**
+     * The name of the token that made this change
+     *
+     * @param value The new value for tokenName
+     */
+    public void setTokenName(@Nullable String value) { this.tokenName = value; }
 };

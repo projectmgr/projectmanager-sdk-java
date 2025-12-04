@@ -28,6 +28,7 @@ public class ProjectStatusDto
     private @NotNull String id;
     private @NotNull String name;
     private @NotNull Boolean isDeleted;
+    private @NotNull Boolean isSystem;
 
     /**
      * The unique identifier of this ProjectStatus.
@@ -65,4 +66,16 @@ public class ProjectStatusDto
      * @param value The new value for isDeleted
      */
     public void setIsDeleted(@NotNull Boolean value) { this.isDeleted = value; }
+    /**
+     * Indicates whether this ProjectStatus is a system and cannot be deleted or modified.
+     *
+     * @return The field isSystem
+     */
+    public @NotNull Boolean getIsSystem() { return this.isSystem; }
+    /**
+     * Indicates whether this ProjectStatus is a system and cannot be deleted or modified.
+     *
+     * @param value The new value for isSystem
+     */
+    public void setIsSystem(@NotNull Boolean value) { this.isSystem = value; }
 };
