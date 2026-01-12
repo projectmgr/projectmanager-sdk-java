@@ -4,7 +4,7 @@
 
     <groupId>com.projectmanager</groupId>
     <artifactId>projectmanagersdk</artifactId>
-    <version>146.1.229</version>
+    <version>148.0.136</version>
 
     <name>ProjectManagerSDK</name>
     <description>Software development kit for the ProjectManager.com API. for Java</description>
