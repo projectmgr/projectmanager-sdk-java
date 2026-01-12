@@ -1,15 +1,15 @@
 /***
  * ProjectManager API for Java
  *
- * (c) 2023-2025 ProjectManager.com, Inc.
+ * (c) 2023-2026 ProjectManager.com, Inc.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
- * @copyright  2023-2025 ProjectManager.com, Inc.
- * @version    146.1.229
+ * @copyright  2023-2026 ProjectManager.com, Inc.
+ * @version    148.0.136
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -28,6 +28,7 @@ import com.projectmanager.clients.IntegrationCategoryClient;
 import com.projectmanager.clients.IntegrationProviderClient;
 import com.projectmanager.clients.LicenseClient;
 import com.projectmanager.clients.MeClient;
+import com.projectmanager.clients.MeetingsClient;
 import com.projectmanager.clients.NotificationClient;
 import com.projectmanager.clients.NptClient;
 import com.projectmanager.clients.NptDiscussionClient;
@@ -90,6 +91,7 @@ public class ProjectManagerClient {
     private IntegrationProviderClient integrationProvider;
     private LicenseClient license;
     private MeClient me;
+    private MeetingsClient meetings;
     private NotificationClient notification;
     private NptClient npt;
     private NptDiscussionClient nptDiscussion;
@@ -145,6 +147,7 @@ public class ProjectManagerClient {
         this.integrationProvider = new IntegrationProviderClient(this);
         this.license = new LicenseClient(this);
         this.me = new MeClient(this);
+        this.meetings = new MeetingsClient(this);
         this.notification = new NotificationClient(this);
         this.npt = new NptClient(this);
         this.nptDiscussion = new NptDiscussionClient(this);
@@ -257,6 +260,12 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.MeClient client} methods in the API.
      */
     public @NotNull MeClient getMeClient() { return this.me; }
+    /**
+     * A collection of API methods relating to Meetings
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.MeetingsClient client} methods in the API.
+     */
+    public @NotNull MeetingsClient getMeetingsClient() { return this.meetings; }
     /**
      * A collection of API methods relating to Notification
      *
