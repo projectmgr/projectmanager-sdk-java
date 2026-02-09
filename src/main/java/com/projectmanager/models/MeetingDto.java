@@ -19,7 +19,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * A Meeting is a task that does not belong to the project. It is only visible to the person who created it, and the users assigned to it.
+ * A Meeting is a task that does not belong to the project or is part of a project. It is only visible to the person who created it, and the users assigned to it.
  *
  * Meeting's are a lightweight version of a project task.
  */
@@ -40,6 +40,7 @@ public class MeetingDto
     private @NotNull String createDate;
     private @Nullable TaskOwnerDto owner;
     private @Nullable String ownerId;
+    private @Nullable MeetingProjectDto project;
 
     /**
      * The unique identifier of the Meeting
@@ -241,4 +242,16 @@ public class MeetingDto
      * @param value The new value for ownerId
      */
     public void setOwnerId(@Nullable String value) { this.ownerId = value; }
+    /**
+     * The project this meeting belongs to
+     *
+     * @return The field project
+     */
+    public @Nullable MeetingProjectDto getProject() { return this.project; }
+    /**
+     * The project this meeting belongs to
+     *
+     * @param value The new value for project
+     */
+    public void setProject(@Nullable MeetingProjectDto value) { this.project = value; }
 };

@@ -19,10 +19,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Represents a potential threat or uncertainty that could impact a project, system, or process.
- * Contains information such as its likelihood, impact, response, and resolution details.
+ * A Risk represents an item of potential impact or uncertainty.
+ * It is visible to the creator and users assigned to manage or review it.
+ *
+ * Risks share many characteristics with tasks but are tracked independently
+ * from project execution work.
  */
-public class RiskDto
+public class RiskDetailsDto
 {
     private @NotNull String id;
     private @NotNull String projectId;
@@ -47,6 +50,11 @@ public class RiskDto
     private @Nullable Integer commentsCount;
     private @NotNull Integer riskTypeId;
     private @Nullable RiskProjectDto project;
+    private @Nullable DiscussionDataDto discussionData;
+    private @Nullable FileDataDto fileData;
+    private @Nullable Boolean recurring;
+    private @Nullable String recurringParentTaskId;
+    private @Nullable RecurringTaskSettingsDto recurringSettings;
 
     /**
      * The unique identifier of this risk.
@@ -352,4 +360,64 @@ public class RiskDto
      * @param value The new value for project
      */
     public void setProject(@Nullable RiskProjectDto value) { this.project = value; }
+    /**
+     * Discussion data – number of comments, last read time
+     *
+     * @return The field discussionData
+     */
+    public @Nullable DiscussionDataDto getDiscussionData() { return this.discussionData; }
+    /**
+     * Discussion data – number of comments, last read time
+     *
+     * @param value The new value for discussionData
+     */
+    public void setDiscussionData(@Nullable DiscussionDataDto value) { this.discussionData = value; }
+    /**
+     * File data – number of files, last read time
+     *
+     * @return The field fileData
+     */
+    public @Nullable FileDataDto getFileData() { return this.fileData; }
+    /**
+     * File data – number of files, last read time
+     *
+     * @param value The new value for fileData
+     */
+    public void setFileData(@Nullable FileDataDto value) { this.fileData = value; }
+    /**
+     * Indicates whether this risk is recurring
+     *
+     * @return The field recurring
+     */
+    public @Nullable Boolean getRecurring() { return this.recurring; }
+    /**
+     * Indicates whether this risk is recurring
+     *
+     * @param value The new value for recurring
+     */
+    public void setRecurring(@Nullable Boolean value) { this.recurring = value; }
+    /**
+     * The parent risk in a recurring risk sequence
+     *
+     * @return The field recurringParentTaskId
+     */
+    public @Nullable String getRecurringParentTaskId() { return this.recurringParentTaskId; }
+    /**
+     * The parent risk in a recurring risk sequence
+     *
+     * @param value The new value for recurringParentTaskId
+     */
+    public void setRecurringParentTaskId(@Nullable String value) { this.recurringParentTaskId = value; }
+    /**
+     * Recurring risk configuration
+     *
+     * @return The field recurringSettings
+     */
+    public @Nullable RecurringTaskSettingsDto getRecurringSettings() { return this.recurringSettings; }
+    /**
+     * Recurring risk configuration
+     *
+     * @param value The new value for recurringSettings
+     */
+    public void setRecurringSettings(@Nullable RecurringTaskSettingsDto value) { this.recurringSettings = value; }
 };

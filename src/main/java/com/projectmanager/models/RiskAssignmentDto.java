@@ -21,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 /**
  * User assigned to task or risk
  */
-public class AssignmentDto
+public class RiskAssignmentDto
 {
     private @NotNull String taskId;
     private @Nullable String projectId;

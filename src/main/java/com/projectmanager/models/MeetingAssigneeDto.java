@@ -19,8 +19,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * A NptAssignee is a Resource to whom a Npt is assigned. A single Npt
- * can be assigned to multiple NptAssignee.
+ * A MeetingAssignee is a Resource to whom a Meeting is assigned. A single Meeting
+ * can be assigned to multiple MeetingAssignee.
  */
 public class MeetingAssigneeDto
 {
@@ -49,51 +49,51 @@ public class MeetingAssigneeDto
      */
     public void setId(@NotNull String value) { this.id = value; }
     /**
-     * A shortened set of initials to use when representing this NptAssignee visually
+     * A shortened set of initials to use when representing this MeetingAssignee visually
      * in small areas.  The initials may be used in small icons or other overlays.
      *
      * @return The field initials
      */
     public @NotNull String getInitials() { return this.initials; }
     /**
-     * A shortened set of initials to use when representing this NptAssignee visually
+     * A shortened set of initials to use when representing this MeetingAssignee visually
      * in small areas.  The initials may be used in small icons or other overlays.
      *
      * @param value The new value for initials
      */
     public void setInitials(@NotNull String value) { this.initials = value; }
     /**
-     * The name of this NptAssignee
+     * The name of this MeetingAssignee
      *
      * @return The field name
      */
     public @Nullable String getName() { return this.name; }
     /**
-     * The name of this NptAssignee
+     * The name of this MeetingAssignee
      *
      * @param value The new value for name
      */
     public void setName(@Nullable String value) { this.name = value; }
     /**
-     * A more complete description of the NptAssignee.
+     * A more complete description of the MeetingAssignee.
      *
      * @return The field description
      */
     public @Nullable String getDescription() { return this.description; }
     /**
-     * A more complete description of the NptAssignee.
+     * A more complete description of the MeetingAssignee.
      *
      * @param value The new value for description
      */
     public void setDescription(@Nullable String value) { this.description = value; }
     /**
-     * True if this NptAssignee is currently active with the Project.
+     * True if this MeetingAssignee is currently active with the Project.
      *
      * @return The field isActive
      */
     public @NotNull Boolean getIsActive() { return this.isActive; }
     /**
-     * True if this NptAssignee is currently active with the Project.
+     * True if this MeetingAssignee is currently active with the Project.
      *
      * @param value The new value for isActive
      */
@@ -115,61 +115,61 @@ public class MeetingAssigneeDto
      */
     public void setColorName(@Nullable String value) { this.colorName = value; }
     /**
-     * The first or given name of this NptAssignee.
+     * The first or given name of this MeetingAssignee.
      *
-     * For personnel NptAssignees only.
+     * For personnel MeetingAssignees only.
      *
      * @return The field firstName
      */
     public @Nullable String getFirstName() { return this.firstName; }
     /**
-     * The first or given name of this NptAssignee.
+     * The first or given name of this MeetingAssignee.
      *
-     * For personnel NptAssignees only.
+     * For personnel MeetingAssignees only.
      *
      * @param value The new value for firstName
      */
     public void setFirstName(@Nullable String value) { this.firstName = value; }
     /**
-     * The last or family name of this NptAssignee.
+     * The last or family name of this MeetingAssignee.
      *
-     * For personnel NptAssignees only.
+     * For personnel MeetingAssignees only.
      *
      * @return The field lastName
      */
     public @Nullable String getLastName() { return this.lastName; }
     /**
-     * The last or family name of this NptAssignee.
+     * The last or family name of this MeetingAssignee.
      *
-     * For personnel NptAssignees only.
+     * For personnel MeetingAssignees only.
      *
      * @param value The new value for lastName
      */
     public void setLastName(@Nullable String value) { this.lastName = value; }
     /**
-     * A shortened version of the name of this NptAssignee.  This is used in areas
+     * A shortened version of the name of this MeetingAssignee.  This is used in areas
      * where the Initials are too short but the full name is too long.
      *
      * @return The field shortName
      */
     public @Nullable String getShortName() { return this.shortName; }
     /**
-     * A shortened version of the name of this NptAssignee.  This is used in areas
+     * A shortened version of the name of this MeetingAssignee.  This is used in areas
      * where the Initials are too short but the full name is too long.
      *
      * @param value The new value for shortName
      */
     public void setShortName(@Nullable String value) { this.shortName = value; }
     /**
-     * A link to an Avatar for this NptAssignee.  Avatars are small images or representations
-     * that can be used to visually identify this NptAssignee at a glance.
+     * A link to an Avatar for this MeetingAssignee.  Avatars are small images or representations
+     * that can be used to visually identify this MeetingAssignee at a glance.
      *
      * @return The field avatarUrl
      */
     public @Nullable String getAvatarUrl() { return this.avatarUrl; }
     /**
-     * A link to an Avatar for this NptAssignee.  Avatars are small images or representations
-     * that can be used to visually identify this NptAssignee at a glance.
+     * A link to an Avatar for this MeetingAssignee.  Avatars are small images or representations
+     * that can be used to visually identify this MeetingAssignee at a glance.
      *
      * @param value The new value for avatarUrl
      */

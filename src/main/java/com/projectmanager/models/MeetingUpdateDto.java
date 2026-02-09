@@ -19,9 +19,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * A Npt is a task that does not belong to the project. It is only visible to the person who created it, and the users assigned to it.
+ * A Meeting is a task that does not belong to the project or is part of a project. It is only visible to the person who created it, and the users assigned to it.
  *
- * NPT's are a lightweight version of a project task.
+ * Meeting's are a lightweight version of a project task.
  */
 public class MeetingUpdateDto
 {
@@ -106,13 +106,13 @@ public class MeetingUpdateDto
      */
     public void setDurationMinutes(@Nullable Integer value) { this.durationMinutes = value; }
     /**
-     * If specified, replaces the list of resources assigned to this npt.
+     * If specified, replaces the list of resources assigned to this meeting.
      *
      * @return The field assignees
      */
     public @Nullable String[] getAssignees() { return this.assignees; }
     /**
-     * If specified, replaces the list of resources assigned to this npt.
+     * If specified, replaces the list of resources assigned to this meeting.
      *
      * @param value The new value for assignees
      */
