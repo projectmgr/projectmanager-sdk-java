@@ -19,9 +19,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * A Npt is a task that does not belong to the project. It is only visible to the person who created it, and the users assigned to it.
+ * A Meeting is a task that either does not belong to a project or is part of a project. It is only visible to the person who created it, and the users assigned to it.
  *
- * NPT's are a lightweight version of a project task.
+ * Meetings are a lightweight version of a project task.
  */
 public class MeetingDetailsDto
 {
@@ -40,6 +40,7 @@ public class MeetingDetailsDto
     private @NotNull String createDate;
     private @Nullable TaskOwnerDto owner;
     private @Nullable String ownerId;
+    private @Nullable MeetingProjectDto project;
     private @Nullable DiscussionDataDto discussionData;
     private @Nullable FileDataDto fileData;
     private @Nullable Boolean recurring;
@@ -247,6 +248,18 @@ public class MeetingDetailsDto
      */
     public void setOwnerId(@Nullable String value) { this.ownerId = value; }
     /**
+     * The project this meeting belongs to
+     *
+     * @return The field project
+     */
+    public @Nullable MeetingProjectDto getProject() { return this.project; }
+    /**
+     * The project this meeting belongs to
+     *
+     * @param value The new value for project
+     */
+    public void setProject(@Nullable MeetingProjectDto value) { this.project = value; }
+    /**
      * Task file data - number of comments, last read time
      *
      * @return The field discussionData
@@ -271,37 +284,37 @@ public class MeetingDetailsDto
      */
     public void setFileData(@Nullable FileDataDto value) { this.fileData = value; }
     /**
-     * If this is a recurring Npt task
+     * Indicates whether this meeting is part of a recurring meeting series
      *
      * @return The field recurring
      */
     public @Nullable Boolean getRecurring() { return this.recurring; }
     /**
-     * If this is a recurring Npt task
+     * Indicates whether this meeting is part of a recurring meeting series
      *
      * @param value The new value for recurring
      */
     public void setRecurring(@Nullable Boolean value) { this.recurring = value; }
     /**
-     * The parent task in the recurring Npt task sequence
+     * The parent task in the recurring meeting series
      *
      * @return The field recurringParentTaskId
      */
     public @Nullable String getRecurringParentTaskId() { return this.recurringParentTaskId; }
     /**
-     * The parent task in the recurring Npt task sequence
+     * The parent task in the recurring meeting series
      *
      * @param value The new value for recurringParentTaskId
      */
     public void setRecurringParentTaskId(@Nullable String value) { this.recurringParentTaskId = value; }
     /**
-     * The  Npt Task Recurrency settings
+     * The meeting's recurrency settings
      *
      * @return The field recurringSettings
      */
     public @Nullable RecurringTaskSettingsDto getRecurringSettings() { return this.recurringSettings; }
     /**
-     * The  Npt Task Recurrency settings
+     * The meeting's recurrency settings
      *
      * @param value The new value for recurringSettings
      */

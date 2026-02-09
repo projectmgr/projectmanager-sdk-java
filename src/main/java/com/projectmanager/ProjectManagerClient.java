@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2026 ProjectManager.com, Inc.
- * @version    148.0.136
+ * @version    149.0.187
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -23,6 +23,8 @@ import com.projectmanager.clients.DiscussionClient;
 import com.projectmanager.clients.FileClient;
 import com.projectmanager.clients.HolidayClient;
 import com.projectmanager.clients.HomeFileClient;
+import com.projectmanager.clients.HourlyRateClient;
+import com.projectmanager.clients.HourlyRatePeriodClient;
 import com.projectmanager.clients.IntegrationClient;
 import com.projectmanager.clients.IntegrationCategoryClient;
 import com.projectmanager.clients.IntegrationProviderClient;
@@ -86,6 +88,8 @@ public class ProjectManagerClient {
     private FileClient file;
     private HolidayClient holiday;
     private HomeFileClient homeFile;
+    private HourlyRateClient hourlyRate;
+    private HourlyRatePeriodClient hourlyRatePeriod;
     private IntegrationClient integration;
     private IntegrationCategoryClient integrationCategory;
     private IntegrationProviderClient integrationProvider;
@@ -142,6 +146,8 @@ public class ProjectManagerClient {
         this.file = new FileClient(this);
         this.holiday = new HolidayClient(this);
         this.homeFile = new HomeFileClient(this);
+        this.hourlyRate = new HourlyRateClient(this);
+        this.hourlyRatePeriod = new HourlyRatePeriodClient(this);
         this.integration = new IntegrationClient(this);
         this.integrationCategory = new IntegrationCategoryClient(this);
         this.integrationProvider = new IntegrationProviderClient(this);
@@ -230,6 +236,18 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.HomeFileClient client} methods in the API.
      */
     public @NotNull HomeFileClient getHomeFileClient() { return this.homeFile; }
+    /**
+     * A collection of API methods relating to HourlyRate
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.HourlyRateClient client} methods in the API.
+     */
+    public @NotNull HourlyRateClient getHourlyRateClient() { return this.hourlyRate; }
+    /**
+     * A collection of API methods relating to HourlyRatePeriod
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.HourlyRatePeriodClient client} methods in the API.
+     */
+    public @NotNull HourlyRatePeriodClient getHourlyRatePeriodClient() { return this.hourlyRatePeriod; }
     /**
      * A collection of API methods relating to Integration
      *
