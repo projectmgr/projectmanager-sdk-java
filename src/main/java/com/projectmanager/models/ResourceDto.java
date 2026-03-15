@@ -54,6 +54,7 @@ public class ResourceDto
     private @Nullable String color;
     private @Nullable String avatarUrl;
     private @Nullable String language;
+    private @NotNull Integer resourceTypeId;
 
     /**
      * The unique identifier of this Resource.
@@ -423,4 +424,18 @@ public class ResourceDto
      * @param value The new value for language
      */
     public void setLanguage(@Nullable String value) { this.language = value; }
+    /**
+     * The type identifier for this Resource.
+     * 1 = Resource (standard resource), 2 = Sample (sample resource).
+     *
+     * @return The field resourceTypeId
+     */
+    public @NotNull Integer getResourceTypeId() { return this.resourceTypeId; }
+    /**
+     * The type identifier for this Resource.
+     * 1 = Resource (standard resource), 2 = Sample (sample resource).
+     *
+     * @param value The new value for resourceTypeId
+     */
+    public void setResourceTypeId(@NotNull Integer value) { this.resourceTypeId = value; }
 };
