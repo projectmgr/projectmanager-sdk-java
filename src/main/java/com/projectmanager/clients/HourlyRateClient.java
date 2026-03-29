@@ -24,11 +24,10 @@ import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.HourlyRateDto;
 import com.projectmanager.models.HourlyRateCreateDto;
-
-import com.projectmanager.models.HourlyRateUpdateDto;
-import com.projectmanager.models.HourlyRateDetailsDto;
 import com.projectmanager.models.HourlyRateValueDto;
+
 import com.projectmanager.models.HourlyRateValueUpdateDto;
+import com.projectmanager.models.HourlyRateDetailsDto;
 
 /**
  * Contains all methods related to HourlyRate
@@ -72,18 +71,18 @@ public class HourlyRateClient
     }
 
     /**
-     * Update a hourly rate
+     * Update Hourly Rate Value
      *
-     * @param rateId the id of the rate
-     * @param body the data to update the rate with
+     * @param rateValueId The rate valueId
+     * @param body The rate value data
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<HourlyRateDto> updateHourlyRate(@NotNull String rateId, @NotNull HourlyRateUpdateDto body)
+    public @NotNull AstroResult<HourlyRateValueDto> updateHourlyRateValue(@NotNull String rateValueId, @NotNull HourlyRateValueUpdateDto body)
     {
-        RestRequest<HourlyRateDto> r = new RestRequest<HourlyRateDto>(this.client, "PUT", "/api/data/hourly-rates/{rateId}");
-        r.AddPath("{rateId}", rateId == null ? "" : rateId.toString());
+        RestRequest<HourlyRateValueDto> r = new RestRequest<HourlyRateValueDto>(this.client, "PUT", "/api/data/hourly-rates/values/{rateValueId}");
+        r.AddPath("{rateValueId}", rateValueId == null ? "" : rateValueId.toString());
         if (body != null) { r.AddBody(body); }
-        return r.Call(new TypeToken<AstroResult<HourlyRateDto>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<HourlyRateValueDto>>() {}.getType());
     }
 
     /**
@@ -110,20 +109,5 @@ public class HourlyRateClient
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/hourly-rates/{rateId}");
         r.AddPath("{rateId}", rateId == null ? "" : rateId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
-    }
-
-    /**
-     * Update Hourly Rate Value
-     *
-     * @param rateValueId The rate valueId
-     * @param body The rate value data
-     * @return A {@link com.projectmanager.AstroResult} containing the results
-     */
-    public @NotNull AstroResult<HourlyRateValueDto> updateHourlyRateValue(@NotNull String rateValueId, @NotNull HourlyRateValueUpdateDto body)
-    {
-        RestRequest<HourlyRateValueDto> r = new RestRequest<HourlyRateValueDto>(this.client, "PUT", "/api/data/hourly-rates/values/{rateValueId}");
-        r.AddPath("{rateValueId}", rateValueId == null ? "" : rateValueId.toString());
-        if (body != null) { r.AddBody(body); }
-        return r.Call(new TypeToken<AstroResult<HourlyRateValueDto>>() {}.getType());
     }
 }

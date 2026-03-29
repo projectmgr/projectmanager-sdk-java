@@ -36,7 +36,6 @@ public class HourlyRateDto
     private @Nullable String skillId;
     private @Nullable ResourceSkillDto skill;
     private @NotNull HourlyRateValueDto[] values;
-    private @NotNull Boolean isActive;
 
     /**
      * The unique identifier of the Hourly Rate.  This value is set by the system and cannot
@@ -208,16 +207,4 @@ public class HourlyRateDto
      * @param value The new value for values
      */
     public void setValues(@NotNull HourlyRateValueDto[] value) { this.values = value; }
-    /**
-     * If this is an archived rate
-     *
-     * @return The field isActive
-     */
-    public @NotNull Boolean getIsActive() { return this.isActive; }
-    /**
-     * If this is an archived rate
-     *
-     * @param value The new value for isActive
-     */
-    public void setIsActive(@NotNull Boolean value) { this.isActive = value; }
 };

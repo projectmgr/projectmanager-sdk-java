@@ -59,6 +59,17 @@ public class MeClient
     }
 
     /**
+     * Removes the logged in user's custom avatar so the default initials are shown.
+     *
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<Object> removeMyAvatar()
+    {
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/me/avatar");
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+    }
+
+    /**
      * Updates the logged in user avatar
      *
      * @param fileName The full path of a file to upload to the API
