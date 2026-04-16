@@ -43,6 +43,8 @@ public class ResourceUpdateDto
     private @Nullable String approverId;
     private @Nullable String colorName;
     private @Nullable String language;
+    private @Nullable Integer publicAvatarId;
+    private @Nullable Boolean clearAvatar;
 
     /**
      * The first name of the person Resource.
@@ -270,4 +272,30 @@ public class ResourceUpdateDto
      * @param value The new value for language
      */
     public void setLanguage(@Nullable String value) { this.language = value; }
+    /**
+     * Public avatar image index (1-42). The avatar URL is generated as /assets/images/avatars/{index:000}.png.
+     * Only numeric public avatars are accepted; custom URLs are not supported.
+     *
+     * @return The field publicAvatarId
+     */
+    public @Nullable Integer getPublicAvatarId() { return this.publicAvatarId; }
+    /**
+     * Public avatar image index (1-42). The avatar URL is generated as /assets/images/avatars/{index:000}.png.
+     * Only numeric public avatars are accepted; custom URLs are not supported.
+     *
+     * @param value The new value for publicAvatarId
+     */
+    public void setPublicAvatarId(@Nullable Integer value) { this.publicAvatarId = value; }
+    /**
+     * When true, removes the resource's custom avatar so the default initials are shown.
+     *
+     * @return The field clearAvatar
+     */
+    public @Nullable Boolean getClearAvatar() { return this.clearAvatar; }
+    /**
+     * When true, removes the resource's custom avatar so the default initials are shown.
+     *
+     * @param value The new value for clearAvatar
+     */
+    public void setClearAvatar(@Nullable Boolean value) { this.clearAvatar = value; }
 };

@@ -39,6 +39,10 @@ public class WorkSpaceUserInfoDto
     private @NotNull Boolean workSpaceIsActive;
     private @NotNull String workSpaceCountry;
     private @NotNull String workSpaceCountryCode;
+    private @NotNull String workSpaceCulture;
+    private @NotNull String workSpaceCurrencyCulture;
+    private @NotNull String userCulture;
+    private @NotNull String userCurrencyCulture;
     private @NotNull String location;
 
     /**
@@ -219,6 +223,54 @@ public class WorkSpaceUserInfoDto
      * @param value The new value for workSpaceCountryCode
      */
     public void setWorkSpaceCountryCode(@NotNull String value) { this.workSpaceCountryCode = value; }
+    /**
+     * The culture code (e.g., "en-US") used for formatting and localization in the workspace.
+     *
+     * @return The field workSpaceCulture
+     */
+    public @NotNull String getWorkSpaceCulture() { return this.workSpaceCulture; }
+    /**
+     * The culture code (e.g., "en-US") used for formatting and localization in the workspace.
+     *
+     * @param value The new value for workSpaceCulture
+     */
+    public void setWorkSpaceCulture(@NotNull String value) { this.workSpaceCulture = value; }
+    /**
+     * The culture code used for currency formatting in the workspace.
+     *
+     * @return The field workSpaceCurrencyCulture
+     */
+    public @NotNull String getWorkSpaceCurrencyCulture() { return this.workSpaceCurrencyCulture; }
+    /**
+     * The culture code used for currency formatting in the workspace.
+     *
+     * @param value The new value for workSpaceCurrencyCulture
+     */
+    public void setWorkSpaceCurrencyCulture(@NotNull String value) { this.workSpaceCurrencyCulture = value; }
+    /**
+     * The culture code (e.g., "en-US") used for formatting and localization for the user.
+     *
+     * @return The field userCulture
+     */
+    public @NotNull String getUserCulture() { return this.userCulture; }
+    /**
+     * The culture code (e.g., "en-US") used for formatting and localization for the user.
+     *
+     * @param value The new value for userCulture
+     */
+    public void setUserCulture(@NotNull String value) { this.userCulture = value; }
+    /**
+     * The culture code used for currency formatting for the user.
+     *
+     * @return The field userCurrencyCulture
+     */
+    public @NotNull String getUserCurrencyCulture() { return this.userCurrencyCulture; }
+    /**
+     * The culture code used for currency formatting for the user.
+     *
+     * @param value The new value for userCurrencyCulture
+     */
+    public void setUserCurrencyCulture(@NotNull String value) { this.userCurrencyCulture = value; }
     /**
      * The location of the user, which is a combination of city, state (US Only), and country.
      *

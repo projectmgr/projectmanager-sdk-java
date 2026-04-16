@@ -26,6 +26,9 @@ public class TaskFileDto
     private @NotNull String id;
     private @NotNull String name;
     private @NotNull String url;
+    private @NotNull String createDate;
+    private @Nullable String fileType;
+    private @Nullable String fileTypeLabel;
 
     /**
      * The identifier for this file
@@ -63,4 +66,40 @@ public class TaskFileDto
      * @param value The new value for url
      */
     public void setUrl(@NotNull String value) { this.url = value; }
+    /**
+     * The date the file was created/uploaded
+     *
+     * @return The field createDate
+     */
+    public @NotNull String getCreateDate() { return this.createDate; }
+    /**
+     * The date the file was created/uploaded
+     *
+     * @param value The new value for createDate
+     */
+    public void setCreateDate(@NotNull String value) { this.createDate = value; }
+    /**
+     * The file type (e.g. extension or MIME type)
+     *
+     * @return The field fileType
+     */
+    public @Nullable String getFileType() { return this.fileType; }
+    /**
+     * The file type (e.g. extension or MIME type)
+     *
+     * @param value The new value for fileType
+     */
+    public void setFileType(@Nullable String value) { this.fileType = value; }
+    /**
+     * The display label for the file type
+     *
+     * @return The field fileTypeLabel
+     */
+    public @Nullable String getFileTypeLabel() { return this.fileTypeLabel; }
+    /**
+     * The display label for the file type
+     *
+     * @param value The new value for fileTypeLabel
+     */
+    public void setFileTypeLabel(@Nullable String value) { this.fileTypeLabel = value; }
 };

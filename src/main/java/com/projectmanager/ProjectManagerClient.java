@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2026 ProjectManager.com, Inc.
- * @version    151.0.100
+ * @version    152.0.138
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -31,6 +31,8 @@ import com.projectmanager.clients.IntegrationProviderClient;
 import com.projectmanager.clients.LicenseClient;
 import com.projectmanager.clients.MeClient;
 import com.projectmanager.clients.MeetingsClient;
+import com.projectmanager.clients.MeetingTagClient;
+import com.projectmanager.clients.MeetingTodosClient;
 import com.projectmanager.clients.NotificationClient;
 import com.projectmanager.clients.NptClient;
 import com.projectmanager.clients.NptDiscussionClient;
@@ -55,6 +57,7 @@ import com.projectmanager.clients.ResourceSkillClient;
 import com.projectmanager.clients.ResourceTeamClient;
 import com.projectmanager.clients.RiskClient;
 import com.projectmanager.clients.RiskFileClient;
+import com.projectmanager.clients.RiskTagClient;
 import com.projectmanager.clients.TagClient;
 import com.projectmanager.clients.TaskClient;
 import com.projectmanager.clients.TaskAssigneeClient;
@@ -96,6 +99,8 @@ public class ProjectManagerClient {
     private LicenseClient license;
     private MeClient me;
     private MeetingsClient meetings;
+    private MeetingTagClient meetingTag;
+    private MeetingTodosClient meetingTodos;
     private NotificationClient notification;
     private NptClient npt;
     private NptDiscussionClient nptDiscussion;
@@ -120,6 +125,7 @@ public class ProjectManagerClient {
     private ResourceTeamClient resourceTeam;
     private RiskClient risk;
     private RiskFileClient riskFile;
+    private RiskTagClient riskTag;
     private TagClient tag;
     private TaskClient task;
     private TaskAssigneeClient taskAssignee;
@@ -154,6 +160,8 @@ public class ProjectManagerClient {
         this.license = new LicenseClient(this);
         this.me = new MeClient(this);
         this.meetings = new MeetingsClient(this);
+        this.meetingTag = new MeetingTagClient(this);
+        this.meetingTodos = new MeetingTodosClient(this);
         this.notification = new NotificationClient(this);
         this.npt = new NptClient(this);
         this.nptDiscussion = new NptDiscussionClient(this);
@@ -178,6 +186,7 @@ public class ProjectManagerClient {
         this.resourceTeam = new ResourceTeamClient(this);
         this.risk = new RiskClient(this);
         this.riskFile = new RiskFileClient(this);
+        this.riskTag = new RiskTagClient(this);
         this.tag = new TagClient(this);
         this.task = new TaskClient(this);
         this.taskAssignee = new TaskAssigneeClient(this);
@@ -284,6 +293,18 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.MeetingsClient client} methods in the API.
      */
     public @NotNull MeetingsClient getMeetingsClient() { return this.meetings; }
+    /**
+     * A collection of API methods relating to MeetingTag
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.MeetingTagClient client} methods in the API.
+     */
+    public @NotNull MeetingTagClient getMeetingTagClient() { return this.meetingTag; }
+    /**
+     * A collection of API methods relating to MeetingTodos
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.MeetingTodosClient client} methods in the API.
+     */
+    public @NotNull MeetingTodosClient getMeetingTodosClient() { return this.meetingTodos; }
     /**
      * A collection of API methods relating to Notification
      *
@@ -428,6 +449,12 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.RiskFileClient client} methods in the API.
      */
     public @NotNull RiskFileClient getRiskFileClient() { return this.riskFile; }
+    /**
+     * A collection of API methods relating to RiskTag
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.RiskTagClient client} methods in the API.
+     */
+    public @NotNull RiskTagClient getRiskTagClient() { return this.riskTag; }
     /**
      * A collection of API methods relating to Tag
      *

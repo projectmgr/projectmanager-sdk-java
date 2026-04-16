@@ -23,6 +23,8 @@ import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.ProjectPriorityDto;
+import com.projectmanager.models.ProjectPriorityCreateDto;
+
 
 /**
  * Contains all methods related to ProjectPriority
@@ -57,5 +59,46 @@ public class ProjectPriorityClient
     {
         RestRequest<ProjectPriorityDto[]> r = new RestRequest<ProjectPriorityDto[]>(this.client, "GET", "/api/data/projects/priorities");
         return r.Call(new TypeToken<AstroResult<ProjectPriorityDto[]>>() {}.getType());
+    }
+
+    /**
+     * Create a project priority
+     *
+     * @param body The data to create the priority
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ProjectPriorityDto> createProjectPriority(@NotNull ProjectPriorityCreateDto body)
+    {
+        RestRequest<ProjectPriorityDto> r = new RestRequest<ProjectPriorityDto>(this.client, "POST", "/api/data/projects/priorities");
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<ProjectPriorityDto>>() {}.getType());
+    }
+
+    /**
+     * Updates a project priority
+     *
+     * @param priorityId The id of the priority to update
+     * @param body The data to update
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ProjectPriorityDto> updateProjectPriority(@NotNull String priorityId, @NotNull ProjectPriorityCreateDto body)
+    {
+        RestRequest<ProjectPriorityDto> r = new RestRequest<ProjectPriorityDto>(this.client, "PUT", "/api/data/projects/priorities/{priorityId}");
+        r.AddPath("{priorityId}", priorityId == null ? "" : priorityId.toString());
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<ProjectPriorityDto>>() {}.getType());
+    }
+
+    /**
+     * Delete a project priority. They will also be removed from any projects they were assigned too.
+     *
+     * @param priorityId The id of the priority to remove
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<Object> deleteProjectPriority(@NotNull String priorityId)
+    {
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/priorities/{priorityId}");
+        r.AddPath("{priorityId}", priorityId == null ? "" : priorityId.toString());
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
 }

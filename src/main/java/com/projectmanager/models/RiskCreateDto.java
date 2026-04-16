@@ -37,6 +37,7 @@ public class RiskCreateDto
     private @Nullable Integer responseId;
     private @Nullable String resolution;
     private @Nullable String[] assignees;
+    private @Nullable Integer riskTypeId;
 
     /**
      * The common name of this Risk.
@@ -152,4 +153,26 @@ public class RiskCreateDto
      * @param value The new value for assignees
      */
     public void setAssignees(@Nullable String[] value) { this.assignees = value; }
+    /**
+     * The type of risk.
+     * Risk = 1
+     * Assumption = 2
+     * Issue = 3
+     * Dependency = 4
+     * Change = 5
+     *
+     * @return The field riskTypeId
+     */
+    public @Nullable Integer getRiskTypeId() { return this.riskTypeId; }
+    /**
+     * The type of risk.
+     * Risk = 1
+     * Assumption = 2
+     * Issue = 3
+     * Dependency = 4
+     * Change = 5
+     *
+     * @param value The new value for riskTypeId
+     */
+    public void setRiskTypeId(@Nullable Integer value) { this.riskTypeId = value; }
 };

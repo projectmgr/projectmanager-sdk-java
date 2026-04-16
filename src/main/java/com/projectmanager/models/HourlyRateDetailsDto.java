@@ -36,7 +36,6 @@ public class HourlyRateDetailsDto
     private @Nullable String skillId;
     private @Nullable ResourceSkillDto skill;
     private @NotNull HourlyRateValueDto[] values;
-    private @NotNull Boolean isActive;
     private @Nullable Integer taskCount;
     private @Nullable Integer resourceCount;
     private @Nullable Integer hourlyRateTimesheetCount;
@@ -211,18 +210,6 @@ public class HourlyRateDetailsDto
      * @param value The new value for values
      */
     public void setValues(@NotNull HourlyRateValueDto[] value) { this.values = value; }
-    /**
-     * If this is an archived rate
-     *
-     * @return The field isActive
-     */
-    public @NotNull Boolean getIsActive() { return this.isActive; }
-    /**
-     * If this is an archived rate
-     *
-     * @param value The new value for isActive
-     */
-    public void setIsActive(@NotNull Boolean value) { this.isActive = value; }
     /**
      * Total number of tasks with at least 1 association to this rate
      *

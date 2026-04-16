@@ -25,6 +25,8 @@ public class CountryDto
 {
     private @NotNull String id;
     private @NotNull String name;
+    private @NotNull Integer countryId;
+    private @NotNull String cultureName;
 
     /**
      * Gets or sets the unique identifier for the country. This should translate to the ISO2 code
@@ -52,4 +54,28 @@ public class CountryDto
      * @param value The new value for name
      */
     public void setName(@NotNull String value) { this.name = value; }
+    /**
+     * The PM Internal Id Reference for a country
+     *
+     * @return The field countryId
+     */
+    public @NotNull Integer getCountryId() { return this.countryId; }
+    /**
+     * The PM Internal Id Reference for a country
+     *
+     * @param value The new value for countryId
+     */
+    public void setCountryId(@NotNull Integer value) { this.countryId = value; }
+    /**
+     * The Culture name for a country
+     *
+     * @return The field cultureName
+     */
+    public @NotNull String getCultureName() { return this.cultureName; }
+    /**
+     * The Culture name for a country
+     *
+     * @param value The new value for cultureName
+     */
+    public void setCultureName(@NotNull String value) { this.cultureName = value; }
 };
