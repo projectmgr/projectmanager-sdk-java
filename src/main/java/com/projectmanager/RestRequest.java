@@ -148,7 +148,7 @@ public class RestRequest<@NotNull T> {
             }
 
             request.addHeader("SdkName", "Java");
-            request.addHeader("SdkVersion", "152.0.138.0");
+            request.addHeader("SdkVersion", "153.2.193.0");
 
             String applicationName = this.client.getAppName();
 
