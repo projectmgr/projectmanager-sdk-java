@@ -22,11 +22,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
-import com.projectmanager.models.MeetingDetailsDto;
-
 import com.projectmanager.models.MeetingDto;
-import com.projectmanager.models.MeetingUpdateDto;
+
 import com.projectmanager.models.MeetingCreateDto;
+import com.projectmanager.models.MeetingDetailsDto;
+import com.projectmanager.models.MeetingUpdateDto;
 import com.projectmanager.models.RecurringTaskChangeSetDetails;
 import com.projectmanager.models.WeeklyRecurringSettingsDto;
 import com.projectmanager.models.MonthlyRecurringSettingsDto;
@@ -51,6 +51,36 @@ public class MeetingsClient
     public MeetingsClient(@NotNull ProjectManagerClient client) {
         super();
         this.client = client;
+    }
+
+    /**
+     * Retrieve a list of Meetings.
+     *
+     * This endpoint does not use OData. If `projectId` is provided, results are limited to that Project.
+     *
+     * @param projectId Optional project id to scope results
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<MeetingDto[]> getMeetings(@Nullable String projectId)
+    {
+        RestRequest<MeetingDto[]> r = new RestRequest<MeetingDto[]>(this.client, "GET", "/api/data/meetings");
+        if (projectId != null) { r.AddQuery("projectId", projectId.toString()); }
+        return r.Call(new TypeToken<AstroResult<MeetingDto[]>>() {}.getType());
+    }
+
+    /**
+     * Creates a new Meeting for the current user.
+     * If you specify an assignee for this Meeting, that user will be assigned to it.
+     * If you do not specify an assignee, the Meeting will be automatically assigned to you.
+     *
+     * @param body The data used to create the Meeting
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<MeetingDto> createMeeting(@NotNull MeetingCreateDto body)
+    {
+        RestRequest<MeetingDto> r = new RestRequest<MeetingDto>(this.client, "POST", "/api/data/meetings");
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<MeetingDto>>() {}.getType());
     }
 
     /**
@@ -93,21 +123,6 @@ public class MeetingsClient
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/meetings/{meetingId}");
         r.AddPath("{meetingId}", meetingId == null ? "" : meetingId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
-    }
-
-    /**
-     * Creates a new Meeting for the current user.
-     * If you specify an assignee for this Meeting, that user will be assigned to it.
-     * If you do not specify an assignee, the Meeting will be automatically assigned to you.
-     *
-     * @param body The data used to create the Meeting
-     * @return A {@link com.projectmanager.AstroResult} containing the results
-     */
-    public @NotNull AstroResult<MeetingDto> createMeeting(@NotNull MeetingCreateDto body)
-    {
-        RestRequest<MeetingDto> r = new RestRequest<MeetingDto>(this.client, "POST", "/api/data/meetings");
-        if (body != null) { r.AddBody(body); }
-        return r.Call(new TypeToken<AstroResult<MeetingDto>>() {}.getType());
     }
 
     /**

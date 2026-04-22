@@ -26,6 +26,7 @@ import com.projectmanager.models.ProjectDto;
 
 import com.projectmanager.models.ProjectCreateDto;
 import com.projectmanager.models.ProjectUpdateDto;
+import com.projectmanager.models.ProjectReopenStatusDto;
 
 /**
  * Contains all methods related to Project
@@ -110,10 +111,6 @@ public class ProjectClient
      * represent individual items of work that team members must complete.  The sum total of Tasks
      * within a Project represents the work to be completed for that Project.
      *
-     * Multiple users can be working on data at the same time.  When you call an API to update an
-     * object, this call is converted into a Changeset that is then applied sequentially.  You can use
-     * RetrieveChangeset to see the status of an individual Changeset.
-     *
      * @param projectId The unique identifier of the Project to update
      * @param body All non-null fields in this object will replace previous data within the Project
      * @return A {@link com.projectmanager.AstroResult} containing the results
@@ -146,19 +143,19 @@ public class ProjectClient
     }
 
     /**
-     * Restore a soft deleted project based on its unique identifier.
+     * Check if a project is in a valid state so that it can be reopened without any side effects.
+     * For example, if Rates have changed for this project, reopening it will result is project
+     * costs being recalculated which will adjust costs.
      *
-     * A Project is a collection of Tasks that contributes towards a goal.  Within a Project, Tasks
-     * represent individual items of work that team members must complete.  The sum total of Tasks
-     * within a Project represents the work to be completed for that Project.
+     * This endpoint will return what side effects may occur if it is reopened.
      *
-     * @param projectId The unique identifier of the Project to delete
+     * @param projectId The unique identifier of the project to check.
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> restoreProject(@NotNull String projectId)
+    public @NotNull AstroResult<ProjectReopenStatusDto> reopenProjectStatus(@NotNull String projectId)
     {
-        RestRequest<Object> r = new RestRequest<Object>(this.client, "PUT", "/api/data/projects/{projectId}/restore");
+        RestRequest<ProjectReopenStatusDto> r = new RestRequest<ProjectReopenStatusDto>(this.client, "GET", "/api/data/projects/{projectId}/reopen/status");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
-        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<ProjectReopenStatusDto>>() {}.getType());
     }
 }

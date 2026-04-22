@@ -26,6 +26,7 @@ import org.jetbrains.annotations.Nullable;
 public class ProjectMemberDto
 {
     private @NotNull String id;
+    private @NotNull String projectId;
     private @NotNull String initials;
     private @NotNull String name;
     private @Nullable String avatarUrl;
@@ -45,6 +46,18 @@ public class ProjectMemberDto
      * @param value The new value for id
      */
     public void setId(@NotNull String value) { this.id = value; }
+    /**
+     * The unique identifier of the project that this ProjectMember belongs to.
+     *
+     * @return The field projectId
+     */
+    public @NotNull String getProjectId() { return this.projectId; }
+    /**
+     * The unique identifier of the project that this ProjectMember belongs to.
+     *
+     * @param value The new value for projectId
+     */
+    public void setProjectId(@NotNull String value) { this.projectId = value; }
     /**
      * the initials of the user
      *

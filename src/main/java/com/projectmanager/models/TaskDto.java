@@ -59,7 +59,7 @@ public class TaskDto
     private @Nullable Integer plannedEffort;
     private @NotNull Integer index;
     private @NotNull Integer level;
-    private @Nullable TaskFieldValueDto[] fieldValues;
+    private @Nullable SimpleTaskFieldValueDto[] fieldValues;
     private @Nullable TaskFileDto[] files;
 
     /**
@@ -629,13 +629,13 @@ public class TaskDto
      *
      * @return The field fieldValues
      */
-    public @Nullable TaskFieldValueDto[] getFieldValues() { return this.fieldValues; }
+    public @Nullable SimpleTaskFieldValueDto[] getFieldValues() { return this.fieldValues; }
     /**
      * Task fields array with values
      *
      * @param value The new value for fieldValues
      */
-    public void setFieldValues(@Nullable TaskFieldValueDto[] value) { this.fieldValues = value; }
+    public void setFieldValues(@Nullable SimpleTaskFieldValueDto[] value) { this.fieldValues = value; }
     /**
      * The list of files associated with this Task, if any.
      *

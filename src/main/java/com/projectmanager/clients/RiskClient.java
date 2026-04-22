@@ -131,9 +131,9 @@ public class RiskClient
      * @param body The data used to create the Risk
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<RiskDto> createRisk(@NotNull String projectId, @NotNull RiskCreateDto body)
+    public @NotNull AstroResult<RiskDto> createProjectRisk(@NotNull String projectId, @NotNull RiskCreateDto body)
     {
-        RestRequest<RiskDto> r = new RestRequest<RiskDto>(this.client, "POST", "/api/data/risks/{projectId}");
+        RestRequest<RiskDto> r = new RestRequest<RiskDto>(this.client, "POST", "/api/data/risks/projects/{projectId}");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<RiskDto>>() {}.getType());

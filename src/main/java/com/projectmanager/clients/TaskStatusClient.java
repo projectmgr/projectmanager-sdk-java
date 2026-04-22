@@ -87,14 +87,14 @@ public class TaskStatusClient
      * progress of Tasks.  You can define your own named status levels that are appropriate for
      * your business.
      *
-     * @param projectId The unique identifier of the Project for the new TaskStatus
-     * @param body Information about the existing TaskStatus level to update within this Project
+     * @param taskStatusId The id of the task status
+     * @param body Information about the existing TaskStatus to update within this Project
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TaskStatusDto> updateTaskStatus(@NotNull String projectId, @NotNull TaskStatusUpdateDto body)
+    public @NotNull AstroResult<TaskStatusDto> updateTaskStatus(@NotNull String taskStatusId, @NotNull TaskStatusUpdateDto body)
     {
-        RestRequest<TaskStatusDto> r = new RestRequest<TaskStatusDto>(this.client, "PUT", "/api/data/projects/{projectId}/tasks/statuses");
-        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        RestRequest<TaskStatusDto> r = new RestRequest<TaskStatusDto>(this.client, "PUT", "/api/data/tasks/statuses/{taskStatusId}");
+        r.AddPath("{taskStatusId}", taskStatusId == null ? "" : taskStatusId.toString());
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<TaskStatusDto>>() {}.getType());
     }
@@ -105,14 +105,12 @@ public class TaskStatusClient
      * You will not be able to delete a TaskStatus if there are tasks that have been assigned to this status level
      * or if the TaskStatus is the default status level.
      *
-     * @param projectId The unique identifier of the Project for the TaskStatus level to delete
-     * @param taskStatusId The Id of the TaskStatus level to be removed.
+     * @param taskStatusId The id of the TaskStatus to be removed.
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> deleteTaskStatus(@NotNull String projectId, @NotNull String taskStatusId)
+    public @NotNull AstroResult<Object> deleteTaskStatus(@NotNull String taskStatusId)
     {
-        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/projects/{projectId}/tasks/statuses/{taskStatusId}");
-        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/tasks/statuses/{taskStatusId}");
         r.AddPath("{taskStatusId}", taskStatusId == null ? "" : taskStatusId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
     }
