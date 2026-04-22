@@ -23,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
  * progress of Tasks.  You can define your own named status levels that are appropriate for
  * your business and determine which status levels are considered done.
  */
-public class TaskStatusUpdateDto
+public class NptStatusUpdateDto
 {
     private @Nullable String name;
     private @Nullable Integer order;

@@ -23,23 +23,24 @@ import org.jetbrains.annotations.Nullable;
  * progress of Tasks.  You can define your own named status levels that are appropriate for
  * your business and determine which status levels are considered done.
  */
-public class TaskStatusUpdateDto
+public class NptStatusCreateDto
 {
-    private @Nullable String name;
+    private @NotNull String name;
     private @Nullable Integer order;
+    private @Nullable Boolean isDone;
 
     /**
      * The name of this TaskStatus.
      *
      * @return The field name
      */
-    public @Nullable String getName() { return this.name; }
+    public @NotNull String getName() { return this.name; }
     /**
      * The name of this TaskStatus.
      *
      * @param value The new value for name
      */
-    public void setName(@Nullable String value) { this.name = value; }
+    public void setName(@NotNull String value) { this.name = value; }
     /**
      * A numerical value that can be used to sort TaskStatus values according to the
      * needs of your business.
@@ -54,4 +55,16 @@ public class TaskStatusUpdateDto
      * @param value The new value for order
      */
     public void setOrder(@Nullable Integer value) { this.order = value; }
+    /**
+     * True if a Task in this TaskStatus is considered done.
+     *
+     * @return The field isDone
+     */
+    public @Nullable Boolean getIsDone() { return this.isDone; }
+    /**
+     * True if a Task in this TaskStatus is considered done.
+     *
+     * @param value The new value for isDone
+     */
+    public void setIsDone(@Nullable Boolean value) { this.isDone = value; }
 };

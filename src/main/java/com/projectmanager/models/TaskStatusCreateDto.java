@@ -25,23 +25,10 @@ import org.jetbrains.annotations.Nullable;
  */
 public class TaskStatusCreateDto
 {
-    private @Nullable String id;
     private @NotNull String name;
     private @Nullable Integer order;
     private @Nullable Boolean isDone;
 
-    /**
-     * The unique identifier of this TaskStatus.
-     *
-     * @return The field id
-     */
-    public @Nullable String getId() { return this.id; }
-    /**
-     * The unique identifier of this TaskStatus.
-     *
-     * @param value The new value for id
-     */
-    public void setId(@Nullable String value) { this.id = value; }
     /**
      * The name of this TaskStatus.
      *

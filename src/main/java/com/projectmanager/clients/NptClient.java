@@ -22,11 +22,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
+import com.projectmanager.models.NptDto;
+import com.projectmanager.models.NptCreateDto;
 import com.projectmanager.models.NptDetailsDto;
 
-import com.projectmanager.models.NptDto;
 import com.projectmanager.models.NptUpdateDto;
-import com.projectmanager.models.NptCreateDto;
 
 /**
  * Contains all methods related to Npt
@@ -43,6 +43,38 @@ public class NptClient
     public NptClient(@NotNull ProjectManagerClient client) {
         super();
         this.client = client;
+    }
+
+    /**
+     * Retrieve a list of Non-Project Tasks (NPTs).
+     *
+     * This endpoint does not use OData.
+     *
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<NptDto[]> getNpts()
+    {
+        RestRequest<NptDto[]> r = new RestRequest<NptDto[]>(this.client, "GET", "/api/data/non-project-tasks");
+        return r.Call(new TypeToken<AstroResult<NptDto[]>>() {}.getType());
+    }
+
+    /**
+     * Creates a new Non-Project Task (NPT) for the current user. If you specify an assignee for this NPT, that user will be assigned to this task.
+     * If you do not specify an assignee, the NPT will be automatically assigned to you.
+     *
+     * A Non-Project Task (NPT) is an individual element of work that is outside of a project.
+     * Many people use NPTs to track personal work or general administrative work.  NPTs have nearly
+     * all the same features as other tasks, but since they are not part of a project, they can
+     * be tracked separately by individuals.
+     *
+     * @param body The data used to create the Npt
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<NptDto> createNpt(@NotNull NptCreateDto body)
+    {
+        RestRequest<NptDto> r = new RestRequest<NptDto>(this.client, "POST", "/api/data/non-project-tasks");
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<NptDto>>() {}.getType());
     }
 
     /**
@@ -100,24 +132,5 @@ public class NptClient
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/non-project-tasks/{nptId}");
         r.AddPath("{nptId}", nptId == null ? "" : nptId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
-    }
-
-    /**
-     * Creates a new Non-Project Task (NPT) for the current user. If you specify an assignee for this NPT, that user will be assigned to this task.
-     * If you do not specify an assignee, the NPT will be automatically assigned to you.
-     *
-     * A Non-Project Task (NPT) is an individual element of work that is outside of a project.
-     * Many people use NPTs to track personal work or general administrative work.  NPTs have nearly
-     * all the same features as other tasks, but since they are not part of a project, they can
-     * be tracked separately by individuals.
-     *
-     * @param body The data used to create the Npt
-     * @return A {@link com.projectmanager.AstroResult} containing the results
-     */
-    public @NotNull AstroResult<NptDto> createNpt(@NotNull NptCreateDto body)
-    {
-        RestRequest<NptDto> r = new RestRequest<NptDto>(this.client, "POST", "/api/data/non-project-tasks");
-        if (body != null) { r.AddBody(body); }
-        return r.Call(new TypeToken<AstroResult<NptDto>>() {}.getType());
     }
 }

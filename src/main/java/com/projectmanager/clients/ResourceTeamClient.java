@@ -98,14 +98,14 @@ public class ResourceTeamClient
     /**
      * Update a Resource Team.
      *
-     * @param teamresourceId The id of the resource team
+     * @param resourceTeamId The id of the resource team
      * @param body The name of the team to Update.
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ResourceTeamDto> updateResourceTeam(@NotNull String teamresourceId, @NotNull UpdateResourceTeamDto body)
+    public @NotNull AstroResult<ResourceTeamDto> updateResourceTeam(@NotNull String resourceTeamId, @NotNull UpdateResourceTeamDto body)
     {
-        RestRequest<ResourceTeamDto> r = new RestRequest<ResourceTeamDto>(this.client, "PUT", "/api/data/resources/teams/{teamresourceId}");
-        r.AddPath("{teamresourceId}", teamresourceId == null ? "" : teamresourceId.toString());
+        RestRequest<ResourceTeamDto> r = new RestRequest<ResourceTeamDto>(this.client, "PUT", "/api/data/resources/teams/{resourceTeamId}");
+        r.AddPath("{resourceTeamId}", resourceTeamId == null ? "" : resourceTeamId.toString());
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ResourceTeamDto>>() {}.getType());
     }

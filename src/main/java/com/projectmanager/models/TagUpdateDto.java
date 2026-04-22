@@ -24,8 +24,21 @@ import org.jetbrains.annotations.Nullable;
  */
 public class TagUpdateDto
 {
-    private @NotNull String color;
+    private @Nullable String name;
+    private @Nullable String color;
 
+    /**
+     * The name of this Tag. When omitted or null, the name is left unchanged.
+     *
+     * @return The field name
+     */
+    public @Nullable String getName() { return this.name; }
+    /**
+     * The name of this Tag. When omitted or null, the name is left unchanged.
+     *
+     * @param value The new value for name
+     */
+    public void setName(@Nullable String value) { this.name = value; }
     /**
      * The color that will be used to represent this Tag visually.  This color
      * is automatically chosen by the application when a user creates a Tag.
@@ -33,10 +46,11 @@ public class TagUpdateDto
      * You can choose specify any color that can be represented using HTML RGB
      * syntax such as `#0088FF`, in the format `RRGGBB`.  You may not use names
      * for colors.
+     * When omitted or null, the color is left unchanged.
      *
      * @return The field color
      */
-    public @NotNull String getColor() { return this.color; }
+    public @Nullable String getColor() { return this.color; }
     /**
      * The color that will be used to represent this Tag visually.  This color
      * is automatically chosen by the application when a user creates a Tag.
@@ -44,8 +58,9 @@ public class TagUpdateDto
      * You can choose specify any color that can be represented using HTML RGB
      * syntax such as `#0088FF`, in the format `RRGGBB`.  You may not use names
      * for colors.
+     * When omitted or null, the color is left unchanged.
      *
      * @param value The new value for color
      */
-    public void setColor(@NotNull String value) { this.color = value; }
+    public void setColor(@Nullable String value) { this.color = value; }
 };

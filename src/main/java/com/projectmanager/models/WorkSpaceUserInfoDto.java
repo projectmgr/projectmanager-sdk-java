@@ -39,8 +39,8 @@ public class WorkSpaceUserInfoDto
     private @NotNull Boolean workSpaceIsActive;
     private @NotNull String workSpaceCountry;
     private @NotNull String workSpaceCountryCode;
-    private @NotNull String workSpaceCulture;
-    private @NotNull String workSpaceCurrencyCulture;
+    private @NotNull String workspaceCulture;
+    private @NotNull String workspaceCurrencyCulture;
     private @NotNull String userCulture;
     private @NotNull String userCurrencyCulture;
     private @NotNull String location;
@@ -226,27 +226,27 @@ public class WorkSpaceUserInfoDto
     /**
      * The culture code (e.g., "en-US") used for formatting and localization in the workspace.
      *
-     * @return The field workSpaceCulture
+     * @return The field workspaceCulture
      */
-    public @NotNull String getWorkSpaceCulture() { return this.workSpaceCulture; }
+    public @NotNull String getWorkspaceCulture() { return this.workspaceCulture; }
     /**
      * The culture code (e.g., "en-US") used for formatting and localization in the workspace.
      *
-     * @param value The new value for workSpaceCulture
+     * @param value The new value for workspaceCulture
      */
-    public void setWorkSpaceCulture(@NotNull String value) { this.workSpaceCulture = value; }
+    public void setWorkspaceCulture(@NotNull String value) { this.workspaceCulture = value; }
     /**
      * The culture code used for currency formatting in the workspace.
      *
-     * @return The field workSpaceCurrencyCulture
+     * @return The field workspaceCurrencyCulture
      */
-    public @NotNull String getWorkSpaceCurrencyCulture() { return this.workSpaceCurrencyCulture; }
+    public @NotNull String getWorkspaceCurrencyCulture() { return this.workspaceCurrencyCulture; }
     /**
      * The culture code used for currency formatting in the workspace.
      *
-     * @param value The new value for workSpaceCurrencyCulture
+     * @param value The new value for workspaceCurrencyCulture
      */
-    public void setWorkSpaceCurrencyCulture(@NotNull String value) { this.workSpaceCurrencyCulture = value; }
+    public void setWorkspaceCurrencyCulture(@NotNull String value) { this.workspaceCurrencyCulture = value; }
     /**
      * The culture code (e.g., "en-US") used for formatting and localization for the user.
      *

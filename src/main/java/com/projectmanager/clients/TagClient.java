@@ -101,4 +101,17 @@ public class TagClient
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<TagDto>>() {}.getType());
     }
+
+    /**
+     * Permanently removes the specified Tag.
+     *
+     * @param tagId The id of the tag to delete
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<Object> deleteTag(@NotNull String tagId)
+    {
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/tags/{tagId}");
+        r.AddPath("{tagId}", tagId == null ? "" : tagId.toString());
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+    }
 }

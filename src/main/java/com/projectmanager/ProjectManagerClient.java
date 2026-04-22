@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2026 ProjectManager.com, Inc.
- * @version    152.0.138
+ * @version    154.0.181
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -58,6 +58,7 @@ import com.projectmanager.clients.ResourceTeamClient;
 import com.projectmanager.clients.RiskClient;
 import com.projectmanager.clients.RiskFileClient;
 import com.projectmanager.clients.RiskTagClient;
+import com.projectmanager.clients.SecurityClient;
 import com.projectmanager.clients.TagClient;
 import com.projectmanager.clients.TaskClient;
 import com.projectmanager.clients.TaskAssigneeClient;
@@ -126,6 +127,7 @@ public class ProjectManagerClient {
     private RiskClient risk;
     private RiskFileClient riskFile;
     private RiskTagClient riskTag;
+    private SecurityClient security;
     private TagClient tag;
     private TaskClient task;
     private TaskAssigneeClient taskAssignee;
@@ -187,6 +189,7 @@ public class ProjectManagerClient {
         this.risk = new RiskClient(this);
         this.riskFile = new RiskFileClient(this);
         this.riskTag = new RiskTagClient(this);
+        this.security = new SecurityClient(this);
         this.tag = new TagClient(this);
         this.task = new TaskClient(this);
         this.taskAssignee = new TaskAssigneeClient(this);
@@ -455,6 +458,12 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.RiskTagClient client} methods in the API.
      */
     public @NotNull RiskTagClient getRiskTagClient() { return this.riskTag; }
+    /**
+     * A collection of API methods relating to Security
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.SecurityClient client} methods in the API.
+     */
+    public @NotNull SecurityClient getSecurityClient() { return this.security; }
     /**
      * A collection of API methods relating to Tag
      *

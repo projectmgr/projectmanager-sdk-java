@@ -86,14 +86,14 @@ public class ResourceSkillClient
     /**
      * Update a Resource Skill.
      *
-     * @param skillId The id of the skill to update.
+     * @param resourceSkillId The id of the skill to update.
      * @param body The data of the skill to update.
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ResourceSkillDto> updateResourceSkill(@NotNull String skillId, @NotNull UpdateResourceSkillDto body)
+    public @NotNull AstroResult<ResourceSkillDto> updateResourceSkill(@NotNull String resourceSkillId, @NotNull UpdateResourceSkillDto body)
     {
-        RestRequest<ResourceSkillDto> r = new RestRequest<ResourceSkillDto>(this.client, "PUT", "/api/data/resources/skills/{skillId}");
-        r.AddPath("{skillId}", skillId == null ? "" : skillId.toString());
+        RestRequest<ResourceSkillDto> r = new RestRequest<ResourceSkillDto>(this.client, "PUT", "/api/data/resources/skills/{resourceSkillId}");
+        r.AddPath("{resourceSkillId}", resourceSkillId == null ? "" : resourceSkillId.toString());
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ResourceSkillDto>>() {}.getType());
     }
