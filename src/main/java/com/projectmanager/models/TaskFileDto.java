@@ -29,6 +29,7 @@ public class TaskFileDto
     private @NotNull String createDate;
     private @Nullable String fileType;
     private @Nullable String fileTypeLabel;
+    private @NotNull Integer size;
 
     /**
      * The identifier for this file
@@ -102,4 +103,16 @@ public class TaskFileDto
      * @param value The new value for fileTypeLabel
      */
     public void setFileTypeLabel(@Nullable String value) { this.fileTypeLabel = value; }
+    /**
+     * File size in bytes (for task attachment lists / Gantt grid)
+     *
+     * @return The field size
+     */
+    public @NotNull Integer getSize() { return this.size; }
+    /**
+     * File size in bytes (for task attachment lists / Gantt grid)
+     *
+     * @param value The new value for size
+     */
+    public void setSize(@NotNull Integer value) { this.size = value; }
 };

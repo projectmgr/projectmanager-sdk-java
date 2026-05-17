@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2026 ProjectManager.com, Inc.
- * @version    154.0.181
+ * @version    155.0.121
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -18,7 +18,6 @@ package com.projectmanager;
 
 import com.projectmanager.clients.ApiKeyClient;
 import com.projectmanager.clients.ChangesetClient;
-import com.projectmanager.clients.DashboardClient;
 import com.projectmanager.clients.DiscussionClient;
 import com.projectmanager.clients.FileClient;
 import com.projectmanager.clients.HolidayClient;
@@ -87,7 +86,6 @@ public class ProjectManagerClient {
 
     private ApiKeyClient apiKey;
     private ChangesetClient changeset;
-    private DashboardClient dashboard;
     private DiscussionClient discussion;
     private FileClient file;
     private HolidayClient holiday;
@@ -149,7 +147,6 @@ public class ProjectManagerClient {
 
         this.apiKey = new ApiKeyClient(this);
         this.changeset = new ChangesetClient(this);
-        this.dashboard = new DashboardClient(this);
         this.discussion = new DiscussionClient(this);
         this.file = new FileClient(this);
         this.holiday = new HolidayClient(this);
@@ -218,12 +215,6 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.ChangesetClient client} methods in the API.
      */
     public @NotNull ChangesetClient getChangesetClient() { return this.changeset; }
-    /**
-     * A collection of API methods relating to Dashboard
-     *
-     * @return A collection containing the {@link com.projectmanager.clients.DashboardClient client} methods in the API.
-     */
-    public @NotNull DashboardClient getDashboardClient() { return this.dashboard; }
     /**
      * A collection of API methods relating to Discussion
      *
