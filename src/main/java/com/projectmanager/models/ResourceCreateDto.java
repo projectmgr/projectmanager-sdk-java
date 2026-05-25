@@ -42,6 +42,8 @@ public class ResourceCreateDto
     private @Nullable String colorName;
     private @Nullable String language;
     private @Nullable Integer publicAvatarId;
+    private @Nullable Double defaultPlannedHours;
+    private @Nullable ResourceWorkingDaysHours workingDays;
 
     /**
      * The first name of the person Resource.
@@ -247,4 +249,30 @@ public class ResourceCreateDto
      * @param value The new value for publicAvatarId
      */
     public void setPublicAvatarId(@Nullable Integer value) { this.publicAvatarId = value; }
+    /**
+     * Default planned effort in hours for this resource. If omitted, the workspace default (or 8 hours) is applied.
+     *
+     * @return The field defaultPlannedHours
+     */
+    public @Nullable Double getDefaultPlannedHours() { return this.defaultPlannedHours; }
+    /**
+     * Default planned effort in hours for this resource. If omitted, the workspace default (or 8 hours) is applied.
+     *
+     * @param value The new value for defaultPlannedHours
+     */
+    public void setDefaultPlannedHours(@Nullable Double value) { this.defaultPlannedHours = value; }
+    /**
+     * Per-day working hours (Monday … Sunday). When omitted, no resource-specific calendar is created and the
+     * workspace calendar applies. Set only the days you need; they merge over the workspace defaults.
+     *
+     * @return The field workingDays
+     */
+    public @Nullable ResourceWorkingDaysHours getWorkingDays() { return this.workingDays; }
+    /**
+     * Per-day working hours (Monday … Sunday). When omitted, no resource-specific calendar is created and the
+     * workspace calendar applies. Set only the days you need; they merge over the workspace defaults.
+     *
+     * @param value The new value for workingDays
+     */
+    public void setWorkingDays(@Nullable ResourceWorkingDaysHours value) { this.workingDays = value; }
 };

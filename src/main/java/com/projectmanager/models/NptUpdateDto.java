@@ -41,6 +41,7 @@ public class NptUpdateDto
     private @Nullable Double actualCost;
     private @Nullable String[] assignees;
     private @Nullable Boolean recurring;
+    private @Nullable MoveTaskToProjectDto moveToProject;
 
     /**
      * The common name of this Task.
@@ -312,4 +313,16 @@ public class NptUpdateDto
      * @param value The new value for recurring
      */
     public void setRecurring(@Nullable Boolean value) { this.recurring = value; }
+    /**
+     * Object contains data to move npt to another project
+     *
+     * @return The field moveToProject
+     */
+    public @Nullable MoveTaskToProjectDto getMoveToProject() { return this.moveToProject; }
+    /**
+     * Object contains data to move npt to another project
+     *
+     * @param value The new value for moveToProject
+     */
+    public void setMoveToProject(@Nullable MoveTaskToProjectDto value) { this.moveToProject = value; }
 };

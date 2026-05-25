@@ -253,4 +253,19 @@ public class TaskClient
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
         return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
     }
+
+    /**
+     * Updates the task user read record (last viewed) for the authenticated user. Use this
+     * when the UI only needs to mark file/discussion read state
+     * without loading full task details.
+     *
+     * @param taskId Task unique identifier
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<Object> marktaskasreadforthecurrentuser(@NotNull String taskId)
+    {
+        RestRequest<Object> r = new RestRequest<Object>(this.client, "POST", "/api/data/tasks/{taskId}/mark-read");
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
+        return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+    }
 }

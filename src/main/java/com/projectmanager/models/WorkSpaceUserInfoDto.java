@@ -44,6 +44,7 @@ public class WorkSpaceUserInfoDto
     private @NotNull String userCulture;
     private @NotNull String userCurrencyCulture;
     private @NotNull String location;
+    private @NotNull EntitlementDto[] entitlements;
 
     /**
      * A collection of shortcut links for the currently logged in Workspace.
@@ -283,4 +284,18 @@ public class WorkSpaceUserInfoDto
      * @param value The new value for location
      */
     public void setLocation(@NotNull String value) { this.location = value; }
+    /**
+     * The entitlements active for this Workspace. Each entry is either a boolean switch or a
+     * numeric limit.
+     *
+     * @return The field entitlements
+     */
+    public @NotNull EntitlementDto[] getEntitlements() { return this.entitlements; }
+    /**
+     * The entitlements active for this Workspace. Each entry is either a boolean switch or a
+     * numeric limit.
+     *
+     * @param value The new value for entitlements
+     */
+    public void setEntitlements(@NotNull EntitlementDto[] value) { this.entitlements = value; }
 };

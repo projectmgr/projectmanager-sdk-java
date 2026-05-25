@@ -22,11 +22,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
-import com.projectmanager.models.RiskDetailsDto;
-
 import com.projectmanager.models.RiskDto;
-import com.projectmanager.models.RiskUpdateDto;
+
 import com.projectmanager.models.RiskCreateDto;
+import com.projectmanager.models.RiskDetailsDto;
+import com.projectmanager.models.RiskUpdateDto;
 import com.projectmanager.models.ExportDto;
 import com.projectmanager.models.RiskExportSettingsDto;
 
@@ -45,6 +45,49 @@ public class RiskClient
     public RiskClient(@NotNull ProjectManagerClient client) {
         super();
         this.client = client;
+    }
+
+    /**
+     * Creates a new Risk within the specified Project.
+     *
+     * The Risk will inherit Project context such as access permissions
+     * and workspace ownership. Validation is applied to ensure the
+     * Project exists and the caller has permission to create Risks.
+     *
+     * @param projectId The id of the project
+     * @param body The data used to create the Risk
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<RiskDto> createProjectRisk(@NotNull String projectId, @NotNull RiskCreateDto body)
+    {
+        RestRequest<RiskDto> r = new RestRequest<RiskDto>(this.client, "POST", "/api/data/projects/{projectId}");
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<RiskDto>>() {}.getType());
+    }
+
+    /**
+     * Retrieve a list of risks that match an [OData formatted query](https://www.odata.org/).
+     *
+     * A Risk represents a tracked item of concern for a project.  Risks may be categorized as Changes, Risks,
+     * Assumptions, Issues, or Dependencies.
+     *
+     * @param top The number of records to return
+     * @param skip Skips the given number of records and then returns $top records
+     * @param filter Filter the expression according to oData queries
+     * @param orderby Order collection by this field.
+     * @param expand Include related data in the response
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<RiskDto[]> queryRisks(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String orderby, @Nullable String expand)
+    {
+        RestRequest<RiskDto[]> r = new RestRequest<RiskDto[]>(this.client, "GET", "/api/data/risks");
+        if (top != null) { r.AddQuery("$top", top.toString()); }
+        if (skip != null) { r.AddQuery("$skip", skip.toString()); }
+        if (filter != null) { r.AddQuery("$filter", filter.toString()); }
+        if (orderby != null) { r.AddQuery("$orderby", orderby.toString()); }
+        if (expand != null) { r.AddQuery("$expand", expand.toString()); }
+        return r.Call(new TypeToken<AstroResult<RiskDto[]>>() {}.getType());
     }
 
     /**
@@ -121,25 +164,6 @@ public class RiskClient
     }
 
     /**
-     * Creates a new Risk within the specified Project.
-     *
-     * The Risk will inherit Project context such as access permissions
-     * and workspace ownership. Validation is applied to ensure the
-     * Project exists and the caller has permission to create Risks.
-     *
-     * @param projectId The id of the project
-     * @param body The data used to create the Risk
-     * @return A {@link com.projectmanager.AstroResult} containing the results
-     */
-    public @NotNull AstroResult<RiskDto> createProjectRisk(@NotNull String projectId, @NotNull RiskCreateDto body)
-    {
-        RestRequest<RiskDto> r = new RestRequest<RiskDto>(this.client, "POST", "/api/data/risks/projects/{projectId}");
-        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
-        if (body != null) { r.AddBody(body); }
-        return r.Call(new TypeToken<AstroResult<RiskDto>>() {}.getType());
-    }
-
-    /**
      * Initiates a new Export action for Risks.
      *
      * Returns the identifier of this Risk Export.
@@ -154,29 +178,5 @@ public class RiskClient
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
         if (body != null) { r.AddBody(body); }
         return r.Call(new TypeToken<AstroResult<ExportDto>>() {}.getType());
-    }
-
-    /**
-     * Retrieve a list of risks that match an [OData formatted query](https://www.odata.org/).
-     *
-     * A Risk represents a tracked item of concern for a project.  Risks may be categorized as Changes, Risks,
-     * Assumptions, Issues, or Dependencies.
-     *
-     * @param top The number of records to return
-     * @param skip Skips the given number of records and then returns $top records
-     * @param filter Filter the expression according to oData queries
-     * @param orderby Order collection by this field.
-     * @param expand Include related data in the response
-     * @return A {@link com.projectmanager.AstroResult} containing the results
-     */
-    public @NotNull AstroResult<RiskDto[]> queryRisks(@Nullable Integer top, @Nullable Integer skip, @Nullable String filter, @Nullable String orderby, @Nullable String expand)
-    {
-        RestRequest<RiskDto[]> r = new RestRequest<RiskDto[]>(this.client, "GET", "/api/data/risks");
-        if (top != null) { r.AddQuery("$top", top.toString()); }
-        if (skip != null) { r.AddQuery("$skip", skip.toString()); }
-        if (filter != null) { r.AddQuery("$filter", filter.toString()); }
-        if (orderby != null) { r.AddQuery("$orderby", orderby.toString()); }
-        if (expand != null) { r.AddQuery("$expand", expand.toString()); }
-        return r.Call(new TypeToken<AstroResult<RiskDto[]>>() {}.getType());
     }
 }
