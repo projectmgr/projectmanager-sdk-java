@@ -37,6 +37,7 @@ public class RiskUpdateDto
     private @Nullable String[] assignees;
     private @Nullable String[] tagIds;
     private @Nullable Integer riskTypeId;
+    private @Nullable MoveTaskToProjectDto moveToProject;
 
     /**
      * The common name of this Risk.
@@ -198,4 +199,16 @@ public class RiskUpdateDto
      * @param value The new value for riskTypeId
      */
     public void setRiskTypeId(@Nullable Integer value) { this.riskTypeId = value; }
+    /**
+     * Object contains data to move risk to another project
+     *
+     * @return The field moveToProject
+     */
+    public @Nullable MoveTaskToProjectDto getMoveToProject() { return this.moveToProject; }
+    /**
+     * Object contains data to move risk to another project
+     *
+     * @param value The new value for moveToProject
+     */
+    public void setMoveToProject(@Nullable MoveTaskToProjectDto value) { this.moveToProject = value; }
 };

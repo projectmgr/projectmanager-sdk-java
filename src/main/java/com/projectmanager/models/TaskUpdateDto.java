@@ -42,6 +42,7 @@ public class TaskUpdateDto
     private @Nullable String theme;
     private @Nullable Boolean isLocked;
     private @Nullable Boolean isMilestone;
+    private @Nullable MoveTaskToProjectDto moveToProject;
 
     /**
      * The common name of this Task.
@@ -355,4 +356,16 @@ public class TaskUpdateDto
      * @param value The new value for isMilestone
      */
     public void setIsMilestone(@Nullable Boolean value) { this.isMilestone = value; }
+    /**
+     * Object contains data to move task to another project
+     *
+     * @return The field moveToProject
+     */
+    public @Nullable MoveTaskToProjectDto getMoveToProject() { return this.moveToProject; }
+    /**
+     * Object contains data to move task to another project
+     *
+     * @param value The new value for moveToProject
+     */
+    public void setMoveToProject(@Nullable MoveTaskToProjectDto value) { this.moveToProject = value; }
 };

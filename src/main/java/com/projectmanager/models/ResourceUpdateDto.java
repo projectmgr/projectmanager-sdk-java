@@ -45,6 +45,8 @@ public class ResourceUpdateDto
     private @Nullable String language;
     private @Nullable Integer publicAvatarId;
     private @Nullable Boolean clearAvatar;
+    private @Nullable Double defaultPlannedHours;
+    private @Nullable ResourceWorkingDaysHours workingDays;
 
     /**
      * The first name of the person Resource.
@@ -298,4 +300,28 @@ public class ResourceUpdateDto
      * @param value The new value for clearAvatar
      */
     public void setClearAvatar(@Nullable Boolean value) { this.clearAvatar = value; }
+    /**
+     * Default planned effort in hours. When set, updates the resource; when omitted, existing value is unchanged.
+     *
+     * @return The field defaultPlannedHours
+     */
+    public @Nullable Double getDefaultPlannedHours() { return this.defaultPlannedHours; }
+    /**
+     * Default planned effort in hours. When set, updates the resource; when omitted, existing value is unchanged.
+     *
+     * @param value The new value for defaultPlannedHours
+     */
+    public void setDefaultPlannedHours(@Nullable Double value) { this.defaultPlannedHours = value; }
+    /**
+     * Per-day working hours. When non-null, updates or creates the resource calendar; set only days to change—they merge over workspace defaults.
+     *
+     * @return The field workingDays
+     */
+    public @Nullable ResourceWorkingDaysHours getWorkingDays() { return this.workingDays; }
+    /**
+     * Per-day working hours. When non-null, updates or creates the resource calendar; set only days to change—they merge over workspace defaults.
+     *
+     * @param value The new value for workingDays
+     */
+    public void setWorkingDays(@Nullable ResourceWorkingDaysHours value) { this.workingDays = value; }
 };

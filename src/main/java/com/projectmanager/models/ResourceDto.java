@@ -55,6 +55,8 @@ public class ResourceDto
     private @Nullable String avatarUrl;
     private @Nullable String language;
     private @NotNull Integer resourceTypeId;
+    private @Nullable Double defaultPlannedHours;
+    private @NotNull ResourceWorkingDaysHours workingDays;
 
     /**
      * The unique identifier of this Resource.
@@ -438,4 +440,28 @@ public class ResourceDto
      * @param value The new value for resourceTypeId
      */
     public void setResourceTypeId(@NotNull Integer value) { this.resourceTypeId = value; }
+    /**
+     * Default planned effort for this resource, in hours (stored as whole minutes server-side).
+     *
+     * @return The field defaultPlannedHours
+     */
+    public @Nullable Double getDefaultPlannedHours() { return this.defaultPlannedHours; }
+    /**
+     * Default planned effort for this resource, in hours (stored as whole minutes server-side).
+     *
+     * @param value The new value for defaultPlannedHours
+     */
+    public void setDefaultPlannedHours(@Nullable Double value) { this.defaultPlannedHours = value; }
+    /**
+     * Hours available per weekday for scheduling (whole hours per day; matches workspace/resource calendar rows).
+     *
+     * @return The field workingDays
+     */
+    public @NotNull ResourceWorkingDaysHours getWorkingDays() { return this.workingDays; }
+    /**
+     * Hours available per weekday for scheduling (whole hours per day; matches workspace/resource calendar rows).
+     *
+     * @param value The new value for workingDays
+     */
+    public void setWorkingDays(@NotNull ResourceWorkingDaysHours value) { this.workingDays = value; }
 };
