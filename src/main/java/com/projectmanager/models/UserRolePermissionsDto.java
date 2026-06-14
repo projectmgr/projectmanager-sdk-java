@@ -222,13 +222,13 @@ public class UserRolePermissionsDto
      */
     public void setViewPersonalBoard(@NotNull UserRolePermissionDto value) { this.viewPersonalBoard = value; }
     /**
-     * Access all projects and timesheets
+     * Edit all projects and timesheets
      *
      * @return The field editAllProjects
      */
     public @NotNull UserRolePermissionDto getEditAllProjects() { return this.editAllProjects; }
     /**
-     * Access all projects and timesheets
+     * Edit all projects and timesheets
      *
      * @param value The new value for editAllProjects
      */

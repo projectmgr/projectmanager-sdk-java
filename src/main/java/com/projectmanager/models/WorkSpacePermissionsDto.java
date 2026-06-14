@@ -78,13 +78,13 @@ public class WorkSpacePermissionsDto
      */
     public void setEditRole(@Nullable Boolean value) { this.editRole = value; }
     /**
-     * True if this user can Access all account data
+     * True if this user can edit all projects and timesheets
      *
      * @return The field editAllProjects
      */
     public @Nullable Boolean getEditAllProjects() { return this.editAllProjects; }
     /**
-     * True if this user can Access all account data
+     * True if this user can edit all projects and timesheets
      *
      * @param value The new value for editAllProjects
      */

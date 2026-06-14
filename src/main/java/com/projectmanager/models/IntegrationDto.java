@@ -35,6 +35,7 @@ public class IntegrationDto
     private @NotNull Boolean authenticated;
     private @NotNull Boolean autoEnabled;
     private @NotNull Boolean noAdminPermission;
+    private @NotNull IntegrationMetadataDto[] metadata;
 
     /**
      * The unique identifier of this Integration
@@ -174,4 +175,20 @@ public class IntegrationDto
      * @param value The new value for noAdminPermission
      */
     public void setNoAdminPermission(@NotNull Boolean value) { this.noAdminPermission = value; }
+    /**
+     * Metadata key-value pairs stored against this Integration for the current Workspace.
+     * Only populated when the Integration is enabled. Values are comma-separated strings
+     * to support multi-value entries (e.g. a list of IDs, names, or reference values).
+     *
+     * @return The field metadata
+     */
+    public @NotNull IntegrationMetadataDto[] getMetadata() { return this.metadata; }
+    /**
+     * Metadata key-value pairs stored against this Integration for the current Workspace.
+     * Only populated when the Integration is enabled. Values are comma-separated strings
+     * to support multi-value entries (e.g. a list of IDs, names, or reference values).
+     *
+     * @param value The new value for metadata
+     */
+    public void setMetadata(@NotNull IntegrationMetadataDto[] value) { this.metadata = value; }
 };

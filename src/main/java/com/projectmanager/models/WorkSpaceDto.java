@@ -35,6 +35,7 @@ public class WorkSpaceDto
     private @NotNull String registerDate;
     private @Nullable String businessUserId;
     private @NotNull Boolean isPaid;
+    private @NotNull WorkspaceSettingsDto settings;
 
     /**
      * The unique identifier of this Workspace.
@@ -158,4 +159,16 @@ public class WorkSpaceDto
      * @param value The new value for isPaid
      */
     public void setIsPaid(@NotNull Boolean value) { this.isPaid = value; }
+    /**
+     * Workspace-level scheduling defaults.
+     *
+     * @return The field settings
+     */
+    public @NotNull WorkspaceSettingsDto getSettings() { return this.settings; }
+    /**
+     * Workspace-level scheduling defaults.
+     *
+     * @param value The new value for settings
+     */
+    public void setSettings(@NotNull WorkspaceSettingsDto value) { this.settings = value; }
 };
