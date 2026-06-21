@@ -24,6 +24,7 @@ import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.IntegrationDto;
 
+import com.projectmanager.models.IntegrationMetadataDto;
 
 /**
  * Contains all methods related to Integration
@@ -102,5 +103,25 @@ public class IntegrationClient
     {
         RestRequest<IntegrationDto[]> r = new RestRequest<IntegrationDto[]>(this.client, "GET", "/api/data/integrations");
         return r.Call(new TypeToken<AstroResult<IntegrationDto[]>>() {}.getType());
+    }
+
+    /**
+     * Replaces the metadata stored against a specific Integration for the current Workspace.
+     * Metadata is a list of key-value pairs where values are comma-separated strings to support
+     * multiple values per key (e.g. a list of IDs, names, or reference values).
+     *
+     * The Integrations API is intended for use by ProjectManager and its business development
+     * partners.  Please contact ProjectManager's sales team to request use of this API.
+     *
+     * @param integrationId The unique identifier of the Integration to update
+     * @param body The full set of metadata key-value pairs to store against this Integration
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<IntegrationDto> updateIntegrationMetadata(@NotNull String integrationId, @NotNull IntegrationMetadataDto[] body)
+    {
+        RestRequest<IntegrationDto> r = new RestRequest<IntegrationDto>(this.client, "PUT", "/api/data/integrations/{integrationId}/metadata");
+        r.AddPath("{integrationId}", integrationId == null ? "" : integrationId.toString());
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<IntegrationDto>>() {}.getType());
     }
 }
