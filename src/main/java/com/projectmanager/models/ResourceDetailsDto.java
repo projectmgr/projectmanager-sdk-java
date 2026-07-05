@@ -19,13 +19,12 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * A Resource represents a person, material, or tool that is used within your Projects.
- * When you attach a Resources to more than one Task, the software will schedule the usage
- * of your Resource so that it is not allocated to more than one Task at the same time.
- * The users in your Workspace are also considered Resources.  To invite a new User to your
- * Workspace, create a new Resource for that user.
+ * An extended view of a Resource returned when retrieving a single Resource.
+ *
+ * Includes everything on Astro.Api.Dto.Resources.ResourceDto plus additional profile details that are only
+ * surfaced for an individual Resource, such as the Projects the Resource has access to.
  */
-public class ResourceDto
+public class ResourceDetailsDto
 {
     private @NotNull String id;
     private @NotNull String initials;
@@ -58,6 +57,7 @@ public class ResourceDto
     private @NotNull Integer resourceTypeId;
     private @Nullable Double defaultPlannedHours;
     private @NotNull ResourceWorkingDaysHours workingDays;
+    private @NotNull IdNameDto[] projectMembership;
 
     /**
      * The unique identifier of this Resource.
@@ -481,4 +481,20 @@ public class ResourceDto
      * @param value The new value for workingDays
      */
     public void setWorkingDays(@NotNull ResourceWorkingDaysHours value) { this.workingDays = value; }
+    /**
+     * The list of Projects this Resource has access to, each as an id and name.
+     *
+     * Returns an empty array when the Resource does not have access to any Projects.
+     *
+     * @return The field projectMembership
+     */
+    public @NotNull IdNameDto[] getProjectMembership() { return this.projectMembership; }
+    /**
+     * The list of Projects this Resource has access to, each as an id and name.
+     *
+     * Returns an empty array when the Resource does not have access to any Projects.
+     *
+     * @param value The new value for projectMembership
+     */
+    public void setProjectMembership(@NotNull IdNameDto[] value) { this.projectMembership = value; }
 };

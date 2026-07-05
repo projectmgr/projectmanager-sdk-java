@@ -25,7 +25,6 @@ import com.projectmanager.AstroResult;
 import com.projectmanager.models.ProjectMemberDto;
 import com.projectmanager.models.ProjectAccessDto;
 
-import com.projectmanager.models.ProjectMembersAccessDto;
 import com.projectmanager.models.ProjectMemberRoleDto;
 
 /**
@@ -90,27 +89,6 @@ public class ProjectMembersClient
     }
 
     /**
-     * Updates the project access for a current member of a specified project
-     * by giving the users a new project security role.
-     *
-     * A project member is a user who has access to a specific project.
-     * Project members are assigned a project security role, which controls the level of access they have to
-     * the project.
-     * Possible project security roles include manage, edit, collaborate, creator, and guest.
-     *
-     * @param projectId Reference to Project
-     * @param body The permission to update
-     * @return A {@link com.projectmanager.AstroResult} containing the results
-     */
-    public @NotNull AstroResult<ProjectMemberDto> updateAListOfUserProjectMembership(@NotNull String projectId, @NotNull ProjectMembersAccessDto body)
-    {
-        RestRequest<ProjectMemberDto> r = new RestRequest<ProjectMemberDto>(this.client, "PUT", "/api/data/projects/{projectId}/members");
-        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
-        if (body != null) { r.AddBody(body); }
-        return r.Call(new TypeToken<AstroResult<ProjectMemberDto>>() {}.getType());
-    }
-
-    /**
      * Returns the project security role in a specified project for a current project member.
      *
      * A project member is a user who has access to a specific project. Project members are assigned a project security role, which controls the level of access they have to
@@ -129,40 +107,23 @@ public class ProjectMembersClient
     }
 
     /**
-     * Creates a membership for a user in a specified project
-     * and assigns the user the appropriate project access based on the specified project security role.
+     * Creates or updates (upserts) a user's membership in a specified project. If the user is not yet a member they
+     * are added; if they are already a member their project security role is replaced.
      *
-     * A project member is a user who has access to a specific project.
-     * Project members are assigned a project security role, which controls the level of access they have to
-     * the project.
-     * Possible project security roles include manage, edit, collaborate, creator, and guest.
-     *
-     * @param projectId Reference to Project
-     * @param userId Reference to User
-     * @param body The permission to set
-     * @return A {@link com.projectmanager.AstroResult} containing the results
-     */
-    public @NotNull AstroResult<ProjectMemberDto> createUserProjectMembership(@NotNull String projectId, @NotNull String userId, @NotNull ProjectMemberRoleDto body)
-    {
-        RestRequest<ProjectMemberDto> r = new RestRequest<ProjectMemberDto>(this.client, "POST", "/api/data/projects/{projectId}/members/{userId}");
-        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
-        r.AddPath("{userId}", userId == null ? "" : userId.toString());
-        if (body != null) { r.AddBody(body); }
-        return r.Call(new TypeToken<AstroResult<ProjectMemberDto>>() {}.getType());
-    }
-
-    /**
-     * Updates the project access for a current member of a specified project by giving the user a new project security role.
+     * The role is optional. When the role is omitted for a new member, a default role is applied based on the user's
+     * workspace access: users who can edit all projects become a Manager, guest users become a Guest, and everyone
+     * else becomes an Editor. When the role is omitted for a user who is already a member, their current role is left
+     * unchanged.
      *
      * A project member is a user who has access to a specific project. Project members are assigned a project security role, which controls the level of access they have to
      * the project. Possible project security roles include manage, edit, collaborate, creator, and guest.
      *
      * @param projectId Reference to Project
      * @param userId Reference to User
-     * @param body The permission to update
+     * @param body The permission to set. The role is optional.
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectMemberDto> updateUserProjectMembership(@NotNull String projectId, @NotNull String userId, @NotNull ProjectMemberRoleDto body)
+    public @NotNull AstroResult<ProjectMemberDto> createOrUpdateUserProjectMembership(@NotNull String projectId, @NotNull String userId, @NotNull ProjectMemberRoleDto body)
     {
         RestRequest<ProjectMemberDto> r = new RestRequest<ProjectMemberDto>(this.client, "PUT", "/api/data/projects/{projectId}/members/{userId}");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());

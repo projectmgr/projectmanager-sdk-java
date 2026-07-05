@@ -40,6 +40,8 @@ public class WorkSpacePermissionsDto
     private @Nullable Boolean createProject;
     private @Nullable Boolean editUser;
     private @Nullable Boolean viewMyBoard;
+    private @Nullable Boolean changeOwnEmail;
+    private @Nullable Boolean useMcp;
 
     /**
      * True if this user can Add people to the account
@@ -78,13 +80,13 @@ public class WorkSpacePermissionsDto
      */
     public void setEditRole(@Nullable Boolean value) { this.editRole = value; }
     /**
-     * True if this user can Access all account data
+     * True if this user can edit all projects and timesheets
      *
      * @return The field editAllProjects
      */
     public @Nullable Boolean getEditAllProjects() { return this.editAllProjects; }
     /**
-     * True if this user can Access all account data
+     * True if this user can edit all projects and timesheets
      *
      * @param value The new value for editAllProjects
      */
@@ -245,4 +247,28 @@ public class WorkSpacePermissionsDto
      * @param value The new value for viewMyBoard
      */
     public void setViewMyBoard(@Nullable Boolean value) { this.viewMyBoard = value; }
+    /**
+     * True if this user can Edit their own email address
+     *
+     * @return The field changeOwnEmail
+     */
+    public @Nullable Boolean getChangeOwnEmail() { return this.changeOwnEmail; }
+    /**
+     * True if this user can Edit their own email address
+     *
+     * @param value The new value for changeOwnEmail
+     */
+    public void setChangeOwnEmail(@Nullable Boolean value) { this.changeOwnEmail = value; }
+    /**
+     * True if this user can use the MCP server and AI integrations via OAuth
+     *
+     * @return The field useMcp
+     */
+    public @Nullable Boolean getUseMcp() { return this.useMcp; }
+    /**
+     * True if this user can use the MCP server and AI integrations via OAuth
+     *
+     * @param value The new value for useMcp
+     */
+    public void setUseMcp(@Nullable Boolean value) { this.useMcp = value; }
 };
