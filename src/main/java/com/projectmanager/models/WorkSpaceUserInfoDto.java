@@ -45,6 +45,7 @@ public class WorkSpaceUserInfoDto
     private @NotNull String userCurrencyCulture;
     private @NotNull String location;
     private @NotNull EntitlementDto[] entitlements;
+    private @NotNull Boolean isSocial;
 
     /**
      * A collection of shortcut links for the currently logged in Workspace.
@@ -298,4 +299,16 @@ public class WorkSpaceUserInfoDto
      * @param value The new value for entitlements
      */
     public void setEntitlements(@NotNull EntitlementDto[] value) { this.entitlements = value; }
+    /**
+     * True if the user signed in via a social provider (Google, Apple, or Microsoft).
+     *
+     * @return The field isSocial
+     */
+    public @NotNull Boolean getIsSocial() { return this.isSocial; }
+    /**
+     * True if the user signed in via a social provider (Google, Apple, or Microsoft).
+     *
+     * @param value The new value for isSocial
+     */
+    public void setIsSocial(@NotNull Boolean value) { this.isSocial = value; }
 };

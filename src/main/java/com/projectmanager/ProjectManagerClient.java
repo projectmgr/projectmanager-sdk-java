@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2026 ProjectManager.com, Inc.
- * @version    2026.156.162
+ * @version    2026.159.208
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -20,7 +20,6 @@ import com.projectmanager.clients.ApiKeyClient;
 import com.projectmanager.clients.ChangesetClient;
 import com.projectmanager.clients.DiscussionClient;
 import com.projectmanager.clients.FileClient;
-import com.projectmanager.clients.HolidayClient;
 import com.projectmanager.clients.HomeFileClient;
 import com.projectmanager.clients.HourlyRateClient;
 import com.projectmanager.clients.HourlyRatePeriodClient;
@@ -88,7 +87,6 @@ public class ProjectManagerClient {
     private ChangesetClient changeset;
     private DiscussionClient discussion;
     private FileClient file;
-    private HolidayClient holiday;
     private HomeFileClient homeFile;
     private HourlyRateClient hourlyRate;
     private HourlyRatePeriodClient hourlyRatePeriod;
@@ -149,7 +147,6 @@ public class ProjectManagerClient {
         this.changeset = new ChangesetClient(this);
         this.discussion = new DiscussionClient(this);
         this.file = new FileClient(this);
-        this.holiday = new HolidayClient(this);
         this.homeFile = new HomeFileClient(this);
         this.hourlyRate = new HourlyRateClient(this);
         this.hourlyRatePeriod = new HourlyRatePeriodClient(this);
@@ -227,12 +224,6 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.FileClient client} methods in the API.
      */
     public @NotNull FileClient getFileClient() { return this.file; }
-    /**
-     * A collection of API methods relating to Holiday
-     *
-     * @return A collection containing the {@link com.projectmanager.clients.HolidayClient client} methods in the API.
-     */
-    public @NotNull HolidayClient getHolidayClient() { return this.holiday; }
     /**
      * A collection of API methods relating to HomeFile
      *

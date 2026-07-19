@@ -19,24 +19,22 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Represents a request to update the approval status of a Task.
+ * A resource affected by a holiday. Additional fields may be added later.
  */
-public class TaskApprovalStatusUpdateDto
+public class HolidayResourceDto
 {
-    private @NotNull String status;
+    private @NotNull String id;
 
     /**
-     * The approval status to apply to the Task.
-     * Must be one of: approved, denied, or pending.
+     * The resource identifier.
      *
-     * @return The field status
+     * @return The field id
      */
-    public @NotNull String getStatus() { return this.status; }
+    public @NotNull String getId() { return this.id; }
     /**
-     * The approval status to apply to the Task.
-     * Must be one of: approved, denied, or pending.
+     * The resource identifier.
      *
-     * @param value The new value for status
+     * @param value The new value for id
      */
-    public void setStatus(@NotNull String value) { this.status = value; }
+    public void setId(@NotNull String value) { this.id = value; }
 };
