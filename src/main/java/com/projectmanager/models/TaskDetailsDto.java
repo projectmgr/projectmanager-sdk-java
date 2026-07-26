@@ -77,6 +77,7 @@ public class TaskDetailsDto
     private @Nullable FileDataDto fileData;
     private @Nullable TaskReferenceDto[] successors;
     private @Nullable TaskReferenceDto[] predecessors;
+    private @Nullable TaskBaselineDto baseline;
 
     /**
      * The unique identifier of this Task.
@@ -864,4 +865,16 @@ public class TaskDetailsDto
      * @param value The new value for predecessors
      */
     public void setPredecessors(@Nullable TaskReferenceDto[] value) { this.predecessors = value; }
+    /**
+     * The baseline values for this Task, if a project baseline has been set.
+     *
+     * @return The field baseline
+     */
+    public @Nullable TaskBaselineDto getBaseline() { return this.baseline; }
+    /**
+     * The baseline values for this Task, if a project baseline has been set.
+     *
+     * @param value The new value for baseline
+     */
+    public void setBaseline(@Nullable TaskBaselineDto value) { this.baseline = value; }
 };

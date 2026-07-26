@@ -33,6 +33,7 @@ public class IntegrationProviderDto
     private @NotNull String[] categoryShortIds;
     private @NotNull Boolean activated;
     private @NotNull Boolean authenticated;
+    private @NotNull Boolean unauthorized;
     private @NotNull IntegrationDto[] integrations;
     private @NotNull IntegrationAuthSetupDto authSetup;
     private @NotNull Boolean createInWorkato;
@@ -134,17 +135,37 @@ public class IntegrationProviderDto
      */
     public void setActivated(@NotNull Boolean value) { this.activated = value; }
     /**
-     * True if this Provider requires authentication.
+     * True if the current user has an active personal connection to this Provider. This is a
+     * user-level flag - each user connects their own account independently.
      *
      * @return The field authenticated
      */
     public @NotNull Boolean getAuthenticated() { return this.authenticated; }
     /**
-     * True if this Provider requires authentication.
+     * True if the current user has an active personal connection to this Provider. This is a
+     * user-level flag - each user connects their own account independently.
      *
      * @param value The new value for authenticated
      */
     public void setAuthenticated(@NotNull Boolean value) { this.authenticated = value; }
+    /**
+     * True if this Provider is activated but the workspace-level connection has lost authorization
+     * (e.g. the OAuth refresh token has expired or been revoked). This is a workspace-level flag
+     * - it affects all users. Re-authentication by a workspace administrator is required before
+     * jobs can run again.
+     *
+     * @return The field unauthorized
+     */
+    public @NotNull Boolean getUnauthorized() { return this.unauthorized; }
+    /**
+     * True if this Provider is activated but the workspace-level connection has lost authorization
+     * (e.g. the OAuth refresh token has expired or been revoked). This is a workspace-level flag
+     * - it affects all users. Re-authentication by a workspace administrator is required before
+     * jobs can run again.
+     *
+     * @param value The new value for unauthorized
+     */
+    public void setUnauthorized(@NotNull Boolean value) { this.unauthorized = value; }
     /**
      * The list of available Integrations for this Provider.
      *
