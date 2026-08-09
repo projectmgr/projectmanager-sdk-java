@@ -19,9 +19,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * A Meeting is a task that does not belong to the project. It is only visible to the person who created it, and the users assigned to it.
- *
- * Meeting's are a lightweight version of a project task.
+ * A Meeting is a lightweight calendar event that may or may not belong to a project.
+ * It is only visible to the person who created it and the users assigned to it.
  */
 public class MeetingCreateDto
 {
@@ -34,51 +33,41 @@ public class MeetingCreateDto
     private @Nullable String projectId;
 
     /**
-     * The common name of this Task.
+     * The common name of this Meeting.
      *
      * @return The field name
      */
     public @NotNull String getName() { return this.name; }
     /**
-     * The common name of this Task.
+     * The common name of this Meeting.
      *
      * @param value The new value for name
      */
     public void setName(@NotNull String value) { this.name = value; }
     /**
-     * This field contains the task's "Note" or "Description", which is a description of the work to be done to complete the task.
-     *
-     * Within the ProjectManager application, you can use this field as follows:
-     * * When in the Board or List view, click on a task to open the task panel, then edit the "Description" field.
+     * This field contains the Meeting's description.
      *
      * @return The field description
      */
     public @Nullable String getDescription() { return this.description; }
     /**
-     * This field contains the task's "Note" or "Description", which is a description of the work to be done to complete the task.
-     *
-     * Within the ProjectManager application, you can use this field as follows:
-     * * When in the Board or List view, click on a task to open the task panel, then edit the "Description" field.
+     * This field contains the Meeting's description.
      *
      * @param value The new value for description
      */
     public void setDescription(@Nullable String value) { this.description = value; }
     /**
-     * The date when work on this Task is planned to begin.
-     *
-     * This value contains only the date in year-month-day format.  For display, this
-     * date will always be shown as this same year-month-day regardless of time zone.
-     *  time needs to be in 15-minute increments, valid values are 0, 15, 30, 45
+     * The planned start date/time for this Meeting, in UTC.
+     * Time must be on a 15-minute boundary (0, 15, 30, or 45 minutes).
+     * Clients should convert to local time only when displaying to the user.
      *
      * @return The field startDate
      */
     public @NotNull String getStartDate() { return this.startDate; }
     /**
-     * The date when work on this Task is planned to begin.
-     *
-     * This value contains only the date in year-month-day format.  For display, this
-     * date will always be shown as this same year-month-day regardless of time zone.
-     *  time needs to be in 15-minute increments, valid values are 0, 15, 30, 45
+     * The planned start date/time for this Meeting, in UTC.
+     * Time must be on a 15-minute boundary (0, 15, 30, or 45 minutes).
+     * Clients should convert to local time only when displaying to the user.
      *
      * @param value The new value for startDate
      */
@@ -96,13 +85,13 @@ public class MeetingCreateDto
      */
     public void setDurationMinutes(@Nullable Integer value) { this.durationMinutes = value; }
     /**
-     * Specify a list of resources to assign to this NPT
+     * Specify a list of resources to assign to this Meeting
      *
      * @return The field assignees
      */
     public @Nullable String[] getAssignees() { return this.assignees; }
     /**
-     * Specify a list of resources to assign to this NPT
+     * Specify a list of resources to assign to this Meeting
      *
      * @param value The new value for assignees
      */

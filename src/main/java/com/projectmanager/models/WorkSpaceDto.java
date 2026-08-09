@@ -28,6 +28,7 @@ public class WorkSpaceDto
     private @NotNull String id;
     private @NotNull String company;
     private @NotNull String customProductDomain;
+    private @Nullable String accountOwnerId;
     private @NotNull Boolean isOwner;
     private @NotNull String organizationId;
     private @NotNull String color;
@@ -35,6 +36,11 @@ public class WorkSpaceDto
     private @NotNull String registerDate;
     private @Nullable String businessUserId;
     private @NotNull Boolean isPaid;
+    private @NotNull String status;
+    private @NotNull Boolean isActive;
+    private @NotNull Boolean isReseller;
+    private @NotNull WorkspaceLicensesDto licenses;
+    private @NotNull WorkspaceSettingsDto settings;
 
     /**
      * The unique identifier of this Workspace.
@@ -72,6 +78,18 @@ public class WorkSpaceDto
      * @param value The new value for customProductDomain
      */
     public void setCustomProductDomain(@NotNull String value) { this.customProductDomain = value; }
+    /**
+     * The unique identifier of the user that is the account owner of this Workspace.
+     *
+     * @return The field accountOwnerId
+     */
+    public @Nullable String getAccountOwnerId() { return this.accountOwnerId; }
+    /**
+     * The unique identifier of the user that is the account owner of this Workspace.
+     *
+     * @param value The new value for accountOwnerId
+     */
+    public void setAccountOwnerId(@Nullable String value) { this.accountOwnerId = value; }
     /**
      * This value is set to true if the user who retrieves this Workspace object via an API call is
      * the owner of this Workspace.
@@ -158,4 +176,64 @@ public class WorkSpaceDto
      * @param value The new value for isPaid
      */
     public void setIsPaid(@NotNull Boolean value) { this.isPaid = value; }
+    /**
+     * The account status of this Workspace (for example `Active`, `Trial`, `Cancelled`).
+     *
+     * @return The field status
+     */
+    public @NotNull String getStatus() { return this.status; }
+    /**
+     * The account status of this Workspace (for example `Active`, `Trial`, `Cancelled`).
+     *
+     * @param value The new value for status
+     */
+    public void setStatus(@NotNull String value) { this.status = value; }
+    /**
+     * True if this Workspace is currently active or in trial and can be used.
+     *
+     * @return The field isActive
+     */
+    public @NotNull Boolean getIsActive() { return this.isActive; }
+    /**
+     * True if this Workspace is currently active or in trial and can be used.
+     *
+     * @param value The new value for isActive
+     */
+    public void setIsActive(@NotNull Boolean value) { this.isActive = value; }
+    /**
+     * True if this Workspace is provisioned through a reseller (for example, Acumatica).
+     *
+     * @return The field isReseller
+     */
+    public @NotNull Boolean getIsReseller() { return this.isReseller; }
+    /**
+     * True if this Workspace is provisioned through a reseller (for example, Acumatica).
+     *
+     * @param value The new value for isReseller
+     */
+    public void setIsReseller(@NotNull Boolean value) { this.isReseller = value; }
+    /**
+     * A summary of the paid user licenses for this Workspace.
+     *
+     * @return The field licenses
+     */
+    public @NotNull WorkspaceLicensesDto getLicenses() { return this.licenses; }
+    /**
+     * A summary of the paid user licenses for this Workspace.
+     *
+     * @param value The new value for licenses
+     */
+    public void setLicenses(@NotNull WorkspaceLicensesDto value) { this.licenses = value; }
+    /**
+     * Workspace-level scheduling defaults.
+     *
+     * @return The field settings
+     */
+    public @NotNull WorkspaceSettingsDto getSettings() { return this.settings; }
+    /**
+     * Workspace-level scheduling defaults.
+     *
+     * @param value The new value for settings
+     */
+    public void setSettings(@NotNull WorkspaceSettingsDto value) { this.settings = value; }
 };

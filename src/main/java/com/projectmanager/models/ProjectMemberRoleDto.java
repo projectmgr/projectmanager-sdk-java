@@ -23,18 +23,24 @@ import org.jetbrains.annotations.Nullable;
  */
 public class ProjectMemberRoleDto
 {
-    private @NotNull String role;
+    private @Nullable String role;
 
     /**
-     * Role to apply
+     * Role to apply. Optional — when omitted, a default role is applied based on the
+     * target user's workspace access: users who can edit all projects become a Manager,
+     * guest users become a Guest, and everyone else becomes an Editor. When updating an
+     * existing member, omitting the role leaves their current role unchanged.
      *
      * @return The field role
      */
-    public @NotNull String getRole() { return this.role; }
+    public @Nullable String getRole() { return this.role; }
     /**
-     * Role to apply
+     * Role to apply. Optional — when omitted, a default role is applied based on the
+     * target user's workspace access: users who can edit all projects become a Manager,
+     * guest users become a Guest, and everyone else becomes an Editor. When updating an
+     * existing member, omitting the role leaves their current role unchanged.
      *
      * @param value The new value for role
      */
-    public void setRole(@NotNull String value) { this.role = value; }
+    public void setRole(@Nullable String value) { this.role = value; }
 };

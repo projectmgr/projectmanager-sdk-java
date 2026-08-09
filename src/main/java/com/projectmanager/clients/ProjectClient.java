@@ -27,6 +27,8 @@ import com.projectmanager.models.ProjectDto;
 import com.projectmanager.models.ProjectCreateDto;
 import com.projectmanager.models.ProjectUpdateDto;
 import com.projectmanager.models.ProjectReopenStatusDto;
+import com.projectmanager.models.ExportDto;
+import com.projectmanager.models.ProjectExportSettingsDto;
 
 /**
  * Contains all methods related to Project
@@ -157,5 +159,20 @@ public class ProjectClient
         RestRequest<ProjectReopenStatusDto> r = new RestRequest<ProjectReopenStatusDto>(this.client, "GET", "/api/data/projects/{projectId}/reopen/status");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
         return r.Call(new TypeToken<AstroResult<ProjectReopenStatusDto>>() {}.getType());
+    }
+
+    /**
+     * Initiates a new Export action for Projects.
+     *
+     * Returns the identifier of this Projects Export.
+     *
+     * @param body The settings to use for this export action
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ExportDto> createProjectExport(@NotNull ProjectExportSettingsDto body)
+    {
+        RestRequest<ExportDto> r = new RestRequest<ExportDto>(this.client, "POST", "/api/data/projects/export");
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<ExportDto>>() {}.getType());
     }
 }

@@ -26,6 +26,8 @@ import com.projectmanager.models.TaskStatusDto;
 
 import com.projectmanager.models.TaskStatusCreateDto;
 import com.projectmanager.models.TaskStatusUpdateDto;
+import com.projectmanager.models.TaskStatusMoveResultDto;
+import com.projectmanager.models.TaskStatusMoveDto;
 
 /**
  * Contains all methods related to TaskStatus
@@ -113,5 +115,22 @@ public class TaskStatusClient
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/tasks/statuses/{taskStatusId}");
         r.AddPath("{taskStatusId}", taskStatusId == null ? "" : taskStatusId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+    }
+
+    /**
+     * Moves one or more Tasks into the specified TaskStatus.  If a Position is specified for a Task,
+     * it will be placed at that position within the target TaskStatus.  If no Position is specified,
+     * the Task will be placed at the end of the list within the target TaskStatus.
+     *
+     * @param taskStatusId The unique identifier of the TaskStatus to move the Tasks into
+     * @param body The Tasks to move and the position each should occupy within the target TaskStatus
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<TaskStatusMoveResultDto[]> moveTaskstoaTaskStatus(@NotNull String taskStatusId, @NotNull TaskStatusMoveDto[] body)
+    {
+        RestRequest<TaskStatusMoveResultDto[]> r = new RestRequest<TaskStatusMoveResultDto[]>(this.client, "POST", "/api/data/tasks/statuses/{taskStatusId}/tasks");
+        r.AddPath("{taskStatusId}", taskStatusId == null ? "" : taskStatusId.toString());
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<TaskStatusMoveResultDto[]>>() {}.getType());
     }
 }
