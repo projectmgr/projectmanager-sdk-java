@@ -26,6 +26,8 @@ import com.projectmanager.models.ResourceDto;
 import com.projectmanager.models.ResourceCreateDto;
 
 import com.projectmanager.models.ResourceUpdateDto;
+import com.projectmanager.models.ResourceDetailsDto;
+import com.projectmanager.models.ResourceBulkUpdateDto;
 import com.projectmanager.models.ResourcesDto;
 import com.projectmanager.models.ResourcesCreateDto;
 
@@ -125,11 +127,11 @@ public class ResourceClient
      * @param resourceId The id of the Resource
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ResourceDto> retrieveResource(@NotNull String resourceId)
+    public @NotNull AstroResult<ResourceDetailsDto> retrieveResource(@NotNull String resourceId)
     {
-        RestRequest<ResourceDto> r = new RestRequest<ResourceDto>(this.client, "GET", "/api/data/resources/{resourceId}");
+        RestRequest<ResourceDetailsDto> r = new RestRequest<ResourceDetailsDto>(this.client, "GET", "/api/data/resources/{resourceId}");
         r.AddPath("{resourceId}", resourceId == null ? "" : resourceId.toString());
-        return r.Call(new TypeToken<AstroResult<ResourceDto>>() {}.getType());
+        return r.Call(new TypeToken<AstroResult<ResourceDetailsDto>>() {}.getType());
     }
 
     /**
@@ -149,6 +151,25 @@ public class ResourceClient
         RestRequest<ResourceDto> r = new RestRequest<ResourceDto>(this.client, "DELETE", "/api/data/resources/{resourceId}");
         r.AddPath("{resourceId}", resourceId == null ? "" : resourceId.toString());
         return r.Call(new TypeToken<AstroResult<ResourceDto>>() {}.getType());
+    }
+
+    /**
+     * Updates a list of existing Resources in a single API call.
+     *
+     * Each entry identifies the Resource to update via its ResourceId and supplies the fields to change.
+     * Only fields that are sensible to update across many Resources at once are accepted; see
+     * ResourceBulkUpdateDto for the supported fields. The whole request is validated before any changes
+     * are applied - if any entry fails validation, no Resources are updated and the individual failures
+     * are returned in the AdditionalErrors of the result.
+     *
+     * @param body The list of Resources to update
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ResourceDto[]> bulkUpdateResources(@NotNull ResourceBulkUpdateDto[] body)
+    {
+        RestRequest<ResourceDto[]> r = new RestRequest<ResourceDto[]>(this.client, "PUT", "/api/data/resources/bulk");
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<ResourceDto[]>>() {}.getType());
     }
 
     /**

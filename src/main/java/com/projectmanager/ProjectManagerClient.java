@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2026 ProjectManager.com, Inc.
- * @version    2026.156.162
+ * @version    2026.160.203
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -20,7 +20,6 @@ import com.projectmanager.clients.ApiKeyClient;
 import com.projectmanager.clients.ChangesetClient;
 import com.projectmanager.clients.DiscussionClient;
 import com.projectmanager.clients.FileClient;
-import com.projectmanager.clients.HolidayClient;
 import com.projectmanager.clients.HomeFileClient;
 import com.projectmanager.clients.HourlyRateClient;
 import com.projectmanager.clients.HourlyRatePeriodClient;
@@ -29,6 +28,7 @@ import com.projectmanager.clients.IntegrationCategoryClient;
 import com.projectmanager.clients.IntegrationProviderClient;
 import com.projectmanager.clients.LicenseClient;
 import com.projectmanager.clients.MeClient;
+import com.projectmanager.clients.MeetingRecurrencyClient;
 import com.projectmanager.clients.MeetingsClient;
 import com.projectmanager.clients.MeetingTagClient;
 import com.projectmanager.clients.MeetingTodosClient;
@@ -88,7 +88,6 @@ public class ProjectManagerClient {
     private ChangesetClient changeset;
     private DiscussionClient discussion;
     private FileClient file;
-    private HolidayClient holiday;
     private HomeFileClient homeFile;
     private HourlyRateClient hourlyRate;
     private HourlyRatePeriodClient hourlyRatePeriod;
@@ -97,6 +96,7 @@ public class ProjectManagerClient {
     private IntegrationProviderClient integrationProvider;
     private LicenseClient license;
     private MeClient me;
+    private MeetingRecurrencyClient meetingRecurrency;
     private MeetingsClient meetings;
     private MeetingTagClient meetingTag;
     private MeetingTodosClient meetingTodos;
@@ -149,7 +149,6 @@ public class ProjectManagerClient {
         this.changeset = new ChangesetClient(this);
         this.discussion = new DiscussionClient(this);
         this.file = new FileClient(this);
-        this.holiday = new HolidayClient(this);
         this.homeFile = new HomeFileClient(this);
         this.hourlyRate = new HourlyRateClient(this);
         this.hourlyRatePeriod = new HourlyRatePeriodClient(this);
@@ -158,6 +157,7 @@ public class ProjectManagerClient {
         this.integrationProvider = new IntegrationProviderClient(this);
         this.license = new LicenseClient(this);
         this.me = new MeClient(this);
+        this.meetingRecurrency = new MeetingRecurrencyClient(this);
         this.meetings = new MeetingsClient(this);
         this.meetingTag = new MeetingTagClient(this);
         this.meetingTodos = new MeetingTodosClient(this);
@@ -228,12 +228,6 @@ public class ProjectManagerClient {
      */
     public @NotNull FileClient getFileClient() { return this.file; }
     /**
-     * A collection of API methods relating to Holiday
-     *
-     * @return A collection containing the {@link com.projectmanager.clients.HolidayClient client} methods in the API.
-     */
-    public @NotNull HolidayClient getHolidayClient() { return this.holiday; }
-    /**
      * A collection of API methods relating to HomeFile
      *
      * @return A collection containing the {@link com.projectmanager.clients.HomeFileClient client} methods in the API.
@@ -281,6 +275,12 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.MeClient client} methods in the API.
      */
     public @NotNull MeClient getMeClient() { return this.me; }
+    /**
+     * A collection of API methods relating to MeetingRecurrency
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.MeetingRecurrencyClient client} methods in the API.
+     */
+    public @NotNull MeetingRecurrencyClient getMeetingRecurrencyClient() { return this.meetingRecurrency; }
     /**
      * A collection of API methods relating to Meetings
      *

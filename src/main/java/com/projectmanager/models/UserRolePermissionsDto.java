@@ -40,6 +40,7 @@ public class UserRolePermissionsDto
     private @NotNull UserRolePermissionDto viewPersonalBoard;
     private @NotNull UserRolePermissionDto editAllProjects;
     private @NotNull UserRolePermissionDto changeOwnEmail;
+    private @NotNull UserRolePermissionDto useMcp;
 
     /**
      * Add people to the account
@@ -222,13 +223,13 @@ public class UserRolePermissionsDto
      */
     public void setViewPersonalBoard(@NotNull UserRolePermissionDto value) { this.viewPersonalBoard = value; }
     /**
-     * Access all projects and timesheets
+     * Edit all projects and timesheets
      *
      * @return The field editAllProjects
      */
     public @NotNull UserRolePermissionDto getEditAllProjects() { return this.editAllProjects; }
     /**
-     * Access all projects and timesheets
+     * Edit all projects and timesheets
      *
      * @param value The new value for editAllProjects
      */
@@ -245,4 +246,16 @@ public class UserRolePermissionsDto
      * @param value The new value for changeOwnEmail
      */
     public void setChangeOwnEmail(@NotNull UserRolePermissionDto value) { this.changeOwnEmail = value; }
+    /**
+     * Use MCP server and AI integrations via OAuth
+     *
+     * @return The field useMcp
+     */
+    public @NotNull UserRolePermissionDto getUseMcp() { return this.useMcp; }
+    /**
+     * Use MCP server and AI integrations via OAuth
+     *
+     * @param value The new value for useMcp
+     */
+    public void setUseMcp(@NotNull UserRolePermissionDto value) { this.useMcp = value; }
 };

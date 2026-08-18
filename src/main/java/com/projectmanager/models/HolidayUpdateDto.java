@@ -19,24 +19,22 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Represents a request to update the approval status of a Task.
+ * Request body for updating a holiday. Only the reason can be changed.
  */
-public class TaskApprovalStatusUpdateDto
+public class HolidayUpdateDto
 {
-    private @NotNull String status;
+    private @NotNull String reason;
 
     /**
-     * The approval status to apply to the Task.
-     * Must be one of: approved, denied, or pending.
+     * Updated reason or label for the holiday.
      *
-     * @return The field status
+     * @return The field reason
      */
-    public @NotNull String getStatus() { return this.status; }
+    public @NotNull String getReason() { return this.reason; }
     /**
-     * The approval status to apply to the Task.
-     * Must be one of: approved, denied, or pending.
+     * Updated reason or label for the holiday.
      *
-     * @param value The new value for status
+     * @param value The new value for reason
      */
-    public void setStatus(@NotNull String value) { this.status = value; }
+    public void setReason(@NotNull String value) { this.reason = value; }
 };

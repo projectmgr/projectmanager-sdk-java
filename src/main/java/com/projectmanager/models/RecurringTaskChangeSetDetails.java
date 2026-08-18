@@ -25,6 +25,7 @@ public class RecurringTaskChangeSetDetails
 {
     private @NotNull String[] taskIds;
     private @Nullable String changeSetId;
+    private @NotNull RecurrenceDto[] recurrences;
 
     /**
      * The created Task Ids
@@ -50,4 +51,16 @@ public class RecurringTaskChangeSetDetails
      * @param value The new value for changeSetId
      */
     public void setChangeSetId(@Nullable String value) { this.changeSetId = value; }
+    /**
+     * The recurrence instances created by this action
+     *
+     * @return The field recurrences
+     */
+    public @NotNull RecurrenceDto[] getRecurrences() { return this.recurrences; }
+    /**
+     * The recurrence instances created by this action
+     *
+     * @param value The new value for recurrences
+     */
+    public void setRecurrences(@NotNull RecurrenceDto[] value) { this.recurrences = value; }
 };
