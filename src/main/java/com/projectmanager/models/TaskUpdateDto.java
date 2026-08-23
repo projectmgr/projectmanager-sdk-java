@@ -42,6 +42,7 @@ public class TaskUpdateDto
     private @Nullable String theme;
     private @Nullable Boolean isLocked;
     private @Nullable Boolean isMilestone;
+    private @NotNull Boolean breakRecurrency;
     private @Nullable MoveTaskToProjectDto moveToProject;
 
     /**
@@ -356,6 +357,32 @@ public class TaskUpdateDto
      * @param value The new value for isMilestone
      */
     public void setIsMilestone(@Nullable Boolean value) { this.isMilestone = value; }
+    /**
+     * Set this to true to break this Task out of its recurring series as part of this update.
+     *
+     * The Task is detached from its series, clearing its parent/child relationship and its
+     * recurrence settings.  Any other changes in the same update are then applied to this
+     * Task alone rather than being propagated across the rest of the series.
+     *
+     * This has no effect if the Task is not part of a recurring series.  A Task can only be
+     * made recurring through the TaskRecurrency endpoints.
+     *
+     * @return The field breakRecurrency
+     */
+    public @NotNull Boolean getBreakRecurrency() { return this.breakRecurrency; }
+    /**
+     * Set this to true to break this Task out of its recurring series as part of this update.
+     *
+     * The Task is detached from its series, clearing its parent/child relationship and its
+     * recurrence settings.  Any other changes in the same update are then applied to this
+     * Task alone rather than being propagated across the rest of the series.
+     *
+     * This has no effect if the Task is not part of a recurring series.  A Task can only be
+     * made recurring through the TaskRecurrency endpoints.
+     *
+     * @param value The new value for breakRecurrency
+     */
+    public void setBreakRecurrency(@NotNull Boolean value) { this.breakRecurrency = value; }
     /**
      * Object contains data to move task to another project
      *
