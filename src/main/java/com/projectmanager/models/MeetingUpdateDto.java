@@ -30,7 +30,7 @@ public class MeetingUpdateDto
     private @Nullable String plannedStartDate;
     private @Nullable Integer durationMinutes;
     private @Nullable String[] assignees;
-    private @Nullable Boolean recurring;
+    private @NotNull Boolean breakRecurrency;
     private @Nullable MoveTaskToProjectDto moveToProject;
 
     /**
@@ -110,27 +110,31 @@ public class MeetingUpdateDto
      */
     public void setAssignees(@Nullable String[] value) { this.assignees = value; }
     /**
-     * Indicates whether this Meeting participates in a recurring series.
-     * true if the Meeting is part of a recurrence (series parent when is, or a child otherwise);
-     * false if it is a standalone Meeting.
-     * When saved as false during an update, the service layer detaches the Meeting
-     * from its series, which clears parent/child relationships including
-     * and recurringSettings.
+     * Set this to true to break this Meeting out of its recurring series as part of this update.
      *
-     * @return The field recurring
+     * The Meeting is detached from its series, clearing its parent/child relationship and its
+     * recurrence settings.  Any other changes in the same update are then applied to this
+     * Meeting alone rather than being propagated across the rest of the series.
+     *
+     * This has no effect if the Meeting is not part of a recurring series.  A Meeting can only
+     * be made recurring through the MeetingRecurrency endpoints.
+     *
+     * @return The field breakRecurrency
      */
-    public @Nullable Boolean getRecurring() { return this.recurring; }
+    public @NotNull Boolean getBreakRecurrency() { return this.breakRecurrency; }
     /**
-     * Indicates whether this Meeting participates in a recurring series.
-     * true if the Meeting is part of a recurrence (series parent when is, or a child otherwise);
-     * false if it is a standalone Meeting.
-     * When saved as false during an update, the service layer detaches the Meeting
-     * from its series, which clears parent/child relationships including
-     * and recurringSettings.
+     * Set this to true to break this Meeting out of its recurring series as part of this update.
      *
-     * @param value The new value for recurring
+     * The Meeting is detached from its series, clearing its parent/child relationship and its
+     * recurrence settings.  Any other changes in the same update are then applied to this
+     * Meeting alone rather than being propagated across the rest of the series.
+     *
+     * This has no effect if the Meeting is not part of a recurring series.  A Meeting can only
+     * be made recurring through the MeetingRecurrency endpoints.
+     *
+     * @param value The new value for breakRecurrency
      */
-    public void setRecurring(@Nullable Boolean value) { this.recurring = value; }
+    public void setBreakRecurrency(@NotNull Boolean value) { this.breakRecurrency = value; }
     /**
      * Object contains data to move meeting to another project
      *

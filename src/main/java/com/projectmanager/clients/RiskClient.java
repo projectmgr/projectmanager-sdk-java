@@ -24,9 +24,9 @@ import com.google.gson.reflect.TypeToken;
 import com.projectmanager.AstroResult;
 import com.projectmanager.models.RiskDto;
 
-import com.projectmanager.models.RiskCreateDto;
 import com.projectmanager.models.RiskDetailsDto;
 import com.projectmanager.models.RiskUpdateDto;
+import com.projectmanager.models.RiskCreateDto;
 import com.projectmanager.models.ExportDto;
 import com.projectmanager.models.RiskExportSettingsDto;
 
@@ -45,25 +45,6 @@ public class RiskClient
     public RiskClient(@NotNull ProjectManagerClient client) {
         super();
         this.client = client;
-    }
-
-    /**
-     * Creates a new Risk within the specified Project.
-     *
-     * The Risk will inherit Project context such as access permissions
-     * and workspace ownership. Validation is applied to ensure the
-     * Project exists and the caller has permission to create Risks.
-     *
-     * @param projectId The id of the project
-     * @param body The data used to create the Risk
-     * @return A {@link com.projectmanager.AstroResult} containing the results
-     */
-    public @NotNull AstroResult<RiskDto> createProjectRisk(@NotNull String projectId, @NotNull RiskCreateDto body)
-    {
-        RestRequest<RiskDto> r = new RestRequest<RiskDto>(this.client, "POST", "/api/data/projects/{projectId}");
-        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
-        if (body != null) { r.AddBody(body); }
-        return r.Call(new TypeToken<AstroResult<RiskDto>>() {}.getType());
     }
 
     /**
@@ -161,6 +142,25 @@ public class RiskClient
         RestRequest<RiskDetailsDto[]> r = new RestRequest<RiskDetailsDto[]>(this.client, "GET", "/api/data/risks/projects/{projectId}");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
         return r.Call(new TypeToken<AstroResult<RiskDetailsDto[]>>() {}.getType());
+    }
+
+    /**
+     * Creates a new Risk within the specified Project.
+     *
+     * The Risk will inherit Project context such as access permissions
+     * and workspace ownership. Validation is applied to ensure the
+     * Project exists and the caller has permission to create Risks.
+     *
+     * @param projectId The id of the project
+     * @param body The data used to create the Risk
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<RiskDto> createRisk(@NotNull String projectId, @NotNull RiskCreateDto body)
+    {
+        RestRequest<RiskDto> r = new RestRequest<RiskDto>(this.client, "POST", "/api/data/projects/{projectId}/risks");
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<RiskDto>>() {}.getType());
     }
 
     /**
