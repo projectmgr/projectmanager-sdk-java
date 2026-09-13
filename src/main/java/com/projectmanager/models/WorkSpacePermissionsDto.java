@@ -260,13 +260,13 @@ public class WorkSpacePermissionsDto
      */
     public void setChangeOwnEmail(@Nullable Boolean value) { this.changeOwnEmail = value; }
     /**
-     * True if this user can use the MCP server and AI integrations via OAuth
+     * True if this user can access work from ChatGPT and Claude via OAuth
      *
      * @return The field useMcp
      */
     public @Nullable Boolean getUseMcp() { return this.useMcp; }
     /**
-     * True if this user can use the MCP server and AI integrations via OAuth
+     * True if this user can access work from ChatGPT and Claude via OAuth
      *
      * @param value The new value for useMcp
      */

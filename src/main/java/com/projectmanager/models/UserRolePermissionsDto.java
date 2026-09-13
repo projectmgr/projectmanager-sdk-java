@@ -247,13 +247,13 @@ public class UserRolePermissionsDto
      */
     public void setChangeOwnEmail(@NotNull UserRolePermissionDto value) { this.changeOwnEmail = value; }
     /**
-     * Use MCP server and AI integrations via OAuth
+     * Access work from ChatGPT and Claude via OAuth
      *
      * @return The field useMcp
      */
     public @NotNull UserRolePermissionDto getUseMcp() { return this.useMcp; }
     /**
-     * Use MCP server and AI integrations via OAuth
+     * Access work from ChatGPT and Claude via OAuth
      *
      * @param value The new value for useMcp
      */

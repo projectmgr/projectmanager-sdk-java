@@ -29,6 +29,8 @@ public class TaskOwnerDto
 {
     private @NotNull String id;
     private @NotNull String initials;
+    private @Nullable String name;
+    private @Nullable String shortName;
     private @Nullable String firstName;
     private @Nullable String lastName;
     private @Nullable String email;
@@ -60,6 +62,30 @@ public class TaskOwnerDto
      * @param value The new value for initials
      */
     public void setInitials(@NotNull String value) { this.initials = value; }
+    /**
+     * Display name for this Resource.
+     *
+     * @return The field name
+     */
+    public @Nullable String getName() { return this.name; }
+    /**
+     * Display name for this Resource.
+     *
+     * @param value The new value for name
+     */
+    public void setName(@Nullable String value) { this.name = value; }
+    /**
+     * Short display name for this Resource.
+     *
+     * @return The field shortName
+     */
+    public @Nullable String getShortName() { return this.shortName; }
+    /**
+     * Short display name for this Resource.
+     *
+     * @param value The new value for shortName
+     */
+    public void setShortName(@Nullable String value) { this.shortName = value; }
     /**
      * The first name of the person Resource.
      *
