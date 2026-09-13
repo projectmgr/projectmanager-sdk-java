@@ -36,13 +36,15 @@ public class WorkSpaceUserInfoDto
     private @Nullable Boolean isAccountAdministrator;
     private @NotNull WorkSpacePermissionsDto permissions;
     private @NotNull String workSpaceStatus;
+    private @NotNull Integer workSpacePricingType;
+    private @NotNull Boolean workSpaceHasScheduledChanges;
     private @NotNull Boolean workSpaceIsActive;
     private @NotNull String workSpaceCountry;
     private @NotNull String workSpaceCountryCode;
     private @NotNull String workspaceCulture;
-    private @NotNull String workspaceCurrencyCulture;
+    private @NotNull String workspaceCurrencySymbol;
+    private @NotNull String workspaceCurrency;
     private @NotNull String userCulture;
-    private @NotNull String userCurrencyCulture;
     private @NotNull String location;
     private @NotNull EntitlementDto[] entitlements;
     private @NotNull Boolean isSocial;
@@ -190,6 +192,30 @@ public class WorkSpaceUserInfoDto
      */
     public void setWorkSpaceStatus(@NotNull String value) { this.workSpaceStatus = value; }
     /**
+     * This is pricing type of workspace
+     *
+     * @return The field workSpacePricingType
+     */
+    public @NotNull Integer getWorkSpacePricingType() { return this.workSpacePricingType; }
+    /**
+     * This is pricing type of workspace
+     *
+     * @param value The new value for workSpacePricingType
+     */
+    public void setWorkSpacePricingType(@NotNull Integer value) { this.workSpacePricingType = value; }
+    /**
+     * This is true if workspace has scheduled changes
+     *
+     * @return The field workSpaceHasScheduledChanges
+     */
+    public @NotNull Boolean getWorkSpaceHasScheduledChanges() { return this.workSpaceHasScheduledChanges; }
+    /**
+     * This is true if workspace has scheduled changes
+     *
+     * @param value The new value for workSpaceHasScheduledChanges
+     */
+    public void setWorkSpaceHasScheduledChanges(@NotNull Boolean value) { this.workSpaceHasScheduledChanges = value; }
+    /**
      * This is true if the WorkSpace is in the Active or Trial state.
      *
      * @return The field workSpaceIsActive
@@ -238,17 +264,29 @@ public class WorkSpaceUserInfoDto
      */
     public void setWorkspaceCulture(@NotNull String value) { this.workspaceCulture = value; }
     /**
-     * The culture code used for currency formatting in the workspace.
+     * The currency symbol used for currency formatting in the workspace (e.g., "$" for USD, "€" for EUR).
      *
-     * @return The field workspaceCurrencyCulture
+     * @return The field workspaceCurrencySymbol
      */
-    public @NotNull String getWorkspaceCurrencyCulture() { return this.workspaceCurrencyCulture; }
+    public @NotNull String getWorkspaceCurrencySymbol() { return this.workspaceCurrencySymbol; }
     /**
-     * The culture code used for currency formatting in the workspace.
+     * The currency symbol used for currency formatting in the workspace (e.g., "$" for USD, "€" for EUR).
      *
-     * @param value The new value for workspaceCurrencyCulture
+     * @param value The new value for workspaceCurrencySymbol
      */
-    public void setWorkspaceCurrencyCulture(@NotNull String value) { this.workspaceCurrencyCulture = value; }
+    public void setWorkspaceCurrencySymbol(@NotNull String value) { this.workspaceCurrencySymbol = value; }
+    /**
+     * The name of the currency used for currency formatting in the workspace (e.g., "USD" for US Dollar, "EUR" for Euro).
+     *
+     * @return The field workspaceCurrency
+     */
+    public @NotNull String getWorkspaceCurrency() { return this.workspaceCurrency; }
+    /**
+     * The name of the currency used for currency formatting in the workspace (e.g., "USD" for US Dollar, "EUR" for Euro).
+     *
+     * @param value The new value for workspaceCurrency
+     */
+    public void setWorkspaceCurrency(@NotNull String value) { this.workspaceCurrency = value; }
     /**
      * The culture code (e.g., "en-US") used for formatting and localization for the user.
      *
@@ -261,18 +299,6 @@ public class WorkSpaceUserInfoDto
      * @param value The new value for userCulture
      */
     public void setUserCulture(@NotNull String value) { this.userCulture = value; }
-    /**
-     * The culture code used for currency formatting for the user.
-     *
-     * @return The field userCurrencyCulture
-     */
-    public @NotNull String getUserCurrencyCulture() { return this.userCurrencyCulture; }
-    /**
-     * The culture code used for currency formatting for the user.
-     *
-     * @param value The new value for userCurrencyCulture
-     */
-    public void setUserCurrencyCulture(@NotNull String value) { this.userCurrencyCulture = value; }
     /**
      * The location of the user, which is a combination of city, state (US Only), and country.
      *
