@@ -37,6 +37,12 @@ public class MeetingAssigneeDto
     private @Nullable String email;
 
     /**
+     * Primary constructor
+     */
+    public MeetingAssigneeDto() {
+    }
+
+    /**
      * The unique identifier of this Resource
      *
      * @return The field id

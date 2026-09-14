@@ -32,6 +32,12 @@ public class HolidayDetailDto
     private @NotNull HolidayResourceDto[] resources;
 
     /**
+     * Primary constructor
+     */
+    public HolidayDetailDto() {
+    }
+
+    /**
      * The public identifier of the holiday.
      *
      * @return The field id

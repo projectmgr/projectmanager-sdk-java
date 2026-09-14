@@ -30,6 +30,12 @@ public class NptStatusCreateDto
     private @Nullable Boolean isDone;
 
     /**
+     * Primary constructor
+     */
+    public NptStatusCreateDto() {
+    }
+
+    /**
      * The name of this TaskStatus.
      *
      * @return The field name

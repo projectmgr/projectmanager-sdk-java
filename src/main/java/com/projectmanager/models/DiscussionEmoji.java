@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A reaction to a specific comment within a discussion thread.
@@ -25,6 +24,12 @@ public class DiscussionEmoji
 {
     private @NotNull String name;
     private @NotNull String[] userIds;
+
+    /**
+     * Primary constructor
+     */
+    public DiscussionEmoji() {
+    }
 
     /**
      * The name of the emoji

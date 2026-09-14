@@ -28,6 +28,12 @@ public class ProjectAccessEntryDto
     private @Nullable Boolean canManage;
 
     /**
+     * Primary constructor
+     */
+    public ProjectAccessEntryDto() {
+    }
+
+    /**
      * The unique identifier of the user to whom the access permissions apply.
      *
      * @return The field userId

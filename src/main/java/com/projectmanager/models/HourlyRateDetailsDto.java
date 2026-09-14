@@ -41,6 +41,12 @@ public class HourlyRateDetailsDto
     private @Nullable Integer hourlyRateTimesheetCount;
 
     /**
+     * Primary constructor
+     */
+    public HourlyRateDetailsDto() {
+    }
+
+    /**
      * The unique identifier of the Hourly Rate.  This value is set by the system and cannot
      * be set with a CreateHourlyRate or changed with an UpdateHourlyRate call.
      *

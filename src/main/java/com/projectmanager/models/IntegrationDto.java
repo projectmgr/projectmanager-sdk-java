@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * The Integrations API is intended for use by ProjectManager and its business
@@ -35,6 +34,12 @@ public class IntegrationDto
     private @NotNull Boolean authenticated;
     private @NotNull Boolean autoEnabled;
     private @NotNull Boolean noAdminPermission;
+
+    /**
+     * Primary constructor
+     */
+    public IntegrationDto() {
+    }
 
     /**
      * The unique identifier of this Integration

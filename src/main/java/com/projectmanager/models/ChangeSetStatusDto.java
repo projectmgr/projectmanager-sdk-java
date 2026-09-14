@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Returns the id of a specific ChangeSet
@@ -25,6 +24,12 @@ public class ChangeSetStatusDto
 {
     private @NotNull String changeSetId;
     private @NotNull String id;
+
+    /**
+     * Primary constructor
+     */
+    public ChangeSetStatusDto() {
+    }
 
     /**
      * The unique identifier of this Changeset

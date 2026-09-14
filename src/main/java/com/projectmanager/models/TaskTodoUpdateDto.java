@@ -15,7 +15,6 @@
 
 package com.projectmanager.models;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -25,6 +24,12 @@ public class TaskTodoUpdateDto
 {
     private @Nullable String text;
     private @Nullable Boolean complete;
+
+    /**
+     * Primary constructor
+     */
+    public TaskTodoUpdateDto() {
+    }
 
     /**
      * The full description of this TaskTodo.

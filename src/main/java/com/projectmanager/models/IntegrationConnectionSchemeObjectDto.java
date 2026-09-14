@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Master Connection Scheme for Providers
@@ -26,6 +25,12 @@ public class IntegrationConnectionSchemeObjectDto
     private @NotNull String value;
     private @NotNull String type;
     private @NotNull Boolean sendToClient;
+
+    /**
+     * Primary constructor
+     */
+    public IntegrationConnectionSchemeObjectDto() {
+    }
 
     /**
      * The value of the property

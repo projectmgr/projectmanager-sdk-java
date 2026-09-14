@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Task Metadata DTO
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class TaskMetadataUpdateDto
 {
     private @NotNull Object data;
+
+    /**
+     * Primary constructor
+     */
+    public TaskMetadataUpdateDto() {
+    }
 
     /**
      * Customer or system metadata

@@ -29,6 +29,12 @@ public class ProjectAccessDto
     private @NotNull Boolean hasJoined;
 
     /**
+     * Primary constructor
+     */
+    public ProjectAccessDto() {
+    }
+
+    /**
      * The unique identifier of the user of this ProjectMember.
      *
      * @return The field userId

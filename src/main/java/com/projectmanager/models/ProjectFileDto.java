@@ -31,6 +31,12 @@ public class ProjectFileDto
     private @Nullable ProjectFileFolderDto folder;
 
     /**
+     * Primary constructor
+     */
+    public ProjectFileDto() {
+    }
+
+    /**
      * The identifier for this file
      *
      * @return The field id

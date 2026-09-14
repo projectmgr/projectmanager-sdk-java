@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * RecurringTaskValidationResult
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class RecurringTaskValidationResultDto
 {
     private @NotNull String[] deletedTaskIds;
+
+    /**
+     * Primary constructor
+     */
+    public RecurringTaskValidationResultDto() {
+    }
 
     /**
      * The Deleted Task Ids

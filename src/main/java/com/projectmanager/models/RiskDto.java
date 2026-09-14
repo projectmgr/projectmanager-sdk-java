@@ -49,6 +49,12 @@ public class RiskDto
     private @Nullable RiskProjectDto project;
 
     /**
+     * Primary constructor
+     */
+    public RiskDto() {
+    }
+
+    /**
      * The unique identifier of this risk.
      *
      * @return The field id

@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Information about a category of Integrations available on the Marketplace.
@@ -27,6 +26,12 @@ public class IntegrationCategoryDto
     private @NotNull String name;
     private @NotNull String shortId;
     private @NotNull String[] integrationShortIds;
+
+    /**
+     * Primary constructor
+     */
+    public IntegrationCategoryDto() {
+    }
 
     /**
      * The unique identifier of this Integration Category.

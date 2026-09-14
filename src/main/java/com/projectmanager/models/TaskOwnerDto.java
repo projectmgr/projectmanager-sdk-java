@@ -39,6 +39,12 @@ public class TaskOwnerDto
     private @Nullable String avatarUrl;
 
     /**
+     * Primary constructor
+     */
+    public TaskOwnerDto() {
+    }
+
+    /**
      * The unique identifier of this Resource.
      *
      * @return The field id

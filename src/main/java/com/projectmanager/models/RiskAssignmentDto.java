@@ -28,6 +28,12 @@ public class RiskAssignmentDto
     private @NotNull String resourceId;
 
     /**
+     * Primary constructor
+     */
+    public RiskAssignmentDto() {
+    }
+
+    /**
      * Task or risk the user is assigned to
      *
      * @return The field taskId

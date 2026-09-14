@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A ProjectPriority is a named priority level used by your business to determine how to decide
@@ -26,6 +25,12 @@ import org.jetbrains.annotations.Nullable;
 public class ProjectPriorityCreateDto
 {
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public ProjectPriorityCreateDto() {
+    }
 
     /**
      * The name of this ProjectPriority

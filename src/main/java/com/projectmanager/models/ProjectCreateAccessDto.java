@@ -27,6 +27,12 @@ public class ProjectCreateAccessDto
     private @Nullable ProjectCreateAccessMemberDto[] members;
 
     /**
+     * Primary constructor
+     */
+    public ProjectCreateAccessDto() {
+    }
+
+    /**
      * If set to true every user will get access to this project
      *
      * @return The field everyone

@@ -34,6 +34,12 @@ public class TaskBaselineDto
     private @Nullable String effortFormat;
 
     /**
+     * Primary constructor
+     */
+    public TaskBaselineDto() {
+    }
+
+    /**
      * The unique identifier of this baseline record.
      *
      * @return The field id

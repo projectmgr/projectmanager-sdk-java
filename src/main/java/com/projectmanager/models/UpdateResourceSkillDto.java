@@ -15,7 +15,6 @@
 
 package com.projectmanager.models;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class UpdateResourceSkillDto
 {
     private @Nullable String name;
+
+    /**
+     * Primary constructor
+     */
+    public UpdateResourceSkillDto() {
+    }
 
     /**
      * The name of this Skill, if specified it will be updated

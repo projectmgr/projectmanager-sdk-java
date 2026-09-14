@@ -28,6 +28,12 @@ public class DiscussionDataDto
     private @Nullable String lastReadDate;
 
     /**
+     * Primary constructor
+     */
+    public DiscussionDataDto() {
+    }
+
+    /**
      * Count of task comments
      *
      * @return The field count

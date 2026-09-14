@@ -35,6 +35,12 @@ public class HourlyRateValueDto
     private @NotNull Double value;
 
     /**
+     * Primary constructor
+     */
+    public HourlyRateValueDto() {
+    }
+
+    /**
      * Gets or sets the unique identifier for this hourly rate value entry.
      *
      * @return The field id

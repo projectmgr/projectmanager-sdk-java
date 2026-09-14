@@ -50,6 +50,12 @@ public class NptDto
     private @Nullable String ownerId;
 
     /**
+     * Primary constructor
+     */
+    public NptDto() {
+    }
+
+    /**
      * The unique identifier of the NPT
      *
      * @return The field id

@@ -32,6 +32,12 @@ public class ProjectVersionChangeDataDto
     private @Nullable Integer restoreVersion;
 
     /**
+     * Primary constructor
+     */
+    public ProjectVersionChangeDataDto() {
+    }
+
+    /**
      * The type of change made
      *
      * @return The field type

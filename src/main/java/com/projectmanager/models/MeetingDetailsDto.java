@@ -47,6 +47,12 @@ public class MeetingDetailsDto
     private @Nullable RecurringTaskSettingsDto recurringSettings;
 
     /**
+     * Primary constructor
+     */
+    public MeetingDetailsDto() {
+    }
+
+    /**
      * The unique identifier of the Meeting
      *
      * @return The field id

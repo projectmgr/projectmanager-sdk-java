@@ -60,6 +60,12 @@ public class ResourceDto
     private @NotNull ResourceWorkingDaysHours workingDays;
 
     /**
+     * Primary constructor
+     */
+    public ResourceDto() {
+    }
+
+    /**
      * The unique identifier of this Resource.
      *
      * @return The field id

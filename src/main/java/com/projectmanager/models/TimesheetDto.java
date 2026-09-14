@@ -45,6 +45,12 @@ public class TimesheetDto
     private @NotNull Boolean isCopied;
 
     /**
+     * Primary constructor
+     */
+    public TimesheetDto() {
+    }
+
+    /**
      * A unique identifier of a timesheet data entry
      *
      * @return The field id

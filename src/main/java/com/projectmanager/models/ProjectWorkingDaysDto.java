@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Indicate which days of the week are considered working days for this project.
@@ -31,6 +30,12 @@ public class ProjectWorkingDaysDto
     private @NotNull Boolean friday;
     private @NotNull Boolean saturday;
     private @NotNull Boolean sunday;
+
+    /**
+     * Primary constructor
+     */
+    public ProjectWorkingDaysDto() {
+    }
 
     /**
      * Set this value to true if Monday is considered a working day for this project.

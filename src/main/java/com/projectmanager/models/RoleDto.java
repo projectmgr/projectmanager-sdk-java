@@ -34,6 +34,12 @@ public class RoleDto
     private @NotNull Object permissions;
 
     /**
+     * Primary constructor
+     */
+    public RoleDto() {
+    }
+
+    /**
      * Unique identifier of the business user role (`BusinessUserRoleId`).
      *
      * @return The field id

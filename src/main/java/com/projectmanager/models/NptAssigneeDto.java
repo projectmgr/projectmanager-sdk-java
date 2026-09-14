@@ -37,6 +37,12 @@ public class NptAssigneeDto
     private @Nullable String email;
 
     /**
+     * Primary constructor
+     */
+    public NptAssigneeDto() {
+    }
+
+    /**
      * The unique identifier of this Resource
      *
      * @return The field id

@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A TaskStatus is a named status level used by your business to determine how to measure the
@@ -30,6 +29,12 @@ public class TaskStatusDto
     private @NotNull String name;
     private @NotNull Integer order;
     private @NotNull Boolean isDone;
+
+    /**
+     * Primary constructor
+     */
+    public TaskStatusDto() {
+    }
 
     /**
      * The unique identifier of this TaskStatus.

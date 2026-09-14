@@ -27,6 +27,12 @@ public class ProjectCreateAccessMemberDto
     private @Nullable String permission;
 
     /**
+     * Primary constructor
+     */
+    public ProjectCreateAccessMemberDto() {
+    }
+
+    /**
      * Member's id
      *
      * @return The field userId

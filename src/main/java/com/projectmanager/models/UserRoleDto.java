@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A UserRole is a name for a privilege level granted to a specific User.  The 'Global Admin'
@@ -34,6 +33,12 @@ public class UserRoleDto
     private @NotNull Boolean isGuest;
     private @NotNull Boolean isDefault;
     private @NotNull UserRolePermissionsDto permissions;
+
+    /**
+     * Primary constructor
+     */
+    public UserRoleDto() {
+    }
 
     /**
      * The unique identifier of this UserRole.

@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Move task to project data transfer object. Contains information about target project to move, necessary options and users to add access for if needed.
@@ -26,6 +25,12 @@ public class MoveTaskToProjectDto
     private @NotNull String projectId;
     private @NotNull Boolean keepTimeEntries;
     private @NotNull String[] addAccessUserIds;
+
+    /**
+     * Primary constructor
+     */
+    public MoveTaskToProjectDto() {
+    }
 
     /**
      * Target project id to move

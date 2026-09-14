@@ -45,6 +45,12 @@ public class TimesheetFileResponseDto
     private @NotNull Boolean isNew;
 
     /**
+     * Primary constructor
+     */
+    public TimesheetFileResponseDto() {
+    }
+
+    /**
      * The unique identifier of the document.
      *
      * @return The field id

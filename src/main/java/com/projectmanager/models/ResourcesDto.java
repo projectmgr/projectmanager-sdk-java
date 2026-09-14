@@ -33,6 +33,12 @@ public class ResourcesDto
     private @Nullable UserError[] errors;
 
     /**
+     * Primary constructor
+     */
+    public ResourcesDto() {
+    }
+
+    /**
      * The list of the Resources created by this API call.
      *
      * @return The field resources

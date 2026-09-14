@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A ProjectStatus is a named condition used by your business to categorize the completion level
@@ -29,6 +28,12 @@ public class ProjectStatusDto
     private @NotNull String name;
     private @NotNull Boolean isDeleted;
     private @NotNull Boolean isSystem;
+
+    /**
+     * Primary constructor
+     */
+    public ProjectStatusDto() {
+    }
 
     /**
      * The unique identifier of this ProjectStatus.

@@ -35,6 +35,12 @@ public class ProjectMemberDto
     private @Nullable PermissionOptionsDto permissionOptions;
 
     /**
+     * Primary constructor
+     */
+    public ProjectMemberDto() {
+    }
+
+    /**
      * The unique identifier of the user of this ProjectMember.
      *
      * @return The field id

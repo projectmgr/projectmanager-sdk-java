@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * The TaskFieldTask is a summary of the Task that this TaskFieldValue relates to.
@@ -26,6 +25,12 @@ public class TaskFieldValueTaskDto
     private @NotNull String id;
     private @NotNull String shortId;
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public TaskFieldValueTaskDto() {
+    }
 
     /**
      * The unique identifier of this Task.

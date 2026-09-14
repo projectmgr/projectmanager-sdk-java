@@ -28,6 +28,12 @@ public class RoleUpdateChangeItemDto
     private @Nullable String id;
 
     /**
+     * Primary constructor
+     */
+    public RoleUpdateChangeItemDto() {
+    }
+
+    /**
      * Field to change: name, description, or permissions.
      *
      * @return The field property

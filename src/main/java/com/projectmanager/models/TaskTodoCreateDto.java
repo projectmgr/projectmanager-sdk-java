@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * The properties for creating a TaskTodo.
@@ -25,6 +24,12 @@ public class TaskTodoCreateDto
 {
     private @NotNull String text;
     private @NotNull Boolean complete;
+
+    /**
+     * Primary constructor
+     */
+    public TaskTodoCreateDto() {
+    }
 
     /**
      * The full description of this TaskTodo.

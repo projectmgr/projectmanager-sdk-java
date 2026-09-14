@@ -29,6 +29,12 @@ public class WeeklyRecurringSettingsDto
     private @NotNull Integer[] repeatWeekDays;
 
     /**
+     * Primary constructor
+     */
+    public WeeklyRecurringSettingsDto() {
+    }
+
+    /**
      * RecurringEndDate
      *
      * @return The field recurringEndDate

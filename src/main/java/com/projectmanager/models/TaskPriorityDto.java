@@ -29,6 +29,12 @@ public class TaskPriorityDto
     private @NotNull String name;
 
     /**
+     * Primary constructor
+     */
+    public TaskPriorityDto() {
+    }
+
+    /**
      * The unique identifier of this TaskPriority.
      *
      * @return The field id

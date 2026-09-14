@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * When uploading a list of names to an API, this data structure represents an
@@ -25,6 +24,12 @@ import org.jetbrains.annotations.Nullable;
 public class NameDto
 {
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public NameDto() {
+    }
 
     /**
      * A name.  To determine the meaning of this name, see the field to which this

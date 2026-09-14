@@ -28,6 +28,12 @@ public class RecurringTaskChangeSetDetails
     private @NotNull RecurrenceDto[] recurrences;
 
     /**
+     * Primary constructor
+     */
+    public RecurringTaskChangeSetDetails() {
+    }
+
+    /**
      * The created Task Ids
      *
      * @return The field taskIds

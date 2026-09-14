@@ -30,6 +30,12 @@ public class TaskStatusMoveResultDto
     private @Nullable String changeSetId;
 
     /**
+     * Primary constructor
+     */
+    public TaskStatusMoveResultDto() {
+    }
+
+    /**
      * The unique identifier of the Task that was moved.
      *
      * @return The field taskId

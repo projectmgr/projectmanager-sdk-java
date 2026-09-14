@@ -32,6 +32,12 @@ public class CreateTaskFieldDto
     private @Nullable String shortId;
 
     /**
+     * Primary constructor
+     */
+    public CreateTaskFieldDto() {
+    }
+
+    /**
      * The name of the TaskField
      *
      * @return The field name

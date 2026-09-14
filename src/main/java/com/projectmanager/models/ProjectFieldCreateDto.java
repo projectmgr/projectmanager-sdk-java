@@ -32,6 +32,12 @@ public class ProjectFieldCreateDto
     private @Nullable String[] options;
 
     /**
+     * Primary constructor
+     */
+    public ProjectFieldCreateDto() {
+    }
+
+    /**
      * The name of this Field
      *
      * @return The field name

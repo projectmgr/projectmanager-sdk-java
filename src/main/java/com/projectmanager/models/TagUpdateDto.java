@@ -15,7 +15,6 @@
 
 package com.projectmanager.models;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -26,6 +25,12 @@ public class TagUpdateDto
 {
     private @Nullable String name;
     private @Nullable String color;
+
+    /**
+     * Primary constructor
+     */
+    public TagUpdateDto() {
+    }
 
     /**
      * The name of this Tag. When omitted or null, the name is left unchanged.

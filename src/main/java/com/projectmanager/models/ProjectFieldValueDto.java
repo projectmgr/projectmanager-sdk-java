@@ -32,6 +32,12 @@ public class ProjectFieldValueDto
     private @NotNull String modifiedDate;
 
     /**
+     * Primary constructor
+     */
+    public ProjectFieldValueDto() {
+    }
+
+    /**
      * The unique identifier of this Project Field.
      *
      * @return The field id

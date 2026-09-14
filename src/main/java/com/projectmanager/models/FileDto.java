@@ -39,6 +39,12 @@ public class FileDto
     private @NotNull String entityOwnerId;
 
     /**
+     * Primary constructor
+     */
+    public FileDto() {
+    }
+
+    /**
      * The identifier for this file
      *
      * @return The field id

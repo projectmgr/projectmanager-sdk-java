@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Represents an individual error for a specific Resource that could not be created in the context
@@ -27,6 +26,12 @@ public class UserError
     private @NotNull String email;
     private @NotNull String reason;
     private @NotNull String statusCode;
+
+    /**
+     * Primary constructor
+     */
+    public UserError() {
+    }
 
     /**
      * The email of the Resource that could not be created

@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Represents api access key entity
@@ -28,6 +27,12 @@ public class ApiKeyDto
     private @NotNull String expires;
     private @NotNull String apiKey;
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public ApiKeyDto() {
+    }
 
     /**
      * Internal access token id

@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A ProjectTemplate is a named document that contains default Project details.
@@ -36,6 +35,12 @@ public class ProjectTemplateDto
     private @NotNull String defaultView;
     private @NotNull String ownerId;
     private @NotNull String createDate;
+
+    /**
+     * Primary constructor
+     */
+    public ProjectTemplateDto() {
+    }
 
     /**
      * The unique identifier of this ProjectTemplate.

@@ -34,6 +34,12 @@ public class UpdateRequestDto
     private @Nullable String folderId;
 
     /**
+     * Primary constructor
+     */
+    public UpdateRequestDto() {
+    }
+
+    /**
      * The new name for the File.
      *
      * @return The field name

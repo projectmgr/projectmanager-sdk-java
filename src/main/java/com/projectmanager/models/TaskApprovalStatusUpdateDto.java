@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Represents a request to update the approval status of a Task.
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class TaskApprovalStatusUpdateDto
 {
     private @NotNull String status;
+
+    /**
+     * Primary constructor
+     */
+    public TaskApprovalStatusUpdateDto() {
+    }
 
     /**
      * The approval status to apply to the Task.

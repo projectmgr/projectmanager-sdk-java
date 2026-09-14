@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * The payload to create a hourly rate period
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class HourlyRatePeriodCreateDto
 {
     private @NotNull String startDate;
+
+    /**
+     * Primary constructor
+     */
+    public HourlyRatePeriodCreateDto() {
+    }
 
     /**
      * The rate period state date

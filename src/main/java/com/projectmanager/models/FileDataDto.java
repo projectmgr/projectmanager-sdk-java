@@ -28,6 +28,12 @@ public class FileDataDto
     private @Nullable String lastReadDate;
 
     /**
+     * Primary constructor
+     */
+    public FileDataDto() {
+    }
+
+    /**
      * Task files count
      *
      * @return The field count

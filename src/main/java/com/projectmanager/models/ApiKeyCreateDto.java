@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Represents a new api access key entity
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class ApiKeyCreateDto
 {
     private @NotNull String tokenName;
+
+    /**
+     * Primary constructor
+     */
+    public ApiKeyCreateDto() {
+    }
 
     /**
      * Name of token

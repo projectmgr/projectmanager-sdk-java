@@ -29,6 +29,12 @@ public class AssigneeUpsertDto
     private @Nullable Integer assignedEffort;
 
     /**
+     * Primary constructor
+     */
+    public AssigneeUpsertDto() {
+    }
+
+    /**
      * The unique identifier of the TaskAssignee to which work is being assigned.
      *
      * @return The field id

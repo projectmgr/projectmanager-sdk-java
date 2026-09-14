@@ -15,7 +15,6 @@
 
 package com.projectmanager.models;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -30,6 +29,12 @@ public class ExportPriorityFilterDto
     private @Nullable Boolean isHigh;
     private @Nullable Boolean isVeryHigh;
     private @Nullable Boolean isCritical;
+
+    /**
+     * Primary constructor
+     */
+    public ExportPriorityFilterDto() {
+    }
 
     /**
      * Include items with no priority

@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Contains details of recurring NPT task deletions.
@@ -25,6 +24,12 @@ public class DeletedTasksDto
 {
     private @NotNull Integer deletedCount;
     private @NotNull String[] deletedTaskIds;
+
+    /**
+     * Primary constructor
+     */
+    public DeletedTasksDto() {
+    }
 
     /**
      * The total number of tasks that were deleted.

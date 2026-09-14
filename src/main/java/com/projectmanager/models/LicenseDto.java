@@ -29,6 +29,12 @@ public class LicenseDto
     private @Nullable String bundleSku;
 
     /**
+     * Primary constructor
+     */
+    public LicenseDto() {
+    }
+
+    /**
      * The unique identifier of this License.
      *
      * @return The field id

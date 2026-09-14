@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A resource affected by a holiday. Additional fields may be added later.
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class HolidayResourceDto
 {
     private @NotNull String id;
+
+    /**
+     * Primary constructor
+     */
+    public HolidayResourceDto() {
+    }
 
     /**
      * The resource identifier.

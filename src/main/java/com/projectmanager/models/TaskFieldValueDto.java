@@ -33,6 +33,12 @@ public class TaskFieldValueDto
     private @NotNull TaskFieldValueTaskDto task;
 
     /**
+     * Primary constructor
+     */
+    public TaskFieldValueDto() {
+    }
+
+    /**
      * The unique identifier of this TaskField.
      *
      * @return The field id

@@ -27,6 +27,12 @@ public class AuthenticationDto
     private @Nullable Object authScheme;
 
     /**
+     * Primary constructor
+     */
+    public AuthenticationDto() {
+    }
+
+    /**
      * Set to true if the connection was successful. False is not supported right now.
      *
      * @return The field connected

@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Task Metadata Search DTO
@@ -26,6 +25,12 @@ public class TaskMetadataSearchDto
     private @NotNull String id;
     private @NotNull String projectId;
     private @NotNull Object metadata;
+
+    /**
+     * Primary constructor
+     */
+    public TaskMetadataSearchDto() {
+    }
 
     /**
      * Task ID

@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Represents admin task to track time
@@ -25,6 +24,12 @@ public class TimesheetAdminTypeDto
 {
     private @NotNull String id;
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public TimesheetAdminTypeDto() {
+    }
 
     /**
      * admin task id

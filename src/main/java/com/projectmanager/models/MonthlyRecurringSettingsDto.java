@@ -31,6 +31,12 @@ public class MonthlyRecurringSettingsDto
     private @Nullable Integer repeatOnWeekDay;
 
     /**
+     * Primary constructor
+     */
+    public MonthlyRecurringSettingsDto() {
+    }
+
+    /**
      * RecurringEndDate
      *
      * @return The field recurringEndDate

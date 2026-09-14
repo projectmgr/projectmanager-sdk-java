@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * The payload to update a hourly rate
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class HourlyRateValueUpdateDto
 {
     private @NotNull Double value;
+
+    /**
+     * Primary constructor
+     */
+    public HourlyRateValueUpdateDto() {
+    }
 
     /**
      * The hourly rate value

@@ -15,7 +15,6 @@
 
 package com.projectmanager.models;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -26,6 +25,12 @@ public class MasterConnectionSchemeDto
     private @Nullable String value;
     private @Nullable String type;
     private @Nullable Boolean sendToClient;
+
+    /**
+     * Primary constructor
+     */
+    public MasterConnectionSchemeDto() {
+    }
 
     /**
      * The value of the property

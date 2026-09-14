@@ -42,6 +42,12 @@ public class ProjectFieldDto
     private @Nullable String shortId;
 
     /**
+     * Primary constructor
+     */
+    public ProjectFieldDto() {
+    }
+
+    /**
      * The unique identifier of this Field
      *
      * @return The field id

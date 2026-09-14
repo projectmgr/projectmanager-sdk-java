@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * DTO to assign roles to a list of project members
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class ProjectMembersAccessDto
 {
     private @NotNull ProjectAccessEntryDto[] projectAccess;
+
+    /**
+     * Primary constructor
+     */
+    public ProjectMembersAccessDto() {
+    }
 
     /**
      * List of project members and their roles

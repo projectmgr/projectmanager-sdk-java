@@ -15,7 +15,6 @@
 
 package com.projectmanager.models;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -34,6 +33,12 @@ public class NotificationDataDto
     private @Nullable String view;
     private @Nullable String shareId;
     private @Nullable String fileName;
+
+    /**
+     * Primary constructor
+     */
+    public NotificationDataDto() {
+    }
 
     /**
      * Set if the notification is related to a task

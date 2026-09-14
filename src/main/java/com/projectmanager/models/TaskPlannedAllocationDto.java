@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Planned minutes attributed to a single calendar day for a resource.
@@ -25,6 +24,12 @@ public class TaskPlannedAllocationDto
 {
     private @NotNull String date;
     private @NotNull Integer minutes;
+
+    /**
+     * Primary constructor
+     */
+    public TaskPlannedAllocationDto() {
+    }
 
     /**
      * Calendar date for this planned segment (date-only; workspace calendar applies).

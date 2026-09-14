@@ -15,7 +15,6 @@
 
 package com.projectmanager.models;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -47,6 +46,12 @@ public class ResourceUpdateDto
     private @Nullable Boolean clearAvatar;
     private @Nullable Double defaultPlannedHours;
     private @Nullable ResourceWorkingDaysHours workingDays;
+
+    /**
+     * Primary constructor
+     */
+    public ResourceUpdateDto() {
+    }
 
     /**
      * The first name of the person Resource.

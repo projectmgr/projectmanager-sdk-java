@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * DTO for updating a project field definition (e.g. rename).
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class UpdateProjectFieldDto
 {
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public UpdateProjectFieldDto() {
+    }
 
     /**
      * The new name of the field.

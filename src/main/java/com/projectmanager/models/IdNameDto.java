@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A lightweight reference that pairs a unique identifier with a display name.
@@ -28,6 +27,12 @@ public class IdNameDto
 {
     private @NotNull String id;
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public IdNameDto() {
+    }
 
     /**
      * A unique identifier.  To determine the meaning of this unique identifier,

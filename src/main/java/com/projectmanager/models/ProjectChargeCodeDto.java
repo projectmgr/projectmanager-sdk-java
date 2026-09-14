@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A ChargeCode is a code used to identify costs within your Projects.  Each ChargeCode has
@@ -28,6 +27,12 @@ public class ProjectChargeCodeDto
     private @NotNull String id;
     private @NotNull String name;
     private @NotNull Boolean isActive;
+
+    /**
+     * Primary constructor
+     */
+    public ProjectChargeCodeDto() {
+    }
 
     /**
      * The unique identifier of this ChargeCode

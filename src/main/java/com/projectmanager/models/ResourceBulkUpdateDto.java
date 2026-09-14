@@ -52,6 +52,12 @@ public class ResourceBulkUpdateDto
     private @Nullable ResourceWorkingDaysHours workingDays;
 
     /**
+     * Primary constructor
+     */
+    public ResourceBulkUpdateDto() {
+    }
+
+    /**
      * The unique identifier of the Resource to update.
      *
      * @return The field resourceId

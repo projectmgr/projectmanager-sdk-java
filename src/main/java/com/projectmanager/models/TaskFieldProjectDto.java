@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * The TaskFieldProject is a summary of the Project that this TaskField relates to.
@@ -26,6 +25,12 @@ public class TaskFieldProjectDto
     private @NotNull String id;
     private @NotNull String shortId;
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public TaskFieldProjectDto() {
+    }
 
     /**
      * The unique identifier of this Project.

@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Represents an export queue object. Use this ID to check the status of the export.
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class ExportDto
 {
     private @NotNull String id;
+
+    /**
+     * Primary constructor
+     */
+    public ExportDto() {
+    }
 
     /**
      * Id of the export

@@ -36,6 +36,12 @@ public class DiscussionCommentDto
     private @Nullable DiscussionCommentFileDto[] files;
 
     /**
+     * Primary constructor
+     */
+    public DiscussionCommentDto() {
+    }
+
+    /**
      * The unique ID of the discussion comment.
      *
      * @return The field id

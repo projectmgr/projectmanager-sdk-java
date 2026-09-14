@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Workspace-level scheduling defaults returned with a workspace.
@@ -25,6 +24,12 @@ public class WorkspaceSettingsDto
 {
     private @NotNull Double defaultPlannedHours;
     private @NotNull WorkspaceWorkingDaysDto workingDays;
+
+    /**
+     * Primary constructor
+     */
+    public WorkspaceSettingsDto() {
+    }
 
     /**
      * Default planned hours per day for new resources (0–24).

@@ -36,6 +36,12 @@ public class NotificationDto
     private @NotNull NotificationDataDto data;
 
     /**
+     * Primary constructor
+     */
+    public NotificationDto() {
+    }
+
+    /**
      * The unique identifier of this notification
      *
      * @return The field id

@@ -36,6 +36,12 @@ public class TaskFieldDto
     private @NotNull String modifiedDate;
 
     /**
+     * Primary constructor
+     */
+    public TaskFieldDto() {
+    }
+
+    /**
      * The unique identifier of this TaskField
      *
      * @return The field id

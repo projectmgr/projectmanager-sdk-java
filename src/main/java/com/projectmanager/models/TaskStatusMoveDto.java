@@ -29,6 +29,12 @@ public class TaskStatusMoveDto
     private @Nullable Integer position;
 
     /**
+     * Primary constructor
+     */
+    public TaskStatusMoveDto() {
+    }
+
+    /**
      * The unique identifier of the Task to move.
      *
      * @return The field taskId

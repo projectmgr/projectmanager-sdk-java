@@ -33,6 +33,12 @@ public class MeetingCreateDto
     private @Nullable String projectId;
 
     /**
+     * Primary constructor
+     */
+    public MeetingCreateDto() {
+    }
+
+    /**
      * The common name of this Meeting.
      *
      * @return The field name

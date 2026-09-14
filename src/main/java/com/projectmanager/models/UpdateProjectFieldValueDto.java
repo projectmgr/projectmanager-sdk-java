@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A model that contains a new value to be set for a ProjectField.
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class UpdateProjectFieldValueDto
 {
     private @NotNull String value;
+
+    /**
+     * Primary constructor
+     */
+    public UpdateProjectFieldValueDto() {
+    }
 
     /**
      * The new value to be set for this ProjectField.

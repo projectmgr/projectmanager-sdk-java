@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Returns the id of a specific ChangeSet
@@ -26,6 +25,12 @@ public class RecurringTaskChangeSetDetailsChangeSetStatusDto
     private @NotNull String changeSetId;
     private @NotNull String id;
     private @NotNull RecurringTaskChangeSetDetails data;
+
+    /**
+     * Primary constructor
+     */
+    public RecurringTaskChangeSetDetailsChangeSetStatusDto() {
+    }
 
     /**
      * The unique identifier of this Changeset

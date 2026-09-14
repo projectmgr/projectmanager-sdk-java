@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Request to grant project access to all active people on a business team.
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class AddProjectTeamMembersRequestDto
 {
     private @NotNull Boolean addAsEditor;
+
+    /**
+     * Primary constructor
+     */
+    public AddProjectTeamMembersRequestDto() {
+    }
 
     /**
      * When true, new teammates receive editor-level access (subject to workspace role rules).

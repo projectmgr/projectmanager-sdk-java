@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A ProjectStatus is a code used to identify costs within your Projects.  Each
@@ -26,6 +25,12 @@ import org.jetbrains.annotations.Nullable;
 public class ProjectStatusCreateDto
 {
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public ProjectStatusCreateDto() {
+    }
 
     /**
      * The name of this ProjectStatus
