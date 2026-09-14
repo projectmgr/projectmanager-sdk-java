@@ -45,6 +45,12 @@ public class TaskCreateDto
     private @Nullable Integer index;
 
     /**
+     * Primary constructor
+     */
+    public TaskCreateDto() {
+    }
+
+    /**
      * The common name of this Task.
      *
      * @return The field name

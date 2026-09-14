@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * The properties for creating a MeetingTodo.
@@ -25,6 +24,12 @@ public class MeetingTodoCreateDto
 {
     private @NotNull String text;
     private @NotNull Boolean complete;
+
+    /**
+     * Primary constructor
+     */
+    public MeetingTodoCreateDto() {
+    }
 
     /**
      * The full description of this MeetingTodo.

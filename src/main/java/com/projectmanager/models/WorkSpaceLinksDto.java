@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A shortcut link within the currently logged in Workspace.
@@ -25,6 +24,12 @@ public class WorkSpaceLinksDto
 {
     private @NotNull String project;
     private @NotNull String workSpaceApi;
+
+    /**
+     * Primary constructor
+     */
+    public WorkSpaceLinksDto() {
+    }
 
     /**
      * The name of the project for this link.

@@ -57,6 +57,12 @@ public class RiskDetailsDto
     private @Nullable RecurringTaskSettingsDto recurringSettings;
 
     /**
+     * Primary constructor
+     */
+    public RiskDetailsDto() {
+    }
+
+    /**
      * The unique identifier of this risk.
      *
      * @return The field id

@@ -63,6 +63,12 @@ public class TaskDto
     private @Nullable TaskFileDto[] files;
 
     /**
+     * Primary constructor
+     */
+    public TaskDto() {
+    }
+
+    /**
      * The unique identifier of this Task.
      *
      * @return The field id

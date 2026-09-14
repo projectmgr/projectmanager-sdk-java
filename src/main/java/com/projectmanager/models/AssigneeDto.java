@@ -28,6 +28,12 @@ public class AssigneeDto
     private @NotNull Integer assignedEffort;
 
     /**
+     * Primary constructor
+     */
+    public AssigneeDto() {
+    }
+
+    /**
      * Assignee resource id
      *
      * @return The field resourceId

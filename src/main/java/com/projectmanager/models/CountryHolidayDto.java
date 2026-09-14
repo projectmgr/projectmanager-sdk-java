@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Country holiday entry
@@ -27,6 +26,12 @@ public class CountryHolidayDto
     private @NotNull String date;
     private @NotNull Integer countryId;
     private @NotNull String countryName;
+
+    /**
+     * Primary constructor
+     */
+    public CountryHolidayDto() {
+    }
 
     /**
      * Holiday id

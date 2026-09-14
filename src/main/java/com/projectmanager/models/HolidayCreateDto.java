@@ -31,6 +31,12 @@ public class HolidayCreateDto
     private @Nullable String[] countryId;
 
     /**
+     * Primary constructor
+     */
+    public HolidayCreateDto() {
+    }
+
+    /**
      * Reason or label for the holiday (for example, public holiday name or company shutdown).
      *
      * @return The field reason

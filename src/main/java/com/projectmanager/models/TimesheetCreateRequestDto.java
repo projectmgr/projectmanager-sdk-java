@@ -32,6 +32,12 @@ public class TimesheetCreateRequestDto
     private @Nullable String notes;
 
     /**
+     * Primary constructor
+     */
+    public TimesheetCreateRequestDto() {
+    }
+
+    /**
      * Time entry date
      *
      * @return The field date

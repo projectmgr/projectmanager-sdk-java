@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A ProjectFolder is a named storage location that can contain Projects.
@@ -25,6 +24,12 @@ public class ProjectFolderDto
 {
     private @NotNull String id;
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public ProjectFolderDto() {
+    }
 
     /**
      * The unique identifier of this ProjectFolder.

@@ -15,7 +15,6 @@
 
 package com.projectmanager.models;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -29,6 +28,12 @@ public class ExportDueDateFilterDto
     private @Nullable Boolean includeThisWeek;
     private @Nullable Boolean includeNextWeek;
     private @Nullable Boolean includeLater;
+
+    /**
+     * Primary constructor
+     */
+    public ExportDueDateFilterDto() {
+    }
 
     /**
      * Include items without a due date

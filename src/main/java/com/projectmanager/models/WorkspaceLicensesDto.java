@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A summary of the paid user licenses for the workspace the current user is logged on to.
@@ -27,6 +26,12 @@ public class WorkspaceLicensesDto
     private @NotNull Integer used;
     private @NotNull Integer guestUsed;
     private @NotNull Integer remaining;
+
+    /**
+     * Primary constructor
+     */
+    public WorkspaceLicensesDto() {
+    }
 
     /**
      * The number of paid user licenses purchased for this workspace.

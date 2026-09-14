@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * The permissions available to the role
@@ -41,6 +40,12 @@ public class UserRolePermissionsDto
     private @NotNull UserRolePermissionDto editAllProjects;
     private @NotNull UserRolePermissionDto changeOwnEmail;
     private @NotNull UserRolePermissionDto useMcp;
+
+    /**
+     * Primary constructor
+     */
+    public UserRolePermissionsDto() {
+    }
 
     /**
      * Add people to the account

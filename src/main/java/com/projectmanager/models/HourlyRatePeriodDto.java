@@ -34,6 +34,12 @@ public class HourlyRatePeriodDto
     private @NotNull HourlyRateValueDto[] values;
 
     /**
+     * Primary constructor
+     */
+    public HourlyRatePeriodDto() {
+    }
+
+    /**
      * The unique identifier of the hourly rate period.
      *
      * @return The field id

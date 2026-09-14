@@ -55,6 +55,12 @@ public class NptDetailsDto
     private @Nullable RecurringTaskSettingsDto recurringSettings;
 
     /**
+     * Primary constructor
+     */
+    public NptDetailsDto() {
+    }
+
+    /**
      * The unique identifier of the NPT
      *
      * @return The field id

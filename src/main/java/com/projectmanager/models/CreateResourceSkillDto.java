@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * This is a skill that can be allocated to a resource.
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class CreateResourceSkillDto
 {
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public CreateResourceSkillDto() {
+    }
 
     /**
      * The name of this Skill.

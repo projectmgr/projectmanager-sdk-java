@@ -30,6 +30,12 @@ public class YearlyRecurringSettingsDto
     private @NotNull Integer repeatOnDay;
 
     /**
+     * Primary constructor
+     */
+    public YearlyRecurringSettingsDto() {
+    }
+
+    /**
      * RecurringEndDate
      *
      * @return The field recurringEndDate

@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A notification represents a message sent to a user to inform them of relevant actions or events within their
@@ -26,6 +25,12 @@ import org.jetbrains.annotations.Nullable;
 public class NotificationTimestampDto
 {
     private @NotNull String timestamp;
+
+    /**
+     * Primary constructor
+     */
+    public NotificationTimestampDto() {
+    }
 
     /**
      * The timestamp of the notification action

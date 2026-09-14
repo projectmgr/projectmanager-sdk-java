@@ -32,6 +32,12 @@ public class ProjectExportFilterDto
     private @Nullable String[] priority;
 
     /**
+     * Primary constructor
+     */
+    public ProjectExportFilterDto() {
+    }
+
+    /**
      * Specify the project group filter for the export
      *
      * @return The field groupId

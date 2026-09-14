@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Planned time for one resource assigned to the task.
@@ -26,6 +25,12 @@ public class TaskPlannedResourceTimeDto
     private @NotNull String id;
     private @NotNull Integer totalMinutes;
     private @NotNull TaskPlannedAllocationDto[] allocations;
+
+    /**
+     * Primary constructor
+     */
+    public TaskPlannedResourceTimeDto() {
+    }
 
     /**
      * Resource identifier for this planned row.

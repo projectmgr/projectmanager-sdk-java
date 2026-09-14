@@ -15,7 +15,6 @@
 
 package com.projectmanager.models;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class ProjectMemberRoleDto
 {
     private @Nullable String role;
+
+    /**
+     * Primary constructor
+     */
+    public ProjectMemberRoleDto() {
+    }
 
     /**
      * Role to apply. Optional — when omitted, a default role is applied based on the

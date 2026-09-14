@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A resource can update a team.
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class UpdateResourceTeamDto
 {
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public UpdateResourceTeamDto() {
+    }
 
     /**
      * The name of this Resource Team.

@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A Folder is a named storage location that can contain Files.
@@ -25,6 +24,12 @@ public class ProjectFileFolderDto
 {
     private @NotNull String id;
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public ProjectFileFolderDto() {
+    }
 
     /**
      * The unique identifier of this Folder.

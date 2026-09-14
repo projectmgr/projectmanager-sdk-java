@@ -15,7 +15,6 @@
 
 package com.projectmanager.models;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -28,6 +27,12 @@ public class HourlyRateCreateDto
     private @Nullable String projectId;
     private @Nullable Double hourlyRate;
     private @Nullable String copyFromRateId;
+
+    /**
+     * Primary constructor
+     */
+    public HourlyRateCreateDto() {
+    }
 
     /**
      * The ResourceId that the rate is for

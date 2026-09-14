@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Represents a state with its details.
@@ -26,6 +25,12 @@ public class StateDto
     private @NotNull Integer id;
     private @NotNull String stateCode;
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public StateDto() {
+    }
 
     /**
      * Gets or sets the unique identifier for the state.

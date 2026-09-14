@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Information about notifications for the current user.
@@ -30,6 +29,12 @@ public class NotificationResponseDto
     private @NotNull NotificationDto[] items;
     private @NotNull Integer totalCount;
     private @NotNull Integer unreadCount;
+
+    /**
+     * Primary constructor
+     */
+    public NotificationResponseDto() {
+    }
 
     /**
      * The most recent notifications pending for the current user.  If no notifications are pending for the current

@@ -46,6 +46,12 @@ public class ResourceCreateDto
     private @Nullable ResourceWorkingDaysHours workingDays;
 
     /**
+     * Primary constructor
+     */
+    public ResourceCreateDto() {
+    }
+
+    /**
      * The first name of the person Resource.
      *
      * Applies to personnel Resources only.

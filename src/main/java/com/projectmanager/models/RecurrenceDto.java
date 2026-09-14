@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A single recurrence instance created by a recurring Task, NPT, or Meeting action
@@ -26,6 +25,12 @@ public class RecurrenceDto
     private @NotNull String id;
     private @NotNull String startDate;
     private @NotNull String endDate;
+
+    /**
+     * Primary constructor
+     */
+    public RecurrenceDto() {
+    }
 
     /**
      * The unique identifier of the created recurrence instance

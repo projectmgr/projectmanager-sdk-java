@@ -40,6 +40,12 @@ public class RiskCreateDto
     private @Nullable Integer riskTypeId;
 
     /**
+     * Primary constructor
+     */
+    public RiskCreateDto() {
+    }
+
+    /**
      * The common name of this Risk.
      *
      * @return The field name

@@ -40,6 +40,12 @@ public class ProjectVersionDto
     private @Nullable String tokenName;
 
     /**
+     * Primary constructor
+     */
+    public ProjectVersionDto() {
+    }
+
+    /**
      * The unique identifier of the project version.
      *
      * @return The field id

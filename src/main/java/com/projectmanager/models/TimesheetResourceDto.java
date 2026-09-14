@@ -34,6 +34,12 @@ public class TimesheetResourceDto
     private @Nullable Double hourlyRate;
 
     /**
+     * Primary constructor
+     */
+    public TimesheetResourceDto() {
+    }
+
+    /**
      * The unique identifier of this Resource.
      *
      * @return The field id

@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A TaskTodo is a sub-task that represents a unit of work on the Task.  You can use
@@ -29,6 +28,12 @@ public class TaskTodoDto
     private @NotNull Boolean complete;
     private @NotNull String createDate;
     private @NotNull String modifyDate;
+
+    /**
+     * Primary constructor
+     */
+    public TaskTodoDto() {
+    }
 
     /**
      * The unique identifier of this TaskTodo.

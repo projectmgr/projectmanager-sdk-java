@@ -38,6 +38,12 @@ public class TimesheetResponseDto
     private @NotNull TimesheetFileResponseDto[] documents;
 
     /**
+     * Primary constructor
+     */
+    public TimesheetResponseDto() {
+    }
+
+    /**
      * TimesheetId
      *
      * @return The field id

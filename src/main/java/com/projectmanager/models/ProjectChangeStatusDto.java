@@ -31,6 +31,12 @@ public class ProjectChangeStatusDto
     private @NotNull String state;
 
     /**
+     * Primary constructor
+     */
+    public ProjectChangeStatusDto() {
+    }
+
+    /**
      * The unique identifier of this ProjectChange.
      *
      * @return The field id

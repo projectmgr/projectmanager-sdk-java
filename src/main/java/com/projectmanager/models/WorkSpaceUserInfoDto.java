@@ -50,6 +50,12 @@ public class WorkSpaceUserInfoDto
     private @NotNull Boolean isSocial;
 
     /**
+     * Primary constructor
+     */
+    public WorkSpaceUserInfoDto() {
+    }
+
+    /**
      * A collection of shortcut links for the currently logged in Workspace.
      *
      * @return The field links

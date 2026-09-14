@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A Project is a collection of Tasks that contributes towards a goal.  Within a Project, Tasks
@@ -28,6 +27,12 @@ public class RiskProjectDto
     private @NotNull String id;
     private @NotNull String shortId;
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public RiskProjectDto() {
+    }
 
     /**
      * The unique identifier of this Project.

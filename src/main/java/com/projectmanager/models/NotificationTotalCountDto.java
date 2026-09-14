@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Information about notifications for the current user.
@@ -28,6 +27,12 @@ import org.jetbrains.annotations.Nullable;
 public class NotificationTotalCountDto
 {
     private @NotNull Integer totalCount;
+
+    /**
+     * Primary constructor
+     */
+    public NotificationTotalCountDto() {
+    }
 
     /**
      * The total number of notifications pending for the current user.

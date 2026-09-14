@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * The basic permission object
@@ -26,6 +25,12 @@ public class UserRolePermissionDto
     private @NotNull String description;
     private @NotNull Boolean value;
     private @NotNull Boolean canBeModified;
+
+    /**
+     * Primary constructor
+     */
+    public UserRolePermissionDto() {
+    }
 
     /**
      * The description of the permission

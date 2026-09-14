@@ -60,6 +60,12 @@ public class ResourceDetailsDto
     private @NotNull IdNameDto[] projectMembership;
 
     /**
+     * Primary constructor
+     */
+    public ResourceDetailsDto() {
+    }
+
+    /**
      * The unique identifier of this Resource.
      *
      * @return The field id

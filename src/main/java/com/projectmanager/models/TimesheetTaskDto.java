@@ -49,6 +49,12 @@ public class TimesheetTaskDto
     private @Nullable Integer plannedEffort;
 
     /**
+     * Primary constructor
+     */
+    public TimesheetTaskDto() {
+    }
+
+    /**
      * The unique identifier of this Task.
      *
      * @return The field id

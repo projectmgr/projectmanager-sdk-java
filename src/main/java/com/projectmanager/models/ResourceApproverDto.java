@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * When managing users, you can choose who will approve a person's Timesheets. This
@@ -26,6 +25,12 @@ public class ResourceApproverDto
 {
     private @NotNull String id;
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public ResourceApproverDto() {
+    }
 
     /**
      * The unique identifier of this ResourceApprover

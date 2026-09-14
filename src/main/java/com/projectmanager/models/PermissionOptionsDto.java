@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Specifies the permissions a member can be changed to on a project.
@@ -29,6 +28,12 @@ public class PermissionOptionsDto
     private @NotNull Boolean guest;
     private @NotNull Boolean editor;
     private @NotNull Boolean manager;
+
+    /**
+     * Primary constructor
+     */
+    public PermissionOptionsDto() {
+    }
 
     /**
      * If true, the users access can be removed

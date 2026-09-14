@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Reported (timesheet) time for one resource on the task.
@@ -26,6 +25,12 @@ public class TaskActualResourceTimeDto
     private @NotNull String id;
     private @NotNull Integer totalMinutes;
     private @NotNull TaskActualTimeEntryDto[] timeEntries;
+
+    /**
+     * Primary constructor
+     */
+    public TaskActualResourceTimeDto() {
+    }
 
     /**
      * Resource identifier for this actual row.

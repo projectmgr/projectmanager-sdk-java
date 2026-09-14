@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A ProjectCustomer is a code used to identify costs within your Projects.  Each
@@ -27,6 +26,12 @@ public class ProjectCustomerDto
 {
     private @NotNull String id;
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public ProjectCustomerDto() {
+    }
 
     /**
      * The unique identifier of this ProjectCustomer

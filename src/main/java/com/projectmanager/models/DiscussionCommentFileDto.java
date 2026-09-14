@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * The DiscussionCommentFile represents a file that has been attached to a discussion
@@ -27,6 +26,12 @@ public class DiscussionCommentFileDto
     private @NotNull String id;
     private @NotNull String name;
     private @NotNull String url;
+
+    /**
+     * Primary constructor
+     */
+    public DiscussionCommentFileDto() {
+    }
 
     /**
      * The identifier for this file

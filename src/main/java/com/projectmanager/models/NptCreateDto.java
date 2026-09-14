@@ -33,6 +33,12 @@ public class NptCreateDto
     private @Nullable String statusId;
 
     /**
+     * Primary constructor
+     */
+    public NptCreateDto() {
+    }
+
+    /**
      * The common name of this Task.
      *
      * @return The field name

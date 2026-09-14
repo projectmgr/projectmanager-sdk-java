@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Task-level planned work (TotalPlannedMinutes from task Work), per-resource assigned
@@ -32,6 +31,12 @@ public class TaskTimeSummaryDto
     private @NotNull Boolean hasTimeEntries;
     private @NotNull TaskPlannedResourceTimeDto[] assigned;
     private @NotNull TaskActualResourceTimeDto[] actual;
+
+    /**
+     * Primary constructor
+     */
+    public TaskTimeSummaryDto() {
+    }
 
     /**
      * The task's planned work (Work), in minutes — same as the Gantt "Work" / planned effort on the task.

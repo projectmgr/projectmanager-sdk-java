@@ -41,6 +41,12 @@ public class TimeSheetProjectDto
     private @NotNull Boolean isTemplate;
 
     /**
+     * Primary constructor
+     */
+    public TimeSheetProjectDto() {
+    }
+
+    /**
      * The unique identifier of the Project.
      *
      * @return The field id

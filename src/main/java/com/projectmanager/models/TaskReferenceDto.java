@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Represents a task that links or depends on another task
@@ -25,6 +24,12 @@ public class TaskReferenceDto
 {
     private @NotNull String predecessorId;
     private @NotNull String successorId;
+
+    /**
+     * Primary constructor
+     */
+    public TaskReferenceDto() {
+    }
 
     /**
      * The unique identifier for the predecessor task.

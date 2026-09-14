@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A MeetingTodo is a sub-item that represents a unit of work on the Meeting. You can use
@@ -29,6 +28,12 @@ public class MeetingTodoDto
     private @NotNull Boolean complete;
     private @NotNull String createDate;
     private @NotNull String modifyDate;
+
+    /**
+     * Primary constructor
+     */
+    public MeetingTodoDto() {
+    }
 
     /**
      * The unique identifier of this MeetingTodo.

@@ -15,7 +15,6 @@
 
 package com.projectmanager.models;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -42,6 +41,12 @@ public class WorkSpacePermissionsDto
     private @Nullable Boolean viewMyBoard;
     private @Nullable Boolean changeOwnEmail;
     private @Nullable Boolean useMcp;
+
+    /**
+     * Primary constructor
+     */
+    public WorkSpacePermissionsDto() {
+    }
 
     /**
      * True if this user can Add people to the account

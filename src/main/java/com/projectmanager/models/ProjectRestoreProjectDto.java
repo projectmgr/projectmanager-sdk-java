@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * This is the projectId being restored to
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class ProjectRestoreProjectDto
 {
     private @NotNull String id;
+
+    /**
+     * Primary constructor
+     */
+    public ProjectRestoreProjectDto() {
+    }
 
     /**
      * The unique identifier of the Project.  This value is set by the system and cannot

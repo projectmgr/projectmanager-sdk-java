@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Global holiday entry
@@ -25,6 +24,12 @@ public class GlobalHolidayDto
 {
     private @NotNull String id;
     private @NotNull String date;
+
+    /**
+     * Primary constructor
+     */
+    public GlobalHolidayDto() {
+    }
 
     /**
      * Holiday id

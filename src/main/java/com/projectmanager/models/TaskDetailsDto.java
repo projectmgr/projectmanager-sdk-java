@@ -80,6 +80,12 @@ public class TaskDetailsDto
     private @Nullable TaskBaselineDto baseline;
 
     /**
+     * Primary constructor
+     */
+    public TaskDetailsDto() {
+    }
+
+    /**
      * The unique identifier of this Task.
      *
      * @return The field id

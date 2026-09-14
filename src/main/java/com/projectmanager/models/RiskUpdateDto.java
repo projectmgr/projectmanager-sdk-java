@@ -15,7 +15,6 @@
 
 package com.projectmanager.models;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -38,6 +37,12 @@ public class RiskUpdateDto
     private @Nullable String[] tagIds;
     private @Nullable Integer riskTypeId;
     private @Nullable MoveTaskToProjectDto moveToProject;
+
+    /**
+     * Primary constructor
+     */
+    public RiskUpdateDto() {
+    }
 
     /**
      * The common name of this Risk.

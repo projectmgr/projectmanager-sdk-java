@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A resource can be allocated a team.
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class CreateResourceTeamDto
 {
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public CreateResourceTeamDto() {
+    }
 
     /**
      * The name of this Team.

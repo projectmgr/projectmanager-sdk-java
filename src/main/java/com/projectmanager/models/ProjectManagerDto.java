@@ -30,6 +30,12 @@ public class ProjectManagerDto
     private @Nullable String color;
 
     /**
+     * Primary constructor
+     */
+    public ProjectManagerDto() {
+    }
+
+    /**
      * The unique identifier of this ProjectManager
      *
      * @return The field id

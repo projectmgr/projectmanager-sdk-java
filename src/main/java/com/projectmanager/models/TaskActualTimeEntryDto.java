@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A single timesheet line for the task and resource.
@@ -28,6 +27,12 @@ public class TaskActualTimeEntryDto
     private @NotNull Integer minutes;
     private @NotNull Boolean approved;
     private @NotNull Integer approvalStatusId;
+
+    /**
+     * Primary constructor
+     */
+    public TaskActualTimeEntryDto() {
+    }
 
     /**
      * Timesheet row identifier.

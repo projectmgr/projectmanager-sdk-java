@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Business roles for the account security UI. Each role includes a permissions object whose keys are camelCase action names (for example invitePeople) with isGranted and subscription-related fields per row.
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class BusinessRolesListDto
 {
     private @NotNull RoleDto[] roles;
+
+    /**
+     * Primary constructor
+     */
+    public BusinessRolesListDto() {
+    }
 
     /**
      * All business roles in the workspace, including built-in and custom roles.

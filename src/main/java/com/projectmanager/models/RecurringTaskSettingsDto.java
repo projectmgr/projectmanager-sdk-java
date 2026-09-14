@@ -31,6 +31,12 @@ public class RecurringTaskSettingsDto
     private @Nullable Integer endsAfter;
 
     /**
+     * Primary constructor
+     */
+    public RecurringTaskSettingsDto() {
+    }
+
+    /**
      * Type
      *
      * @return The field type

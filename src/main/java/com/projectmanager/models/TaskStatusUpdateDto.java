@@ -15,7 +15,6 @@
 
 package com.projectmanager.models;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -27,6 +26,12 @@ public class TaskStatusUpdateDto
 {
     private @Nullable String name;
     private @Nullable Integer order;
+
+    /**
+     * Primary constructor
+     */
+    public TaskStatusUpdateDto() {
+    }
 
     /**
      * The name of this TaskStatus.

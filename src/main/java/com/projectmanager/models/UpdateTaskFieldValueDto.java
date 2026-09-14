@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A model that contains a new value to be set for a TaskField.
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class UpdateTaskFieldValueDto
 {
     private @NotNull String value;
+
+    /**
+     * Primary constructor
+     */
+    public UpdateTaskFieldValueDto() {
+    }
 
     /**
      * The new value to be set for this TaskField.

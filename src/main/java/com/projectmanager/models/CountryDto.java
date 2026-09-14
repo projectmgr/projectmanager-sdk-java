@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Represents a country with its details.
@@ -27,6 +26,12 @@ public class CountryDto
     private @NotNull String name;
     private @NotNull Integer countryId;
     private @NotNull String cultureName;
+
+    /**
+     * Primary constructor
+     */
+    public CountryDto() {
+    }
 
     /**
      * Gets or sets the unique identifier for the country. This should translate to the ISO2 code

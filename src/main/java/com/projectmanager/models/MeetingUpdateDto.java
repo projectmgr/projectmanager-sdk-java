@@ -34,6 +34,12 @@ public class MeetingUpdateDto
     private @Nullable MoveTaskToProjectDto moveToProject;
 
     /**
+     * Primary constructor
+     */
+    public MeetingUpdateDto() {
+    }
+
+    /**
      * The common name of this Meeting.
      *
      * @return The field name

@@ -28,6 +28,12 @@ public class IntegrationAuthSetupDto
     private @Nullable Object masterConnectionSchema;
 
     /**
+     * Primary constructor
+     */
+    public IntegrationAuthSetupDto() {
+    }
+
+    /**
      * Master Connection for provider
      *
      * @return The field masterConnection

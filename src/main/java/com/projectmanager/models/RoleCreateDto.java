@@ -28,6 +28,12 @@ public class RoleCreateDto
     private @NotNull WorkSpacePermissionsDto permissions;
 
     /**
+     * Primary constructor
+     */
+    public RoleCreateDto() {
+    }
+
+    /**
      * Display name of the new custom role; must not duplicate another role name in the workspace (case-insensitive).
      *
      * @return The field name

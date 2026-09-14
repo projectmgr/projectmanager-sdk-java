@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Export settings for Projects export
@@ -28,6 +27,12 @@ public class ProjectExportSettingsDto
     private @NotNull Object columns;
     private @NotNull ProjectExportFilterDto filters;
     private @NotNull String[] order;
+
+    /**
+     * Primary constructor
+     */
+    public ProjectExportSettingsDto() {
+    }
 
     /**
      * Format to export to, currently csv and excel are supported

@@ -30,6 +30,12 @@ public class RolePermissionFeatureDto
     private @Nullable String featureName;
 
     /**
+     * Primary constructor
+     */
+    public RolePermissionFeatureDto() {
+    }
+
+    /**
      * Whether this permission is granted for the role in the workspace (persisted access).
      *
      * @return The field isGranted

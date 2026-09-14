@@ -32,6 +32,12 @@ public class TaskFileDto
     private @NotNull Integer size;
 
     /**
+     * Primary constructor
+     */
+    public TaskFileDto() {
+    }
+
+    /**
      * The identifier for this file
      *
      * @return The field id

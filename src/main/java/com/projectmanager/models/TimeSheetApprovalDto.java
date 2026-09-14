@@ -27,6 +27,12 @@ public class TimeSheetApprovalDto
     private @NotNull String date;
 
     /**
+     * Primary constructor
+     */
+    public TimeSheetApprovalDto() {
+    }
+
+    /**
      * The id for the resource, if null it indicates the request is for the current logged-in user
      *
      * @return The field resourceId

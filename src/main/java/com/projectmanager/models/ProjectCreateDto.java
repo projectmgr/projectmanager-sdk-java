@@ -53,6 +53,12 @@ public class ProjectCreateDto
     private @Nullable Boolean weekStartsOnMonday;
 
     /**
+     * Primary constructor
+     */
+    public ProjectCreateDto() {
+    }
+
+    /**
      * The name of the Project.
      *
      * @return The field name

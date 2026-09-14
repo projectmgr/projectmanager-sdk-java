@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Information about notifications for the current user.
@@ -28,6 +27,12 @@ import org.jetbrains.annotations.Nullable;
 public class NotificationUnreadCountDto
 {
     private @NotNull Integer unreadCount;
+
+    /**
+     * Primary constructor
+     */
+    public NotificationUnreadCountDto() {
+    }
 
     /**
      * The number of unread notifications for the current user.

@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A ResourceTeam is a group of Resources that can be referred to as a group.  You can use a
@@ -26,6 +25,12 @@ public class ResourceTeamDto
 {
     private @NotNull String id;
     private @NotNull String name;
+
+    /**
+     * Primary constructor
+     */
+    public ResourceTeamDto() {
+    }
 
     /**
      * The unique identifier of this ResourceTeam

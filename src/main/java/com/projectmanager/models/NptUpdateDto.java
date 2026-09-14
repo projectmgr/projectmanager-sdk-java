@@ -44,6 +44,12 @@ public class NptUpdateDto
     private @Nullable MoveTaskToProjectDto moveToProject;
 
     /**
+     * Primary constructor
+     */
+    public NptUpdateDto() {
+    }
+
+    /**
      * The common name of this Task.
      *
      * @return The field name

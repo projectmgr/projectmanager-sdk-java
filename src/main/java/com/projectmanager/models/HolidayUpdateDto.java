@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Request body for updating a holiday. Only the reason can be changed.
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class HolidayUpdateDto
 {
     private @NotNull String reason;
+
+    /**
+     * Primary constructor
+     */
+    public HolidayUpdateDto() {
+    }
 
     /**
      * Updated reason or label for the holiday.

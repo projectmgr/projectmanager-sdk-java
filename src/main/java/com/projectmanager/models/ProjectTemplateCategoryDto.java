@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Information about a Category of ProjectTemplates.
@@ -27,6 +26,12 @@ public class ProjectTemplateCategoryDto
     private @NotNull String name;
     private @NotNull Integer order;
     private @NotNull ProjectTemplateDto[] templates;
+
+    /**
+     * Primary constructor
+     */
+    public ProjectTemplateCategoryDto() {
+    }
 
     /**
      * The unique identifier of this ProjectTemplate Category.

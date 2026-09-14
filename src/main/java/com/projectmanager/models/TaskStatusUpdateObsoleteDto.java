@@ -25,6 +25,12 @@ public class TaskStatusUpdateObsoleteDto
     private @NotNull String id;
 
     /**
+     * Primary constructor
+     */
+    public TaskStatusUpdateObsoleteDto() {
+    }
+
+    /**
      * The name of this TaskStatus.
      *
      * @return The field name

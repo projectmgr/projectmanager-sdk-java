@@ -38,6 +38,12 @@ public class TaskAssigneeDto
     private @Nullable Integer allocatedEffort;
 
     /**
+     * Primary constructor
+     */
+    public TaskAssigneeDto() {
+    }
+
+    /**
      * The unique identifier of this TaskAssignee
      *
      * @return The field id

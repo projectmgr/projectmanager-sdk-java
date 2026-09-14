@@ -15,7 +15,6 @@
 
 package com.projectmanager.models;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -27,6 +26,12 @@ public class TimesheetUpdateRequestDto
     private @Nullable Integer minutes;
     private @Nullable String notes;
     private @Nullable String[] documentIds;
+
+    /**
+     * Primary constructor
+     */
+    public TimesheetUpdateRequestDto() {
+    }
 
     /**
      * Reported hours. If minutes is specified this property is ignored

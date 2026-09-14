@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * When uploading a list of unique identifiers to the API, this data structure
@@ -25,6 +24,12 @@ import org.jetbrains.annotations.Nullable;
 public class IdDto
 {
     private @NotNull String id;
+
+    /**
+     * Primary constructor
+     */
+    public IdDto() {
+    }
 
     /**
      * A unique identifier.  To determine the meaning of this unique identifier,

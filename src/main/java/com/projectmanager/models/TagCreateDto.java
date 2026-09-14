@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A Tag is a named categorization you can use to distinguish objects from each other.
@@ -26,6 +25,12 @@ public class TagCreateDto
 {
     private @NotNull String name;
     private @NotNull String color;
+
+    /**
+     * Primary constructor
+     */
+    public TagCreateDto() {
+    }
 
     /**
      * The name of this Tag.

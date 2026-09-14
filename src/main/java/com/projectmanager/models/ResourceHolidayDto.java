@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Resource holiday entry
@@ -26,6 +25,12 @@ public class ResourceHolidayDto
     private @NotNull String id;
     private @NotNull String date;
     private @NotNull String resourceId;
+
+    /**
+     * Primary constructor
+     */
+    public ResourceHolidayDto() {
+    }
 
     /**
      * Holiday id

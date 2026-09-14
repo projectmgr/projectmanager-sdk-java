@@ -28,6 +28,12 @@ public class ConnectionSchemaDto
     private @Nullable Object authScheme;
 
     /**
+     * Primary constructor
+     */
+    public ConnectionSchemaDto() {
+    }
+
+    /**
      * Whether or not the Integration Provider is connected.
      *
      * @return The field connected

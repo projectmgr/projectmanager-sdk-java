@@ -15,7 +15,6 @@
 
 package com.projectmanager.models;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -46,6 +45,12 @@ public class ProjectUpdateDto
     private @Nullable Boolean updatePlannedWithActual;
     private @Nullable String notes;
     private @Nullable String externalReferenceId;
+
+    /**
+     * Primary constructor
+     */
+    public ProjectUpdateDto() {
+    }
 
     /**
      * The name of the Project.

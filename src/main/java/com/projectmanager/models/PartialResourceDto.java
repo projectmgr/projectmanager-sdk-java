@@ -30,6 +30,12 @@ public class PartialResourceDto
     private @Nullable String email;
 
     /**
+     * Primary constructor
+     */
+    public PartialResourceDto() {
+    }
+
+    /**
      * The unique identifier of this Resource.
      *
      * @return The field id

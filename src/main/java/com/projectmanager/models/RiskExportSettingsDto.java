@@ -36,6 +36,12 @@ public class RiskExportSettingsDto
     private @Nullable String[] tags;
 
     /**
+     * Primary constructor
+     */
+    public RiskExportSettingsDto() {
+    }
+
+    /**
      * the name used by the export
      *
      * @return The field name

@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A ResourceSkill is a capability possessed by this Resource that can be used to
@@ -29,6 +28,12 @@ public class ResourceSkillDto
     private @NotNull String id;
     private @NotNull String name;
     private @NotNull Boolean inUse;
+
+    /**
+     * Primary constructor
+     */
+    public ResourceSkillDto() {
+    }
 
     /**
      * The unique identifier of this ResourceSkill

@@ -43,6 +43,12 @@ public class WorkSpaceDto
     private @NotNull WorkspaceSettingsDto settings;
 
     /**
+     * Primary constructor
+     */
+    public WorkSpaceDto() {
+    }
+
+    /**
      * The unique identifier of this Workspace.
      *
      * @return The field id

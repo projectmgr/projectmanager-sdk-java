@@ -61,6 +61,12 @@ public class ProjectDto
     private @NotNull ProjectWorkingDaysDto workingDays;
 
     /**
+     * Primary constructor
+     */
+    public ProjectDto() {
+    }
+
+    /**
      * The unique identifier of the Project.  This value is set by the system and cannot
      * be set with a CreateProject or changed with an UpdateProject call.
      *

@@ -15,7 +15,6 @@
 
 package com.projectmanager.models;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -31,6 +30,12 @@ public class WorkspaceWorkingDaysDto
     private @Nullable Double friday;
     private @Nullable Double saturday;
     private @Nullable Double sunday;
+
+    /**
+     * Primary constructor
+     */
+    public WorkspaceWorkingDaysDto() {
+    }
 
     /**
      * Working hours on Monday.

@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Contains information about whether a locked (closed or deleted) project can be re-opened.
@@ -24,6 +23,12 @@ import org.jetbrains.annotations.Nullable;
 public class ProjectReopenStatusDto
 {
     private @NotNull Boolean hasCostChanges;
+
+    /**
+     * Primary constructor
+     */
+    public ProjectReopenStatusDto() {
+    }
 
     /**
      * Gets or sets a value indicating whether any of the PlannedProjectCosts or TimesheetCosts

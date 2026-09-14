@@ -30,6 +30,12 @@ public class EntitlementDto
     private @Nullable Double limit;
 
     /**
+     * Primary constructor
+     */
+    public EntitlementDto() {
+    }
+
+    /**
      * The unique identifier for this entitlement.
      *
      * @return The field shortId

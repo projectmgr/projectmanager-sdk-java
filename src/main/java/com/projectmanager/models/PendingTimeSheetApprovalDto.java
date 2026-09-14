@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Information about a pending timesheet approval
@@ -26,6 +25,12 @@ public class PendingTimeSheetApprovalDto
     private @NotNull String resourceId;
     private @NotNull String date;
     private @NotNull String resourceName;
+
+    /**
+     * Primary constructor
+     */
+    public PendingTimeSheetApprovalDto() {
+    }
 
     /**
      * The resource whose timesheet is being approved

@@ -28,6 +28,12 @@ public class ProjectFileTaskDto
     private @NotNull String name;
 
     /**
+     * Primary constructor
+     */
+    public ProjectFileTaskDto() {
+    }
+
+    /**
      * The unique identifier of this Task.
      *
      * @return The field id

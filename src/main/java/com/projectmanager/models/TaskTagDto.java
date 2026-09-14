@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A TaskTag is a connection between a Task and a Tag.  Each Task can have zero, one or many
@@ -28,6 +27,12 @@ public class TaskTagDto
     private @NotNull String id;
     private @NotNull String name;
     private @NotNull String color;
+
+    /**
+     * Primary constructor
+     */
+    public TaskTagDto() {
+    }
 
     /**
      * The unique identifier of this TaskTag.

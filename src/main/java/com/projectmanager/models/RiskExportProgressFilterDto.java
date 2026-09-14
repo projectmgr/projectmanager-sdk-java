@@ -15,7 +15,6 @@
 
 package com.projectmanager.models;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -25,6 +24,12 @@ public class RiskExportProgressFilterDto
 {
     private @Nullable Boolean isOpen;
     private @Nullable Boolean isClosed;
+
+    /**
+     * Primary constructor
+     */
+    public RiskExportProgressFilterDto() {
+    }
 
     /**
      * Include risks that are open

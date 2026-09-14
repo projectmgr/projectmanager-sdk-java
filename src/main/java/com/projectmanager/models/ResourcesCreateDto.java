@@ -34,6 +34,12 @@ public class ResourcesCreateDto
     private @NotNull ResourceCreateDto[] users;
 
     /**
+     * Primary constructor
+     */
+    public ResourcesCreateDto() {
+    }
+
+    /**
      * When creating a user they will also be added to the projectIds specified. If null or empty the user will be
      * invited but no access will be given to any projects.
      *

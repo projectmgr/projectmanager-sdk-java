@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Holds the list of pending timesheet approvals
@@ -25,6 +24,12 @@ public class TimeSheetApprovalResponseDto
 {
     private @NotNull String modifiedDate;
     private @NotNull PendingTimeSheetApprovalDto[] pendingApprovals;
+
+    /**
+     * Primary constructor
+     */
+    public TimeSheetApprovalResponseDto() {
+    }
 
     /**
      * Date and time (in UTC) that this timesheet entry was last modified.

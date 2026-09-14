@@ -16,7 +16,6 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Tasks can have discussions attached to them.  These discussions can include text with simple
@@ -27,6 +26,12 @@ import org.jetbrains.annotations.Nullable;
 public class DiscussionCommentCreateResponseDto
 {
     private @NotNull String discussionCommentId;
+
+    /**
+     * Primary constructor
+     */
+    public DiscussionCommentCreateResponseDto() {
+    }
 
     /**
      * The unique identifier of the discussion comment created.

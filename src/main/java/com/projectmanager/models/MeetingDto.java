@@ -42,6 +42,12 @@ public class MeetingDto
     private @Nullable MeetingProjectDto project;
 
     /**
+     * Primary constructor
+     */
+    public MeetingDto() {
+    }
+
+    /**
      * The unique identifier of the Meeting
      *
      * @return The field id
