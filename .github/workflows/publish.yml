@@ -37,16 +37,16 @@ jobs:
 
     - name: Verify javadoc
       if: github.event_name == 'pull_request'
-      run: mvn -B -Prelease javadoc:test-javadoc
+      run: mvn -B javadoc:test-javadoc
 
     - name: Compile
-      run: mvn -B -Prelease compile
+      run: mvn -B compile
 
     - name: Javadoc
-      run: mvn -B -Prelease javadoc:jar
+      run: mvn -B javadoc:jar
 
     - name: Source
-      run: mvn -B -Prelease source:jar
+      run: mvn -B source:jar
 
     - name: Prepare Maven environnement with Java 17 for deployment to Sonatype
       run: export MAVEN_OPTS="--add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED"
