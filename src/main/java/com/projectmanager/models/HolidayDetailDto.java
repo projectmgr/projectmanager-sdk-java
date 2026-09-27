@@ -74,25 +74,25 @@ public class HolidayDetailDto
      */
     public void setType(@NotNull String value) { this.type = value; }
     /**
-     * Start of the holiday date span (metadata).
+     * Start of the holiday date span (year-month-day only; no time zone).
      *
      * @return The field dateFrom
      */
     public @Nullable String getDateFrom() { return this.dateFrom; }
     /**
-     * Start of the holiday date span (metadata).
+     * Start of the holiday date span (year-month-day only; no time zone).
      *
      * @param value The new value for dateFrom
      */
     public void setDateFrom(@Nullable String value) { this.dateFrom = value; }
     /**
-     * End of the holiday date span (metadata).
+     * End of the holiday date span (year-month-day only; no time zone).
      *
      * @return The field dateTo
      */
     public @Nullable String getDateTo() { return this.dateTo; }
     /**
-     * End of the holiday date span (metadata).
+     * End of the holiday date span (year-month-day only; no time zone).
      *
      * @param value The new value for dateTo
      */
