@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2026 ProjectManager.com, Inc.
- * @version    2026.162.255
+ * @version    2026.163.302
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -63,6 +63,7 @@ import com.projectmanager.clients.TaskClient;
 import com.projectmanager.clients.TaskAssigneeClient;
 import com.projectmanager.clients.TaskFieldClient;
 import com.projectmanager.clients.TaskFileClient;
+import com.projectmanager.clients.TaskLinkClient;
 import com.projectmanager.clients.TaskMetadataClient;
 import com.projectmanager.clients.TaskRecurrencyClient;
 import com.projectmanager.clients.TaskStatusClient;
@@ -71,6 +72,7 @@ import com.projectmanager.clients.TaskTodoClient;
 import com.projectmanager.clients.TeamsClient;
 import com.projectmanager.clients.TimesheetClient;
 import com.projectmanager.clients.UserRoleClient;
+import com.projectmanager.clients.WorkloadClient;
 import com.projectmanager.clients.WorkSpaceClient;
 
 import org.jetbrains.annotations.NotNull;
@@ -131,6 +133,7 @@ public class ProjectManagerClient {
     private TaskAssigneeClient taskAssignee;
     private TaskFieldClient taskField;
     private TaskFileClient taskFile;
+    private TaskLinkClient taskLink;
     private TaskMetadataClient taskMetadata;
     private TaskRecurrencyClient taskRecurrency;
     private TaskStatusClient taskStatus;
@@ -139,6 +142,7 @@ public class ProjectManagerClient {
     private TeamsClient teams;
     private TimesheetClient timesheet;
     private UserRoleClient userRole;
+    private WorkloadClient workload;
     private WorkSpaceClient workSpace;
 
     private ProjectManagerClient(@NotNull String serverUri)
@@ -192,6 +196,7 @@ public class ProjectManagerClient {
         this.taskAssignee = new TaskAssigneeClient(this);
         this.taskField = new TaskFieldClient(this);
         this.taskFile = new TaskFileClient(this);
+        this.taskLink = new TaskLinkClient(this);
         this.taskMetadata = new TaskMetadataClient(this);
         this.taskRecurrency = new TaskRecurrencyClient(this);
         this.taskStatus = new TaskStatusClient(this);
@@ -200,6 +205,7 @@ public class ProjectManagerClient {
         this.teams = new TeamsClient(this);
         this.timesheet = new TimesheetClient(this);
         this.userRole = new UserRoleClient(this);
+        this.workload = new WorkloadClient(this);
         this.workSpace = new WorkSpaceClient(this);
     }
 
@@ -486,6 +492,12 @@ public class ProjectManagerClient {
      */
     public @NotNull TaskFileClient getTaskFileClient() { return this.taskFile; }
     /**
+     * A collection of API methods relating to TaskLink
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.TaskLinkClient client} methods in the API.
+     */
+    public @NotNull TaskLinkClient getTaskLinkClient() { return this.taskLink; }
+    /**
      * A collection of API methods relating to TaskMetadata
      *
      * @return A collection containing the {@link com.projectmanager.clients.TaskMetadataClient client} methods in the API.
@@ -533,6 +545,12 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.UserRoleClient client} methods in the API.
      */
     public @NotNull UserRoleClient getUserRoleClient() { return this.userRole; }
+    /**
+     * A collection of API methods relating to Workload
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.WorkloadClient client} methods in the API.
+     */
+    public @NotNull WorkloadClient getWorkloadClient() { return this.workload; }
     /**
      * A collection of API methods relating to WorkSpace
      *
