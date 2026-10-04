@@ -16,6 +16,7 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * The Integrations API is intended for use by ProjectManager and its business
@@ -36,6 +37,7 @@ public class IntegrationProviderDto
     private @NotNull IntegrationDto[] integrations;
     private @NotNull IntegrationAuthSetupDto authSetup;
     private @NotNull Boolean createInWorkato;
+    private @Nullable String[] includeCosts;
 
     /**
      * Primary constructor
@@ -207,4 +209,18 @@ public class IntegrationProviderDto
      * @param value The new value for createInWorkato
      */
     public void setCreateInWorkato(@NotNull Boolean value) { this.createInWorkato = value; }
+    /**
+     * For Acumatica/MYOB: which cost types Receive Costs includes (Planned, Committed, Actual).
+     * Null for other providers. Used so the UI can unlock Planned Cost when it is not synced.
+     *
+     * @return The field includeCosts
+     */
+    public @Nullable String[] getIncludeCosts() { return this.includeCosts; }
+    /**
+     * For Acumatica/MYOB: which cost types Receive Costs includes (Planned, Committed, Actual).
+     * Null for other providers. Used so the UI can unlock Planned Cost when it is not synced.
+     *
+     * @param value The new value for includeCosts
+     */
+    public void setIncludeCosts(@Nullable String[] value) { this.includeCosts = value; }
 };

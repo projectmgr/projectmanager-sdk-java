@@ -57,7 +57,7 @@ public class FileClient
      * occurs, you will receive a JSON result with error information.
      *
      * @param documentId The unique identifier of the document to download
-     * @param type If you specify a type of `html`, processes the file using text encoding, otherwise binary
+     * @param type If you specify a type of `html`, processes the file using text encoding. A type of `inline` displays PDF files in the browser. Otherwise, returns a download.
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
     public @NotNull AstroResult<byte[]> downloadFile(@NotNull String documentId, @Nullable String type)
