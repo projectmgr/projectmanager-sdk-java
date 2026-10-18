@@ -26,6 +26,7 @@ import com.projectmanager.models.ProjectMemberDto;
 import com.projectmanager.models.ProjectAccessDto;
 
 import com.projectmanager.models.ProjectMemberRoleDto;
+import com.projectmanager.models.AddProjectTeamMembersRequestDto;
 
 /**
  * Contains all methods related to ProjectMembers
@@ -59,11 +60,13 @@ public class ProjectMembersClient
     }
 
     /**
-     * Returns a list of project permissions the user is a member of
+     * Returns a list of projects where the currently authenticated user is a member.
+     *
+     * The information returned by this API indicates the project's ID and the current user's role.
      *
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectAccessDto[]> retrieveProjectstheuserisamemberof()
+    public @NotNull AstroResult<ProjectAccessDto[]> retrieveProjectsByUser()
     {
         RestRequest<ProjectAccessDto[]> r = new RestRequest<ProjectAccessDto[]>(this.client, "GET", "/api/data/projects/membership");
         return r.Call(new TypeToken<AstroResult<ProjectAccessDto[]>>() {}.getType());
@@ -123,7 +126,7 @@ public class ProjectMembersClient
      * @param body The permission to set. The role is optional.
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectMemberDto> createOrUpdateUserProjectMembership(@NotNull String projectId, @NotNull String userId, @NotNull ProjectMemberRoleDto body)
+    public @NotNull AstroResult<ProjectMemberDto> createOrUpdateProjectMembership(@NotNull String projectId, @NotNull String userId, @NotNull ProjectMemberRoleDto body)
     {
         RestRequest<ProjectMemberDto> r = new RestRequest<ProjectMemberDto>(this.client, "PUT", "/api/data/projects/{projectId}/members/{userId}");
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
@@ -148,5 +151,31 @@ public class ProjectMembersClient
         r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
         r.AddPath("{userId}", userId == null ? "" : userId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+    }
+
+    /**
+     * Adds all active people on a business team to a project.
+     *
+     * Resolves the team to its member resources, grants project access to each user who is not already a member,
+     * and leaves existing members unchanged. Access levels follow the same rules as creating or updating
+     * individual project membership (workspace role constraints, guest vs licensed user, global admin, etc.).
+     *
+     * A project member is a user who has access to a specific project.
+     * Project members are assigned a project security role, which controls the level of access they have to
+     * the project.
+     * Possible project security roles include manage, edit, collaborate, creator, and guest.
+     *
+     * @param projectId Reference to the project receiving access.
+     * @param teamId Business team identifier (`BusinessTeamId`); all active team members with a user account are considered.
+     * @param body Optional flags for default access (e.g. editor vs collaborator) for newly added members.
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ProjectMemberDto> addTeamToProject(@NotNull String projectId, @NotNull String teamId, @NotNull AddProjectTeamMembersRequestDto body)
+    {
+        RestRequest<ProjectMemberDto> r = new RestRequest<ProjectMemberDto>(this.client, "POST", "/api/data/projects/{projectId}/teams/{teamId}/members");
+        r.AddPath("{projectId}", projectId == null ? "" : projectId.toString());
+        r.AddPath("{teamId}", teamId == null ? "" : teamId.toString());
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<ProjectMemberDto>>() {}.getType());
     }
 }
