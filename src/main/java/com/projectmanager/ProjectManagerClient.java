@@ -9,7 +9,7 @@
  * @author     ProjectManager.com <support@projectmanager.com>
  *             
  * @copyright  2023-2026 ProjectManager.com, Inc.
- * @version    2026.162.255
+ * @version    2026.164.201
  * @link       https://github.com/projectmgr/projectmanager-sdk-java
  */
 
@@ -18,8 +18,10 @@ package com.projectmanager;
 
 import com.projectmanager.clients.ApiKeyClient;
 import com.projectmanager.clients.ChangesetClient;
+import com.projectmanager.clients.CountryClient;
 import com.projectmanager.clients.DiscussionClient;
 import com.projectmanager.clients.FileClient;
+import com.projectmanager.clients.HolidaysClient;
 import com.projectmanager.clients.HomeFileClient;
 import com.projectmanager.clients.HourlyRateClient;
 import com.projectmanager.clients.HourlyRatePeriodClient;
@@ -63,6 +65,7 @@ import com.projectmanager.clients.TaskClient;
 import com.projectmanager.clients.TaskAssigneeClient;
 import com.projectmanager.clients.TaskFieldClient;
 import com.projectmanager.clients.TaskFileClient;
+import com.projectmanager.clients.TaskLinkClient;
 import com.projectmanager.clients.TaskMetadataClient;
 import com.projectmanager.clients.TaskRecurrencyClient;
 import com.projectmanager.clients.TaskStatusClient;
@@ -71,6 +74,7 @@ import com.projectmanager.clients.TaskTodoClient;
 import com.projectmanager.clients.TeamsClient;
 import com.projectmanager.clients.TimesheetClient;
 import com.projectmanager.clients.UserRoleClient;
+import com.projectmanager.clients.WorkloadClient;
 import com.projectmanager.clients.WorkSpaceClient;
 
 import org.jetbrains.annotations.NotNull;
@@ -86,8 +90,10 @@ public class ProjectManagerClient {
 
     private ApiKeyClient apiKey;
     private ChangesetClient changeset;
+    private CountryClient country;
     private DiscussionClient discussion;
     private FileClient file;
+    private HolidaysClient holidays;
     private HomeFileClient homeFile;
     private HourlyRateClient hourlyRate;
     private HourlyRatePeriodClient hourlyRatePeriod;
@@ -131,6 +137,7 @@ public class ProjectManagerClient {
     private TaskAssigneeClient taskAssignee;
     private TaskFieldClient taskField;
     private TaskFileClient taskFile;
+    private TaskLinkClient taskLink;
     private TaskMetadataClient taskMetadata;
     private TaskRecurrencyClient taskRecurrency;
     private TaskStatusClient taskStatus;
@@ -139,6 +146,7 @@ public class ProjectManagerClient {
     private TeamsClient teams;
     private TimesheetClient timesheet;
     private UserRoleClient userRole;
+    private WorkloadClient workload;
     private WorkSpaceClient workSpace;
 
     private ProjectManagerClient(@NotNull String serverUri)
@@ -147,8 +155,10 @@ public class ProjectManagerClient {
 
         this.apiKey = new ApiKeyClient(this);
         this.changeset = new ChangesetClient(this);
+        this.country = new CountryClient(this);
         this.discussion = new DiscussionClient(this);
         this.file = new FileClient(this);
+        this.holidays = new HolidaysClient(this);
         this.homeFile = new HomeFileClient(this);
         this.hourlyRate = new HourlyRateClient(this);
         this.hourlyRatePeriod = new HourlyRatePeriodClient(this);
@@ -192,6 +202,7 @@ public class ProjectManagerClient {
         this.taskAssignee = new TaskAssigneeClient(this);
         this.taskField = new TaskFieldClient(this);
         this.taskFile = new TaskFileClient(this);
+        this.taskLink = new TaskLinkClient(this);
         this.taskMetadata = new TaskMetadataClient(this);
         this.taskRecurrency = new TaskRecurrencyClient(this);
         this.taskStatus = new TaskStatusClient(this);
@@ -200,6 +211,7 @@ public class ProjectManagerClient {
         this.teams = new TeamsClient(this);
         this.timesheet = new TimesheetClient(this);
         this.userRole = new UserRoleClient(this);
+        this.workload = new WorkloadClient(this);
         this.workSpace = new WorkSpaceClient(this);
     }
 
@@ -216,6 +228,12 @@ public class ProjectManagerClient {
      */
     public @NotNull ChangesetClient getChangesetClient() { return this.changeset; }
     /**
+     * A collection of API methods relating to Country
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.CountryClient client} methods in the API.
+     */
+    public @NotNull CountryClient getCountryClient() { return this.country; }
+    /**
      * A collection of API methods relating to Discussion
      *
      * @return A collection containing the {@link com.projectmanager.clients.DiscussionClient client} methods in the API.
@@ -227,6 +245,12 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.FileClient client} methods in the API.
      */
     public @NotNull FileClient getFileClient() { return this.file; }
+    /**
+     * A collection of API methods relating to Holidays
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.HolidaysClient client} methods in the API.
+     */
+    public @NotNull HolidaysClient getHolidaysClient() { return this.holidays; }
     /**
      * A collection of API methods relating to HomeFile
      *
@@ -486,6 +510,12 @@ public class ProjectManagerClient {
      */
     public @NotNull TaskFileClient getTaskFileClient() { return this.taskFile; }
     /**
+     * A collection of API methods relating to TaskLink
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.TaskLinkClient client} methods in the API.
+     */
+    public @NotNull TaskLinkClient getTaskLinkClient() { return this.taskLink; }
+    /**
      * A collection of API methods relating to TaskMetadata
      *
      * @return A collection containing the {@link com.projectmanager.clients.TaskMetadataClient client} methods in the API.
@@ -533,6 +563,12 @@ public class ProjectManagerClient {
      * @return A collection containing the {@link com.projectmanager.clients.UserRoleClient client} methods in the API.
      */
     public @NotNull UserRoleClient getUserRoleClient() { return this.userRole; }
+    /**
+     * A collection of API methods relating to Workload
+     *
+     * @return A collection containing the {@link com.projectmanager.clients.WorkloadClient client} methods in the API.
+     */
+    public @NotNull WorkloadClient getWorkloadClient() { return this.workload; }
     /**
      * A collection of API methods relating to WorkSpace
      *
