@@ -73,7 +73,7 @@ public class TaskTodoClient
     }
 
     /**
-     * Update a todo for a task
+     * Update a todo for a task. Collaborators can only mark a todo complete or incomplete.
      *
      * @param todoId the id of the todo
      * @param body the data for updating a todo
