@@ -16,6 +16,7 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Represents admin task to track time
@@ -24,6 +25,7 @@ public class TimesheetAdminTypeDto
 {
     private @NotNull String id;
     private @NotNull String name;
+    private @Nullable String providerShortId;
 
     /**
      * Primary constructor
@@ -55,4 +57,16 @@ public class TimesheetAdminTypeDto
      * @param value The new value for name
      */
     public void setName(@NotNull String value) { this.name = value; }
+    /**
+     * The integration that created this admin task for its non-project time, such as acumatica
+     *
+     * @return The field providerShortId
+     */
+    public @Nullable String getProviderShortId() { return this.providerShortId; }
+    /**
+     * The integration that created this admin task for its non-project time, such as acumatica
+     *
+     * @param value The new value for providerShortId
+     */
+    public void setProviderShortId(@Nullable String value) { this.providerShortId = value; }
 };
