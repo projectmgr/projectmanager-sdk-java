@@ -16,6 +16,7 @@
 package com.projectmanager.models;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * The Integrations API is intended for use by ProjectManager and its business
@@ -36,6 +37,8 @@ public class IntegrationProviderDto
     private @NotNull IntegrationDto[] integrations;
     private @NotNull IntegrationAuthSetupDto authSetup;
     private @NotNull Boolean createInWorkato;
+    private @Nullable String[] includeCosts;
+    private @Nullable String timeSyncDirection;
 
     /**
      * Primary constructor
@@ -207,4 +210,32 @@ public class IntegrationProviderDto
      * @param value The new value for createInWorkato
      */
     public void setCreateInWorkato(@NotNull Boolean value) { this.createInWorkato = value; }
+    /**
+     * For Acumatica/MYOB: which cost types Receive Costs includes (Planned, Committed, Actual).
+     * Null for other providers. Used so the UI can unlock Planned Cost when it is not synced.
+     *
+     * @return The field includeCosts
+     */
+    public @Nullable String[] getIncludeCosts() { return this.includeCosts; }
+    /**
+     * For Acumatica/MYOB: which cost types Receive Costs includes (Planned, Committed, Actual).
+     * Null for other providers. Used so the UI can unlock Planned Cost when it is not synced.
+     *
+     * @param value The new value for includeCosts
+     */
+    public void setIncludeCosts(@Nullable String[] value) { this.includeCosts = value; }
+    /**
+     * For Acumatica/MYOB: whether Sync Time Entries sends time (Send) or receives it (Receive).
+     * Null for other providers. Used so the UI can make time read-only when it is received.
+     *
+     * @return The field timeSyncDirection
+     */
+    public @Nullable String getTimeSyncDirection() { return this.timeSyncDirection; }
+    /**
+     * For Acumatica/MYOB: whether Sync Time Entries sends time (Send) or receives it (Receive).
+     * Null for other providers. Used so the UI can make time read-only when it is received.
+     *
+     * @param value The new value for timeSyncDirection
+     */
+    public void setTimeSyncDirection(@Nullable String value) { this.timeSyncDirection = value; }
 };
