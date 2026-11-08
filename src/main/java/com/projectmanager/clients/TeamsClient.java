@@ -42,14 +42,14 @@ public class TeamsClient
     }
 
     /**
-     * Retrieves zip file for teams integrations.
+     * Retrieves the integration's bundle (a zip file) for teams integrations.
      *
      * The Teams API is intended for use by ProjectManager and its business development partners.  Please
      * contact ProjectManager's sales team to request use of this API.
      *
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<byte[]> retrievezipfileforTeamsIntegrations()
+    public @NotNull AstroResult<byte[]> retrieveIntegrationBundle()
     {
         BlobRequest r = new BlobRequest(this.client, "GET", "/api/data/integrations/teams/application");
         return r.Call(new TypeToken<AstroResult<byte[]>>() {}.getType());

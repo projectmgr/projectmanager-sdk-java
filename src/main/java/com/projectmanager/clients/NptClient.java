@@ -27,6 +27,7 @@ import com.projectmanager.models.NptCreateDto;
 import com.projectmanager.models.NptDetailsDto;
 
 import com.projectmanager.models.NptUpdateDto;
+import com.projectmanager.models.TaskTimeSummaryDto;
 
 /**
  * Contains all methods related to Npt
@@ -132,5 +133,24 @@ public class NptClient
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/non-project-tasks/{nptId}");
         r.AddPath("{nptId}", nptId == null ? "" : nptId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+    }
+
+    /**
+     * Retrieve allocations and actual timesheet minutes for a non-project task, grouped by resource.
+     *
+     * Returns a summary of planned allocations and logged timesheet minutes for the specified NPT,
+     * grouped by resource. Use this when the client needs time rollups without loading individual
+     * timesheet entries. The root `totalActualMinutes` is at least the task's stored actual work
+     * (minutes) and the merged timesheet total. `hasTimeEntries` is true only when merged timesheet
+     * rows exist, not when actual work was set without timesheets (e.g. import).
+     *
+     * @param nptId The unique identifier of the non-project task
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<TaskTimeSummaryDto> getNptTime(@NotNull String nptId)
+    {
+        RestRequest<TaskTimeSummaryDto> r = new RestRequest<TaskTimeSummaryDto>(this.client, "GET", "/api/data/non-project-tasks/{nptId}/time");
+        r.AddPath("{nptId}", nptId == null ? "" : nptId.toString());
+        return r.Call(new TypeToken<AstroResult<TaskTimeSummaryDto>>() {}.getType());
     }
 }
