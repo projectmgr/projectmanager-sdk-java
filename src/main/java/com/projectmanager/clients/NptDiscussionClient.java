@@ -78,12 +78,15 @@ public class NptDiscussionClient
     }
 
     /**
-     * Puts a thumbsup on a comment
+     * Puts a thumbsup on a comment on a non-project task.
+     *
+     * Comments may have reactions, specifically thumbsup reactions, associated with them.  You can add a thumbs-up to
+     * a comment by calling this API.  You can remove the thumbs-up by calling UnlikeNptComment
      *
      * @param commentId the id of the comment
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> likeacomment(@NotNull String commentId)
+    public @NotNull AstroResult<Object> likeNptComment(@NotNull String commentId)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "POST", "/api/data/non-project-tasks/comments/{commentId}/like");
         r.AddPath("{commentId}", commentId == null ? "" : commentId.toString());
@@ -96,7 +99,7 @@ public class NptDiscussionClient
      * @param commentId the id of the comment
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> removesathumbsupfromacomment(@NotNull String commentId)
+    public @NotNull AstroResult<Object> unlikeNptComment(@NotNull String commentId)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/non-project-tasks/comments/{commentId}/like");
         r.AddPath("{commentId}", commentId == null ? "" : commentId.toString());
@@ -109,7 +112,7 @@ public class NptDiscussionClient
      * @param commentId Remove a comment
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> removeacomment(@NotNull String commentId)
+    public @NotNull AstroResult<Object> removeComment(@NotNull String commentId)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "DELETE", "/api/data/non-project-tasks/comments/{commentId}");
         r.AddPath("{commentId}", commentId == null ? "" : commentId.toString());

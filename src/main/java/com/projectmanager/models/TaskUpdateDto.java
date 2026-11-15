@@ -210,13 +210,13 @@ public class TaskUpdateDto
      */
     public void setPlannedEffort(@Nullable Integer value) { this.plannedEffort = value; }
     /**
-     * The planned cost for this Task.  Cannot be negative.
+     * The planned cost for this Task.  Cannot be negative or more than 90,000,000,000,000.
      *
      * @return The field plannedCost
      */
     public @Nullable Double getPlannedCost() { return this.plannedCost; }
     /**
-     * The planned cost for this Task.  Cannot be negative.
+     * The planned cost for this Task.  Cannot be negative or more than 90,000,000,000,000.
      *
      * @param value The new value for plannedCost
      */
@@ -298,13 +298,15 @@ public class TaskUpdateDto
      */
     public void setActualDuration(@Nullable Integer value) { this.actualDuration = value; }
     /**
-     * If set, this represents the actual tracked cost for this Task.
+     * If set, this represents the actual tracked cost for this Task.  Cannot be negative or more than
+     * 90,000,000,000,000.
      *
      * @return The field actualCost
      */
     public @Nullable Double getActualCost() { return this.actualCost; }
     /**
-     * If set, this represents the actual tracked cost for this Task.
+     * If set, this represents the actual tracked cost for this Task.  Cannot be negative or more than
+     * 90,000,000,000,000.
      *
      * @param value The new value for actualCost
      */
