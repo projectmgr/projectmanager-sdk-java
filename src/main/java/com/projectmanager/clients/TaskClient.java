@@ -29,6 +29,8 @@ import com.projectmanager.models.ChangeSetStatusDto;
 import com.projectmanager.models.TaskUpdateDto;
 import com.projectmanager.models.TaskCreateDto;
 import com.projectmanager.models.TaskPriorityDto;
+import com.projectmanager.models.TaskApprovalStatusUpdateDto;
+import com.projectmanager.models.TaskTimeSummaryDto;
 
 /**
  * Contains all methods related to Task
@@ -143,12 +145,12 @@ public class TaskClient
     }
 
     /**
-     * Fetch the first level child tasks from the task
+     * Fetch the first level child tasks from the task.
      *
      * @param taskId Parent task id
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<TaskDto[]> fetchthefirstlevelchildtasksfromthetask(@NotNull String taskId)
+    public @NotNull AstroResult<TaskDto[]> retrieveFirstLevelChildTasks(@NotNull String taskId)
     {
         RestRequest<TaskDto[]> r = new RestRequest<TaskDto[]>(this.client, "GET", "/api/data/tasks/{taskId}/subtasks");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
@@ -255,6 +257,29 @@ public class TaskClient
     }
 
     /**
+     * Sets the approval status of an existing Task to either `Approved` or `Denied`.
+     *
+     * Approval status is only supported for project Tasks. Non-project tasks (NPTs) and
+     * non-task task types do not support approval and will return a validation error.
+     *
+     * This operation is processed as a Changeset to ensure sequential application and
+     * concurrency safety.
+     *
+     * @param taskId The unique identifier of the Task to update
+     * @param body The approval status update payload indicating whether the Task is approved or denied.
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<ChangeSetStatusDto> updateApprovalStatus(@NotNull String taskId, @NotNull TaskApprovalStatusUpdateDto body)
+    {
+        RestRequest<ChangeSetStatusDto> r = new RestRequest<ChangeSetStatusDto>(this.client, "PUT", "/api/data/tasks/{taskId}/approval-status");
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
+        if (body != null) { r.AddBody(body); }
+        return r.Call(new TypeToken<AstroResult<ChangeSetStatusDto>>() {}.getType());
+    }
+
+    /**
+     * Marks the specified Task as having been 'read' by the current user.
+     *
      * Updates the task user read record (last viewed) for the authenticated user. Use this
      * when the UI only needs to mark file/discussion read state
      * without loading full task details.
@@ -262,10 +287,25 @@ public class TaskClient
      * @param taskId Task unique identifier
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<Object> marktaskasreadforthecurrentuser(@NotNull String taskId)
+    public @NotNull AstroResult<Object> markTaskRead(@NotNull String taskId)
     {
         RestRequest<Object> r = new RestRequest<Object>(this.client, "POST", "/api/data/tasks/{taskId}/mark-read");
         r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
         return r.Call(new TypeToken<AstroResult<Object>>() {}.getType());
+    }
+
+    /**
+     * Returns a summary of planned allocations and logged timesheet minutes for the specified task,
+     * grouped by resource. Use this when the client needs time rollups without loading individual
+     * timesheet entries.
+     *
+     * @param taskId The unique identifier of the task
+     * @return A {@link com.projectmanager.AstroResult} containing the results
+     */
+    public @NotNull AstroResult<TaskTimeSummaryDto> retrieveTaskTimeAllocations(@NotNull String taskId)
+    {
+        RestRequest<TaskTimeSummaryDto> r = new RestRequest<TaskTimeSummaryDto>(this.client, "GET", "/api/data/task/{taskId}/time");
+        r.AddPath("{taskId}", taskId == null ? "" : taskId.toString());
+        return r.Call(new TypeToken<AstroResult<TaskTimeSummaryDto>>() {}.getType());
     }
 }

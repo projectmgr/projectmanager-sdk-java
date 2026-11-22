@@ -58,7 +58,7 @@ public class ChangesetClient
      * @param changeSetId The unique ID number of the Changeset to retrieve
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectChangeStatusDto> retrieveChangesetstatus(@NotNull String changeSetId)
+    public @NotNull AstroResult<ProjectChangeStatusDto> retrieveChangeset(@NotNull String changeSetId)
     {
         RestRequest<ProjectChangeStatusDto> r = new RestRequest<ProjectChangeStatusDto>(this.client, "GET", "/api/data/changesets/{changeSetId}");
         r.AddPath("{changeSetId}", changeSetId == null ? "" : changeSetId.toString());
@@ -74,8 +74,8 @@ public class ChangesetClient
      * a Changeset causes a conflict or cannot be applied, it will be rejected.  You can examine a
      * Changeset to determine its conflict resolution status.
      *
-     * When checking the status of a Changeset, you can call either RetrieveChangeset or
-     * RetrieveCompletedChangeset.  Using RetrieveChangeset will give you the immediate status of the
+     * When checking the status of a Changeset, you can call either `RetrieveChangeset` or
+     * `RetrieveCompletedChangeset`.  Using RetrieveChangeset will give you the immediate status of the
      * Changeset.  Using RetrieveCompletedChangeset will delay the response until the Changeset has
      * finished processing.
      *
@@ -87,7 +87,7 @@ public class ChangesetClient
      * @param changeSetId The unique ID number of the Changeset to retrieve
      * @return A {@link com.projectmanager.AstroResult} containing the results
      */
-    public @NotNull AstroResult<ProjectChangeStatusDto> retrieveCompletedChangesetstatus(@NotNull String changeSetId)
+    public @NotNull AstroResult<ProjectChangeStatusDto> retrieveCompletedChangeset(@NotNull String changeSetId)
     {
         RestRequest<ProjectChangeStatusDto> r = new RestRequest<ProjectChangeStatusDto>(this.client, "GET", "/api/data/changesets/{changeSetId}/poll");
         r.AddPath("{changeSetId}", changeSetId == null ? "" : changeSetId.toString());
