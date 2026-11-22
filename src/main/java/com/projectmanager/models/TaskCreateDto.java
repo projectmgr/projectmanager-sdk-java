@@ -181,13 +181,13 @@ public class TaskCreateDto
      */
     public void setPlannedEffort(@Nullable Integer value) { this.plannedEffort = value; }
     /**
-     * The planned cost for this Task.  Cannot be negative.
+     * The planned cost for this Task.  Cannot be negative or more than 90,000,000,000,000.
      *
      * @return The field plannedCost
      */
     public @Nullable Double getPlannedCost() { return this.plannedCost; }
     /**
-     * The planned cost for this Task.  Cannot be negative.
+     * The planned cost for this Task.  Cannot be negative or more than 90,000,000,000,000.
      *
      * @param value The new value for plannedCost
      */
@@ -205,13 +205,13 @@ public class TaskCreateDto
      */
     public void setActualStartDate(@Nullable String value) { this.actualStartDate = value; }
     /**
-     * The actual cost of this Task to date, if known.
+     * The actual cost of this Task to date, if known.  Cannot be negative or more than 90,000,000,000,000.
      *
      * @return The field actualCost
      */
     public @Nullable Double getActualCost() { return this.actualCost; }
     /**
-     * The actual cost of this Task to date, if known.
+     * The actual cost of this Task to date, if known.  Cannot be negative or more than 90,000,000,000,000.
      *
      * @param value The new value for actualCost
      */
